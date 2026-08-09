@@ -17,6 +17,12 @@ concurrency:
 
 jobs:
   deploy:
+    # Job-level permissions added to ensure pages API access for the job
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -24,6 +30,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Verify docs content
+        run: |
+          echo "Listing repo root:"; ls -la
+          echo "Listing docs directory:"; ls -la ./docs || true
+          echo "Show docs/index.html header:"; head -n 5 ./docs/index.html || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
