@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>REPLACE_WITH_SITE_URL/</loc>
+    <loc>https://islantify.com/</loc>
     <lastmod>2026-08-09</lastmod>
   </url>
   <url>
-    <loc>REPLACE_WITH_SITE_URL/download/</loc>
+    <loc>https://islantify.com/download/</loc>
     <lastmod>2026-08-09</lastmod>
   </url>
   <url>
-    <loc>REPLACE_WITH_SITE_URL/privacy/</loc>
+    <loc>https://islantify.com/privacy/</loc>
     <lastmod>2026-08-09</lastmod>
   </url>
   <url>
-    <loc>REPLACE_WITH_SITE_URL/privacy-choices/</loc>
+    <loc>https://islantify.com/privacy-choices/</loc>
     <lastmod>2026-08-09</lastmod>
   </url>
   <url>
-    <loc>REPLACE_WITH_SITE_URL/terms/</loc>
+    <loc>https://islantify.com/terms/</loc>
     <lastmod>2026-08-09</lastmod>
   </url>
   <url>
-    <loc>REPLACE_WITH_SITE_URL/contact/</loc>
+    <loc>https://islantify.com/contact/</loc>
     <lastmod>2026-08-09</lastmod>
   </url>
   <url>
-    <loc>REPLACE_WITH_SITE_URL/support/</loc>
+    <loc>https://islantify.com/support/</loc>
     <lastmod>2026-08-09</lastmod>
   </url>
 </urlset>

@@ -55,7 +55,7 @@
           </div>
           <p id="form-status" role="status" aria-live="polite" style="margin-top:.6rem"></p>
         </form>
-        <p class="muted">Note: The contact form is client-side only. To enable real delivery, configure an email provider and backend endpoint. Current contact email: <span id="contact-email">REPLACE_WITH_CONTACT_EMAIL</span></p>
+        <p class="muted">Note: The contact form is client-side only. To enable real delivery, configure an email provider and backend endpoint. Current contact email: <span id="contact-email">islantify@gmail.com</span></p>
       </section>
 
       <section>
@@ -99,7 +99,8 @@
           status.textContent = 'Please fill in all required fields.'; status.style.color = '#ffb84d'; return;
         }
         // No backend configured — present instructions to user
-        status.textContent = 'This form is not connected to an email service. Copy your message or contact us at: ' + (cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH') ? cfg.CONTACT_EMAIL : 'REPLACE_WITH_CONTACT_EMAIL');
+        const sendEmail = cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH') ? cfg.CONTACT_EMAIL : 'islantify@gmail.com';
+        status.textContent = 'This form is not connected to an email service. Copy your message or contact us at: ' + sendEmail;
         status.style.color = '#bfc7cd';
       });
     }

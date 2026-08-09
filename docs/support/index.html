@@ -34,7 +34,7 @@
 
       <section>
         <h2>Getting help</h2>
-        <p>If you need help, please use the Contact page to reach our support team. The contact form is client-side only until an email provider is configured — you can copy your message or email us at <span id="support-email">REPLACE_WITH_CONTACT_EMAIL</span> when available.</p>
+        <p>If you need help, please use the Contact page to reach our support team. The contact form is client-side only until an email provider is configured — you can copy your message or email us at <span id="support-email">supportislantify@gmail.com</span> when available.</p>
       </section>
 
       <section>
@@ -71,7 +71,11 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const cfg = window.SITE_CONFIG || {};
-    if(cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH')) document.getElementById('support-email').textContent = cfg.CONTACT_EMAIL;
+    if(cfg.SUPPORT_EMAIL && !cfg.SUPPORT_EMAIL.includes('REPLACE_WITH')) {
+      document.getElementById('support-email').textContent = cfg.SUPPORT_EMAIL;
+    } else if(cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH')) {
+      document.getElementById('support-email').textContent = cfg.CONTACT_EMAIL;
+    }
   </script>
 </body>
 </html>
