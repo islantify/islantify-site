@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — I Slantify</title>
+  <meta name="description" content="Contact I Slantify.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/config.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../"><img src="../assets/icon-drake.svg" alt="I Slantify drake" class="drake-icon" aria-hidden="true"><span>I Slantify</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../#features">Features</a>
+        <a href="../download/">Download</a>
+        <a href="../support/">Support</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="index.html">Contact</a>
+      </nav>
+      <button class="mobile-toggle" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Contact I Slantify</h1>
+      <p class="lead">Send a message or use the configurable contact email. This site does not send messages until an email provider is connected.</p>
+
+      <section>
+        <h2>Contact form</h2>
+        <form id="contact-form" novalidate>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required aria-required="true" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required aria-required="true" />
+          </div>
+          <div>
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required aria-required="true" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+          </div>
+          <div style="margin-top:.6rem">
+            <button type="submit" class="btn primary">Send message</button>
+            <button type="button" id="clear" class="btn secondary">Clear</button>
+          </div>
+          <p id="form-status" role="status" aria-live="polite" style="margin-top:.6rem"></p>
+        </form>
+        <p class="muted">Note: The contact form is client-side only. To enable real delivery, configure an email provider and backend endpoint. Current contact email: <span id="contact-email">REPLACE_WITH_CONTACT_EMAIL</span></p>
+      </section>
+
+      <section>
+        <h2>Support</h2>
+        <p>For support requests, include device, OS version and a brief description. Replace this section with real support instructions when available.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>I Slantify</strong>
+        <p>Your economy. Live.</p>
+      </div>
+    </div>
+    <div class="copyright">&copy; <span id="year"></span> I Slantify</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const cfg = window.SITE_CONFIG || {};
+    const contactEmailEl = document.getElementById('contact-email');
+    if(cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH')) contactEmailEl.textContent = cfg.CONTACT_EMAIL;
+
+    // Contact form validation (client-side only)
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const clearBtn = document.getElementById('clear');
+    if (clearBtn) clearBtn.addEventListener('click', () => form.reset());
+
+    if (form) {
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        status.textContent = '';
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const subject = form.subject.value.trim();
+        const message = form.message.value.trim();
+        if(!name || !email || !subject || !message) {
+          status.textContent = 'Please fill in all required fields.'; status.style.color = '#ffb84d'; return;
+        }
+        // No backend configured — present instructions to user
+        status.textContent = 'This form is not connected to an email service. Copy your message or contact us at: ' + (cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH') ? cfg.CONTACT_EMAIL : 'REPLACE_WITH_CONTACT_EMAIL');
+        status.style.color = '#bfc7cd';
+      });
+    }
+  </script>
+</body>
+</html>

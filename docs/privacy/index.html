@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy Policy — I Slantify</title>
+  <meta name="description" content="Privacy Policy placeholder for I Slantify.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/config.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../"><img src="../assets/icon-drake.svg" alt="I Slantify drake" class="drake-icon" aria-hidden="true"><span>I Slantify</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../#features">Features</a>
+        <a href="../download/">Download</a>
+        <a href="../support/">Support</a>
+        <a href="index.html">Privacy</a>
+        <a href="../privacy-choices/">Privacy Choices</a>
+        <a href="../terms/">Terms</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+      <button class="mobile-toggle" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="lead">Privacy Policy – Final legal content required before public launch.</p>
+
+      <section>
+        <h2>Overview</h2>
+        <p>This Privacy Policy describes what types of information I Slantify may collect, how it is used, and the choices available to users. Replace these placeholders with the final legal text reviewed by your legal counsel before publishing.</p>
+      </section>
+
+      <section>
+        <h2>Information we may collect</h2>
+        <ul>
+          <li>Account information (name, email) when provided by the user.</li>
+          <li>Usage information about app interactions and features used.</li>
+          <li>Financial data the user connects or provides in the app (bank balances, transactions) — only when the user chooses to connect accounts.</li>
+          <li>Device and diagnostic information (device type, OS version) to help improve the app.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How we use information</h2>
+        <p>Collected information helps provide and improve the service, show personal financial overviews, generate forecasts and insights, and communicate with users. Do not claim use beyond these high-level purposes until you have specific implementations and consents in place.</p>
+      </section>
+
+      <section>
+        <h2>Third-party services</h2>
+        <p>We may use third-party services for analytics and optional integrations. List specific providers here once confirmed. Replace this placeholder with the accurate list and links to their privacy policies.</p>
+      </section>
+
+      <section>
+        <h2>User rights</h2>
+        <p>Users have the right to access, correct, or request deletion of their personal data. Provide clear contact details below for privacy requests. Do not promise processing timelines until operational procedures are established.</p>
+      </section>
+
+      <section>
+        <h2>Contact regarding privacy</h2>
+        <p>If you have privacy concerns, please contact: <span id="contact-email">REPLACE_WITH_CONTACT_EMAIL</span></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>I Slantify</strong>
+        <p>Your economy. Live.</p>
+      </div>
+    </div>
+    <div class="copyright">&copy; <span id="year"></span> I Slantify</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const cfg = window.SITE_CONFIG || {};
+    if(cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH')) document.getElementById('contact-email').textContent = cfg.CONTACT_EMAIL;
+  </script>
+</body>
+</html>

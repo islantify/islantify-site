@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Download I Slantify</title>
+  <meta name="description" content="Download I Slantify on iPhone or Android.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/config.js" defer></script>
+  <script src="../assets/qrcode.min.js" defer></script>
+  <meta property="og:title" content="Download I Slantify">
+  <meta property="og:description" content="Central download page for the I Slantify mobile app.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../"><img src="../assets/icon-drake.svg" alt="I Slantify drake" class="drake-icon" aria-hidden="true"><span>I Slantify</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../#features">Features</a>
+        <a href="index.html">Download</a>
+        <a href="../support/">Support</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../privacy-choices/">Privacy Choices</a>
+        <a href="../terms/">Terms</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+      <button class="mobile-toggle" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Download I Slantify</h1>
+        <p class="lead">Use the links below to download the app.</p>
+        <div class="app-badges" id="device-area" style="margin-top:1rem">
+          <a class="app-badge" id="badge-ios" href="#" aria-label="Download on the App Store">
+            <span class="icon-wrap"><img src="../assets/icon-drake.svg" alt="" /></span>
+            <span class="meta"><span class="small">Download on the</span><span class="big">App Store</span></span>
+          </a>
+          <a class="app-badge" id="badge-android" href="#" aria-label="Get it on Google Play">
+            <span class="icon-wrap"><img src="../assets/icon-drake.svg" alt="" /></span>
+            <span class="meta"><span class="small">Get it on</span><span class="big">Google Play</span></span>
+          </a>
+        </div>
+        <!-- QR code for download page -->
+        <div class="hero-qr" style="margin-top:1rem;text-align:center">
+          <div class="qr-block" id="qr-download-container">
+            <div id="qr-download"></div>
+            <p>Scan to download I Slantify</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>I Slantify</strong>
+        <p>Your economy. Live.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../privacy-choices/">Privacy Choices</a>
+        <a href="../terms/">Terms of Service</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </div>
+    <div class="copyright">&copy; <span id="year"></span> I Slantify</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const cfg = window.SITE_CONFIG || {};
+    // QR removed — using embedded branded badges
+    const siteBase = (cfg.SITE_URL && cfg.SITE_URL !== 'REPLACE_WITH_WEBSITE_BASE_URL') ? cfg.SITE_URL.replace(/\/$/, '') : window.location.origin + window.location.pathname.replace(/download\/index.html$/, '');
+    const downloadUrl = siteBase.endsWith('/') ? siteBase + 'download/' : siteBase + '/download/';
+    function safeHref(el, url) {
+      if (!el) return;
+      if (!url || url.includes('REPLACE_WITH')) {
+        el.setAttribute('aria-disabled', 'true');
+        el.classList.add('disabled');
+        el.href = '#';
+      } else {
+        el.href = url;
+      }
+    }
+    const badgeIos = document.getElementById('badge-ios');
+    const badgeAndroid = document.getElementById('badge-android');
+    if (badgeIos) safeHref(badgeIos, cfg.APP_STORE_URL);
+    if (badgeAndroid) safeHref(badgeAndroid, cfg.GOOGLE_PLAY_URL);
+
+    // Detect device simply
+    function isIOS(){return /iPhone|iPad|iPod/i.test(navigator.userAgent)}
+    function isAndroid(){return /Android/i.test(navigator.userAgent)}
+    const deviceArea = document.getElementById('device-area');
+    const ios = isIOS();
+    const android = isAndroid();
+
+    function makeButton(text, href, cls=''){
+      const a = document.createElement('a');
+      a.className = 'btn ' + cls;
+      a.href = href || '../download/';
+      a.textContent = text;
+      a.setAttribute('role','button');
+      return a;
+    }
+
+    if (ios && !android){
+      const btn = makeButton('Open in App Store', cfg.APP_STORE_URL || '#', 'primary');
+      if(!cfg.APP_STORE_URL || cfg.APP_STORE_URL.includes('REPLACE_WITH')) btn.href = '#';
+      deviceArea.appendChild(btn);
+    } else if (android && !ios){
+      const btn = makeButton('Open in Google Play', cfg.GOOGLE_PLAY_URL || '#', 'primary');
+      if(!cfg.GOOGLE_PLAY_URL || cfg.GOOGLE_PLAY_URL.includes('REPLACE_WITH')) btn.href = '#';
+      deviceArea.appendChild(btn);
+    } else {
+      // Desktop / unknown
+      const btn1 = makeButton('App Store', cfg.APP_STORE_URL || '#', 'primary');
+      const btn2 = makeButton('Google Play', cfg.GOOGLE_PLAY_URL || '#', 'secondary');
+      if(!cfg.APP_STORE_URL || cfg.APP_STORE_URL.includes('REPLACE_WITH')) btn1.href = '../download/';
+      if(!cfg.GOOGLE_PLAY_URL || cfg.GOOGLE_PLAY_URL.includes('REPLACE_WITH')) btn2.href = '../download/';
+      deviceArea.appendChild(btn1);
+      deviceArea.appendChild(document.createTextNode(' '));
+      deviceArea.appendChild(btn2);
+    }
+
+    // Local QR generation (if qrcode library is present)
+    try {
+      const siteBase = (cfg.SITE_URL && cfg.SITE_URL !== 'REPLACE_WITH_WEBSITE_BASE_URL') ? cfg.SITE_URL.replace(/\/$/, '') : window.location.origin + window.location.pathname.replace(/download\/index.html$/, '');
+      const downloadUrl = siteBase.endsWith('/') ? siteBase + 'download/' : siteBase + '/download/';
+      if (window.QRCode) {
+        const qd = document.getElementById('qr-download');
+        if (qd) new QRCode(qd, {text: downloadUrl, width:250, height:250, colorDark:'#071018', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel ? QRCode.CorrectLevel.H : 1});
+      }
+    } catch (e) { console.warn('QR generation failed', e); }
+  </script>
+</body>
+</html>

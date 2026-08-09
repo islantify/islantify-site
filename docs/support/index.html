@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Support — I Slantify</title>
+  <meta name="description" content="Support for I Slantify. Find help, FAQs and contact options.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/config.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../"><img src="../assets/icon-drake.svg" alt="I Slantify drake" class="drake-icon" aria-hidden="true"><span>I Slantify</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../#features">Features</a>
+        <a href="../#live-income">Live Income</a>
+        <a href="../download/">Download</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../privacy-choices/">Privacy Choices</a>
+        <a href="../terms/">Terms</a>
+        <a href="../contact/">Contact</a>
+        <a href="index.html">Support</a>
+      </nav>
+      <button class="mobile-toggle" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Support</h1>
+      <p class="lead">Find answers and contact options for I Slantify.</p>
+
+      <section>
+        <h2>Getting help</h2>
+        <p>If you need help, please use the Contact page to reach our support team. The contact form is client-side only until an email provider is configured — you can copy your message or email us at <span id="support-email">REPLACE_WITH_CONTACT_EMAIL</span> when available.</p>
+      </section>
+
+      <section>
+        <h2>FAQ</h2>
+        <p>No FAQ items are published yet. If you have a common question, please contact us via the Contact page.</p>
+      </section>
+
+      <section>
+        <h2>Report a problem</h2>
+        <p>Include app version, device, OS version and a short description of the issue when contacting support.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>I Slantify</strong>
+        <p>Your economy. Live.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="../download/">Download</a>
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../privacy-choices/">Privacy Choices</a>
+        <a href="../terms/">Terms of Service</a>
+        <a href="../contact/">Contact</a>
+        <a href="index.html">Support</a>
+      </nav>
+    </div>
+    <div class="copyright">&copy; <span id="year"></span> I Slantify</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const cfg = window.SITE_CONFIG || {};
+    if(cfg.CONTACT_EMAIL && !cfg.CONTACT_EMAIL.includes('REPLACE_WITH')) document.getElementById('support-email').textContent = cfg.CONTACT_EMAIL;
+  </script>
+</body>
+</html>

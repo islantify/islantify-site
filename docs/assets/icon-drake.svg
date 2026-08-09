@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Simple stylized golden drake icon -->
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffb84d"/>
+      <stop offset="1" stop-color="#d4af37"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#071018" />
+  <path d="M18 40c4-6 10-8 16-8s12 2 16 8c-4-6-10-10-16-10S22 34 18 40z" fill="url(#g)"/>
+  <path d="M20 28c4-6 12-8 20-6-6 0-10 4-12 8-6 0-8-2-8-2z" fill="#f6d28a" opacity="0.85"/>
+  <circle cx="28" cy="32" r="2" fill="#3b2608"/>
+</svg>
