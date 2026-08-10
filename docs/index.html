@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>I Slantify — Your economy. Live.</title>
-  <meta name="description" content="I Slantify is a personal finance app designed to bring income, banking, savings, budgeting, wallet functionality and financial intelligence together in one place.">
-  <meta property="og:title" content="I Slantify — Your economy. Live.">
-  <meta property="og:description" content="I Slantify is a personal finance app designed to bring income, banking, savings, budgeting, wallet functionality and financial intelligence together in one place.">
+  <title>I Slantify — Din lön. I realtid.</title>
+  <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
+  <meta property="og:title" content="I Slantify — Din lön. I realtid.">
+  <meta property="og:description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://islantify.com/">
+  <link rel="canonical" href="https://islantify.com/">
+  <meta name="theme-color" content="#071018">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="assets/styles.css">
@@ -37,278 +39,206 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-inner">
-        <h1 class="title">I SLANTIFY</h1>
-        <p class="tagline">Your economy. Live.</p>
-        <p class="lead">I Slantify brings your income, economy, savings, banking, wallet and financial intelligence together in one place.</p>
-        <div class="hero-cta">
-          <a id="btn-ios" class="btn primary" href="#">Download for iPhone</a>
-          <a id="btn-android" class="btn secondary" href="#">Download for Android</a>
-          <a class="btn ghost" href="#features">Explore I Slantify</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Premium fintech</p>
+          <h1>I SLANTIFY</h1>
+          <p class="tagline">Din lön. I realtid.</p>
+          <p class="lead">Se din inkomst växa sekund för sekund och få en tydligare bild av din ekonomi.</p>
+          <div class="hero-cta">
+            <a id="btn-ios" class="btn primary" href="#">Ladda ner I Slantify</a>
+            <a class="btn secondary" href="#live-income">Upptäck Live Income</a>
+          </div>
+          <div class="hero-highlights">
+            <span>Live Income</span>
+            <span>Budget & sparande</span>
+            <span>Ekonomisk överblick</span>
+            <span>Smart wallet</span>
+          </div>
         </div>
-        <div class="app-badges">
-          <a class="app-badge" id="badge-ios" href="#" aria-label="Download on the App Store">
-            <span class="icon-wrap"><img src="assets/icon-drake.svg" alt="" /></span>
-            <span class="meta"><span class="small">Download on the</span><span class="big">App Store</span></span>
-          </a>
-          <a class="app-badge" id="badge-android" href="#" aria-label="Get it on Google Play">
-            <span class="icon-wrap"><img src="assets/icon-drake.svg" alt="" /></span>
-            <span class="meta"><span class="small">Get it on</span><span class="big">Google Play</span></span>
-          </a>
+
+        <div class="hero-visual">
+          <div class="phone-shell" aria-hidden="true">
+            <div class="phone-top">
+              <span class="screen-chip"></span>
+              <span class="screen-title">LIVE INCOME</span>
+              <span class="screen-tag">Demo</span>
+            </div>
+            <div class="phone-screen">
+              <div class="screen-balance">
+                <span class="screen-label">Live-belopp</span>
+                <strong class="screen-value" id="hero-live-value">4 275,50 kr</strong>
+                <span class="screen-note">Demo-värde i realtid</span>
+              </div>
+              <div class="screen-metrics">
+                <div><span>Per timme</span><strong>142,00 kr</strong></div>
+                <div><span>Per månad</span><strong>28 920 kr</strong></div>
+              </div>
+              <div class="screen-forecast">
+                <div><span>Nästa lön</span><strong>23 maj</strong></div>
+                <div><span>OB + övertid</span><strong>450 kr</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-qr-grid" aria-hidden="true">
+            <div class="qr-block compact">
+              <div id="qr-home"></div>
+              <p>Skanna för att besöka I Slantify</p>
+            </div>
+          </div>
         </div>
-        <!-- QR codes (local generation) -->
-        <div class="hero-qr" aria-hidden="false">
-          <div class="qr-block" id="qr-download-container" style="text-align:center">
+      </div>
+    </section>
+
+    <section id="live-income" class="live-income">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Se din lön växa – sekund för sekund</p>
+          <h2>Live Income är kärnan i I Slantify</h2>
+          <p class="lead">En produktdemonstration som visar hur Live Income kan göra din ekonomi tydligare, utan att webbplatsen är kopplad till ett rikt konto.</p>
+        </div>
+
+        <div class="live-grid">
+          <article class="income-panel">
+            <div class="income-panel-top">
+              <span>Live Income</span>
+              <span class="demo-pill">Demo</span>
+            </div>
+            <div class="income-panel-value">
+              <strong id="live-income-value">5 860,40 kr</strong>
+              <span class="panel-caption">Uppdateras sekund för sekund</span>
+            </div>
+            <div class="income-trend">
+              <span>+ 14,2 %</span>
+              <p>Jämfört med förra månaden</p>
+            </div>
+          </article>
+
+          <div class="income-details">
+            <article class="card detail-card">
+              <h3>Timinkomst</h3>
+              <p>Se hur mycket du tjänar varje timme och hur det bygger upp din ekonomi.</p>
+            </article>
+            <article class="card detail-card">
+              <h3>Månadsprognos</h3>
+              <p>Få en tydlig överblick över hur din inkomst ser ut för resten av månaden.</p>
+            </article>
+            <article class="card detail-card">
+              <h3>Nästa lön</h3>
+              <p>Planera framåt med datum, OB och övertid som räknas in i prognosen.</p>
+            </article>
+            <article class="card detail-card">
+              <h3>Övertid & OB</h3>
+              <p>Visa hur extra timmar påverkar din ekonomi utan att lova specifika resultat.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-showcase">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Appens kärnområden</p>
+          <h2>Fem premiumfunktioner i I Slantify</h2>
+          <p class="lead">Visuella presentationer för Live Income och dina viktigaste ekonomiska insikter.</p>
+        </div>
+        <div class="feature-grid feature-cards">
+          <article class="feature-card">
+            <div class="feature-screen feature-live"></div>
+            <h3>Live Income</h3>
+            <p>En uppdaterande inkomstvy som sätter din lön i fokus och skapar tydlighet i realtid.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-screen feature-overview"></div>
+            <h3>Ekonomisk överblick</h3>
+            <p>Saldo, transaktioner och sparmål samlade i en modern, överskådlig vy.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-screen feature-budget"></div>
+            <h3>Budget &amp; sparande</h3>
+            <p>Följ dina mål, se avvikelser och håll koll på framtida sparplaner.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-screen feature-wallet"></div>
+            <h3>Wallet</h3>
+            <p>En digital samling för kort, dokument och viktiga ekonomiska poster.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-screen feature-bank"></div>
+            <h3>Bank</h3>
+            <p>En enkel översikt över konton och balansinformation när du väljer att koppla bank.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-screen feature-ai"></div>
+            <h3>AI-assistans</h3>
+            <p>Smart hjälp som förklarar din ekonomi och ger tydliga aktiviteter att överväga.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <div class="container section-split">
+        <div class="video-copy">
+          <p class="eyebrow">I Slantify på några sekunder</p>
+          <h2>Snabb introduktion</h2>
+          <p class="lead">Förbered platsen för en officiell produktvideo som berättar hur Live Income, budget och ekonomisk överblick samlas i en elegant appupplevelse.</p>
+          <p class="video-list">Rekommenderade avsnitt: Live Income, ekonomisk överblick, budget & sparande, wallet och AI.</p>
+        </div>
+        <div class="video-placeholder" aria-hidden="true">
+          <div class="video-frame">
+            <div class="play-icon"></div>
+            <p>Plats för officiell I Slantify-video</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Din ekonomi ska inte vara statisk.</p>
+          <h2>Live Income gör ekonomi levande</h2>
+          <p class="lead">Traditionell ekonomi visas ofta som ögonblicksbilder. I Slantify gör det enkelt att se din inkomst, sparande och budget som en pågående process.</p>
+        </div>
+        <div class="why-grid">
+          <article class="card">
+            <h3>Live Income</h3>
+            <p>Fokus på det som förändras mest: din lön, timme för timme och dag för dag.</p>
+          </article>
+          <article class="card">
+            <h3>Personlig ekonomi</h3>
+            <p>Samla data, sparmål och utgifter på ett ställe utan att lova dagliga resultat.</p>
+          </article>
+          <article class="card">
+            <h3>Smart överblick</h3>
+            <p>Se var du befinner dig och vad som kommer härnäst — med tydliga siffror och visuella indikatorer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="download-panel">
+      <div class="container download-grid">
+        <div class="download-copy">
+          <p class="eyebrow">Ha I Slantify i fickan</p>
+          <h2>Alltid redo att visa din Live Income</h2>
+          <p class="lead">Ladda ner appen för att börja se din ekonomi i realtid. QR-koden leder till nedladdningssidan och appbutikerna är konfigurerade för produktionsmiljön.</p>
+          <div class="hero-cta download-actions">
+            <a id="store-ios" class="btn primary" href="#" aria-label="Download on the App Store">App Store</a>
+            <a id="store-android" class="btn secondary" href="#" aria-label="Get it on Google Play">Google Play</a>
+          </div>
+        </div>
+        <div class="download-qr-card" aria-hidden="true">
+          <div class="qr-block large">
             <div id="qr-download"></div>
-            <p>Scan to download I Slantify</p>
-          </div>
-          <div class="qr-block" id="qr-home-container" style="text-align:center">
-            <div id="qr-home"></div>
-            <p>Scan to visit I Slantify</p>
+            <p>Skanna för att ladda ner I Slantify</p>
           </div>
         </div>
       </div>
     </section>
-
-    <section id="features" class="features">
-      <div class="container">
-        <h2>Core features</h2>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>LIVE INCOME</h3>
-            <p>See your earnings update in real time and understand how every hour and shift contributes to your economy.</p>
-          </article>
-          <article class="card">
-            <h3>ECONOMY OVERVIEW</h3>
-            <p>Income, expenses, balances and savings in one place — a clear view of where your economy is heading.</p>
-          </article>
-          <article class="card">
-            <h3>WALLET</h3>
-            <p>Securely keep important digital documents and cards together.</p>
-          </article>
-          <article class="card">
-            <h3>BUDGET &amp; SAVINGS</h3>
-            <p>Create budgets and savings goals and track progress without guesswork.</p>
-          </article>
-          <article class="card">
-            <h3>AI INSIGHTS</h3>
-            <p>Intelligent, explanatory insights to help you understand trends and opportunities.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Live Income: featured section -->
-    <section id="live-income" class="features">
-      <div class="container">
-        <h2>Live Income</h2>
-        <p class="lead">See your income come alive — designed to give you a live view of your income.</p>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Live salary progression</h3>
-            <p>Watch your pay grow during a shift, with hourly and cumulative views.</p>
-          </article>
-          <article class="card">
-            <h3>Hourly &amp; monthly views</h3>
-            <p>Switch between hourly, daily and monthly perspectives to understand earnings at a glance.</p>
-          </article>
-          <article class="card">
-            <h3>Net &amp; gross context</h3>
-            <p>Where available, compare net vs. gross amounts and account for taxes and common deductions.</p>
-          </article>
-          <article class="card">
-            <h3>Overtime &amp; OB</h3>
-            <p>Track overtime, OB and other shift differentials that affect your take-home pay.</p>
-          </article>
-          <article class="card">
-            <h3>Schedule-based forecasts</h3>
-            <p>Use your work schedule to project upcoming pay and plan ahead.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Personal economy -->
-    <section id="economy" class="features">
-      <div class="container">
-        <h2>See the bigger picture</h2>
-        <p class="lead">Bring income, expenses, balances, budgets and savings together to understand not just what you have, but where your economy is heading.</p>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Income &amp; expenses</h3>
-            <p>Consolidate income sources and recurring expenses for a clear net view.</p>
-          </article>
-          <article class="card">
-            <h3>Forecasts &amp; goals</h3>
-            <p>Set targets and review simple forecasts to stay on track with your plans.</p>
-          </article>
-          <article class="card">
-            <h3>Financial insights</h3>
-            <p>Receive contextual tips and explanations — designed to help, not to promise results.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Economy center -->
-    <section id="economy-center" class="features">
-      <div class="container">
-        <h2>Economy Center</h2>
-        <p class="lead">Your financial health at a glance — trends, patterns and forward-looking suggestions.</p>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Trends &amp; spending patterns</h3>
-            <p>Understand how spending changes over time and where most of your money goes.</p>
-          </article>
-          <article class="card">
-            <h3>Forecasts</h3>
-            <p>Simple projections to help with planning — based on the data you provide.</p>
-          </article>
-          <article class="card">
-            <h3>Recommendations</h3>
-            <p>Non-intrusive suggestions to consider from the app's insights.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Budget & Savings -->
-    <section id="budget" class="features">
-      <div class="container">
-        <h2>Budget &amp; Savings</h2>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Budgets</h3>
-            <p>Create and monitor budgets to control spending in key categories.</p>
-          </article>
-          <article class="card">
-            <h3>Savings goals</h3>
-            <p>Set clear goals, track progress and keep your priorities visible.</p>
-          </article>
-          <article class="card">
-            <h3>Buffers &amp; planning</h3>
-            <p>Build financial buffers and plan for upcoming expenses without false promises.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Wallet -->
-    <section id="wallet" class="features">
-      <div class="container">
-        <h2>Wallet</h2>
-        <p class="lead">A secure place for important digital financial and personal items.</p>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Cards &amp; documents</h3>
-            <p>Keep cards, receipts and important documents in one place.</p>
-          </article>
-          <article class="card">
-            <h3>Memberships &amp; guarantees</h3>
-            <p>Store relevant membership and warranty details for quick access.</p>
-          </article>
-          <article class="card">
-            <h3>Future capabilities</h3>
-            <p>Additional wallet features are planned; current availability depends on releases.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bank connections -->
-    <section id="bank" class="features">
-      <div class="container">
-        <h2>Connect your financial world</h2>
-        <p class="lead">Designed to bring financial information together so you can get a clearer overview.</p>
-        <p>Bank connectivity is a key capability. Where live integrations are available, they appear in the app; otherwise bank connections are listed as planned or in development.</p>
-      </div>
-    </section>
-
-    <!-- AI -->
-    <section id="ai" class="features">
-      <div class="container">
-        <h2>Your financial intelligence, built into the app</h2>
-        <p class="lead">AI is used to explain your data, highlight patterns and help you explore scenarios — not to promise financial returns.</p>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Ask questions</h3>
-            <p>Ask about spending, income or plan scenarios and receive clear explanations.</p>
-          </article>
-          <article class="card">
-            <h3>Insights</h3>
-            <p>Contextual insights to help you make informed choices.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Calendar & schedule -->
-    <section id="schedule" class="features">
-      <div class="container">
-        <h2>Schedule &amp; pay</h2>
-        <p class="lead">Link your work schedule to hours and income — schedule → hours → income → overview.</p>
-        <p>Schedule-based forecasts help you estimate upcoming pay based on planned shifts.</p>
-      </div>
-    </section>
-
-    <!-- Premium -->
-    <section id="premium" class="features">
-      <div class="container">
-        <h2>Premium</h2>
-        <p class="lead">Free is useful. Premium adds advanced tools and deeper analysis.</p>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>Free</h3>
-            <p>Core I Slantify experience: income tracking, basic budgets and overview.</p>
-          </article>
-          <article class="card">
-            <h3>Premium</h3>
-            <p>Advanced analysis, extended AI insights and priority features when available.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Social -->
-    <section id="social" class="features">
-      <div class="container">
-        <h2>Social</h2>
-        <p class="lead">Share goals, invite friends and explore shared saving challenges — optional social features that enhance the personal finance experience.</p>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section id="how" class="features">
-      <div class="container">
-        <h2>How it works</h2>
-        <div class="feature-grid">
-          <article class="card">
-            <h3>1. Set up your economy</h3>
-            <p>Add income sources, connect accounts (when available) and set goals.</p>
-          </article>
-          <article class="card">
-            <h3>2. Understand your money</h3>
-            <p>See income, expenses and forecasts in one place.</p>
-          </article>
-          <article class="card">
-            <h3>3. Plan ahead</h3>
-            <p>Use insights and simple forecasts to prepare and set priorities.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="download-cta">
-      <div class="container">
-        <h2>Get I Slantify</h2>
-        <p class="lead">Available on iPhone and Android.</p>
-        <div class="download-buttons">
-          <a id="store-ios" class="store btn store-ios" href="#" aria-label="Download on the App Store">App Store</a>
-          <a id="store-android" class="store btn store-android" href="#" aria-label="Get it on Google Play">Google Play</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
@@ -381,6 +311,26 @@
           if (qd) new QRCode(qd, {text: downloadUrl, width:200, height:200, colorDark:'#071018', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel ? QRCode.CorrectLevel.H : 1});
           if (qh) new QRCode(qh, {text: homeUrl, width:200, height:200, colorDark:'#071018', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel ? QRCode.CorrectLevel.H : 1});
         }
+
+        function formatCurrency(value) {
+          return value.toLocaleString('sv-SE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' kr';
+        }
+
+        function animateValue(el, start, end, duration) {
+          if (!el) return;
+          const startTime = performance.now();
+          const change = end - start;
+          function step(timestamp) {
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const current = start + change * progress;
+            el.textContent = formatCurrency(current);
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+
+        animateValue(document.getElementById('hero-live-value'), 3840.20, 4275.50, 2600);
+        animateValue(document.getElementById('live-income-value'), 5200.00, 5860.40, 2800);
       } catch (e) { console.warn('QR generation failed', e); }
     });
   </script>
