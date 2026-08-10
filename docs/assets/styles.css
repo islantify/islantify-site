@@ -177,3 +177,29 @@ body{background:linear-gradient(180deg,#0c1116 0%, #0f1720 100%);color:var(--tex
 
 a[aria-disabled='true']{cursor:default}
 .visually-hidden{position:absolute;left:-10000px}
+/* I SLANTIFY – DRAGON TOP BANNER */
+.dragon-banner {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  background: #000;
+  line-height: 0;
+}
+
+.dragon-banner video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 640px) {
+  .dragon-banner video {
+    max-height: 180px;
+  }
+}
