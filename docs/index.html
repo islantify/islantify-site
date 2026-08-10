@@ -38,55 +38,65 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Premium fintech</p>
-          <h1>I SLANTIFY</h1>
-          <p class="tagline">Din lön. I realtid.</p>
-          <p class="lead">Se din inkomst växa sekund för sekund och få en tydligare bild av din ekonomi.</p>
-          <div class="hero-cta">
-            <a id="btn-ios" class="btn primary" href="#">Ladda ner I Slantify</a>
-            <a class="btn secondary" href="#live-income">Upptäck Live Income</a>
+    <!-- PREMIUM HERO BANNER: LIVE INCOME ENGINE -->
+    <section class="hero-premium">
+      <div class="container">
+        <div class="hero-premium-grid">
+          <!-- Left: Copy & CTA -->
+          <div class="hero-premium-copy">
+            <h2 class="hero-badge">LIVE INCOME ENGINE</h2>
+            <h1 class="hero-title">Se din lön växa –<br/>sekund för sekund.</h1>
+            <p class="hero-description">Följ din lön i realtid medan du arbetar. Se netto, brutto, kr/min, kr/sek, arbetad tid och schema direkt i I Slantify Live Income Engine.</p>
+            <div class="hero-benefits">
+              <span class="benefit-item">💰 Netto & Brutto</span>
+              <span class="benefit-item">⏱️ kr/min · kr/sek</span>
+              <span class="benefit-item">📊 Schema & historia</span>
+              <span class="benefit-item">📈 Live-uppdateringar</span>
+            </div>
+            <div class="hero-premium-cta">
+              <a id="btn-ios" class="btn btn-primary btn-large" href="#">Ladda ner I Slantify</a>
+            </div>
           </div>
-          <div class="hero-highlights">
-            <span>Live Income</span>
-            <span>Budget & sparande</span>
-            <span>Ekonomisk överblick</span>
-            <span>Smart wallet</span>
+
+          <!-- Right: Video & Screenshot -->
+          <div class="hero-premium-media">
+            <div class="media-container">
+              <!-- Video with fallback to screenshot -->
+              <video autoplay muted loop playsinline class="hero-video" poster="assets/live-income-engine.png">
+                <source src="assets/live-income-demo.mp4" type="video/mp4">
+                <img src="assets/live-income-engine.png" alt="Live Income Engine demonstration" />
+              </video>
+              <!-- Live Income Screenshot Overlay (shows when video loads) -->
+              <img src="assets/live-income-engine.png" alt="I Slantify Live Income Engine med netto, brutto, kr/min och kr/sek" class="hero-screenshot" loading="lazy" />
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-visual">
-          <div class="phone-shell" aria-hidden="true">
-            <div class="phone-top">
-              <span class="screen-chip"></span>
-              <span class="screen-title">LIVE INCOME</span>
-              <span class="screen-tag">Demo</span>
-            </div>
-            <div class="phone-screen">
-              <div class="screen-balance">
-                <span class="screen-label">Live-belopp</span>
-                <strong class="screen-value" id="hero-live-value">4 275,50 kr</strong>
-                <span class="screen-note">Demo-värde i realtid</span>
-              </div>
-              <div class="screen-metrics">
-                <div><span>Per timme</span><strong>142,00 kr</strong></div>
-                <div><span>Per månad</span><strong>28 920 kr</strong></div>
-              </div>
-              <div class="screen-forecast">
-                <div><span>Nästa lön</span><strong>23 maj</strong></div>
-                <div><span>OB + övertid</span><strong>450 kr</strong></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-qr-grid" aria-hidden="true">
-            <div class="qr-block compact">
-              <div id="qr-home"></div>
-              <p>Skanna för att besöka I Slantify</p>
-            </div>
-          </div>
+    <!-- Secondary: Din Lön. Live. Section -->
+    <section class="live-income-showcase">
+      <div class="container">
+        <div class="section-header">
+          <h2>Din lön. Live.</h2>
+          <p class="section-lead">Live Income Engine – en revolución i personlig ekonomi</p>
+        </div>
+        <div class="showcase-grid">
+          <article class="showcase-card">
+            <div class="card-icon">💵</div>
+            <h3>Se din lön växa sekund för sekund</h3>
+            <p>Visa hur mycket du tjänar per minut, per sekund och per timme – med både netto och brutto.</p>
+          </article>
+          <article class="showcase-card">
+            <div class="card-icon">⏱️</div>
+            <h3>Arbetad tid & schema</h3>
+            <p>Länka din arbetsschema och se prognoser för nästa lön. Inkluderar övertid och OB automatiskt.</p>
+          </article>
+          <article class="showcase-card">
+            <div class="card-icon">📈</div>
+            <h3>Ekonomisk överblick</h3>
+            <p>Kombinera Live Income med budget, sparande och utgifter för att få full kontroll över din ekonomi.</p>
+          </article>
         </div>
       </div>
     </section>
