@@ -104,54 +104,318 @@ src="assets/dragon-banner.mp4"
         </div>
       </div>
     </section>
+<section id="live-income" class="live-income">
+  <div class="container">
 
-    <section id="live-income" class="live-income">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Se din lön växa – sekund för sekund</p>
-          <h2>Live Income är kärnan i I Slantify</h2>
-          <p class="lead">En produktdemonstration som visar hur Live Income kan göra din ekonomi tydligare, utan att webbplatsen är kopplad till ett rikt konto.</p>
-        </div>
+    <div class="section-header">
+      <p class="eyebrow">PROVA LIVE INCOME</p>
 
-        <div class="live-grid">
-          <article class="income-panel">
-            <div class="income-panel-top">
-              <span>Live Income</span>
-              <span class="demo-pill">Demo</span>
-            </div>
-            <div class="income-panel-value">
-              <strong id="live-income-value">5 860,40 kr</strong>
-              <span class="panel-caption">Uppdateras sekund för sekund</span>
-            </div>
-            <div class="income-trend">
-              <span>+ 14,2 %</span>
-              <p>Jämfört med förra månaden</p>
-            </div>
-          </article>
+      <h2>Se din lön växa – sekund för sekund.</h2>
 
-          <div class="income-details">
-            <article class="card detail-card">
-              <h3>Timinkomst</h3>
-              <p>Se hur mycket du tjänar varje timme och hur det bygger upp din ekonomi.</p>
-            </article>
-            <article class="card detail-card">
-              <h3>Månadsprognos</h3>
-              <p>Få en tydlig överblick över hur din inkomst ser ut för resten av månaden.</p>
-            </article>
-            <article class="card detail-card">
-              <h3>Nästa lön</h3>
-              <p>Planera framåt med datum, OB och övertid som räknas in i prognosen.</p>
-            </article>
-            <article class="card detail-card">
-              <h3>Övertid & OB</h3>
-              <p>Visa hur extra timmar påverkar din ekonomi utan att lova specifika resultat.</p>
-            </article>
+      <p class="lead">
+        Testa själv hur Live Income fungerar. Ange din timlön,
+        starta och se inkomsten växa i realtid.
+      </p>
+    </div>
+
+    <div class="live-demo-card" style="
+      max-width:900px;
+      margin:0 auto;
+      padding:32px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:28px;
+      background:linear-gradient(145deg,#171c22,#0d1218);
+      box-shadow:0 20px 60px rgba(0,0,0,.30);
+    ">
+
+      <div style="
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:28px;
+        align-items:center;
+      ">
+
+        <div>
+
+          <label for="demo-hourly-rate" style="
+            display:block;
+            margin-bottom:10px;
+            font-weight:700;
+          ">
+            Din timlön
+          </label>
+
+          <div style="
+            display:flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:22px;
+          ">
+
+            <input
+              id="demo-hourly-rate"
+              type="number"
+              min="1"
+              step="1"
+              value="250"
+              inputmode="decimal"
+              aria-label="Din timlön i kronor"
+              style="
+                width:100%;
+                padding:15px 16px;
+                border-radius:14px;
+                border:1px solid rgba(255,255,255,.15);
+                background:#080d12;
+                color:#fff;
+                font-size:20px;
+                font-weight:700;
+                outline:none;
+                box-sizing:border-box;
+              "
+            >
+
+            <span style="
+              font-size:18px;
+              font-weight:700;
+              white-space:nowrap;
+            ">kr/timme</span>
+
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="feature-showcase">
+          <div style="
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+          ">
+
+            <button
+              id="live-demo-start"
+              type="button"
+              class="btn btn-primary"
+            >
+              Starta
+            </button>
+
+            <button
+              id="live-demo-pause"
+              type="button"
+              class="btn secondary"
+            >
+              Pausa
+            </button>
+
+            <button
+              id="live-demo-reset"
+              type="button"
+              class="btn secondary"
+            >
+              Återställ
+            </button>
+
+          </div>
+
+        </div>
+
+        <div style="
+          padding:28px;
+          border-radius:24px;
+          background:linear-gradient(145deg,#241b16,#10161d);
+          border:1px solid rgba(255,122,0,.25);
+          text-align:center;
+        ">
+
+          <div style="
+            font-size:14px;
+            text-transform:uppercase;
+            letter-spacing:.12em;
+            opacity:.7;
+            margin-bottom:12px;
+          ">
+            Din live-inkomst
+          </div>
+
+          <div
+            id="live-demo-value"
+            style="
+              font-size:clamp(42px,7vw,72px);
+              line-height:1;
+              font-weight:800;
+              letter-spacing:-.04em;
+              margin-bottom:14px;
+            "
+          >
+            0,00 kr
+          </div>
+
+          <div
+            id="live-demo-rate"
+            style="
+              font-size:18px;
+              color:#ff8a22;
+              font-weight:700;
+            "
+          >
+            + 0,0694 kr/sek
+          </div>
+
+          <div style="
+            margin-top:14px;
+            font-size:14px;
+            opacity:.65;
+          ">
+            Testdata – ingen riktig ekonomi kopplas till denna demo.
+          </div>
+
+        </div>
+
+      </div>
+
+      <div style="
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:12px;
+        margin-top:24px;
+      ">
+
+        <div class="card" style="padding:18px;">
+          <strong id="live-demo-second">0,0694 kr</strong>
+          <span style="display:block;opacity:.65;margin-top:5px;">
+            per sekund
+          </span>
+        </div>
+
+        <div class="card" style="padding:18px;">
+          <strong id="live-demo-minute">4,17 kr</strong>
+          <span style="display:block;opacity:.65;margin-top:5px;">
+            per minut
+          </span>
+        </div>
+
+        <div class="card" style="padding:18px;">
+          <strong id="live-demo-hour">250,00 kr</strong>
+          <span style="display:block;opacity:.65;margin-top:5px;">
+            per timme
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  const hourlyInput = document.getElementById('demo-hourly-rate');
+  const valueEl = document.getElementById('live-demo-value');
+  const rateEl = document.getElementById('live-demo-rate');
+  const secondEl = document.getElementById('live-demo-second');
+  const minuteEl = document.getElementById('live-demo-minute');
+  const hourEl = document.getElementById('live-demo-hour');
+  const startBtn = document.getElementById('live-demo-start');
+  const pauseBtn = document.getElementById('live-demo-pause');
+  const resetBtn = document.getElementById('live-demo-reset');
+
+  if (
+    !hourlyInput ||
+    !valueEl ||
+    !rateEl ||
+    !secondEl ||
+    !minuteEl ||
+    !hourEl ||
+    !startBtn ||
+    !pauseBtn ||
+    !resetBtn
+  ) {
+    return;
+  }
+
+  let running = false;
+  let earned = 0;
+  let lastTime = null;
+  let animationFrame = null;
+
+  const money = (value) =>
+    value.toLocaleString('sv-SE', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+  const rateMoney = (value) =>
+    value.toLocaleString('sv-SE', {
+      minimumFractionDigits: 4,
+      maximumFractionDigits: 4
+    });
+
+  function getHourlyRate() {
+    const value = Number(hourlyInput.value);
+    return Number.isFinite(value) && value > 0 ? value : 0;
+  }
+
+  function updateDisplay() {
+    const hourly = getHourlyRate();
+    const perSecond = hourly / 3600;
+    const perMinute = hourly / 60;
+
+    valueEl.textContent = money(earned) + ' kr';
+    rateEl.textContent = '+ ' + rateMoney(perSecond) + ' kr/sek';
+    secondEl.textContent = rateMoney(perSecond) + ' kr';
+    minuteEl.textContent = money(perMinute) + ' kr';
+    hourEl.textContent = money(hourly) + ' kr';
+  }
+
+  function tick(timestamp) {
+    if (!running) return;
+
+    if (lastTime !== null) {
+      const elapsedSeconds = (timestamp - lastTime) / 1000;
+      earned += getHourlyRate() / 3600 * elapsedSeconds;
+    }
+
+    lastTime = timestamp;
+    updateDisplay();
+
+    animationFrame = requestAnimationFrame(tick);
+  }
+
+  startBtn.addEventListener('click', function () {
+    if (running) return;
+
+    running = true;
+    lastTime = null;
+    animationFrame = requestAnimationFrame(tick);
+  });
+
+  pauseBtn.addEventListener('click', function () {
+    running = false;
+    lastTime = null;
+
+    if (animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = null;
+    }
+  });
+
+  resetBtn.addEventListener('click', function () {
+    running = false;
+    earned = 0;
+    lastTime = null;
+
+    if (animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = null;
+    }
+
+    updateDisplay();
+  });
+
+  hourlyInput.addEventListener('input', updateDisplay);
+
+  updateDisplay();
+})();
+</script>
+       <section class="feature-showcase">
           <!-- ROULETTE SHOWCASE -->
     <section class="roulette-showcase">
       <div class="container">
@@ -164,11 +428,17 @@ src="assets/dragon-banner.mp4"
         </div>
 
         <div style="display:flex;justify-content:center;align-items:center;">
-          <img
-            src="assets/roulette-funktion.png"
-            alt="I Slantify Delanot-Roulette"
-            style="display:block;width:100%;max-width:700px;height:auto;border-radius:20px;"
-          >
+         <video
+src="assets/roulette-video.mp4"
+autoplay
+muted
+loop
+playsinline
+controls
+preload="metadata"
+aria-label="I Slantify Delanot-Roulette"
+style="display:block;width:100%;max-width:700px;height:auto;border-radius:20px;"
+></video>
         </div>
       </div>
     </section>
