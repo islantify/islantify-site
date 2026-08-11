@@ -83,7 +83,7 @@ src="assets/dragon-banner.mp4"
       <div class="container">
         <div class="section-header">
           <h2>Din lön. Live.</h2>
-          <p class="section-lead">Live Income Engine – en revolución i personlig ekonomi</p>
+          <p class="section-lead">Live Income Engine – en revolution i personlig ekonomi</p>
         </div>
         <div class="showcase-grid">
           <article class="showcase-card">
@@ -450,15 +450,11 @@ style="display:block;width:100%;max-width:700px;height:auto;border-radius:20px;"
         </div>
         <div class="feature-grid feature-cards">
           <article class="feature-card">
-            <div class="feature-screen feature-live">
-  <video
-    src="assets/live-inkomst-demo.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-  ></video>
+           <div class="feature-screen feature-live">
+  <div class="feature-live-demo">
+    <strong>Live Income</strong>
+    <span>Se inkomsten växa sekund för sekund.</span>
+  </div>
 </div>
             <h3>Live Income</h3>
             <p>En uppdaterande inkomstvy som sätter din lön i fokus och skapar tydlighet i realtid.</p>
@@ -624,26 +620,6 @@ style="display:block;width:100%;max-width:700px;height:auto;border-radius:20px;"
           if (qd) new QRCode(qd, {text: downloadUrl, width:200, height:200, colorDark:'#071018', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel ? QRCode.CorrectLevel.H : 1});
           if (qh) new QRCode(qh, {text: homeUrl, width:200, height:200, colorDark:'#071018', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel ? QRCode.CorrectLevel.H : 1});
         }
-
-        function formatCurrency(value) {
-          return value.toLocaleString('sv-SE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' kr';
-        }
-
-        function animateValue(el, start, end, duration) {
-          if (!el) return;
-          const startTime = performance.now();
-          const change = end - start;
-          function step(timestamp) {
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            const current = start + change * progress;
-            el.textContent = formatCurrency(current);
-            if (progress < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-        }
-
-        animateValue(document.getElementById('hero-live-value'), 3840.20, 4275.50, 2600);
-        animateValue(document.getElementById('live-income-value'), 5200.00, 5860.40, 2800);
       } catch (e) { console.warn('QR generation failed', e); }
     });
   </script>
