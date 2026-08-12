@@ -394,12 +394,18 @@ a[aria-disabled='true']{cursor:default}
 }
 
 /* Mobil */
-@media (max-width: 600px) {
-  .hero-premium-media .media-container {
-    max-width: 100%;
-    min-height: 420px;
-    border-radius: 22px;
+@media (max-width:600px) {
+  .hero-premium-media .media-container{
+    max-width:100%;
+    min-height:380px;
+    border-radius:22px;
   }
+
+  .hero-premium-media video{
+    height:380px;
+    border-radius:22px;
+  }
+}
 
   .hero-premium-media video {
     height: 420px;
