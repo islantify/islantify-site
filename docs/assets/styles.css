@@ -193,7 +193,7 @@ a[aria-disabled='true']{cursor:default}
   display: block;
   width: 100%;
   height: auto;
-  max-height: 320px;
+  max-height: 420px;
   object-fit: cover;
   object-position: center;
 }
