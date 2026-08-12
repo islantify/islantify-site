@@ -39,7 +39,8 @@ body{background:linear-gradient(180deg,#0c1116 0%, #0f1720 100%);color:var(--tex
 }
 
 .hero-premium-copy{
-  max-width:650px;
+  max-width:620px;
+  width:100%;
 }
 
 .hero-badge{
