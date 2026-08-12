@@ -134,8 +134,8 @@ body{background:linear-gradient(180deg,#0c1116 0%, #0f1720 100%);color:var(--tex
 }
 
 .btn-large{
-  padding:1rem 1.6rem;
-  font-size:1rem;
+    padding:1.8rem;
+    font-size:1.05rem;
 }
 
 .hero-premium-media{
