@@ -115,20 +115,25 @@ body{background:linear-gradient(180deg,#0c1116 0%, #0f1720 100%);color:var(--tex
 .hero-premium-cta{
   margin-top:2rem;
   display:flex;
+  align-items:center;
   gap:1rem;
   flex-wrap:wrap;
 }
 
 .btn-primary{
-  background:linear-gradient(90deg,var(--accent),var(--gold));
+  background:linear-gradient(135deg,var(--accent),var(--gold));
   color:#071018;
-  border:0;
-  box-shadow:0 18px 45px rgba(255,138,43,.22);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:1rem 1.4rem;
+  font-weight:700;
+  box-shadow:0 12px 35px rgba(255,138,43,.22);
+  transition:transform .2s ease,box-shadow .2s ease;
 }
 
 .btn-primary:hover{
   transform:translateY(-2px);
-  box-shadow:0 24px 60px rgba(255,138,43,.32);
+  box-shadow:0 18px 45px rgba(255,138,43,.32);
 }
 
 .btn-large{
