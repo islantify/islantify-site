@@ -78,33 +78,108 @@ src="assets/dragon-banner.mp4"
         </div>
       </div>
     </section>
-    <!-- Secondary: Din Lön. Live. Section -->
-    <section class="live-income-showcase">
-      <div class="container">
-        <div class="section-header">
-          <h2>Din lön. Live.</h2>
-          <p class="section-lead">Live Income Engine – en revolution i personlig ekonomi</p>
-        </div>
-        <div class="showcase-grid">
-          <article class="showcase-card">
-            <div class="card-icon">💵</div>
-            <h3>Se din lön växa sekund för sekund</h3>
-            <p>Visa hur mycket du tjänar per minut, per sekund och per timme – med både netto och brutto.</p>
-          </article>
-          <article class="showcase-card">
-            <div class="card-icon">⏱️</div>
-            <h3>Arbetad tid & schema</h3>
-            <p>Länka din arbetsschema och se prognoser för nästa lön. Inkluderar övertid och OB automatiskt.</p>
-          </article>
-          <article class="showcase-card">
-            <div class="card-icon">📈</div>
-            <h3>Ekonomisk överblick</h3>
-            <p>Kombinera Live Income med budget, sparande och utgifter för att få full kontroll över din ekonomi.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-<section id="live-income" class="live-income">
+    <style>
+.live-demo-layout {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+    gap: 18px;
+    align-items: stretch;
+}
+
+.live-demo-info {
+    padding: 28px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,170,55,.18);
+    background: linear-gradient(145deg, #171a20, #0b1016);
+    box-shadow: 0 20px 50px rgba(0,0,0,.28);
+}
+
+.info-eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    opacity: .65;
+    margin-bottom: 12px;
+}
+
+.live-demo-info h3 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+.live-demo-info p {
+    margin: 0 0 24px;
+    line-height: 1.6;
+    opacity: .75;
+}
+
+.info-points {
+    display: grid;
+    gap: 14px;
+}
+
+.info-points div {
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.06);
+}
+
+.info-points strong {
+    display: block;
+    font-size: 12px;
+    letter-spacing: .08em;
+    margin-bottom: 5px;
+}
+
+.info-points span {
+    display: block;
+    font-size: 13px;
+    line-height: 1.45;
+    opacity: .65;
+}
+
+.live-demo-layout .live-demo-card {
+    width: 100%;
+    max-width: none !important;
+    margin: 0 !important;
+    padding:24px !important;
+    box-sizing:border-box;
+}
+
+.hero-premium-media {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-video {
+    max-height: 260px;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 800px) {
+    .live-demo-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .live-demo-layout .live-demo-card {
+        padding: 24px !important;
+    }
+
+    .hero-premium-media {
+        max-width: 100%;
+    }
+
+    .hero-video {
+        max-height: none;
+    }
+}
+</style>
+   <section id="live-income" class="live-income">
   <div class="container">
     <div class="section-header">
       <p class="eyebrow">PROVA LIVE INCOME</p>
@@ -115,11 +190,77 @@ src="assets/dragon-banner.mp4"
         starta och se inkomsten växa i realtid.
       </p>
  </div>
+<div class="live-demo-layout">
+<div class="live-demo-info">
+    <div class="info-eyebrow">LIVE INCOME ENGINE</div>
+
+    <h3>Din lön – live.</h3>
+
+    <p>
+        Se hur din inkomst växer sekund för sekund.
+        Live Income räknar om din lön i realtid.
+    </p>
+
+    <div class="info-points">
+        <div>
+            <strong>KR/SEKUND</strong>
+            <span>Se exakt hur mycket du tjänar just nu.</span>
+        </div>
+
+        <div>
+            <strong>ARBETAD TID</strong>
+            <span>Följ arbetad tid och löneutveckling.</span>
+        </div>
+
+        <div>
+            <strong>OB &amp; ÖVERTID</strong>
+            <span>Kan inkluderas i din verkliga löneberäkning.</span>
+        </div>
+
+        <div>
+            <strong>PROGNOS</strong>
+            <span>Se hur inkomsten utvecklas över månaden.</span>
+        </div>
+    </div>
+</div>
+<div class="live-demo-layout">
+
+<div class="live-demo-info">
+    <div class="info-eyebrow">LIVE INCOME ENGINE</div>
+
+    <h3>Din lön – live.</h3>
+
+    <p>
+        Se hur din inkomst växer sekund för sekund.
+        Live Income räknar om din lön i realtid.
+    </p>
+
+    <div class="info-points">
+        <div>
+            <strong>KR/SEKUND</strong>
+            <span>Se exakt hur mycket du tjänar just nu.</span>
+        </div>
+
+        <div>
+            <strong>ARBETAD TID</strong>
+            <span>Följ arbetad tid och löneutveckling.</span>
+        </div>
+
+        <div>
+            <strong>OB &amp; ÖVERTID</strong>
+            <span>Kan inkluderas i din verkliga löneberäkning.</span>
+        </div>
+
+        <div>
+            <strong>PROGNOS</strong>
+            <span>Se hur inkomsten utvecklas över månaden.</span>
+        </div>
+    </div>
 
 <div class="live-demo-card" style="
 max-width:1000px;
   margin:0 auto;
-  padding:42px;
+  padding:24px;
   border:1px solid rgba(255,170,55,.22);
   border-radius:32px;
   background:
