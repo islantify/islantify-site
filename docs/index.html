@@ -1110,3 +1110,86 @@
       </div>
           <li>✓ Avancerad Live Income med OB & Övertid</li> <li>✓ Premium Wallet med betalfunktioner</li> <li>✓ Gränslös Premium Banking via BankID</li> <li>✓ Full tillgång till Slantify AI</li> <li>✓ Automatiserade prognoser & sparmål</li> cent="b-n-button" </ul> style="width: 100%; justify-content: center;">Starta Premium</button> </div> </div> </section> <!-- SÄKERHETSBANNER --> <section class="container" style="margin-bottom: 5rem;"> <div style="background: linear-gradient(90%111, #509, #509, #501, #501); border: 1px solid var(--border-color: 24px stoppning: 3rem; text-align: center;"> <h3 style="margin-bottom: 1rem;">🔐 Kryptering med Bank-grade Security</h3> <p style="max-width: 700px; marginal: 0 auto; teckenstorlek: 0,95rem; line-height: 1.6;"> Säkerhet och integritet är kärnan i I Slantify. All databehandling sker i krypterade miljöer enligt industristandard (AES-256). Autentisering och kopplingar valideras tryggt med BankID för total transparens och användarkontroll. </p> </div>
   </section> <!-- NEDLADDNINGSSEKTION --> <section id="download" class="container section-padding" style="text-align: center;"> <h2>Skaffa I Slantify i fickan idag</h2> <p style="margin-bottom: 2rem; max-width: 500px; autokoden eller autokoden"> margin2: respektive QR1 plattforms officiella appbutik för direkt gratis nedladdning.</p> <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;"> <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color:--border-color: rem1: border-color:xradius: rem1; bredd: 200px;"> <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="bakgrund:#ffffff; utfyllnad:8px; kantradius:12px; marginal-botten: 1rem;"> <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/> </svg> <h4>iOS App Store</h4> </div> <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radie: 16px; width: 200px;"> <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:8px; border-radie:12px; margin-bottom: 1rem;"> <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/> </svg> <h4>Google Play</h4> </div>
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Matcha elementen direkt utifrån klasserna i din befintliga HTML
+  const inputTimlon = document.querySelector(".demo-input");
+  const btnStart = document.querySelector(".demo-btn-start");
+  const btnPause = document.querySelector(".demo-btn-pause");
+  const btnReset = document.querySelector(".demo-btn-reset");
+
+  // Hittar inkomst-displayerna baserat på textinnehållet i din HTML
+  let displayLiveInkomst = null;
+  let displayKrSekund = null;
+
+  document.querySelectorAll("div, p, span, strong").forEach(el => {
+    if (el.textContent.includes("0,00 kr")) {
+      displayLiveInkomst = el;
+    }
+    if (el.textContent.includes("kr/sek")) {
+      displayKrSekund = el;
+    }
+  });
+
+  let intervalId = null;
+  let upplupenInkomst = 0.0;
+
+  // 2. Beräkna och uppdatera kronor per sekund (+ 0.0694 kr/sek vid 250 kr)
+  function uppdateraSekundlon() {
+    const timlon = parseFloat(inputTimlon?.value) || 0;
+    const krPerSekund = timlon / 3600; // 60 minuter * 60 sekunder
+    
+    if (displayKrSekund) {
+      displayKrSekund.innerHTML = `+ ${krPerSekund.toFixed(4)} kr/sek`;
+    }
+    return krPerSekund;
+  }
+
+  // Lyssna på ändringar i input-fältet direkt
+  if (inputTimlon) {
+    inputTimlon.addEventListener("input", uppdateraSekundlon);
+    uppdateraSekundlon(); // Sätt startvärde direkt vid laddning
+  }
+
+  // 3. STARTA-knapp (Räknar upp mjukt var 10:e del av en sekund)
+  if (btnStart) {
+    btnStart.addEventListener("click", () => {
+      if (intervalId) return; // Redan igång
+
+      if (inputTimlon) inputTimlon.disabled = true; // Lås input under körning
+
+      const uppdateringsFrekvens = 0.1; // 100ms för ett mjukt flyt
+
+      intervalId = setInterval(() => {
+        const nuvarandeKrPerSekund = uppdateraSekundlon();
+        upplupenInkomst += nuvarandeKrPerSekund * uppdateringsFrekvens;
+        
+        if (displayLiveInkomst) {
+          displayLiveInkomst.innerHTML = `${upplupenInkomst.toLocaleString("sv-SE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kr`;
+        }
+      }, uppdateringsFrekvens * 1000);
+    });
+  }
+
+  // 4. PAUSA-knapp
+  if (btnPause) {
+    btnPause.addEventListener("click", () => {
+      clearInterval(intervalId);
+      intervalId = null;
+      if (inputTimlon) inputTimlon.disabled = false;
+    });
+  }
+
+  // 5. NOLLSTÄLLA (Om du har eller lägger till en återställningsknapp)
+  if (btnReset) {
+    btnReset.addEventListener("click", () => {
+      clearInterval(intervalId);
+      intervalId = null;
+      upplupenInkomst = 0.0;
+      if (displayLiveInkomst) displayLiveInkomst.innerHTML = "0,00 kr";
+      if (inputTimlon) inputTimlon.disabled = false;
+      uppdateraSekundlon();
+    });
+  }
+});
+      </script>
+</body>
