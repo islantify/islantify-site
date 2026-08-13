@@ -84,11 +84,11 @@
       <span style="color: #ffffff; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em;">Slantify</span>
     </a>
 
-    <!-- Desktop Navigation Links -->
+    <!-- Desktop Navigation Links (Mapped directly to your sections) -->
     <nav class="desktop-nav" style="display: flex; gap: 2rem; align-items: center;">
-      <a href="#home" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Hem</a>
-      <a href="#features" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Funktioner</a>
-      <a href="#live" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
+      <a href="/" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Home</a>
+      <a href="#features" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Features</a>
+      <a href="#live-income" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
         Live Income <span style="width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
       </a>
       <a href="#premium" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Premium</a>
@@ -110,9 +110,9 @@
 
   <!-- DROP-DOWN MOBILE MENU CONTAINER -->
   <div id="mobile-menu-overlay" style="display: none; background-color: #0b0f19; border-bottom: 1px solid #1e293b; padding: 1.5rem 2rem; font-family: sans-serif; flex-direction: column; gap: 1.25rem; position: sticky; top: 61px; z-index: 49; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
-    <a href="#home" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Hem</a>
-    <a href="#features" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Funktioner</a>
-    <a href="#live" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">Live Income <span style="width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%;"></span></a>
+    <a href="/" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Home</a>
+    <a href="#features" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Features</a>
+    <a href="#live-income" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">Live Income <span style="width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%;"></span></a>
     <a href="#premium" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Premium</a>
     <a href="support/" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Support</a>
     <a href="#download" class="mobile-link" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 0.75rem; border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600; text-align: center; margin-top: 0.5rem; display: block;">Ladda ner appen</a>
@@ -125,7 +125,7 @@
 
   <main>
     <!-- HERO SECTION -->
-    <section class="hero-premium" id="home">
+    <section class="hero-premium">
       <div class="container">
         <div class="hero-premium-grid">
           <div class="hero-premium-copy">
@@ -169,8 +169,8 @@
       </div>
     </section>
 
-    <!-- LIVE SIMULATOR & INTERACTIVE BUTTONS -->
-    <section class="live-demo-section" id="live" style="padding: 4rem 0;">
+    <!-- LIVE SIMULATOR & INTERACTIVE BUTTONS (Mapped to id="live-income") -->
+    <section class="live-demo-section" id="live-income" style="padding: 4rem 0;">
       <div class="container">
         <div style="text-align: center; margin-bottom: 2.5rem;">
           <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0;">Se din lön växa – sekund för sekund.</h2>
@@ -203,12 +203,12 @@
             </div>
           </div>
 
-          <!-- Interactive Simulator Input Block -->
+          <!-- Interactive Simulator Input Block (Uses your real JS hook IDs) -->
           <div style="background-color: #111827; border: 1px solid #1f2937; padding: 2rem; border-radius: 24px; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
             <div>
               <label style="color: #94a3b8; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">Din timlön</label>
               <div style="position: relative; display: flex; align-items: center;">
-                <input type="number" value="250" style="background-color: #0b0f19; border: 1px solid #374151; color: white; padding: 0.75rem 1rem; border-radius: 8px; width: 100%; font-size: 1.1rem; font-weight: 600; outline: none;" onfocus="this.style.borderColor='#f97316'">
+                <input type="number" id="hourly-wage-input" value="250" style="background-color: #0b0f19; border: 1px solid #374151; color: white; padding: 0.75rem 1rem; border-radius: 8px; width: 100%; font-size: 1.1rem; font-weight: 600; outline: none;" onfocus="this.style.borderColor='#f97316'">
                 <span style="position: absolute; right: 1rem; color: #6b7280; font-size: 0.9rem;">kr/timme</span>
               </div>
             </div>
@@ -229,8 +229,8 @@
             <!-- Dynamic Values Output View -->
             <div style="background-color: #0b0f19; border: 1px solid #1f2937; padding: 1.25rem; border-radius: 12px; text-align: center;">
               <span style="color: #6b7280; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Din live-inkomst</span>
-              <div style="color: #22c55e; font-size: 1.75rem; font-weight: 700; margin: 0.25rem 0;">0,00 kr</div>
-              <div style="color: #94a3b8; font-size: 0.85rem;">+ 0,0694 kr/sek</div>
+              <div id="live-income-display" style="color: #22c55e; font-size: 1.75rem; font-weight: 700; margin: 0.25rem 0;">0,00 kr</div>
+              <div id="live-income-rate" style="color: #94a3b8; font-size: 0.85rem;">+ 0,0694 kr/sek</div>
             </div>
 
             <div style="font-size: 0.75rem; color: #4b5563; text-align: center;">
@@ -241,7 +241,7 @@
       </div>
     </section>
 
-    <!-- LIVE FEATURES GRID (PREMIUM KÄRNOMRÅDEN) -->
+    <!-- LIVE FEATURES GRID (PREMIUM KÄRNOMRÅDEN - Mapped to id="features") -->
     <section class="features-grid-section" id="features" style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem; font-family: sans-serif;">
       <div style="text-align: center; margin-bottom: 3rem;">
         <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Appens kärnområden</span>
@@ -249,41 +249,3 @@
         <p style="color: #94a3b8; font-size: 1rem; margin-top: 0.5rem;">Visuella presentationer för Live Income och dina viktigaste ekonomiska insikter.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-        <!-- 1. WALLET -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-          <div>
-            <div style="background: rgba(249, 115, 22, 0.1); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="wallet" style="color: #f97316; width: 22px; height: 22px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Wallet</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">En digital samling för kort, dokument och viktiga ekonomiska poster. Samla allt på ett säkert ställe.</p>
-          </div>
-          <a href="#download" style="color: #f97316; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Läs mer <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-
-        <!-- 2. EKONOMISK ÖVERBLICK -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#22c55e'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-          <div>
-            <div style="background: rgba(34, 197, 94, 0.1); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="line-chart" style="color: #22c55e; width: 22px; height: 22px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Ekonomisk överblick</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Saldo, transaktioner och sparmål samlade i en modern, överskådlig vy direkt i mobilen.</p>
-          </div>
-          <a href="#download" style="color: #22c55e; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Utforska vy <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-
-        <!-- 3. BUDGET & SPARANDE -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-          <div>
-            <div style="background: rgba(59, 130, 246, 0.1); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="pie-chart" style="color: #3b82f6; width: 22px; height: 22px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Budget & sparande</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Följ dina mål, se avvikelser och håll stenhård koll på framtida sparplaner automatiskt.</p>
-          </div>
-          <a href="#download" style="color: #3b82f6; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Starta sparmål <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-
-        <!-- 4. BANK -->
