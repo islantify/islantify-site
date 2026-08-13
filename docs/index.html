@@ -144,6 +144,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 0 0 10px rgba(255,255,255,0.1);
+            z-index: 110;
         }
 
         .brand span {
@@ -186,6 +187,39 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* Hamburger Meny-knapp för mobila enheter */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 110;
+            flex-direction: column;
+            gap: 6px;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        /* Animering för öppen menyknapp */
+        .mobile-menu-toggle.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--cyber-cyan);
+        }
+        .mobile-menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-menu-toggle.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--cyber-cyan);
+        }
+
         .cta-btn {
             background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%);
             color: white;
@@ -199,6 +233,7 @@
             box-shadow: 0 0 15px var(--accent-glow);
             transition: all 0.2s ease;
             border: 1px solid rgba(255,255,255,0.1);
+            z-index: 110;
         }
 
         .cta-btn:hover {
@@ -592,6 +627,7 @@
             padding: 0.5rem;
             font-family: 'Orbitron', sans-serif;
             outline: none;
+            height: 44px; /* Optimerad touchstorlek */
         }
 
         .roulette-inputs-label {
@@ -612,6 +648,7 @@
             width: 100%;
             border-bottom: 1px solid rgba(162, 85, 255, 0.4);
             padding-bottom: 4px;
+            height: 40px;
         }
 
         .wheel-outer-box {
@@ -694,6 +731,7 @@
             text-transform: uppercase;
             box-shadow: 0 0 15px rgba(162, 85, 255, 0.5);
             transition: all 0.2s;
+            height: 44px; /* God klickstorlek på mobilen */
         }
 
         .roulette-btn:hover:not(:disabled) {
@@ -767,6 +805,7 @@
             width: 100%;
             text-align: left;
             display: block;
+            min-height: 44px;
         }
 
         .terminal-query-trigger:hover {
@@ -937,6 +976,7 @@
             font-weight: 700;
             text-transform: uppercase;
             transition: all 0.2s;
+            height: 44px;
         }
 
         .pricing-btn:hover {
@@ -988,6 +1028,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 44px;
         }
 
         .faq-trigger:hover {
@@ -1201,7 +1242,7 @@
             display: inline-block;
             background: rgba(0, 240, 255, 0.08);
             color: var(--cyber-cyan);
-            padding: 0.35rem 1.2 lrem;
+            padding: 0.35rem 1.2rem;
             border-radius: 30px;
             font-size: 0.7rem;
             font-family: 'Orbitron', sans-serif;
@@ -1225,6 +1266,7 @@
             border-color: rgba(162, 85, 255, 0.25);
         }
 
+        /* --- RESPONSIV MEDIA QUERIES (Mobilanpassning) --- */
         @media (max-width: 968px) {
             .live-salary-grid, .roulette-grid, .bento-grid-container, .trust-shield-container, .pricing-grid, .footer-inner {
                 grid-template-columns: 1fr;
@@ -1234,8 +1276,46 @@
             .info-content { order: -1; }
             .drake-banner-wrapper { height: 320px; }
             .banner-intro-content h1 { font-size: 2.6rem; }
-            .main-nav { display: none; }
+            
+            /* Dölj den vanliga menyn på mobilen */
+            .main-nav { 
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(6, 9, 19, 0.95);
+                backdrop-filter: blur(25px);
+                border-bottom: 1px solid var(--glass-border);
+                padding: 1.5rem;
+                gap: 1rem;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            }
+
+            /* Visa hamburger-menyn */
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            /* Visa mobilmenyn när den är aktiv */
+            .main-nav.open {
+                display: flex;
+            }
+
+            .nav-link-btn {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
             .footer-copyright { flex-direction: column; gap: 0.8rem; text-align: center; }
+            
+            .salary-counter {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -1252,7 +1332,15 @@
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="brand">I Slantify<span>_</span></a>
-            <nav class="main-nav">
+            
+            <!-- Hamburger-knapp -->
+            <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Meny">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="navigation-bar">
                 <a href="#home" class="nav-link-btn active-dock">Home</a>
                 <a href="#livelon" class="nav-link-btn">Live Income</a>
                 <a href="#ecosystem" class="nav-link-btn">Ecosystem</a>
@@ -1400,7 +1488,7 @@
         </div>
     </section>
 
-    <!-- 3. Roulette Sektion (Kompis-system med rullgardin upp till 100 personer) -->
+    <!-- 3. Roulette Sektion -->
     <section id="roulette" class="section-container">
         <div class="roulette-grid">
             <div class="info-content">
@@ -1414,7 +1502,7 @@
                 <div class="roulette-inputs-wrapper">
                     <label class="roulette-inputs-label">Välj antal deltagare (1-100):</label>
                     <select id="roulette-count-select" class="roulette-select-field">
-                        <!-- Genereras dynamiskt via JS till 100 -->
+                        <!-- Genereras via JS -->
                     </select>
 
                     <label class="roulette-inputs-label">Skriv deltagarnas namn (separera med kommatecken):</label>
@@ -1436,7 +1524,7 @@
                     <button id="btn-pause-roulette" class="roulette-btn" style="background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);" disabled>Pausa</button>
                     <button id="btn-reset-roulette" class="roulette-btn" style="background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);">Återställ</button>
                 </div>
-                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Konfigurera gänget ovan och starta rullningen.</div>
+                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Konfigurera gänget ovan och startart rullningen.</div>
             </div>
         </div>
     </section>
@@ -1567,7 +1655,7 @@
                     <span class="faq-icon-marker">+</span>
                 </button>
                 <div class="faq-panel">
-                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så att alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
+                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm for slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så att alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
                 </div>
             </div>
         </div>
@@ -1614,16 +1702,12 @@
             <span class="feature-tag purple">Secure Sub-Space Uplink</span>
             <h2>Kontakta Supporten</h2>
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto; margin-top: 0.5rem;">
-                Skicka ett säkert meddelande direkt till supportislantify@gmail.com.
+                Skicka ett meddelande. Svaret skickas automatiskt i bakgrunden utan sidfel.
             </p>
         </div>
 
         <div style="max-width: 600px; margin: 0 auto; background: var(--card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 2.5rem; backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-            <!-- Web3Forms skickar mailet direkt till din inbox säkert utan konstigheter -->
-            <form action="https://web3forms.com" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                
-                <!-- Sätt in din gratisnyckel från web3forms.com här om du vill, annars används den publika vidarebefordringen -->
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <form id="cyber-support-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
                 <input type="hidden" name="to_email" value="supportislantify@gmail.com">
                 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
@@ -1641,9 +1725,11 @@
                     <textarea name="message" rows="5" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none; resize: vertical;"></textarea>
                 </div>
 
-                <button type="submit" style="background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%); color: white; padding: 0.9rem; border-radius: 12px; border: none; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 15px var(--accent-glow);">
+                <button id="btn-submit-contact" type="submit" style="background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%); color: white; padding: 0.9rem; border-radius: 12px; border: none; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 15px var(--accent-glow); transition: all 0.2s;">
                     Transmit Message // Secure
                 </button>
+                
+                <div id="contact-status-output" style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; text-align: center; min-height: 20px;"></div>
             </form>
         </div>
     </section>
@@ -1692,6 +1778,26 @@
     <!-- Script för att driva alla avancerade interaktiva system -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- 0. Responsiv Hamburger Mobilmeny-logik ---
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navigationBar = document.getElementById('navigation-bar');
+            const navLinksList = document.querySelectorAll('.nav-link-btn');
+
+            if (mobileToggle && navigationBar) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileToggle.classList.toggle('open');
+                    navigationBar.classList.toggle('open');
+                });
+
+                // Stäng menyn automatiskt när man klickar på ett val i mobilen
+                navLinksList.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileToggle.classList.remove('open');
+                        navigationBar.classList.remove('open');
+                    });
+                });
+            }
+
             // --- 1. Live Income Logik ---
             const counterElement = document.getElementById('salary-counter');
             const hrsElement = document.getElementById('val-hours');
@@ -1830,7 +1936,7 @@
                 });
             });
 
-            // --- 3. Avancerad Dynamisk Roulette (Hanterar 1-100 deltagare med Start/Paus/Reset) ---
+            // --- 3. Avancerad Dynamisk Roulette ---
             const countSelect = document.getElementById('roulette-count-select');
             const namesInput = document.getElementById('roulette-names-input');
             const svgElement = document.getElementById('roulette-svg');
@@ -1841,12 +1947,11 @@
             const btnPauseRoulette = document.getElementById('btn-pause-roulette');
             const btnResetRoulette = document.getElementById('btn-reset-roulette');
 
-            // Fyll dropdownen från 1 till 100
             for(let i = 1; i <= 100; i++) {
                 let opt = document.createElement('option');
                 opt.value = i;
                 opt.innerHTML = `${i} st`;
-                if(i === 4) opt.selected = true; // Förvalt värde
+                if(i === 4) opt.selected = true; 
                 countSelect.appendChild(opt);
             }
 
@@ -1860,11 +1965,9 @@
                 const targetCount = parseInt(countSelect.value);
                 let list = namesInput.value.split(',').map(n => n.trim()).filter(n => n.length > 0);
                 
-                // Om listan har färre namn än valt antal, fyll på med generiska deltagare
                 while(list.length < targetCount) {
                     list.push(`Spelare ${list.length + 1}`);
                 }
-                // Om listan har fler, kapa den vid valt antal
                 return list.slice(0, targetCount);
             }
 
@@ -1897,7 +2000,6 @@
                         
                     svgElement.insertAdjacentHTML('beforeend', `<path d="${pathData}" fill="${color}" stroke="#060913" stroke-width="1"/>`);
 
-                    // Rendera endast namn-text om det inte är för trångt (max 20 deltagare för läsbarhet)
                     if (totalSlices <= 20) {
                         const textAngle = startAngle + (anglePerSlice / 2);
                         const radText = (textAngle * Math.PI) / 180;
@@ -1920,16 +2022,14 @@
             namesInput.addEventListener('input', drawDynamicWheel);
             countSelect.addEventListener('change', drawDynamicWheel);
 
-            // Spinn-motor med intervall för att hantera pausering jämnt
             function runRouletteLoop() {
                 currentRotation += spinSpeed;
                 wheelContainer.style.transform = `rotate(${currentRotation}deg)`;
                 
                 if (spinSpeed > 0.2 && !btnPauseRoulette.disabled) {
-                    spinSpeed *= 0.985; // Gradvis inbromsning
+                    spinSpeed *= 0.985; 
                     rouletteInterval = requestAnimationFrame(runRouletteLoop);
                 } else if (spinSpeed <= 0.2) {
-                    // Stannat helt
                     isSpinning = false;
                     btnSpin.disabled = false;
                     btnPauseRoulette.disabled = true;
@@ -1939,7 +2039,6 @@
                     const participants = parseParticipants();
                     const sliceAngle = 360 / participants.length;
                     
-                    // Beräkna vinnaren baserat på rotationsvinkeln mot pilen (högst upp = 270 grader i standard SVG)
                     let normalizedAngle = (360 - (currentRotation % 360)) % 360;
                     let winningIndex = Math.floor(normalizedAngle / sliceAngle) % participants.length;
                     
@@ -1960,7 +2059,7 @@
                 rewardText.textContent = "// MATRISEN SNURRAR... VEM TAR NOTAN?";
 
                 if (spinSpeed === 0) {
-                    spinSpeed = Math.random() * 20 + 25; // Ny kraftfull startfart
+                    spinSpeed = Math.random() * 20 + 25; 
                 }
                 rouletteInterval = requestAnimationFrame(runRouletteLoop);
             });
@@ -1988,7 +2087,7 @@
                 drawDynamicWheel();
             });
 
-            // --- 4. Interaktiv AI Terminal Simulator ---
+            // --- 4. Interaktiv AI Terminal ---
             const queryButtons = document.querySelectorAll('.terminal-query-trigger');
             const responseDisplay = document.getElementById('ai-response-display');
 
@@ -2003,7 +2102,7 @@
                 });
             });
 
-            // --- 5. Interaktiv FAQ Accordion Logik ---
+            // --- 5. Interaktiv FAQ Accordion ---
             const faqTriggers = document.querySelectorAll('.faq-trigger');
             
             faqTriggers.forEach(trigger => {
@@ -2025,6 +2124,49 @@
                     }
                 });
             });
+
+            // --- 6. AJAX Kontaktformulär ---
+            const contactForm = document.getElementById('cyber-support-form');
+            const contactStatus = document.getElementById('contact-status-output');
+            const submitBtn = document.getElementById('btn-submit-contact');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); 
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = "Sending Telemetry...";
+                    contactStatus.style.color = "var(--cyber-cyan)";
+                    contactStatus.textContent = "// ESTABLISHING SECURE SUB-SPACE UPLINK...";
+
+                    const formData = new FormData(contactForm);
+                    
+                    fetch('https://web3forms.com', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Transmit Message // Secure";
+                        
+                        if (data.success) {
+                            contactStatus.style.color = "#00ffaa";
+                            contactStatus.textContent = "✔ UPLINK SUCCESSFUL: Meddelande mottaget av supportislantify@gmail.com.";
+                            contactForm.reset(); 
+                        } else {
+                            contactStatus.style.color = "#ef4444";
+                            contactStatus.textContent = "// ERROR: Misslyckades med att validera kryptering.";
+                        }
+                    })
+                    .catch(error => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Transmit Message // Secure";
+                        contactStatus.style.color = "#ef4444";
+                        contactStatus.textContent = "// LINK CRITICAL: Kontrollera din nätverksanslutning.";
+                    });
+                });
+            }
         });
     </script>
 </body>
