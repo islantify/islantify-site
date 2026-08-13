@@ -1,3 +1,5 @@
+# I Slantify - Ultimate Premium Fintech App
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -583,7 +585,7 @@
 
         }
 
-        /* --- HYPERMODERNT BENTO-GRID LAYOUT (Inspirerat av Apple & Stripe) --- */
+        /* --- HYPERMODERNT BENTO-GRID LAYOUT --- */
         .bento-grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -605,7 +607,6 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.5), var(--glass-glow);
         }
 
-        /* Neon-glöd bakom bento-korten på hover */
         .bento-card::after {
             content: "";
             position: absolute;
@@ -620,8 +621,8 @@
         }
 
         .bento-card:hover {
-
             transform: translateY(-6px);
+
             border-color: rgba(0, 240, 255, 0.3);
             box-shadow: 0 30px 60px rgba(0, 240, 255, 0.05);
         }
@@ -630,7 +631,6 @@
             opacity: 1;
         }
 
-        /* Storleksvariationer för bento (Asymmetrisk arkitektur) */
         .bento-wide { grid-column: span 2; }
         .bento-tall { grid-row: span 1; }
 
@@ -640,9 +640,9 @@
             margin-bottom: 1.2rem;
             color: var(--text);
             letter-spacing: 0.5px;
-
             display: flex;
             align-items: center;
+
             gap: 0.6rem;
         }
 
@@ -661,8 +661,8 @@
             align-items: center;
         }
 
-
         .roulette-interactive-preview {
+
             background: linear-gradient(135deg, rgba(24, 14, 43, 0.6) 0%, rgba(2, 4, 10, 0.98) 100%);
             border: 1px solid rgba(157, 78, 221, 0.35);
             border-radius: var(--radius);
@@ -681,8 +681,8 @@
             margin-bottom: 2rem;
             text-align: left;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-
         }
+
 
         .roulette-inputs-label {
             font-family: 'Orbitron', sans-serif;
@@ -701,9 +701,9 @@
             color: var(--text);
             font-size: 1rem;
             width: 100%;
-
             border-bottom: 1px solid rgba(157, 78, 221, 0.3);
             padding-bottom: 6px;
+
             transition: all 0.3s ease;
         }
 
@@ -714,20 +714,37 @@
 
         .wheel-outer-box {
             position: relative;
-            width: 240px;
-            height: 240px;
+            width: 260px;
+            height: 260px;
             margin: 0 auto 2.5rem auto;
         }
 
         .wheel-container {
             width: 100%;
-
             height: 100%;
+            position: relative;
+
+            transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
+        }
+
+        .wheel-svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
             border-radius: 50%;
             border: 8px solid #090a0f;
-            box-shadow: 0 0 35px rgba(157, 78, 221, 0.5), inset 0 0 20px rgba(0,0,0,0.8);
-            position: relative;
-            transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
+            box-shadow: 0 0 35px rgba(157, 78, 221, 0.5);
+            background: #090a0f;
+        }
+
+        .wheel-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            fill: #ffffff;
+            text-anchor: middle;
+
+            letter-spacing: 0.5px;
         }
 
         .wheel-pointer {
@@ -740,13 +757,13 @@
             border-left: 14px solid transparent;
             border-right: 14px solid transparent;
             border-top: 26px solid var(--cyber-purple);
-            z-index: 10;
-
+            z-index: 15;
             filter: drop-shadow(0 0 10px var(--cyber-purple));
         }
 
         .wheel-center-pin {
             position: absolute;
+
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -755,18 +772,18 @@
             background: #fff;
             border-radius: 50%;
             box-shadow: 0 0 15px rgba(255,255,255,0.9);
-            z-index: 11;
+            z-index: 16;
         }
 
         .roulette-btn {
             background: linear-gradient(90deg, var(--cyber-purple) 0%, #7b2cbf 100%);
             color: #fff;
-
             border: none;
             padding: 0.9rem 2.5rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 0.85rem;
+
             letter-spacing: 1.5px;
             border-radius: 30px;
             cursor: pointer;
@@ -781,12 +798,12 @@
             box-shadow: 0 0 30px rgba(157, 78, 221, 0.8);
         }
 
-
         .roulette-reward-output {
             margin-top: 1.8rem;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.9rem;
             color: var(--muted);
+
             min-height: 24px;
             border-top: 1px solid var(--glass-border);
             padding-top: 1.2rem;
@@ -801,12 +818,12 @@
             padding: 5rem 3rem;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
 
         .ai-terminal-box {
             background: #010206;
+
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 20px;
             margin-top: 3rem;
@@ -821,12 +838,12 @@
             margin-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.04);
             padding-bottom: 0.8rem;
-
         }
 
         .terminal-dot {
             width: 12px;
             height: 12px;
+
             border-radius: 50%;
             background: #ef4444;
         }
@@ -841,12 +858,12 @@
             font-size: 0.95rem;
             color: var(--text);
             cursor: pointer;
-
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             margin-bottom: 1rem;
             width: 100%;
             text-align: left;
             display: block;
+
         }
 
         .terminal-query-trigger:hover {
@@ -861,27 +878,280 @@
             border: 1px solid rgba(255,255,255,0.02);
             border-radius: 12px;
             padding: 1.5rem;
-
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             color: var(--cyber-cyan);
             min-height: 90px;
             margin-top: 2rem;
+
             border-left: 4px solid var(--cyber-cyan);
             text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
             line-height: 1.7;
         }
 
-        /* --- 5. Framtids Hologram QR / Nedladdningsmodul --- */
+        /* --- SAKNADE DELAR 1: KRYPTERAD TRUST PANEL --- */
+        .trust-shield-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .trust-card {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.02) 0%, rgba(2,4,10,0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+
+            box-shadow: var(--glass-glow);
+        }
+
+        .trust-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--cyber-cyan);
+            text-shadow: 0 0 10px var(--cyan-glow);
+        }
+
+        .trust-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .trust-card p {
+            font-size: 0.9rem;
+
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        /* --- SAKNADE DELAR 2: LYXIGA PRISKORT (PRICING) --- */
+        .pricing-section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto 6rem auto;
+        }
+
+        .pricing-card {
+
+            background: var(--card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 3.5rem;
+            position: relative;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card.premium-tier {
+            border-color: rgba(255, 122, 0, 0.3);
+            background: linear-gradient(135deg, rgba(255, 122, 0, 0.03) 0%, rgba(1,2,6,0.9) 100%);
+            box-shadow: 0 30px 60px rgba(255, 122, 0, 0.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+        }
+
+
+        .tier-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .tier-badge.orange-lbl {
+            background: rgba(255, 122, 0, 0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+
+        .pricing-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin: 1.5rem 0;
+            color: #fff;
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+
+        .price-tag span {
+            font-size: 1rem;
+
+            color: var(--muted);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+        }
+
+        .pricing-features-list {
+            list-style: none;
+            margin: 2rem 0;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 1.5rem;
+        }
+
+        .pricing-features-list li {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+        }
+
+        .pricing-features-list li::before {
+            content: "✓";
+            color: var(--cyber-cyan);
+            font-weight: bold;
+        }
+
+        .pricing-card.premium-tier .pricing-features-list li::before {
+            color: var(--accent);
+        }
+
+        .pricing-btn {
+            display: block;
+            text-align: center;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #fff;
+            padding: 0.8rem;
+
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .pricing-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .pricing-btn.btn-orange-tier {
+            background: linear-gradient(90deg, var(--accent) 0%, #ff5500 100%);
+            border: none;
+            box-shadow: 0 0 15px var(--accent-glow);
+
+        }
+
+        .pricing-btn.btn-orange-tier:hover {
+            box-shadow: 0 0 25px rgba(255, 122, 0, 0.5);
+        }
+
+        /* --- SAKNADE DELAR 3: INTERAKTIV FAQ ACCORDION --- */
+        .faq-max-width {
+            max-width: 800px;
+            margin: 0 auto 6rem auto;
+        }
+
+        .faq-item {
+            background: rgba(10, 16, 30, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+
+        }
+
+        .faq-trigger {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 1.5rem;
+            text-align: left;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .faq-trigger:hover {
+            color: var(--cyber-cyan);
+        }
+
+        .faq-icon-marker {
+            font-size: 1.2rem;
+            color: var(--muted);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(1, 2, 6, 0.4);
+        }
+
+        .faq-panel p {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Aktivt FAQ-läge via JS-klasser */
+        .faq-item.faq-open {
+            border-color: rgba(0, 240, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .faq-item.faq-open .faq-icon-marker {
+            transform: rotate(45px);
+            color: var(--cyber-cyan);
+        }
+
+        /* --- 5. Framtids QR & Nedladdningsmodul --- */
         .download-universe {
             text-align: center;
+
             background: linear-gradient(180deg, rgba(1,2,6,0) 0%, rgba(10,16,30,0.5) 100%);
             border-radius: var(--radius);
             padding: 6rem 2rem;
             border: 1px solid var(--glass-border);
             position: relative;
             box-shadow: 0 40px 80px rgba(0,0,0,0.7);
-
+            margin-bottom: 6rem;
         }
 
         .qr-wrapper-main {
@@ -894,6 +1164,7 @@
 
         .qr-card-futuristic {
             background: rgba(1, 2, 6, 0.85);
+
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             padding: 2.5rem;
@@ -901,7 +1172,6 @@
             position: relative;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: var(--glass-glow), 0 20px 40px rgba(0,0,0,0.6);
-
         }
 
         .qr-card-futuristic:hover {
@@ -914,6 +1184,7 @@
             width: 170px;
             height: 170px;
             margin: 0 auto 1.8rem auto;
+
             border: 1px solid rgba(0, 240, 255, 0.4);
             border-radius: 14px;
             position: relative;
@@ -921,7 +1192,6 @@
             align-items: center;
             justify-content: center;
             background: rgba(0, 240, 255, 0.02);
-
             overflow: hidden;
             padding: 12px;
         }
@@ -934,6 +1204,7 @@
                 linear-gradient(90deg, transparent 4px, rgba(0, 240, 255, 0.12) 4px, rgba(0, 240, 255, 0.12) 6px, transparent 6px),
                 linear-gradient(0deg, transparent 4px, rgba(0, 240, 255, 0.12) 4px, rgba(0, 240, 255, 0.12) 6px, transparent 6px);
             background-size: 10px 10px, 10px 10px, 10px 10px;
+
             position: relative;
             border: 4px solid rgba(0, 240, 255, 0.8);
         }
@@ -941,7 +1212,6 @@
         .cyber-qr-matrix::before {
             content: "";
             position: absolute;
-
             top: 2px;
             left: 2px;
             width: 32px;
@@ -954,6 +1224,7 @@
         .cyber-qr-matrix::after {
             content: "";
             position: absolute;
+
             bottom: 2px;
             left: 2px;
             width: 32px;
@@ -961,7 +1232,6 @@
             border: 4px solid var(--cyber-cyan);
             background: var(--bg);
             box-shadow: 0 0 10px var(--cyber-cyan);
-
         }
 
         .qr-top-right-finder {
@@ -974,6 +1244,7 @@
             background: var(--bg);
             box-shadow: 0 0 10px var(--cyber-cyan);
             z-index: 5;
+
         }
 
         .qr-overlay-text {
@@ -981,7 +1252,6 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             font-weight: 700;
-
             color: var(--bg);
             background: var(--cyber-cyan);
             padding: 0.15rem 0.5rem;
@@ -994,13 +1264,13 @@
             position: absolute;
             width: 100%;
             height: 2px;
+
             background: var(--cyber-cyan);
             box-shadow: 0 0 15px var(--cyber-cyan);
             top: 0;
             z-index: 12;
             animation: scan-line 3.2s linear infinite;
         }
-
 
         @keyframes scan-line {
             0% { top: 0%; }
@@ -1015,13 +1285,94 @@
             margin-bottom: 0.4rem;
         }
 
+
         .qr-card-futuristic p {
             font-size: 0.85rem;
             color: var(--muted);
         }
 
-        /* --- Globala Premium UI taggar --- */
+        /* --- SAKNADE DELAR 4: PROFESSIONAL ULTRA FOOTER --- */
+        .site-footer {
+            border-top: 1px solid var(--glass-border);
+            background: rgba(1, 2, 6, 0.8);
+            padding: 4.5rem 2rem 2rem 2rem;
+            backdrop-filter: blur(20px);
+        }
 
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 4rem;
+
+        }
+
+        .footer-brand-col h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.3rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand-col h4 span {
+            color: var(--cyber-cyan);
+        }
+
+        .footer-brand-col p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 280px;
+
+        }
+
+        .footer-links-col h5 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .footer-links-col ul {
+            list-style: none;
+        }
+
+        .footer-links-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+
+        .footer-links-col ul li a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links-col ul li a:hover {
+            color: var(--cyber-cyan);
+        }
+
+        .footer-copyright {
+            max-width: var(--max-width);
+            margin: 4rem auto 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            justify-content: space-between;
+
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.25);
+            font-weight: 300;
+        }
+
+        /* --- Globala Premium UI taggar --- */
         .feature-tag {
             display: inline-block;
             background: rgba(0, 240, 255, 0.05);
@@ -1034,6 +1385,7 @@
             letter-spacing: 2px;
             margin-bottom: 1.4rem;
             border: 1px solid rgba(0, 240, 255, 0.15);
+
             text-transform: uppercase;
             text-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
         }
@@ -1041,7 +1393,6 @@
         .feature-tag.gold {
             background: rgba(245, 158, 11, 0.05);
             color: var(--gold);
-
             border-color: rgba(245, 158, 11, 0.15);
         }
 
@@ -1052,8 +1403,9 @@
         }
 
         @media (max-width: 968px) {
-            .live-salary-grid, .roulette-grid, .bento-grid-container {
+            .live-salary-grid, .roulette-grid, .bento-grid-container, .trust-shield-container, .pricing-grid, .footer-inner {
                 grid-template-columns: 1fr;
+
                 gap: 3rem;
             }
             .bento-wide { grid-column: span 1; }
@@ -1061,7 +1413,7 @@
             .drake-banner-wrapper { height: 350px; }
             .banner-intro-content h1 { font-size: 3rem; }
             .main-nav { display: none; }
-
+            .footer-copyright { flex-direction: column; gap: 1rem; text-align: center; }
         }
     </style>
 </head>
@@ -1073,6 +1425,7 @@
         <div class="glow-node glow-2"></div>
         <div class="glow-node glow-3"></div>
     </div>
+
     <div class="stars-container"></div>
 
     <!-- Navigationsmeny -->
@@ -1081,7 +1434,6 @@
             <a href="#" class="brand">I Slantify<span>_</span></a>
             <nav class="main-nav">
                 <a href="#home" class="nav-link-btn active-dock">Home Hub</a>
-
                 <a href="#livelon" class="nav-link-btn">Live Income</a>
                 <a href="#ecosystem" class="nav-link-btn">Ecosystem</a>
                 <a href="#roulette" class="nav-link-btn">Roulette</a>
@@ -1093,6 +1445,7 @@
 
     <!-- 1. Ren Cinematiskt Ultra Banner -->
     <section id="home" class="drake-banner-section">
+
         <div class="drake-banner-wrapper">
             <video class="drake-banner-video" autoplay loop muted playsinline>
                 <source src="assets/dragon-banner.mp4" type="video/mp4">
@@ -1100,7 +1453,6 @@
             </video>
         </div>
     </section>
-
 
     <!-- Cinematiskt introduktionstext -->
     <div class="banner-intro-content">
@@ -1113,6 +1465,7 @@
     <section class="section-container">
         <div class="bento-grid-container">
             <div class="bento-card bento-wide">
+
                 <h3>🏠 Home – Matrix Core</h3>
                 <p>Din centrala ledningscentral. Följ omedelbart ditt aktuella saldo, kassaflöden, sparmål och dynamiska budgetvarningar i ett vackert och högpresterande gränssnitt utformat för den moderna människan.</p>
             </div>
@@ -1121,7 +1474,6 @@
                 <p>Det autonoma nätverket. Din kalender, dina schemalagda arbetspass och krypterade transaktionsdata smälter samman för att förutse din likviditet.</p>
             </div>
         </div>
-
     </section>
 
     <!-- 2. Live Lön Sektion (Video + Demo tillsammans med Info) -->
@@ -1133,6 +1485,7 @@
                 <div class="video-box-premium">
                     <video class="video-player" controls autoplay loop muted playsinline>
                         <source src="assets/live lön video.mp4" type="video/mp4">
+
                         Din webbläsare stödjer inte videotaggen.
                     </video>
                 </div>
@@ -1141,7 +1494,6 @@
                 <div class="live-salary-demo-box">
                     <div class="demo-title">Live Income stream // verified</div>
                     
-
                     <!-- Dynamisk Timlön Inmatningsmodul -->
                     <div class="salary-input-wrapper">
                         <span class="salary-input-label">Ange din timlön:</span>
@@ -1153,6 +1505,7 @@
 
                     <div class="counter-row">
                         <div id="salary-counter" class="salary-counter">0.00</div>
+
                         <div class="currency">SEK</div>
                     </div>
 
@@ -1161,7 +1514,6 @@
                         <div class="time-block">
                             <div id="val-hours" class="time-val">00</div>
                             <div class="time-lbl">Hrs</div>
-
                         </div>
                         <div class="time-block">
                             <div id="val-minutes" class="time-val">00</div>
@@ -1173,6 +1525,7 @@
                         </div>
                     </div>
 
+
                     <!-- Kontrollknappar för demot -->
                     <div class="demo-controls">
                         <button id="btn-start" class="control-btn btn-start">Execute</button>
@@ -1180,7 +1533,6 @@
                         <button id="btn-stop" class="control-btn btn-stop" disabled>Freeze</button>
                         <button id="btn-reset" class="control-btn">Reset</button>
                     </div>
-
 
                     <div class="demo-footer-text">
                         <div id="demo-status-dot" class="pulse-dot stopped"></div>
@@ -1193,7 +1545,8 @@
             <div class="info-content">
                 <span class="feature-tag">Time-Injected Income</span>
                 <h2>Följ din lön växa <span>sekund för sekund</span></h2>
-                <p>Live Income upphäver den traditionella månadsväntan. Genom att spåra dina aktiva arbetspass ger I Slantify dig en visuell algoritmisk ström av din intjäning i exakt realtid.</p>
+
+                <p>Live Income upphäver den traditionella månadsväntan. Genom att spåra dina aktiva arbetspass ger I Slantify gid en visuell algoritmisk ström av din intjäning i exakt realtid.</p>
                 <p>Vårt avancerade protokoll beräknar och projicerar:</p>
                 <ul>
                     <li>Brutto- & Nettovariabler</li>
@@ -1201,7 +1554,6 @@
                     <li>Autonoma löneprognoser</li>
                     <li>Ackumulerade pensionsindex</li>
                 </ul>
-
                 <p><strong>Live Income visar vad du faktiskt bygger upp genom ditt arbete – varje ögonblick du arbetar.</strong></p>
             </div>
 
@@ -1213,6 +1565,7 @@
         <div class="info-content" style="margin-bottom: 4rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
             <span class="feature-tag">Unified Infrastructure</span>
             <h2>Ett nätverk. Helt utan friktion.</h2>
+
         </div>
         <div class="bento-grid-container">
             <div class="bento-card">
@@ -1221,18 +1574,18 @@
             </div>
             <div class="bento-card">
                 <h3>👛 Universal Wallet & NFC</h3>
-
                 <p>Förvara dina betalkort virtuellt och betala kontaktlöst via telefonens NFC-chip. Integrerar lojalitetskoder och QR-biljetter.</p>
             </div>
             <div class="bento-card">
                 <h3>📅 Chrono Calendar</h3>
-                <p>Tid och kapital synkroniserat. Kalendern mäter dina arbetspass så att din realtidsinkomst korrigeras med absolut precision.</p>
+                <p>Tid och kapital synkroniserat. Kalendern mäter dina arbetspass så datan korrigeras med absolut precision.</p>
             </div>
             <div class="bento-card bento-wide">
                 <h3>📊 Predictive Money Hub</h3>
                 <p>Bryt ner dina utgiftsmönster. Islantify analyserar din konsumtion och bygger prediktiva kalkyler som visar hur dagens köp påverkar din framtida likviditet, sparmål och buffertar.</p>
             </div>
             <div class="bento-card">
+
                 <h3>🎯 Smart Savings</h3>
                 <p>Skapa sparmål för resor, bostad eller buffert och se nätverket allokera medel automatiskt.</p>
             </div>
@@ -1241,10 +1594,9 @@
                 <p>Genererar ett holistiskt hälsindex över din personliga ekonomi över tid.</p>
             </div>
         </div>
-
     </section>
 
-    <!-- 3. Roulette Sektion (Vänner-system för Notan) -->
+    <!-- 3. Roulette Sektion (Vänner-system med Text inuti hjulet) -->
     <section id="roulette" class="section-container">
         <div class="roulette-grid">
             
@@ -1253,7 +1605,8 @@
                 <span class="feature-tag purple">Social Splitting Hub</span>
                 <h2>Vem betalar notan? <span>Slumpa via Roulette</span></h2>
                 <p>I Slantify Roulette handlar inte bara om att vinna räntebonusar. Använd funktionen direkt i restaurangen eller baren med ditt kompisgäng för att lösa notan på ett interaktivt och spännande sätt.</p>
-                <p>Skriv in era namn i modulen till höger, separerade med kommatecken. Vår slumpgenerator fördelar hjulet rättvist och väljer ut vem som plockar upp notan biometriskt via appen.</p>
+
+                <p>Skriv in era namn i modulen till höger, separerade med kommatecken. Vår slumpgenerator fördelar hjulet rättvist, målar bitarna och renderar namnen direkt i cirkelelementet live.</p>
             </div>
 
             <!-- Höger kolumn: Interaktivt Roulette Hjul med kompis-lista -->
@@ -1261,14 +1614,18 @@
                 
                 <!-- Inmatningsfält för vänner -->
                 <div class="roulette-inputs-wrapper">
-
                     <label class="roulette-inputs-label">Skriv deltagare (separera med kommatecken):</label>
                     <input id="roulette-names-input" type="text" class="roulette-input-field" value="Du, Johan, Maria, Ahmed">
                 </div>
 
                 <div class="wheel-outer-box">
                     <div class="wheel-pointer"></div>
-                    <div id="roulette-wheel" class="wheel-container">
+                    <div id="wheel-container" class="wheel-container">
+                        <!-- SVG genereras dynamiskt av JavaScript här för att hantera text på tårtbitar -->
+                        <svg id="roulette-svg" class="wheel-svg" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="95" fill="#090a0f" />
+                        </svg>
+
                         <div class="wheel-center-pin"></div>
                     </div>
                 </div>
@@ -1281,7 +1638,6 @@
     </section>
 
     <!-- 4. Slantify AI Quantum Hub -->
-
     <section id="ai" class="section-container">
         <div class="ai-quantum-section">
             <div class="info-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -1289,6 +1645,7 @@
                 <h2>Slantify AI – Autonom Rådgivning</h2>
                 <p style="margin-top: 1rem; font-weight: 300;">Kommunicera direkt med din personliga finansiella AI. Klicka på en telemetrifråga nedan för att simulera AI:ns neurala beräkningssvar.</p>
                 
+
                 <div class="ai-terminal-box">
                     <div class="terminal-header">
                         <div class="terminal-dot"></div>
@@ -1301,7 +1658,6 @@
                         &gt; "Hur mycket har jag spenderat på mat den här månaden?"
                     </button>
                     <button class="terminal-query-trigger" data-response="[PROGNOS]: Med din nuvarande realtids-inkomst på 200 kr/h och ett stabilt sparflöde kommer du att nå ditt sparmål (Resa) om exakt 42 dagar, 6 timmar och 12 minuter.">
-
                         &gt; "När uppnår jag mitt sparmål baserat på nuvarande live-tempo?"
                     </button>
                     <button class="terminal-query-trigger" data-response="[AUTONOM BUDGET]: Skapar kalkyl baserat på historisk telemetri... Jag föreslår att du låser 15% av nästa veckas realtidslön i din Wallet för att absorbera den kommande fasta elräkningen utan likviditetstapp.">
@@ -1309,6 +1665,7 @@
                     </button>
 
                     <!-- Resulterande skärm -->
+
                     <div id="ai-response-display" class="terminal-response-screen">
                         // VÄNTAR PÅ TELEMETRICOMMAND... Klicka på en finansiell fråga ovan för att initiera neural exekvering.
                     </div>
@@ -1317,11 +1674,124 @@
         </div>
     </section>
 
+    <!-- NY SEKTION: TRUST & SÄKERHET -->
+    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 5rem;">
+        <div class="info-content" style="text-align: center; margin-bottom: 3.5rem;">
+            <span class="feature-tag">Krypterad Säkerhet</span>
+            <h2>Dina pengar är trygga hos oss</h2>
+        </div>
+        <div class="trust-shield-container">
+            <div class="trust-card">
+                <div class="trust-icon">🛡️</div>
+                <h4>Banknivå-Kryptering</h4>
+                <p>All dataöverföring och synkronisering skyddas med 256-bitars AES-kryptering – samma militära säkerhetsstandard som storbankerna använder.</p>
+
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">🔑</div>
+                <h4>Säker BankID-anslutning</h4>
+                <p>Vi lagrar aldrig dina bankuppgifter eller lösenord. Autentisering sker direkt via officiella, krypterade BankID-protokoll.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">⚖️</div>
+                <h4>Reglerad Fintech</h4>
+                <p>Nätverket är byggt under strikt regelefterlevnad för finansiella system och följer alla europeiska dataskyddslagar (GDPR).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NY SEKTION: LYXIGA PRISPLANER (PRICING) -->
+    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 5rem;">
+        <div class="pricing-section-title">
+            <span class="feature-tag gold">Flexibla Medlemskap</span>
+            <h2 style="font-family:'Orbitron',sans-serif; font-size: 2.5rem;">Välj din finansiella kapacitet</h2>
+
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Free plan -->
+            <div class="pricing-card">
+                <div class="tier-badge">Standard</div>
+                <h4>Free Matrix</h4>
+                <p style="color: var(--muted); font-size: 0.9rem; font-weight: 300;">För personlig grundöverblick</p>
+                <div class="price-tag">0 kr <span>/ mån</span></div>
+                
+                <ul class="pricing-features-list">
+                    <li>Biometrisk Bank Sync (1 bankkonto)</li>
+                    <li>Live Income realtidsmätare</li>
+                    <li>Standard Wallet (Kort & Kvitton)</li>
+                    <li>3 Roulette-snurr per månad</li>
+                </ul>
+                <a href="#download" class="pricing-btn">Initiera Gratis</a>
+            </div>
+
+
+            <!-- Premium plan -->
+            <div class="pricing-card premium-tier">
+                <div class="tier-badge orange-lbl">Most Popular</div>
+                <h4>Quantum Pro</h4>
+                <p style="color: var(--muted); font-size: 0.9rem; font-weight: 300;">För maximal ekonomisk optimering</p>
+                <div class="price-tag">49 kr <span>/ mån</span></div>
+                
+                <ul class="pricing-features-list">
+                    <li>Obegränsade bankkonton & kortanslutningar</li>
+                    <li>Live Income med avancerad OB/pensionsindex</li>
+                    <li>Fullständig Slantify AI Neural Engine (Frågor utan slut)</li>
+                    <li>Obegränsad Roulette (Inklusive Notan-delning)</li>
+                    <li>Prediktiva Money Hub budgetprognoser</li>
+                </ul>
+                <a href="#download" class="pricing-btn btn-orange-tier">Uppgradera till Pro</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- NY SEKTION: INTERAKTIV FAQ -->
+    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 5rem;">
+        <div class="info-content" style="text-align: center; margin-bottom: 4rem;">
+            <span class="feature-tag purple">Hjälpcenter</span>
+            <h2>Vanliga frågor om I Slantify</h2>
+        </div>
+        
+        <div class="faq-max-width">
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <span>Hur fungerar Live Income-beräkningen?</span>
+                    <span class="faq-icon-marker">+</span>
+                </button>
+                <div class="faq-panel">
+                    <p>Live Income kopplas samman med ditt angivna arbetsschema i Chrono Calendar och din verifierade timlön. Systemet kalkylerar din brutto- och nettoinkomst i realtid och fördelar ut summan per millisekund så att du visuellt kan följa kapitalet du bygger upp medan du arbetar.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-trigger">
+                    <span>Är det säkert att koppla mina riktiga bankkonton?</span>
+                    <span class="faq-icon-marker">+</span>
+                </button>
+                <div class="faq-panel">
+                    <p>Ja, absolut. I Slantify använder avancerade, skrivskyddade öppna bank-API:er. Det innebär att appen bara kan läsa och kategorisera dina transaktioner för att ge dig en ekonomisk helhetsbild. Inga transaktioner kan någonsin godkännas eller flyttas utan din personliga BankID-signering.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <span>Kan Roulette-funktionen garantera vem som betalar notan?</span>
+                    <span class="faq-icon-marker">+</span>
+                </button>
+                <div class="faq-panel">
+                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär att alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <!-- 5. Framtids QR & Nedladdningsmodul -->
     <section id="download" class="section-container">
         <div class="download-universe">
             <span class="feature-tag gold">Secure Telemetry Link</span>
-
             <h2 style="font-family:'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Ladda ner applikationen</h2>
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto;">Skanna matris-koden med din mobila enhets optiska sensor för att omedelbart initiera krypterad nedladdning.</p>
             
@@ -1335,13 +1805,13 @@
                         </div>
                         <div class="qr-overlay-text">iOS</div>
                     </div>
+
                     <h4>App Store</h4>
                     <p>För Apple iPhone</p>
                 </div>
 
                 <!-- Android QR Kort -->
                 <div class="qr-card-futuristic">
-
                     <div class="qr-hologram-placeholder">
                         <div class="qr-scanner-line"></div>
                         <div class="cyber-qr-matrix">
@@ -1356,12 +1826,55 @@
         </div>
     </section>
 
+
+    <!-- NY SEKTION: PROFESSIONAL FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand-col">
+                <h4>I Slantify<span>_</span></h4>
+                <p>Nästa generations ekosystem för intelligent personlig ekonomi. Synkroniserat, automatiserat och helt utan friktion.</p>
+            </div>
+            <div class="footer-links-col">
+                <h5>Plattform</h5>
+                <ul>
+                    <li><a href="#home">Home Core</a></li>
+                    <li><a href="#livelon">Live Income</a></li>
+                    <li><a href="#ecosystem">Bento Ecosystem</a></li>
+                    <li><a href="#roulette">Social Roulette</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <h5>Säkerhet</h5>
+                <ul>
+
+                    <li><a href="#">Integritetspolicy</a></li>
+                    <li><a href="#">Användarvillkor</a></li>
+                    <li><a href="#">GDPR Compliance</a></li>
+                    <li><a href="#">Kryptering</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <h5>Kontakt</h5>
+                <ul>
+                    <li><a href="#">Support Center</a></li>
+                    <li><a href="#">Utvecklar-API</a></li>
+                    <li><a href="#">Presskit</a></li>
+                    <li><a href="#">Fintech Network</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div>© 2026 I Slantify Network Inc. All rights reserved. Encrypted Connection Active.</div>
+            <div>Designed for the Future.</div>
+
+        </div>
+    </footer>
+
     <!-- Script för att driva alla avancerade interaktiva system -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- 1. Live Income Logik ---
             const counterElement = document.getElementById('salary-counter');
-
             const hrsElement = document.getElementById('val-hours');
             const minsElement = document.getElementById('val-minutes');
             const secsElement = document.getElementById('val-seconds');
@@ -1373,6 +1886,7 @@
             
             const salaryInput = document.getElementById('hourly-salary-input');
             const statusDot = document.getElementById('demo-status-dot');
+
             const statusText = document.getElementById('demo-status-text');
 
             let timerInterval = null;
@@ -1381,7 +1895,6 @@
 
             function getIncomePerMs() {
                 const hourlySalary = parseFloat(salaryInput.value) || 0;
-
                 return hourlySalary / 3600 / 1000;
             }
 
@@ -1393,6 +1906,7 @@
 
                 hrsElement.textContent = hours.toString().padStart(2, '0');
                 minsElement.textContent = minutes.toString().padStart(2, '0');
+
                 secsElement.textContent = seconds.toString().padStart(2, '0');
 
                 counterElement.textContent = currentSalary.toFixed(2);
@@ -1400,7 +1914,6 @@
 
             btnStart.addEventListener('click', () => {
                 if (timerInterval) return;
-
 
                 btnStart.disabled = true;
                 btnPause.disabled = false;
@@ -1413,6 +1926,7 @@
                 let lastTimestamp = performance.now();
 
                 timerInterval = setInterval(() => {
+
                     const now = performance.now();
                     const delta = now - lastTimestamp;
                     lastTimestamp = now;
@@ -1421,7 +1935,6 @@
                     currentSalary += delta * getIncomePerMs();
 
                     updateDisplay();
-
                 }, 50);
             });
 
@@ -1433,6 +1946,7 @@
 
                 btnStart.disabled = false;
                 btnPause.disabled = true;
+
                 
                 statusDot.className = "pulse-dot paused";
                 statusText.textContent = "Telemetriström pausad. Sparade framsteg frysta i Matrix.";
@@ -1441,7 +1955,6 @@
             btnStop.addEventListener('click', () => {
                 if (timerInterval) {
                     clearInterval(timerInterval);
-
                     timerInterval = null;
                 }
 
@@ -1454,6 +1967,7 @@
                 statusText.textContent = "Simulering fryst. Redo för ny exekvering eller ändring av timlön.";
             });
 
+
             btnReset.addEventListener('click', () => {
                 if (timerInterval) {
                     clearInterval(timerInterval);
@@ -1461,7 +1975,6 @@
                 }
 
                 totalMilliseconds = 0;
-
                 currentSalary = 0.00;
 
                 btnStart.disabled = false;
@@ -1475,16 +1988,15 @@
                 updateDisplay();
             });
 
+
             // --- 2. Aktiv Meny-dockningsmarkör vid Scroll ---
             const navLinks = document.querySelectorAll('.nav-link-btn');
             const sections = document.querySelectorAll('section');
 
             window.addEventListener('scroll', () => {
                 let current = '';
-
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
                     if (pageYOffset >= (sectionTop - 150)) {
                         current = section.getAttribute('id');
                     }
@@ -1496,17 +2008,17 @@
                         link.classList.add('active-dock');
                     }
                 });
+
             });
 
-            // --- 3. Dynamisk Roulette Logik med Vänner-system ---
+            // --- 3. Avancerad Dynamisk Roulette med Namn-Rendering ---
             const btnSpin = document.getElementById('btn-spin-roulette');
-            const wheel = document.getElementById('roulette-wheel');
-
+            const wheelContainer = document.getElementById('wheel-container');
+            const svgElement = document.getElementById('roulette-svg');
             const rewardText = document.getElementById('roulette-reward-text');
             const namesInput = document.getElementById('roulette-names-input');
 
             const sliceColors = ['#ef4444', '#9d4edd', '#ff7a00', '#00f0ff', '#10b981', '#f59e0b', '#ec4899', '#3b82f6'];
-
             let isSpinning = false;
             let currentRotation = 0;
 
@@ -1516,24 +2028,57 @@
                     .filter(name => name.length > 0);
             }
 
+
             function drawDynamicWheel() {
                 const participants = parseParticipants();
+                svgElement.innerHTML = ''; 
+
                 if (participants.length === 0) return;
 
-                const sliceAngle = 360 / participants.length;
-
-                let gradientString = 'conic-gradient(';
+                const totalSlices = participants.length;
+                const anglePerSlice = 360 / totalSlices;
 
                 participants.forEach((name, index) => {
                     const color = sliceColors[index % sliceColors.length];
-                    const startAngle = index * sliceAngle;
-                    const endAngle = (index + 1) * sliceAngle;
-                    gradientString += `${color} ${startAngle}deg ${endAngle}deg`;
-                    if (index < participants.length - 1) gradientString += ', ';
-                });
+                    
+                    const startAngle = index * anglePerSlice;
+                    const endAngle = (index + 1) * anglePerSlice;
+                    
+                    const radStart = (startAngle * Math.PI) / 180;
+                    const radEnd = (endAngle * Math.PI) / 180;
+                    
+                    const x1 = 100 + 95 * Math.cos(radStart);
 
-                gradientString += ')';
-                wheel.style.background = gradientString;
+                    const y1 = 100 + 95 * Math.sin(radStart);
+                    const x2 = 100 + 95 * Math.cos(radEnd);
+                    const y2 = 100 + 95 * Math.sin(radEnd);
+                    
+                    const largeArcFlag = anglePerSlice > 180 ? 1 : 0;
+                    
+                    const pathData = totalSlices === 1 
+                        ? `<circle cx="100" cy="100" r="95" fill="${color}" />`
+                        : `M 100 100 L ${x1} ${y1} A 95 95 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
+                        
+                    svgElement.insertAdjacentHTML('beforeend', `<path d="${pathData}" fill="${color}" stroke="#090a0f" stroke-width="2"/>`);
+
+                    const textAngle = startAngle + (anglePerSlice / 2);
+                    const radText = (textAngle * Math.PI) / 180;
+                    
+                    const textX = 100 + 58 * Math.cos(radText);
+                    const textY = 100 + 58 * Math.sin(radText);
+                    
+                    let rotation = textAngle;
+
+                    
+                    const textNode = `
+                        <text x="${textX}" y="${textY + 4}" 
+                              class="wheel-text" 
+                              transform="rotate(${rotation}, ${textX}, ${textY})">
+                            ${name}
+                        </text>
+                    `;
+                    svgElement.insertAdjacentHTML('beforeend', textNode);
+                });
             }
 
             drawDynamicWheel();
@@ -1541,9 +2086,9 @@
 
             btnSpin.addEventListener('click', () => {
                 const participants = parseParticipants();
-
                 if (participants.length === 0) {
                     rewardText.textContent = "// ERROR: Inga giltiga deltagare registrerade.";
+
                     return;
                 }
                 if (isSpinning) return;
@@ -1554,15 +2099,16 @@
 
                 const sliceAngle = 360 / participants.length;
                 const winningIndex = Math.floor(Math.random() * participants.length);
+                
                 const targetAngle = 360 - (winningIndex * sliceAngle + (sliceAngle / 2));
                 const totalSpinRotation = 1800 + targetAngle;
                 currentRotation += totalSpinRotation;
                 
-                wheel.style.transform = `rotate(${currentRotation}deg)`;
+                wheelContainer.style.transform = `rotate(${currentRotation}deg)`;
 
                 setTimeout(() => {
-
                     isSpinning = false;
+
                     namesInput.disabled = false;
                     const loser = participants[winningIndex];
                     rewardText.textContent = `🚨 NOTAN TILLDELAD: Det blev ${loser.toUpperCase()} som bjuder gänget ikväll!`;
@@ -1581,7 +2127,34 @@
                     setTimeout(() => {
                         responseDisplay.textContent = response;
                     }, 600);
+                });
 
+            });
+
+            // --- 5. Interaktiv FAQ Accordion Logik ---
+            const faqTriggers = document.querySelectorAll('.faq-trigger');
+            
+            faqTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const item = trigger.parentNode;
+                    const panel = trigger.nextElementSibling;
+                    
+                    // Om den redan är öppen, stäng den
+                    if (item.classList.contains('faq-open')) {
+                        item.classList.remove('faq-open');
+                        panel.style.maxHeight = '0';
+                    } else {
+                        // Stäng eventuellt andra öppna FAQ-objekt först
+                        document.querySelectorAll('.faq-item').forEach(i => {
+                            i.classList.remove('faq-open');
+                            i.querySelector('.faq-panel').style.maxHeight = '0';
+
+                        });
+                        
+                        // Öppna klickad panel
+                        item.classList.add('faq-open');
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
                 });
             });
         });
