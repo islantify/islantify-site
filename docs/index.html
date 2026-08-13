@@ -1,6 +1,47 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head> <!-- Lägg till detta i din <head> för att ladda ikoner enkelt -->
+<script src="https://unpkg.com"></script>
+
+<header style="background-color: #0b0f19; border-bottom: 1px solid #1e293b; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50;">
+  <!-- Logo -->
+  <div style="display: flex; align-items: center; gap: 0.5rem;">
+    <i data-lucide="trending-up" style="color: #f97316; width: 24px; height: 24px;"></i>
+    <span style="color: #ffffff; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em;">Slantify</span>
+  </div>
+
+  <!-- Navigation Links (Huvudlänkar) -->
+  <nav style="display: flex; gap: 2rem; align-items: center;">
+    <a href="#home" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Hem</a>
+    <a href="#features" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Funktioner</a>
+    <a href="#live" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 0.25rem;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
+      Live Income <span style="width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
+    </a>
+    <a href="#premium" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Premium</a>
+    <a href="#support" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Support</a>
+  </nav>
+
+  <!-- CTA Knapp (Ladda ner) -->
+  <div>
+    <a href="#download" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 9999px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <i data-lucide="download" style="width: 16px; height: 16px;"></i> Ladda ner
+    </a>
+  </div>
+</header>
+
+<!-- Skript längst ner i bodyn för att aktivera ikonerna -->
+<script>
+  lucide.createIcons();
+</script>
+
+<style>
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  }
+</style>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>I Slantify — Din lön. I realtid.</title>
