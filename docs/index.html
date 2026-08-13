@@ -1,868 +1,289 @@
 <!doctype html>
 <html lang="en">
-<head> <!-- Lägg till detta i din <head> för att ladda ikoner enkelt -->
-<script src="https://unpkg.com"></script>
-
-<header style="background-color: #0b0f19; border-bottom: 1px solid #1e293b; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50;">
-  <!-- Logo -->
-  <div style="display: flex; align-items: center; gap: 0.5rem;">
-    <i data-lucide="trending-up" style="color: #f97316; width: 24px; height: 24px;"></i>
-    <span style="color: #ffffff; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em;">Slantify</span>
-  </div>
-
-  <!-- Navigation Links (Huvudlänkar) -->
-  <nav style="display: flex; gap: 2rem; align-items: center;">
-    <a href="#home" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Hem</a>
-    <a href="#features" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Funktioner</a>
-    <a href="#live" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 0.25rem;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
-      Live Income <span style="width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
-    </a>
-    <a href="#premium" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Premium</a>
-    <a href="#support" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Support</a>
-  </nav>
-
-  <!-- CTA Knapp (Ladda ner) -->
-  <div>
-    <a href="#download" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 9999px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      <i data-lucide="download" style="width: 16px; height: 16px;"></i> Ladda ner
-    </a>
-  </div>
-</header>
-
-<!-- Skript längst ner i bodyn för att aktivera ikonerna -->
-<script>
-  lucide.createIcons();
-</script>
-
-<style>
-  @keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-  }
-</style>
-
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>I Slantify — Din lön. I realtid.</title>
   <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
+  
+  <!-- Open Graph / Social Media -->
   <meta property="og:title" content="I Slantify — Din lön. I realtid.">
   <meta property="og:description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://islantify.com/">
-  <link rel="canonical" href="https://islantify.com/">
+  <meta property="og:url" content="https://islantify.com">
+  <link rel="canonical" href="https://islantify.com">
   <meta name="theme-color" content="#071018">
   <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Assets & Icons -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="assets/styles.css">
+  
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="assets/config.js" defer></script>
   <script src="assets/qrcode.min.js" defer></script>
+
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    .live-demo-layout {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+    .live-demo-info {
+      padding: 28px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,170,55,.18);
+      background: linear-gradient(145deg, #171a20, #0b1016);
+      box-shadow: 0 20px 50px rgba(0,0,0,.28);
+    }
+    .info-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      opacity: .65;
+      margin-bottom: 12px;
+    }
+    .live-demo-info h3 { margin: 0 0 12px; font-size: 30px; }
+    .live-demo-info p { margin: 0 0 24px; line-height: 1.6; opacity: .75; }
+    .info-points { display: grid; gap: 14px; }
+    .info-points div {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .info-points strong { display: block; font-size: 12px; letter-spacing: .08em; margin-bottom: 5px; }
+    .info-points span { display: block; font-size: 13px; line-height: 1.45; opacity: .65; }
+    .live-demo-layout .live-demo-card { width: 100%; max-width: none !important; margin: 0 !important; }
+
+    /* Responsive Navbar Styling */
+    @media (max-width: 768px) {
+      .desktop-nav { display: none !important; }
+      .mobile-menu-btn { display: flex !important; }
+      .live-demo-layout { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/"><img src="assets/icon-drake.svg" alt="I Slantify drake" class="drake-icon" aria-hidden="true"><span>I Slantify</span></a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="#features">Features</a>
-        <a href="#live-income">Live Income</a>
-        <a href="download/">Download</a>
-        <a href="#premium">Premium</a>
-        <a href="support/">Support</a>
-        <a href="privacy/">Privacy</a>
-        <a href="privacy-choices/">Privacy Choices</a>
-        <a href="terms/">Terms</a>
-        <a href="contact/">Contact</a>
-      </nav>
-      <button class="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+
+  <!-- FIXED & MERGED SITE HEADER WITH RESPONSIVE MOBILE TOGGLE -->
+  <header style="background-color: #0b0f19; border-bottom: 1px solid #1e293b; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; font-family: sans-serif;">
+    <!-- Logo -->
+    <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;">
+      <img src="assets/icon-drake.svg" alt="Slantify drake" style="width: 28px; height: 28px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'">
+      <i data-lucide="trending-up" style="color: #f97316; width: 24px; height: 24px; display: none;"></i>
+      <span style="color: #ffffff; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em;">Slantify</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav" style="display: flex; gap: 2rem; align-items: center;">
+      <a href="#home" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Hem</a>
+      <a href="#features" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Funktioner</a>
+      <a href="#live" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
+        Live Income <span style="width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
+      </a>
+      <a href="#premium" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Premium</a>
+      <a href="support/" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Support</a>
+    </nav>
+
+    <!-- Download CTA Desktop -->
+    <div class="desktop-nav">
+      <a href="#download" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 9999px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <i data-lucide="download" style="width: 16px; height: 16px;"></i> Ladda ner
+      </a>
     </div>
+
+    <!-- Mobile Menu Toggle Button (Hidden on Desktop) -->
+    <button class="mobile-menu-btn" id="mobile-toggle-btn" style="display: none; background: transparent; border: none; color: white; cursor: pointer; align-items: center; justify-content: center; padding: 0.5rem;">
+      <i data-lucide="menu" id="menu-icon-state" style="width: 28px; height: 28px;"></i>
+    </button>
   </header>
-<section class="dragon-banner" aria-label="i slantify">
-  <video
-src="assets/dragon-banner.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-  ></video>
-</section>
+
+  <!-- DROP-DOWN MOBILE MENU CONTAINER -->
+  <div id="mobile-menu-overlay" style="display: none; background-color: #0b0f19; border-bottom: 1px solid #1e293b; padding: 1.5rem 2rem; font-family: sans-serif; flex-direction: column; gap: 1.25rem; position: sticky; top: 61px; z-index: 49; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+    <a href="#home" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Hem</a>
+    <a href="#features" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Funktioner</a>
+    <a href="#live" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">Live Income <span style="width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%;"></span></a>
+    <a href="#premium" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Premium</a>
+    <a href="support/" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Support</a>
+    <a href="#download" class="mobile-link" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 0.75rem; border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600; text-align: center; margin-top: 0.5rem; display: block;">Ladda ner appen</a>
+  </div>
+
+  <!-- DRAGON BANNER -->
+  <section class="dragon-banner" aria-label="i slantify">
+    <video src="assets/dragon-banner.mp4" autoplay muted loop playsinline preload="metadata"></video>
+  </section>
+
   <main>
-    <!-- PREMIUM HERO BANNER: LIVE INCOME ENGINE -->
-    <section class="hero-premium">
+    <!-- HERO SECTION -->
+    <section class="hero-premium" id="home">
       <div class="container">
         <div class="hero-premium-grid">
-          <!-- Left: Copy & CTA -->
           <div class="hero-premium-copy">
             <h2 class="hero-badge">LIVE INCOME ENGINE</h2>
             <h1 class="hero-title">Se din lön växa –<br/>sekund för sekund.</h1>
             <p class="hero-description">Följ din lön i realtid medan du arbetar. Se netto, brutto, kr/min, kr/sek, arbetad tid och schema direkt i I Slantify Live Income Engine.</p>
-            <div class="hero-benefits">
-              <span class="benefit-item">💰 Netto & Brutto</span>
-              <span class="benefit-item">⏱️ kr/min · kr/sek</span>
-              <span class="benefit-item">📊 Schema & historia</span>
-              <span class="benefit-item">📈 Live-uppdateringar</span>
+            
+            <!-- Upgraded Engine Summary Badges -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+              <div style="background-color: #111827; border: 1px solid #1f2937; padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                <i data-lucide="wallet" style="color: #f97316; width: 20px; height: 20px;"></i>
+                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">Netto & Brutto</span>
+              </div>
+              <div style="background-color: #111827; border: 1px solid #1f2937; padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                <i data-lucide="zap" style="color: #22c55e; width: 20px; height: 20px;"></i>
+                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">kr/min · kr/sek</span>
+              </div>
+              <div style="background-color: #111827; border: 1px solid #1f2937; padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                <i data-lucide="calendar" style="color: #3b82f6; width: 20px; height: 20px;"></i>
+                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">Schema & historia</span>
+              </div>
+              <div style="background-color: #111827; border: 1px solid #1f2937; padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                <i data-lucide="refresh-cw" style="color: #a855f7; width: 20px; height: 20px;"></i>
+                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">Live-uppdateringar</span>
+              </div>
             </div>
+
             <div class="hero-premium-cta">
-              <a id="btn-ios" class="btn btn-primary btn-large" href="#">Ladda ner I Slantify</a>
+              <a id="btn-ios" class="btn btn-primary btn-large" href="#download">Ladda ner I Slantify</a>
             </div>
           </div>
-          <!-- Right: Video & Screenshot -->
+          
           <div class="hero-premium-media">
             <div class="media-container">
-              <!-- Video with fallback to screenshot -->
               <video autoplay muted loop playsinline class="hero-video">
-  <source src="assets/live lön video.mp4" type="video/mp4">
-</video>
-          </div>
+                <source src="assets/live lön video.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <style>
-.live-demo-layout {
-    max-width: 1050px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
-    gap: 20px;
-    align-items: stretch;
-}
-.live-demo-info {
-    padding: 28px;
-    border-radius: 24px;
-    border: 1px solid rgba(255,170,55,.18);
-    background: linear-gradient(145deg, #171a20, #0b1016);
-    box-shadow: 0 20px 50px rgba(0,0,0,.28);
-}
 
-.info-eyebrow {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .14em;
-    opacity: .65;
-    margin-bottom: 12px;
-}
-
-.live-demo-info h3 {
-    margin: 0 0 12px;
-    font-size: 30px;
-}
-
-.live-demo-info p {
-    margin: 0 0 24px;
-    line-height: 1.6;
-    opacity: .75;
-}
-
-.info-points {
-    display: grid;
-    gap: 14px;
-}
-
-.info-points div {
-    padding: 14px 16px;
-    border-radius: 14px;
-    background: rgba(255,255,255,.035);
-    border: 1px solid rgba(255,255,255,.06);
-}
-
-.info-points strong {
-    display: block;
-    font-size: 12px;
-    letter-spacing: .08em;
-    margin-bottom: 5px;
-}
-
-.info-points span {
-    display: block;
-    font-size: 13px;
-    line-height: 1.45;
-    opacity: .65;
-}
-
-.live-demo-layout .live-demo-card {
-    width: 100%;
-    max-width: none !important;
-    margin: 0 !important;
-    padding:42px !important;
-    box-sizing:border-box;
-}
-
-.hero-premium-media {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-      
-.hero-video {
-    height: 480px;
-    width: 100%;
-    object-fit: cover;
-}
-
-@media (max-width: 800px) {
-    .live-demo-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .live-demo-layout .live-demo-card {
-        padding: 24px !important;
-    }
-
-    .hero-premium-media {
-        max-width: 100%;
-    }
-
-    .hero-video {
-        max-height: none;
-    }
-}
-</style>
-   <section id="live-income" class="live-income">
-  <div class="container">
-    <div class="section-header">
-      <p class="eyebrow">PROVA LIVE INCOME</p>
-      <h2>Se din lön växa – sekund för sekund.</h2>
-
-      <p class="lead">
-        Testa själv hur Live Income fungerar. Ange din timlön,
-        starta och se inkomsten växa i realtid.
-      </p>
- </div>
-<div class="live-demo-layout">
-<div class="live-demo-info">
-    <div class="info-eyebrow">LIVE INCOME ENGINE</div>
-
-    <h3>Din lön – live.</h3>
-
-    <p>
-        Se hur din inkomst växer sekund för sekund.
-        Live Income räknar om din lön i realtid.
-    </p>
-
-    <div class="info-points">
-        <div>
-            <strong>KR/SEKUND</strong>
-            <span>Se exakt hur mycket du tjänar just nu.</span>
-        </div>
-
-        <div>
-            <strong>ARBETAD TID</strong>
-            <span>Följ arbetad tid och löneutveckling.</span>
-        </div>
-
-        <div>
-            <strong>OB &amp; ÖVERTID</strong>
-            <span>Kan inkluderas i din verkliga löneberäkning.</span>
-        </div>
-
-        <div>
-            <strong>PROGNOS</strong>
-            <span>Se hur inkomsten utvecklas över månaden.</span>
-        </div>
-    </div>
-</div>
-<div class="live-demo-card" style="
-max-width:900px;
-  margin:0 auto;
-  padding:28px;
-  border:1px solid rgba(255,170,55,.22);
-  border-radius:32px;
-  background:
-    radial-gradient(circle at 20% 0%, rgba(255,140,40,.12), transparent 35%),
-    radial-gradient(circle at 85% 100%, rgba(255,190,70,.08), transparent 35%),
-    linear-gradient(145deg,#171a20,#0b1016);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.45),
-    inset 0 1px 0 rgba(255,255,255,.05);
-"
-
-      <div style="
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:20px;
-        align-items:center;
-      ">
-
-        <div>
-
-          <label for="demo-hourly-rate" style="
-            display:block;
-            margin-bottom:10px;
-            font-weight:700;
-          ">
-            Din timlön
-          </label>
-
-          <div style="
-            display:flex;
-            align-items:center;
-            gap:10px;
-            margin-bottom:22px;
-          ">
-
-            <input
-              id="demo-hourly-rate"
-              type="number"
-              min="1"
-              step="1"
-              value="250"
-              inputmode="decimal"
-              aria-label="Din timlön i kronor"
-              style="
-                width:100%;
-                padding:15px 16px;
-                border-radius:14px;
-                border:1px solid rgba(255,255,255,.15);
-                background:#080d12;
-                color:#fff;
-                font-size:20px;
-                font-weight:700;
-                outline:none;
-                box-sizing:border-box;
-              "
-            >
-
-            <span style="
-              font-size:18px;
-              font-weight:700;
-              white-space:nowrap;
-            ">kr/timme</span>
-
-          </div>
-
-<div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
-  
-  <!-- STARTA KNAPP -->
-  <button id="btn-start" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; border: none; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2); transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 6px 16px rgba(34, 197, 94, 0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(34, 197, 94, 0.2)';">
-    <i data-lucide="play" style="width: 14px; height: 14px; fill: white;"></i> Starta
-  </button>
-
-  <!-- PAUSA KNAPP -->
-  <button id="btn-pause" style="background-color: #374151; color: #e5e7eb; border: 1px solid #4b5563; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='#4b5563'; this.style.color='#ffffff';" onmouseout="this.style.backgroundColor='#374151'; this.style.color='#e5e7eb';">
-    <i data-lucide="pause" style="width: 14px; height: 14px; fill: #e5e7eb;"></i> Pausa
-  </button>
-
-  <!-- ÅTERSTÄLL KNAPP -->
-  <button id="btn-reset" style="background-color: transparent; color: #9ca3af; border: 1px solid #374151; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#ef4444'; this.style.color='#ef4444';" onmouseout="this.style.borderColor='#374151'; this.style.color='#9ca3af';">
-    <i data-lucide="rotate-ccw" style="width: 14px; height: 14px;"></i> Återställ
-  </button>
-
-</div>
-
-
-        </div>
-
-        <div style="
-          padding:22px;
-          border-radius:24px;
-          background:linear-gradient(145deg,#241b16,#10161d);
-          border:1px solid rgba(255,122,0,.25);
-          text-align:center;
-        ">
-
-          <div style="
-            font-size:14px;
-            text-transform:uppercase;
-            letter-spacing:.12em;
-            opacity:.7;
-            margin-bottom:12px;
-          ">
-            Din live-inkomst
-          </div>
-
-          <div
-            id="live-demo-value"
-            style="
-              font-size:clamp(42px,7vw,72px);
-              line-height:1;
-              font-weight:800;
-              letter-spacing:-.04em;
-              margin-bottom:14px;
-            "
-          >
-            0,00 kr
-          </div>
-
-          <div
-            id="live-demo-rate"
-            style="
-              font-size:18px;
-              color:#ff8a22;
-              font-weight:700;
-            "
-          >
-            + 0,0694 kr/sek
-          </div>
-
-          <div style="
-            margin-top:14px;
-            font-size:14px;
-            opacity:.65;
-          ">
-            Testdata – ingen riktig ekonomi kopplas till denna demo.
-          </div>
-
-        </div>
-
-      </div>
-
-      <div style="
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-        gap:16px;
-        margin-top:24px;
-      ">
-
-        <div class="card" style="padding:18px;">
-          <strong id="live-demo-second">0,0694 kr</strong>
-          <span style="display:block;opacity:.65;margin-top:5px;">
-            per sekund
-          </span>
-        </div>
-
-        <div class="card" style="padding:18px;">
-          <strong id="live-demo-minute">4,17 kr</strong>
-          <span style="display:block;opacity:.65;margin-top:5px;">
-            per minut
-          </span>
-        </div>
-
-        <div class="card" style="padding:18px;">
-          <strong id="live-demo-hour">250,00 kr</strong>
-          <span style="display:block;opacity:.65;margin-top:5px;">
-            per timme
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<script>
-(function () {
-  const hourlyInput = document.getElementById('demo-hourly-rate');
-  const valueEl = document.getElementById('live-demo-value');
-  const rateEl = document.getElementById('live-demo-rate');
-  const secondEl = document.getElementById('live-demo-second');
-  const minuteEl = document.getElementById('live-demo-minute');
-  const hourEl = document.getElementById('live-demo-hour');
-  const startBtn = document.getElementById('live-demo-start');
-  const pauseBtn = document.getElementById('live-demo-pause');
-  const resetBtn = document.getElementById('live-demo-reset');
-
-  if (
-    !hourlyInput ||
-    !valueEl ||
-    !rateEl ||
-    !secondEl ||
-    !minuteEl ||
-    !hourEl ||
-    !startBtn ||
-    !pauseBtn ||
-    !resetBtn
-  ) {
-    return;
-  }
-
-  let running = false;
-  let earned = 0;
-  let lastTime = null;
-  let animationFrame = null;
-
-  const money = (value) =>
-    value.toLocaleString('sv-SE', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-
-  const rateMoney = (value) =>
-    value.toLocaleString('sv-SE', {
-      minimumFractionDigits: 4,
-      maximumFractionDigits: 4
-    });
-
-  function getHourlyRate() {
-    const value = Number(hourlyInput.value);
-    return Number.isFinite(value) && value > 0 ? value : 0;
-  }
-
-  function updateDisplay() {
-    const hourly = getHourlyRate();
-    const perSecond = hourly / 3600;
-    const perMinute = hourly / 60;
-
-    valueEl.textContent = money(earned) + ' kr';
-    rateEl.textContent = '+ ' + rateMoney(perSecond) + ' kr/sek';
-    secondEl.textContent = rateMoney(perSecond) + ' kr';
-    minuteEl.textContent = money(perMinute) + ' kr';
-    hourEl.textContent = money(hourly) + ' kr';
-  }
-
-  function tick(timestamp) {
-    if (!running) return;
-
-    if (lastTime !== null) {
-      const elapsedSeconds = (timestamp - lastTime) / 1000;
-      earned += getHourlyRate() / 3600 * elapsedSeconds;
-    }
-
-    lastTime = timestamp;
-    updateDisplay();
-
-    animationFrame = requestAnimationFrame(tick);
-  }
-
-  startBtn.addEventListener('click', function () {
-    if (running) return;
-
-    running = true;
-    lastTime = null;
-    animationFrame = requestAnimationFrame(tick);
-  });
-
-  pauseBtn.addEventListener('click', function () {
-    running = false;
-    lastTime = null;
-
-    if (animationFrame) {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = null;
-    }
-  });
-
-  resetBtn.addEventListener('click', function () {
-    running = false;
-    earned = 0;
-    lastTime = null;
-
-    if (animationFrame) {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = null;
-    }
-
-    updateDisplay();
-  });
-
-  hourlyInput.addEventListener('input', updateDisplay);
-
-  updateDisplay();
-})();
-</script>
-       <section class="feature-showcase">
-          <!-- ROULETTE SHOWCASE -->
-    <section class="roulette-showcase">
+    <!-- LIVE SIMULATOR & INTERACTIVE BUTTONS -->
+    <section class="live-demo-section" id="live" style="padding: 4rem 0;">
       <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">I Slantify Social</p>
-          <h2>Delanot-Roulette</h2>
-          <p class="lead">
-            Dela notan med vänner och låt Roulette avgöra vem som får vad.
-          </p>
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0;">Se din lön växa – sekund för sekund.</h2>
+          <p style="color: #94a3b8; margin-top: 0.5rem;">Testa själv hur Live Income fungerar. Ange din timlön, starta och se inkomsten växa i realtid.</p>
         </div>
 
-        <div style="display:flex;justify-content:center;align-items:center;">
-         <video
-src="assets/roulette-video.mp4"
-autoplay
-muted
-loop
-playsinline
-controls
-preload="metadata"
-aria-label="I Slantify Delanot-Roulette"
-style="display:block;width:100%;max-width:480px;height:auto;border-radius:20px;"
-></video>
-        </div>
-      </div>
-    </section>
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Appens kärnområden</p>
-          <h2>Fem premiumfunktioner i I Slantify</h2>
-          <p class="lead">Visuella presentationer för Live Income och dina viktigaste ekonomiska insikter.</p>
-        </div>
-        <div class="feature-grid feature-cards">
-          <article class="feature-card">
-           <div class="feature-screen feature-live">
-  <div class="feature-live-demo">
-    <strong>Live Income</strong>
-    <span>Se inkomsten växa sekund för sekund.</span>
-  </div>
-</div>
-            <!-- KÄRNOMRÅDEN GRID-LAYOUT -->
-<section style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem; font-family: sans-serif;">
-  
-  <div style="text-align: center; margin-bottom: 3rem;">
-    <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Appens Kärnområden</span>
-    <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0.5rem 0 0 0;">Fem premiumfunktioner i Slantify</h2>
-    <p style="color: #94a3b8; font-size: 1rem; margin-top: 0.5rem;">Visuella presentationer för Live Income och dina viktigaste ekonomiska insikter.</p>
-  </div>
+        <div class="live-demo-layout">
+          <div class="live-demo-info">
+            <span class="info-eyebrow" style="color: #f97316;">LIVE INCOME ENGINE</span>
+            <h3>Din lön – live.</h3>
+            <p>Se hur din inkomst växer sekund för sekund. Live Income räknar om din lön i realtid.</p>
+            
+            <div class="info-points">
+              <div>
+                <strong>KR/SEKUND</strong>
+                <span>Se exakt hur mycket du tjänar just nu.</span>
+              </div>
+              <div>
+                <strong>ARBETAD TID</strong>
+                <span>Följ arbetad tid och löneutveckling.</span>
+              </div>
+              <div>
+                <strong>OB & ÖVERTID</strong>
+                <span>Kan inkluderas i din verkliga löneberäkning.</span>
+              </div>
+              <div>
+                <strong>PROGNOS</strong>
+                <span>Se hur inkomsten utvecklas över månaden.</span>
+              </div>
+            </div>
+          </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          <!-- Interactive Simulator Input Block -->
+          <div style="background-color: #111827; border: 1px solid #1f2937; padding: 2rem; border-radius: 24px; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
+            <div>
+              <label style="color: #94a3b8; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">Din timlön</label>
+              <div style="position: relative; display: flex; align-items: center;">
+                <input type="number" value="250" style="background-color: #0b0f19; border: 1px solid #374151; color: white; padding: 0.75rem 1rem; border-radius: 8px; width: 100%; font-size: 1.1rem; font-weight: 600; outline: none;" onfocus="this.style.borderColor='#f97316'">
+                <span style="position: absolute; right: 1rem; color: #6b7280; font-size: 0.9rem;">kr/timme</span>
+              </div>
+            </div>
 
-    <!-- 1. WALLET -->
-    <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-      <div>
-        <div style="background: rgba(249, 115, 22, 0.1); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-          <i data-lucide="wallet" style="color: #f97316; width: 24px; height: 24px;"></i>
-        </div>
-        <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem 0;">Wallet</h3>
-        <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">En digital samling för kort, dokument och viktiga ekonomiska poster. Samla allt på ett säkert ställe.</p>
-      </div>
-      <a href="#download" style="color: #f97316; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">Läs mer <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
-    </div>
+            <!-- Styled Control Action Buttons -->
+            <div style="display: flex; gap: 0.5rem; width: 100%;">
+              <button id="btn-start" style="flex: 1; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; border: none; padding: 0.75rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='none'">
+                <i data-lucide="play" style="width: 14px; height: 14px; fill: white;"></i> Starta
+              </button>
+              <button id="btn-pause" style="flex: 1; background-color: #374151; color: #e5e7eb; border: 1px solid #4b5563; padding: 0.75rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#4b5563'" onmouseout="this.style.backgroundColor='#374151'">
+                <i data-lucide="pause" style="width: 14px; height: 14px; fill: #e5e7eb;"></i> Pausa
+              </button>
+              <button id="btn-reset" style="background-color: transparent; color: #9ca3af; border: 1px solid #374151; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='#ef4444'; this.style.color='#ef4444'" onmouseout="this.style.borderColor='#374151'; this.style.color='#9ca3af'">
+                <i data-lucide="rotate-ccw" style="width: 14px; height: 14px;"></i>
+              </button>
+            </div>
 
-    <!-- 2. EKONOMISK ÖVERBLICK -->
-    <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-      <div>
-        <div style="background: rgba(34, 197, 94, 0.1); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-          <i data-lucide="line-chart" style="color: #22c55e; width: 24px; height: 24px;"></i>
-        </div>
-        <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem 0;">Ekonomisk överblick</h3>
-        <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Saldo, transaktioner och sparmål samlade i en modern, överskådlig vy direkt i mobilen.</p>
-      </div>
-      <a href="#download" style="color: #22c55e; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">Utforska vy <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
-    </div>
+            <!-- Dynamic Values Output View -->
+            <div style="background-color: #0b0f19; border: 1px solid #1f2937; padding: 1.25rem; border-radius: 12px; text-align: center;">
+              <span style="color: #6b7280; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Din live-inkomst</span>
+              <div style="color: #22c55e; font-size: 1.75rem; font-weight: 700; margin: 0.25rem 0;">0,00 kr</div>
+              <div style="color: #94a3b8; font-size: 0.85rem;">+ 0,0694 kr/sek</div>
+            </div>
 
-    <!-- 3. BUDGET & SPARANDE -->
-    <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-      <div>
-        <div style="background: rgba(59, 130, 246, 0.1); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-          <i data-lucide="pie-chart" style="color: #3b82f6; width: 24px; height: 24px;"></i>
-        </div>
-        <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem 0;">Budget & sparande</h3>
-        <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Följ dina mål, se avvikelser och håll stenhård koll på framtida sparplaner automatiskt.</p>
-      </div>
-      <a href="#download" style="color: #3b82f6; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">Starta sparmål <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
-    </div>
-
-    <!-- 4. BANK -->
-    <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-      <div>
-        <div style="background: rgba(168, 85, 247, 0.1); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-          <i data-lucide="landmark" style="color: #a855f7; width: 24px; height: 24px;"></i>
-        </div>
-        <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem 0;">Bank</h3>
-        <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">En enkel översikt över konton och balansinformation när du väljer att koppla din bank.</p>
-      </div>
-      <a href="#download" style="color: #a855f7; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">Se integrationer <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
-    </div>
-
-    <!-- 5. AI-ASSISTANS (Bredare kort för att fylla ut) -->
-    <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); grid-column: span 1;" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
-      <div>
-        <div style="background: rgba(236, 72, 153, 0.1); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-          <i data-lucide="sparkles" style="color: #ec4899; width: 24px; height: 24px;"></i>
-        </div>
-        <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem 0;">AI-assistans</h3>
-        <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Smart hjälp som förklarar din ekonomi, hittar dolda utgifter och ger dig tydliga aktiviteter att överväga.</p>
-      </div>
-      <a href="#download" style="color: #ec4899; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">Prata med assistenten <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
-    </div>
-
-  </div>
-</section>
-
-
-    <section class="video-section">
-      <div class="container section-split">
-        <div class="video-copy">
-          <p class="eyebrow">I Slantify på några sekunder</p>
-          <h2>Snabb introduktion</h2>
-          <p class="lead">Förbered platsen för en officiell produktvideo som berättar hur Live Income, budget och ekonomisk överblick samlas i en elegant appupplevelse.</p>
-          <p class="video-list">Rekommenderade avsnitt: Live Income, ekonomisk överblick, budget & sparande, wallet och AI.</p>
-        </div>
-        <div class="video-placeholder" aria-hidden="true">
-          <div class="video-frame">
-            <div class="play-icon"></div>
-            <p>Plats för officiell I Slantify-video</p>
+            <div style="font-size: 0.75rem; color: #4b5563; text-align: center;">
+              Testdata – ingen riktig ekonomi kopplas till denna demo.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="why-section">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Din ekonomi ska inte vara statisk.</p>
-          <h2>Live Income gör ekonomi levande</h2>
-          <p class="lead">Traditionell ekonomi visas ofta som ögonblicksbilder. I Slantify gör det enkelt att se din inkomst, sparande och budget som en pågående process.</p>
-        </div>
-        <div class="why-grid">
-          <article class="card">
-            <h3>Live Income</h3>
-            <p>Fokus på det som förändras mest: din lön, timme för timme och dag för dag.</p>
-          </article>
-          <article class="card">
-            <h3>Personlig ekonomi</h3>
-            <p>Samla data, sparmål och utgifter på ett ställe utan att lova dagliga resultat.</p>
-          </article>
-          <article class="card">
-            <h3>Smart överblick</h3>
-            <p>Se var du befinner dig och vad som kommer härnäst — med tydliga siffror och visuella indikatorer.</p>
-          </article>
-        </div>
+    <!-- LIVE FEATURES GRID (PREMIUM KÄRNOMRÅDEN) -->
+    <section class="features-grid-section" id="features" style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem; font-family: sans-serif;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Appens kärnområden</span>
+        <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0.5rem 0 0 0;">Fem premiumfunktioner i Slantify</h2>
+        <p style="color: #94a3b8; font-size: 1rem; margin-top: 0.5rem;">Visuella presentationer för Live Income och dina viktigaste ekonomiska insikter.</p>
       </div>
-    </section>
 
-    <section class="download-panel">
-      <div class="container download-grid">
-        <div class="download-copy">
-          <p class="eyebrow">Ha I Slantify i fickan</p>
-          <h2>Alltid redo att visa din Live Income</h2>
-          <p class="lead">Ladda ner appen för att börja se din ekonomi i realtid. QR-koden leder till nedladdningssidan och appbutikerna är konfigurerade för produktionsmiljön.</p>
-          <div class="hero-cta download-actions">
-            <a id="store-ios" class="btn primary" href="#" aria-label="Download on the App Store">App Store</a>
-            <a id="store-android" class="btn secondary" href="#" aria-label="Get it on Google Play">Google Play</a>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <!-- 1. WALLET -->
+        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
+          <div>
+            <div style="background: rgba(249, 115, 22, 0.1); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <i data-lucide="wallet" style="color: #f97316; width: 22px; height: 22px;"></i>
+            </div>
+            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Wallet</h3>
+            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">En digital samling för kort, dokument och viktiga ekonomiska poster. Samla allt på ett säkert ställe.</p>
           </div>
+          <a href="#download" style="color: #f97316; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Läs mer <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
         </div>
-        <div class="download-qr-card" aria-hidden="true">
-          <div class="qr-block large">
-            <div id="qr-download"></div>
-            <p>Skanna för att ladda ner I Slantify</p>
+
+        <!-- 2. EKONOMISK ÖVERBLICK -->
+        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#22c55e'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
+          <div>
+            <div style="background: rgba(34, 197, 94, 0.1); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <i data-lucide="line-chart" style="color: #22c55e; width: 22px; height: 22px;"></i>
+            </div>
+            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Ekonomisk överblick</h3>
+            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Saldo, transaktioner och sparmål samlade i en modern, överskådlig vy direkt i mobilen.</p>
           </div>
+          <a href="#download" style="color: #22c55e; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Utforska vy <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>I Slantify</strong>
-        <p>Your economy. Live.</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="download/">Download</a>
-        <a href="privacy/">Privacy Policy</a>
-        <a href="privacy-choices/">Privacy Choices</a>
-        <a href="terms/">Terms of Service</a>
-        <a href="contact/">Contact</a>
-      </nav>
-      <div class="store-links">
-        <a href="#" id="footer-ios">App Store</a>
-        <a href="#" id="footer-android">Google Play</a>
-      </div>
-    </div>
-    <div class="copyright">&copy; <span id="year"></span> I Slantify</div>
-  </footer>
+        <!-- 3. BUDGET & SPARANDE -->
+        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none';">
+          <div>
+            <div style="background: rgba(59, 130, 246, 0.1); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <i data-lucide="pie-chart" style="color: #3b82f6; width: 22px; height: 22px;"></i>
+            </div>
+            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Budget & sparande</h3>
+            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Följ dina mål, se avvikelser och håll stenhård koll på framtida sparplaner automatiskt.</p>
+          </div>
+          <a href="#download" style="color: #3b82f6; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Starta sparmål <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
+        </div>
 
-  <script>
-    // Mobile menu
-    const toggle = document.querySelector('.mobile-toggle');
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      document.querySelector('.main-nav').classList.toggle('open');
-    });
-
-    // Populate year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Wire config and QR codes
-    function safeHref(el, url) {
-      if (!url || url.includes('REPLACE_WITH')) {
-        el.setAttribute('aria-disabled', 'true');
-        el.classList.add('disabled');
-        el.href = 'download/';
-      } else {
-        el.href = url;
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const cfg = window.SITE_CONFIG || {};
-      safeHref(document.getElementById('btn-ios'), cfg.APP_STORE_URL);
-      safeHref(document.getElementById('btn-android'), cfg.GOOGLE_PLAY_URL);
-      safeHref(document.getElementById('store-ios'), cfg.APP_STORE_URL);
-      safeHref(document.getElementById('store-android'), cfg.GOOGLE_PLAY_URL);
-      safeHref(document.getElementById('footer-ios'), cfg.APP_STORE_URL);
-      safeHref(document.getElementById('footer-android'), cfg.GOOGLE_PLAY_URL);
-
-      // Badges href wiring
-      const badgeIos = document.getElementById('badge-ios');
-      const badgeAndroid = document.getElementById('badge-android');
-      if (badgeIos) safeHref(badgeIos, cfg.APP_STORE_URL);
-      if (badgeAndroid) safeHref(badgeAndroid, cfg.GOOGLE_PLAY_URL);
-
-      // Local QR generation (if qrcode library is present)
-      try {
-        const siteBase = (cfg.SITE_URL && cfg.SITE_URL !== 'REPLACE_WITH_WEBSITE_BASE_URL') ? cfg.SITE_URL.replace(/\/$/, '') : window.location.origin + window.location.pathname.replace(/\/$/, '') ;
-        const downloadUrl = siteBase.endsWith('/') ? siteBase + 'download/' : siteBase + '/download/';
-        const homeUrl = (cfg.SITE_URL && cfg.SITE_URL !== 'REPLACE_WITH_WEBSITE_BASE_URL') ? cfg.SITE_URL : window.location.origin + '/';
-        if (window.QRCode) {
-          const qd = document.getElementById('qr-download');
-          const qh = document.getElementById('qr-home');
-          if (qd) new QRCode(qd, {text: downloadUrl, width:200, height:200, colorDark:'#071018', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel ? QRCode.CorrectLevel.H : 1});
-          if (qh) new QRCode(qh, {text: homeUrl, width:200, height:200, colorDark:'#071018', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel ? QRCode.CorrectLevel.H : 1});
-        }
-      } catch (e) { console.warn('QR generation failed', e); }
-    });
-  </script>
-  <footer style="background-color: #030712; border-top: 1px solid #1f2937; padding: 4rem 2rem 2rem 2rem; color: #9ca3af; font-family: sans-serif;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem;">
-    
-    <!-- Vänster kolumn: Om appen -->
-    <div style="flex: 1; min-width: 250px;">
-      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-        <i data-lucide="trending-up" style="color: #f97316; width: 20px; height: 20px;"></i>
-        <span style="color: #ffffff; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em;">Slantify</span>
-      </div>
-      <p style="font-size: 0.85rem; line-height: 1.5; color: #6b7280;">
-        En uppdaterande inkomstvy som sätter din lön i fokus och skapar tydlighet i realtid. Se din lön växa sekund för sekund.
-      </p>
-    </div>
-
-    <!-- Mitten kolumn: Navigering -->
-    <div style="min-width: 150px;">
-      <h5 style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Länkar</h5>
-      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem;">
-        <li><a href="#features" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Funktioner</a></li>
-        <li><a href="#live" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Live Income</a></li>
-        <li><a href="/stöd" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Stöd & Support</a></li>
-        <li><a href="/kontakta" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Kontakta oss</a></li>
-      </ul>
-    </div>
-
-    <!-- Höger kolumn: Juridiskt (Här rensar vi upp!) -->
-    <div style="min-width: 150px;">
-      <h5 style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Legalt</h5>
-      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem;">
-        <li><a href="/privatliv" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#9ca3af'">Integritetspolicy</a></li>
-        <li><a href="/villkor" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#9ca3af'">Användarvillkor</a></li>
-        <li><a href="/sekretessval" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#9ca3af'">Sekretessval</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Nedre delen: Copyright -->
-  <div style="max-width: 1200px; margin: 3rem auto 0 auto; padding-top: 1.5rem; border-top: 1px solid #1f2937; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #4b5563;">
-    <p style="margin: 0;">&copy; 2026 Slantify. Alla rättigheter reserverade.</p>
-    <div style="display: flex; gap: 1rem;">
-      <a href="#" style="color: #4b5563; text-decoration: none;"><i data-lucide="instagram" style="width: 16px; height: 16px;"></i></a>
-      <a href="#" style="color: #4b5563; text-decoration: none;"><i data-lucide="twitter" style="width: 16px; height: 16px;"></i></a>
-      <a href="https://github.com" style="color: #4b5563; text-decoration: none;"><i data-lucide="github" style="width: 16px; height: 16px;"></i></a>
-    </div>
-  </div>
-</footer>
-    <!-- Här slutar din vanliga hemsida (t.ex. din nya footer) -->
-  </footer>
- <!-- LÄGG SKRIPTET HÄR: -->
-  <script src="https://unpkg.com"></script>
-  <script>
-    lucide.createIcons();
-  </script>
-  <script>
-    lucide.createIcons();
-  </script>
-</body>
-</html>
-
-</body>
-</html>
+        <!-- 4. BANK -->
