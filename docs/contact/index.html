@@ -4,314 +4,182 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Kontakta oss — I Slantify</title>
-  <meta name="description" content="Kontakta I Slantify. Skicka ett meddelande till vårt supportteam.">
+  <title>Contact — I Slantify</title>
+  <meta name="description" content="Kontakta I Slantify.">
 
   <link rel="stylesheet" href="../assets/styles.css">
   <script src="../assets/config.js" defer></script>
 
   <style>
-    /* =========================================================
-       I SLANTIFY — FUTURISTIC CONTACT PAGE
-       ========================================================= */
-
     .contact-page {
-      padding: 4rem 0 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
     }
 
     .contact-hero {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .contact-badge {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      padding: .55rem 1rem;
+      padding: .45rem .8rem;
       border: 1px solid rgba(255,138,43,.35);
       border-radius: 999px;
       background: rgba(255,138,43,.07);
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 800;
+      color: #ff8a2b;
+      font-size: .8rem;
+      font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
     }
 
-    .contact-badge::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
-    }
-
     .contact-hero h1 {
-      margin: 1.25rem 0 .8rem;
-      font-size: clamp(2.5rem, 6vw, 4.8rem);
-      line-height: 1;
-      letter-spacing: -.04em;
+      margin: 1rem 0 .7rem;
+      font-size: clamp(2.2rem, 6vw, 4rem);
     }
 
-    .contact-hero h1 span {
-      color: var(--accent);
-      text-shadow: 0 0 35px rgba(255,138,43,.25);
-    }
-
-    .contact-hero .lead {
-      max-width: 650px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(260px, .7fr);
-      gap: 1.5rem;
-      max-width: 1050px;
-      margin: 0 auto;
+    .contact-hero p {
+      max-width: 680px;
+      line-height: 1.7;
+      opacity: .82;
     }
 
     .contact-card {
       position: relative;
-      padding: 2rem;
+      overflow: hidden;
+      padding: clamp(1.4rem, 4vw, 2.5rem);
       border: 1px solid rgba(255,255,255,.09);
       border-radius: 24px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(20,28,48,.92),
-          rgba(8,14,28,.92)
-        );
-      box-shadow:
-        0 25px 70px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.04);
-      overflow: hidden;
+      background: rgba(15,23,42,.72);
+      box-shadow: 0 20px 70px rgba(0,0,0,.28);
     }
 
     .contact-card::before {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
+      width: 280px;
+      height: 280px;
       top: -150px;
       right: -100px;
-      background: var(--accent);
-      opacity: .07;
-      filter: blur(70px);
       border-radius: 50%;
+      background: rgba(255,138,43,.08);
+      filter: blur(20px);
       pointer-events: none;
     }
 
-    .contact-card h2 {
-      margin-top: 0;
-      margin-bottom: .5rem;
-    }
-
-    .contact-card-intro {
-      margin-top: 0;
-      margin-bottom: 1.6rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
     .contact-form {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-grid {
       display: grid;
-      gap: 1.15rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
     }
 
-    .contact-form label {
-      display: block;
-      margin-bottom: .45rem;
-      font-weight: 700;
-      font-size: .88rem;
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
     }
 
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-weight: 600;
+      font-size: .92rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
       width: 100%;
       box-sizing: border-box;
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 13px;
-      background: rgba(4,9,20,.72);
+      padding: .95rem 1rem;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      background: rgba(5,10,20,.72);
       color: #fff;
-      padding: .9rem 1rem;
       font: inherit;
       outline: none;
-      transition: .2s ease;
+      transition: border-color .2s, box-shadow .2s;
     }
 
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
+    .form-field input:focus,
+    .form-field textarea:focus {
       border-color: rgba(255,138,43,.65);
-      box-shadow:
-        0 0 0 3px rgba(255,138,43,.08),
-        0 0 25px rgba(255,138,43,.06);
+      box-shadow: 0 0 0 3px rgba(255,138,43,.1);
     }
 
-    .contact-form textarea {
+    .form-field textarea {
       min-height: 170px;
       resize: vertical;
     }
 
-    .contact-form select {
-      appearance: auto;
-    }
-
-    .contact-form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.15rem;
-    }
-
-    .field-full {
-      grid-column: 1 / -1;
-    }
-
-    .consent {
-      display: flex;
-      align-items: flex-start;
-      gap: .7rem;
-      color: var(--muted);
-      font-size: .78rem;
-      line-height: 1.55;
-    }
-
-    .consent input {
-      width: 17px;
-      height: 17px;
-      margin-top: 2px;
-      flex: 0 0 auto;
-      accent-color: var(--accent);
-    }
-
-    .consent a {
-      color: var(--accent);
-    }
-
     .contact-actions {
       display: flex;
-      gap: .75rem;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
+      gap: .8rem;
+      margin-top: 1.4rem;
     }
 
     .contact-submit {
       border: 0;
-      cursor: pointer;
-      padding: .95rem 1.5rem;
-      border-radius: 13px;
-      background: linear-gradient(135deg, var(--accent), #ffb15f);
+      border-radius: 12px;
+      padding: .95rem 1.4rem;
+      background: linear-gradient(135deg, #ff8a2b, #ffb84d);
       color: #071018;
       font-weight: 800;
-      font-size: .95rem;
-      box-shadow: 0 12px 35px rgba(255,138,43,.22);
-      transition: .2s ease;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
     }
 
     .contact-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 45px rgba(255,138,43,.32);
+      box-shadow: 0 12px 35px rgba(255,138,43,.25);
     }
 
     .contact-clear {
       border: 1px solid rgba(255,255,255,.12);
-      cursor: pointer;
-      padding: .95rem 1.3rem;
-      border-radius: 13px;
+      border-radius: 12px;
+      padding: .95rem 1.4rem;
       background: rgba(255,255,255,.04);
       color: #fff;
-      font-weight: 700;
+      cursor: pointer;
     }
 
-    .contact-status {
-      min-height: 1.3rem;
-      margin: 0;
+    .contact-note {
+      margin-top: 1.2rem;
       font-size: .85rem;
-      font-weight: 600;
-    }
-
-    .contact-info {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .info-box {
-      padding: 1.35rem;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      background: rgba(255,255,255,.025);
-    }
-
-    .info-icon {
-      font-size: 1.5rem;
-      margin-bottom: .6rem;
-    }
-
-    .info-box h3 {
-      margin: 0 0 .4rem;
-      font-size: 1rem;
-    }
-
-    .info-box p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .86rem;
       line-height: 1.6;
+      opacity: .65;
     }
 
-    .support-email {
-      display: inline-block;
-      margin-top: .55rem;
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
-      word-break: break-word;
+    .contact-email-box {
+      margin-top: 1.5rem;
+      padding: 1rem 1.1rem;
+      border-left: 2px solid #ff8a2b;
+      background: rgba(255,138,43,.05);
     }
 
-    .support-email:hover {
-      text-decoration: underline;
+    .contact-email-box strong {
+      display: block;
+      margin-bottom: .25rem;
     }
 
-    @media (max-width: 800px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .contact-page {
-        padding: 2.5rem 0 4rem;
-      }
-
-      .contact-card {
-        padding: 1.3rem;
-        border-radius: 20px;
-      }
-
-      .contact-form-grid {
+    @media (max-width: 700px) {
+      .form-grid {
         grid-template-columns: 1fr;
       }
 
-      .field-full {
+      .form-field.full {
         grid-column: auto;
-      }
-
-      .contact-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .contact-submit,
-      .contact-clear {
-        width: 100%;
       }
     }
   </style>
@@ -319,72 +187,55 @@
 
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <a class="brand" href="../">
-      <img
-        src="../assets/icon-drake.svg"
-        alt="I Slantify"
-        class="drake-icon"
-        aria-hidden="true"
+      <a class="brand" href="../">
+        <img
+          src="../assets/icon-drake.svg"
+          alt="I Slantify drake"
+          class="drake-icon"
+          aria-hidden="true"
+        >
+        <span>I Slantify</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Huvudnavigation">
+        <a href="../">Home</a>
+        <a href="../#features">Features</a>
+        <a href="../download/">Download</a>
+        <a href="../support/">Support</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="index.html">Contact</a>
+      </nav>
+
+      <button
+        class="mobile-toggle"
+        aria-expanded="false"
+        type="button"
       >
-      <span>I Slantify</span>
-    </a>
+        Menu
+      </button>
 
-    <nav class="main-nav" aria-label="Huvudnavigation">
-      <a href="../">Hem</a>
-      <a href="../#features">Funktioner</a>
-      <a href="../download/">Ladda ner</a>
-      <a href="../support/">Support</a>
-      <a href="../privacy/">Integritet</a>
-      <a href="../terms/">Villkor</a>
-      <a href="index.html" aria-current="page">Kontakt</a>
-    </nav>
+    </div>
+  </header>
 
-    <button class="mobile-toggle" aria-expanded="false">
-      Meny
-    </button>
+  <main>
+    <div class="contact-page">
 
-  </div>
-</header>
+      <section class="contact-hero">
+        <span class="contact-badge">I SLANTIFY SUPPORT</span>
 
+        <h1>Contact I Slantify</h1>
 
-<main>
-
-  <div class="container contact-page">
-
-    <section class="contact-hero">
-
-      <div class="contact-badge">
-        I Slantify Support
-      </div>
-
-      <h1>
-        Vi är här för <span>dig.</span>
-      </h1>
-
-      <p class="lead">
-        Har du en fråga, behöver hjälp eller vill lämna feedback?
-        Skicka ett meddelande till oss så tar vårt supportteam hand om det.
-      </p>
-
-    </section>
-
-
-    <div class="contact-grid">
-
-      <!-- CONTACT FORM -->
+        <p>
+          Har du en fråga, behöver hjälp eller vill rapportera ett problem?
+          Skicka ett meddelande till oss så tar vårt supportteam hand om det.
+        </p>
+      </section>
 
       <section class="contact-card">
-
-        <h2>Skicka ett meddelande</h2>
-
-        <p class="contact-card-intro">
-          Fyll i formuläret nedan. Ditt meddelande skickas direkt till
-          I Slantifys support.
-        </p>
-
 
         <form
           id="contact-form"
@@ -394,17 +245,10 @@
         >
 
           <!-- FormSubmit configuration -->
-
           <input
             type="hidden"
             name="_subject"
             value="Nytt meddelande från I Slantify"
-          >
-
-          <input
-            type="hidden"
-            name="_template"
-            value="table"
           >
 
           <input
@@ -415,33 +259,20 @@
 
           <input
             type="hidden"
-            name="_url"
-            value="https://www.islantify.com/contact/"
+            name="_template"
+            value="table"
           >
 
           <input
             type="hidden"
             name="_next"
-            value="https://www.islantify.com/contact/tack.html"
+            value="https://www.islantify.com/contact/"
           >
 
-          <!-- Honeypot for bots -->
+          <div class="form-grid">
 
-          <input
-            type="text"
-            name="_honey"
-            tabindex="-1"
-            autocomplete="off"
-            style="display:none"
-            aria-hidden="true"
-          >
-
-
-          <div class="contact-form-grid">
-
-            <div>
+            <div class="form-field">
               <label for="name">Namn</label>
-
               <input
                 id="name"
                 name="name"
@@ -452,105 +283,40 @@
               >
             </div>
 
-
-            <div>
-              <label for="email">E-postadress</label>
-
+            <div class="form-field">
+              <label for="email">E-post</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 autocomplete="email"
-                placeholder="din@email.se"
+                placeholder="din@email.com"
                 required
               >
             </div>
 
-
-            <div class="field-full">
-              <label for="subject">Ärende</label>
-
-              <select
+            <div class="form-field full">
+              <label for="subject">Ämne</label>
+              <input
                 id="subject"
                 name="subject"
+                type="text"
+                placeholder="Vad gäller ditt meddelande?"
                 required
               >
-                <option value="" selected disabled>
-                  Välj vad ditt meddelande gäller
-                </option>
-
-                <option value="Allmän fråga">
-                  Allmän fråga
-                </option>
-
-                <option value="Teknisk support">
-                  Teknisk support
-                </option>
-
-                <option value="Konto och inloggning">
-                  Konto och inloggning
-                </option>
-
-                <option value="Premium och prenumeration">
-                  Premium / prenumeration
-                </option>
-
-                <option value="Bankkoppling">
-                  Bankkoppling
-                </option>
-
-                <option value="Säkerhet och integritet">
-                  Säkerhet / integritet
-                </option>
-
-                <option value="Feedback och förslag">
-                  Feedback / förslag
-                </option>
-
-                <option value="Annat">
-                  Annat
-                </option>
-
-              </select>
             </div>
 
-
-            <div class="field-full">
-
-              <label for="message">
-                Meddelande
-              </label>
-
+            <div class="form-field full">
+              <label for="message">Meddelande</label>
               <textarea
                 id="message"
                 name="message"
                 placeholder="Skriv ditt meddelande här..."
                 required
               ></textarea>
-
             </div>
 
           </div>
-
-
-          <label class="consent">
-
-            <input
-              type="checkbox"
-              required
-            >
-
-            <span>
-              Jag godkänner att I Slantify behandlar uppgifterna
-              i detta formulär för att kunna besvara mitt meddelande.
-              Läs mer i vår
-              <a href="../privacy/">
-                Integritetspolicy
-              </a>.
-            </span>
-
-          </label>
-
 
           <div class="contact-actions">
 
@@ -558,7 +324,7 @@
               type="submit"
               class="contact-submit"
             >
-              Skicka meddelande →
+              Skicka meddelande
             </button>
 
             <button
@@ -570,132 +336,44 @@
 
           </div>
 
-
-          <p
-            id="form-status"
-            class="contact-status"
-            role="status"
-            aria-live="polite"
-          ></p>
+          <p class="contact-note">
+            Genom att skicka formuläret skickas ditt meddelande till
+            I Slantifys supportteam.
+          </p>
 
         </form>
 
+        <div class="contact-email-box">
+          <strong>Support via e-post</strong>
+          <span>supportislantify@gmail.com</span>
+        </div>
+
       </section>
 
+    </div>
+  </main>
 
-      <!-- INFORMATION -->
+  <footer class="site-footer">
 
-      <aside class="contact-info">
+    <div class="container footer-inner">
 
-        <div class="info-box">
-
-          <div class="info-icon">◈</div>
-
-          <h3>Support</h3>
-
-          <p>
-            Behöver du hjälp med I Slantify?
-            Beskriv gärna problemet så tydligt som möjligt.
-          </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-          <div class="info-icon">✦</div>
-
-          <h3>Direkt till support</h3>
-
-          <p>
-            Alla meddelanden från kontaktformuläret skickas till:
-          </p>
-
-          <a
-            class="support-email"
-            href="mailto:supportislantify@gmail.com"
-          >
-            supportislantify@gmail.com
-          </a>
-
-        </div>
-
-
-        <div class="info-box">
-
-          <div class="info-icon">⌁</div>
-
-          <h3>Säkerhet & integritet</h3>
-
-          <p>
-            Skicka inte lösenord, BankID-koder eller annan
-            känslig autentiseringsinformation via kontaktformuläret.
-          </p>
-
-        </div>
-
-      </aside>
+      <div>
+        <strong>I Slantify</strong>
+        <p>Your economy. Live.</p>
+      </div>
 
     </div>
 
-  </div>
-
-</main>
-
-
-<footer class="site-footer">
-
-  <div class="container footer-inner">
-
-    <div>
-      <strong>I Slantify</strong>
-      <p>Your economy. Live.</p>
+    <div class="copyright">
+      &copy; <span id="year"></span> I Slantify
     </div>
 
-  </div>
+  </footer>
 
-  <div class="copyright">
-    &copy;
-    <span id="year"></span>
-    I Slantify
-  </div>
-
-</footer>
-
-
-<script>
-
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-  /*
-   * We deliberately do NOT prevent the form submission.
-   * The form must POST to FormSubmit so the message
-   * actually reaches supportislantify@gmail.com.
-   */
-
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-
-  if (form) {
-
-    form.addEventListener("submit", function () {
-
-      if (status) {
-
-        status.textContent =
-          "Skickar ditt meddelande…";
-
-        status.style.color =
-          "var(--accent)";
-
-      }
-
-    });
-
-  }
-
-</script>
+  <script>
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
