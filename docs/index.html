@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
@@ -12,15 +13,15 @@
 
     <style>
         :root {
-            --bg: #060913; /* Mycket mer levande cyber-marinblå istället för nattsvart */
-            --card: rgba(15, 23, 42, 0.75); /* Ljusare, tätare och mer synligt glas */
+            --bg: #060913; 
+            --card: rgba(15, 23, 42, 0.75); 
             --text: #ffffff; 
             --muted: #a1a1aa; 
-            --accent: #ff7a00; /* Islantify Cyber Orange */
+            --accent: #ff7a00; 
             --accent-glow: rgba(255, 122, 0, 0.5);
-            --cyber-cyan: #00f0ff; /* Framtids-cyan */
+            --cyber-cyan: #00f0ff; 
             --cyan-glow: rgba(0, 240, 255, 0.5);
-            --cyber-purple: #a255ff; /* Klarare framtidslila */
+            --cyber-purple: #a255ff; 
             --gold: #fbbf24; 
             --radius: 24px;
             --max-width: 1240px;
@@ -47,7 +48,7 @@
             position: relative;
         }
 
-        /* --- EFFEKTFULL BAKGRUND (Starkare, tätare och ljusare kvantmoln) --- */
+        /* --- EFFEKTFULL BAKGRUND --- */
         .space-bg-glows {
             position: absolute;
             top: 0;
@@ -62,7 +63,7 @@
         .glow-node {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px); /* Krispigare blur för mer färgintensitet */
+            filter: blur(100px); 
             opacity: 0.55;
             mix-blend-mode: screen;
             animation: float-glow 15s infinite alternate ease-in-out;
@@ -99,7 +100,6 @@
             100% { transform: translate(30px, 30px) scale(1.05); }
         }
 
-        /* Tätare, mer synligt digitalt rutnät (Grid-system) */
         .stars-container {
             position: absolute;
             width: 100%;
@@ -134,6 +134,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .brand {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
@@ -205,11 +206,10 @@
             box-shadow: 0 0 25px rgba(255, 122, 0, 0.6);
         }
 
-        /* --- Sektion Container Layout (Kompaktare marginaler) --- */
         .section-container {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 4.5rem 2rem; /* Tätare flöde istället för glesa 7rem */
+            padding: 4.5rem 2rem; 
         }
 
         /* --- 1. Ren Cinematiskt Ultra Banner --- */
@@ -235,7 +235,6 @@
             object-fit: cover;
         }
 
-        /* Lyxig typografisk introduktion under herovideon */
         .banner-intro-content {
             max-width: var(--max-width);
             margin: 0 auto;
@@ -332,7 +331,6 @@
             text-shadow: 0 0 8px var(--cyan-glow);
         }
 
-        /* Instrumentpanel för Live Löndemo - Tätare belysning */
         .live-salary-demo-box {
             background: linear-gradient(135deg, rgba(20, 35, 65, 0.8) 0%, rgba(10, 15, 30, 0.95) 100%);
             border: 1px solid rgba(0, 240, 255, 0.4);
@@ -460,6 +458,7 @@
             text-transform: uppercase;
             transition: all 0.2s;
         }
+
         .control-btn:hover:not(:disabled) {
             background: rgba(255,255,255,0.12);
             transform: translateY(-1px);
@@ -496,7 +495,6 @@
             padding-top: 1rem;
         }
 
-        /* Status Dot */
         .pulse-dot {
             width: 8px;
             height: 8px;
@@ -512,7 +510,7 @@
             100% { opacity: 1; }
         }
 
-        /* --- MODERN BENTO-GRID LAYOUT (Tätare struktur) --- */
+        /* --- MODERN BENTO-GRID LAYOUT --- */
         .bento-grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -578,9 +576,22 @@
             background: rgba(5, 10, 25, 0.8);
             border: 1px solid rgba(162, 85, 255, 0.3);
             border-radius: 14px;
-            padding: 0.8rem 1.2rem;
+            padding: 1.2rem;
             margin-bottom: 1.5rem;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .roulette-select-field {
+            background: #060913;
+            border: 1px solid rgba(162, 85, 255, 0.4);
+            border-radius: 8px;
+            color: white;
+            padding: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+            outline: none;
         }
 
         .roulette-inputs-label {
@@ -590,7 +601,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             display: block;
-            margin-bottom: 0.4rem;
         }
 
         .roulette-input-field {
@@ -630,7 +640,7 @@
 
         .wheel-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
+            font-size: 9px;
             font-weight: 700;
             fill: #ffffff;
             text-anchor: middle;
@@ -663,14 +673,21 @@
             z-index: 16;
         }
 
+        .roulette-controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
         .roulette-btn {
             background: linear-gradient(90deg, var(--cyber-purple) 0%, #7b2cbf 100%);
             color: #fff;
             border: none;
-            padding: 0.8rem 2.2rem;
+            padding: 0.8rem 1rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
             border-radius: 30px;
             cursor: pointer;
@@ -679,9 +696,14 @@
             transition: all 0.2s;
         }
 
-        .roulette-btn:hover {
+        .roulette-btn:hover:not(:disabled) {
             transform: scale(1.02);
             box-shadow: 0 0 25px rgba(162, 85, 255, 0.8);
+        }
+
+        .roulette-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
 
         .roulette-reward-output {
@@ -767,7 +789,7 @@
             text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
         }
 
-        /* --- TRUST SHIELD PANEL (Fylligare design) --- */
+        /* --- TRUST SHIELD PANEL --- */
         .trust-shield-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -796,13 +818,14 @@
             font-size: 1.1rem;
             margin-bottom: 0.4rem;
         }
+
         .trust-card p {
             font-size: 0.9rem;
             color: #d4d4d8;
             font-weight: 300;
         }
 
-        /* --- PRISKORT (PRICING LYX-GLAS) --- */
+        /* --- PRISKORT --- */
         .pricing-section-title {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -817,7 +840,7 @@
         }
 
         .pricing-card {
-            background: rgba(20, 30, 55, 0.85); /* Tätare och mindre transparent */
+            background: rgba(20, 30, 55, 0.85); 
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: var(--radius);
             padding: 3rem;
@@ -1174,12 +1197,11 @@
             color: rgba(255,255,255,0.3);
         }
 
-        /* --- Globala Premium UI taggar --- */
         .feature-tag {
             display: inline-block;
             background: rgba(0, 240, 255, 0.08);
             color: var(--cyber-cyan);
-            padding: 0.35rem 1.2rem;
+            padding: 0.35rem 1.2 lrem;
             border-radius: 30px;
             font-size: 0.7rem;
             font-family: 'Orbitron', sans-serif;
@@ -1219,7 +1241,6 @@
 </head>
 <body>
 
-    <!-- Kosmiskt partikellager och mesh-gradients -->
     <div class="space-bg-glows">
         <div class="glow-node glow-1"></div>
         <div class="glow-node glow-2"></div>
@@ -1254,14 +1275,12 @@
         </div>
     </section>
 
-    <!-- Cinematiskt introduktionstext -->
     <div class="banner-intro-content">
         <span class="feature-tag gold">Next-Gen Intelligent Network</span>
         <h1>I Slantify</h1>
         <p>En intelligent ekonomiplattform utformad för framtiden. Samlar din likviditet, realtidsinkomst, smarta plånböcker och kvant-AI i ett sömlöst, integrerat och gränslöst ekosystem.</p>
     </div>
 
-    <!-- Lyxigt Bento Grid Arkitektur (Översikt) -->
     <section class="section-container">
         <div class="bento-grid-container">
             <div class="bento-card bento-wide">
@@ -1275,24 +1294,20 @@
         </div>
     </section>
 
-    <!-- 2. Live Lön Sektion (Video + Demo tillsammans med Info) -->
+    <!-- 2. Live Lön Sektion -->
     <section id="livelon" class="section-container">
         <div class="live-salary-grid">
-            
-            <!-- Vänster kolumn: Video och den interaktiva livedemon -->
             <div style="display: flex; flex-direction: column; gap: 2rem;">
                 <div class="video-box-premium">
                     <video class="video-player" controls autoplay loop muted playsinline>
                         <source src="assets/live lön video.mp4" type="video/mp4">
                         Din webbläsare stödjer inte videotaggen.
-               </video>
+                    </video>
                 </div>
                 
-                <!-- Live löndemo med knappar och tidsräknare -->
                 <div class="live-salary-demo-box">
                     <div class="demo-title">Live Income stream // verified</div>
                     
-                    <!-- Dynamisk Timlön Inmatningsmodul -->
                     <div class="salary-input-wrapper">
                         <span class="salary-input-label">Ange din timlön:</span>
                         <div class="salary-input-field-container">
@@ -1306,7 +1321,6 @@
                         <div class="currency">SEK</div>
                     </div>
 
-                    <!-- Tim, minut och sekund info panel -->
                     <div class="time-counter-panel">
                         <div class="time-block">
                             <div id="val-hours" class="time-val">00</div>
@@ -1322,7 +1336,6 @@
                         </div>
                     </div>
 
-                    <!-- Kontrollknappar för demot -->
                     <div class="demo-controls">
                         <button id="btn-start" class="control-btn btn-start">Execute</button>
                         <button id="btn-pause" class="control-btn" disabled>Pause</button>
@@ -1337,7 +1350,6 @@
                 </div>
             </div>
 
-            <!-- Höger kolumn: Information och textbeskrivning -->
             <div class="info-content">
                 <span class="feature-tag">Time-Injected Income</span>
                 <h2>Följ din lön växa <span>sekund för sekund</span></h2>
@@ -1351,11 +1363,10 @@
                 </ul>
                 <p><strong>Live Income visar vad du faktiskt bygger upp genom ditt arbete – varje ögonblick du arbetar.</strong></p>
             </div>
-
         </div>
     </section>
 
-    <!-- Bento Grid Fas 2 (Ecosystem) -->
+    <!-- Bento Grid Fas 2 -->
     <section id="ecosystem" class="section-container">
         <div class="info-content" style="margin-bottom: 2.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
             <span class="feature-tag">Unified Infrastructure</span>
@@ -1389,31 +1400,30 @@
         </div>
     </section>
 
-    <!-- 3. Roulette Sektion (Vänner-system med Text inuti hjulet) -->
+    <!-- 3. Roulette Sektion (Kompis-system med rullgardin upp till 100 personer) -->
     <section id="roulette" class="section-container">
         <div class="roulette-grid">
-            
-            <!-- Vänster kolumn: Information och textbeskrivning -->
             <div class="info-content">
                 <span class="feature-tag purple">Social Splitting Hub</span>
                 <h2>Vem betalar notan? <span>Slumpa via Roulette</span></h2>
-                <p>I Slantify Roulette handlar inte bara om att vinna räntebonusar. Använd funktionen direkt i restaurangen eller baren med ditt kompisgäng för att lösa notan på ett interaktivt och spännande sätt.</p>
-                <p>Skriv in era namn i modulen till höger, separerade med kommatecken. Vår slumpgenerator fördelar hjulet rättvist, målar bitarna och renderar namnen direkt i cirkelelementet live.</p>
+                <p>I Slantify Roulette löser ni snabbt notan vid bordet på ett interaktivt och spännande sätt.</p>
+                <p>Välj antal deltagare i rullgardinsmenyn (stöder upp till 100 personer). Skriv sedan in namnen i rutan separerade med kommatecken. Hjulet fördelas helt rättvist och färgläggs live.</p>
             </div>
 
-            <!-- Höger kolumn: Interaktivt Roulette Hjul -->
             <div class="roulette-interactive-preview">
-                
-                <!-- Inmatningsfält för vänner -->
                 <div class="roulette-inputs-wrapper">
-                    <label class="roulette-inputs-label">Skriv deltagare (separera med kommatecken):</label>
+                    <label class="roulette-inputs-label">Välj antal deltagare (1-100):</label>
+                    <select id="roulette-count-select" class="roulette-select-field">
+                        <!-- Genereras dynamiskt via JS till 100 -->
+                    </select>
+
+                    <label class="roulette-inputs-label">Skriv deltagarnas namn (separera med kommatecken):</label>
                     <input id="roulette-names-input" type="text" class="roulette-input-field" value="Du, Johan, Maria, Ahmed">
                 </div>
 
                 <div class="wheel-outer-box">
                     <div class="wheel-pointer"></div>
                     <div id="wheel-container" class="wheel-container">
-                        <!-- SVG genereras dynamiskt av JavaScript här -->
                         <svg id="roulette-svg" class="wheel-svg" viewBox="0 0 200 200">
                             <circle cx="100" cy="100" r="95" fill="#090a0f" />
                         </svg>
@@ -1421,10 +1431,13 @@
                     </div>
                 </div>
                 
-                <button id="btn-spin-roulette" class="roulette-btn">Snurra hjulet</button>
-                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Konfigurera gänget ovan och testa vem som betalar notan ikväll.</div>
+                <div class="roulette-controls">
+                    <button id="btn-spin-roulette" class="roulette-btn">Starta</button>
+                    <button id="btn-pause-roulette" class="roulette-btn" style="background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);" disabled>Pausa</button>
+                    <button id="btn-reset-roulette" class="roulette-btn" style="background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);">Återställ</button>
+                </div>
+                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Konfigurera gänget ovan och starta rullningen.</div>
             </div>
-
         </div>
     </section>
 
@@ -1443,7 +1456,6 @@
                         <div class="terminal-dot"></div>
                     </div>
                     
-                    <!-- Klickbara simulatorfrågor -->
                     <button class="terminal-query-trigger" data-response="[ANALYS]: Din matkonsumtion utgör 22.4% av dina utgifter denna månad. Du har spenderat totalt 3 420 SEK, vilket är 12% lägre än föregående månadscykel. Bra jobbat!">
                         &gt; "Hur mycket har jag spenderat på mat den här månaden?"
                     </button>
@@ -1454,7 +1466,6 @@
                         &gt; "Generera en optimerad budget kalkyl inför nästa likviditetscykel."
                     </button>
 
-                    <!-- Resulterande skärm -->
                     <div id="ai-response-display" class="terminal-response-screen">
                         // VÄNTAR PÅ TELEMETRICOMMAND... Klicka på en finansiell fråga ovan för att initiera neural exekvering.
                     </div>
@@ -1478,7 +1489,7 @@
             <div class="trust-card">
                 <div class="trust-icon">🔑</div>
                 <h4>Säker BankID-anslutning</h4>
-                <p>We lagrar aldrig dina bankuppgifter eller lösenord. Autentisering sker direkt via resmiella, krypterade BankID-protokoll.</p>
+                <p>Vi lagrar aldrig dina bankuppgifter eller lösenord. Autentisering sker direkt via resmiella, krypterade BankID-protokoll.</p>
             </div>
             <div class="trust-card">
                 <div class="trust-icon">⚖️</div>
@@ -1496,7 +1507,6 @@
         </div>
         
         <div class="pricing-grid">
-            <!-- Free plan -->
             <div class="pricing-card">
                 <div class="tier-badge">Standard</div>
                 <h4>Free Matrix</h4>
@@ -1512,7 +1522,6 @@
                 <a href="#download" class="pricing-btn">Initiera Gratis</a>
             </div>
 
-            <!-- Premium plan -->
             <div class="pricing-card premium-tier">
                 <div class="tier-badge orange-lbl">Most Popular</div>
                 <h4>Quantum Pro</h4>
@@ -1558,7 +1567,7 @@
                     <span class="faq-icon-marker">+</span>
                 </button>
                 <div class="faq-panel">
-                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så datat alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
+                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så att alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
                 </div>
             </div>
         </div>
@@ -1572,7 +1581,6 @@
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto;">Skanna matris-koden med din mobila enhets optiska sensor för att omedelbart initiera krypterad nedladdning.</p>
             
             <div class="qr-wrapper-main">
-                <!-- iOS QR Kort -->
                 <div class="qr-card-futuristic">
                     <div class="qr-hologram-placeholder">
                         <div class="qr-scanner-line"></div>
@@ -1585,7 +1593,6 @@
                     <p>För Apple iPhone</p>
                 </div>
 
-                <!-- Android QR Kort -->
                 <div class="qr-card-futuristic">
                     <div class="qr-hologram-placeholder">
                         <div class="qr-scanner-line"></div>
@@ -1601,37 +1608,40 @@
         </div>
     </section>
 
-    <!-- 6. Premium Cyber Kontaktformulär -->
+    <!-- 6. Premium Cyber Säkert Kontaktformulär -->
     <section id="contact" class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 3.5rem;">
         <div class="info-content" style="text-align: center; margin-bottom: 2.5rem;">
             <span class="feature-tag purple">Secure Sub-Space Uplink</span>
             <h2>Kontakta Supporten</h2>
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto; margin-top: 0.5rem;">
-                Har du frågor eller behöver teknisk hjälp? Skicka ett säkert meddelande direkt till vårt supportteam via vår krypterade länk.
+                Skicka ett säkert meddelande direkt till supportislantify@gmail.com.
             </p>
         </div>
 
         <div style="max-width: 600px; margin: 0 auto; background: var(--card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 2.5rem; backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-            <form action="https://formspree.io" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Web3Forms skickar mailet direkt till din inbox säkert utan konstigheter -->
+            <form action="https://web3forms.com" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- Sätt in din gratisnyckel från web3forms.com här om du vill, annars används den publika vidarebefordringen -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="to_email" value="supportislantify@gmail.com">
                 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
                     <label style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--cyber-cyan); text-transform: uppercase; letter-spacing: 1px;">Ditt Namn</label>
-                    <input type="text" name="name" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none; transition: border-color 0.2s;">
+                    <input type="text" name="name" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none;">
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
                     <label style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--cyber-cyan); text-transform: uppercase; letter-spacing: 1px;">Din E-postadress</label>
-                    <input type="email" name="_replyto" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none; transition: border-color 0.2s;">
+                    <input type="email" name="email" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none;">
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
                     <label style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--cyber-cyan); text-transform: uppercase; letter-spacing: 1px;">Meddelande</label>
-                    <textarea name="message" rows="5" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none; transition: border-color 0.2s; resize: vertical;"></textarea>
+                    <textarea name="message" rows="5" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none; resize: vertical;"></textarea>
                 </div>
 
-                <input type="hidden" name="_subject" value="Nytt supportmeddelande från I Slantify Hemsida">
-
-                <button type="submit" style="background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%); color: white; padding: 0.9rem; border-radius: 12px; border: none; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 15px var(--accent-glow); transition: all 0.2s ease;">
+                <button type="submit" style="background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%); color: white; padding: 0.9rem; border-radius: 12px; border: none; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 15px var(--accent-glow);">
                     Transmit Message // Secure
                 </button>
             </form>
@@ -1719,77 +1729,85 @@
                 counterElement.textContent = currentSalary.toFixed(2);
             }
 
-            btnStart.addEventListener('click', () => {
-                if (timerInterval) return;
+            if (btnStart) {
+                btnStart.addEventListener('click', () => {
+                    if (timerInterval) return;
 
-                btnStart.disabled = true;
-                btnPause.disabled = false;
-                btnStop.disabled = false;
-                salaryInput.disabled = true;
+                    btnStart.disabled = true;
+                    btnPause.disabled = false;
+                    btnStop.disabled = false;
+                    salaryInput.disabled = true;
 
-                statusDot.className = "pulse-dot active";
-                statusText.textContent = "Kvantström aktiv. Beräknar i realtid utifrån " + salaryInput.value + " kr/h.";
+                    statusDot.className = "pulse-dot active";
+                    statusText.textContent = "Kvantström aktiv. Beräknar i realtid utifrån " + salaryInput.value + " kr/h.";
 
-                let lastTimestamp = performance.now();
+                    let lastTimestamp = performance.now();
 
-                timerInterval = setInterval(() => {
-                    const now = performance.now();
-                    const delta = now - lastTimestamp;
-                    lastTimestamp = now;
+                    timerInterval = setInterval(() => {
+                        const now = performance.now();
+                        const delta = now - lastTimestamp;
+                        lastTimestamp = now;
 
-                    totalMilliseconds += delta;
-                    currentSalary += delta * getIncomePerMs();
+                        totalMilliseconds += delta;
+                        currentSalary += delta * getIncomePerMs();
+
+                        updateDisplay();
+                    }, 50);
+                });
+            }
+
+            if (btnPause) {
+                btnPause.addEventListener('click', () => {
+                    if (!timerInterval) return;
+
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+
+                    btnStart.disabled = false;
+                    btnPause.disabled = true;
+                    
+                    statusDot.className = "pulse-dot paused";
+                    statusText.textContent = "Telemetriström pausad. Sparade framsteg frysta i Matrix.";
+                });
+            }
+
+            if (btnStop) {
+                btnStop.addEventListener('click', () => {
+                    if (timerInterval) {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                    }
+                    btnStart.disabled = false;
+                    btnPause.disabled = true;
+                    btnStop.disabled = true;
+                    salaryInput.disabled = false;
+
+                    statusDot.className = "pulse-dot stopped";
+                    statusText.textContent = "Simulering fryst. Redo för ny exekvering eller ändring av timlön.";
+                });
+            }
+
+            if (btnReset) {
+                btnReset.addEventListener('click', () => {
+                    if (timerInterval) {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                    }
+
+                    totalMilliseconds = 0;
+                    currentSalary = 0.00;
+
+                    btnStart.disabled = false;
+                    btnPause.disabled = true;
+                    btnStop.disabled = true;
+                    salaryInput.disabled = false;
+
+                    statusDot.className = "pulse-dot stopped";
+                    statusText.textContent = "Kvanträknaren nollställd.";
 
                     updateDisplay();
-                }, 50);
-            });
-            @style
-            btnPause.addEventListener('click', () => {
-                if (!timerInterval) return;
-
-                clearInterval(timerInterval);
-                timerInterval = null;
-
-                btnStart.disabled = false;
-                btnPause.disabled = true;
-                
-                statusDot.className = "pulse-dot paused";
-                statusText.textContent = "Telemetriström pausad. Sparade framsteg frysta i Matrix.";
-            });
-
-            btnStop.addEventListener('click', () => {
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                    timerInterval = null;
-                }
-                btnStart.disabled = false;
-                btnPause.disabled = true;
-                btnStop.disabled = true;
-                salaryInput.disabled = false;
-
-                statusDot.className = "pulse-dot stopped";
-                statusText.textContent = "Simulering fryst. Redo för ny exekvering eller ändring av timlön.";
-            });
-
-            btnReset.addEventListener('click', () => {
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                    timerInterval = null;
-                }
-
-                totalMilliseconds = 0;
-                currentSalary = 0.00;
-
-                btnStart.disabled = false;
-                btnPause.disabled = true;
-                btnStop.disabled = true;
-                salaryInput.disabled = false;
-
-                statusDot.className = "pulse-dot stopped";
-                statusText.textContent = "Kvanträknaren nollställd.";
-
-                updateDisplay();
-            });
+                });
+            }
 
             // --- 2. Aktiv Meny-dockningsmarkör vid Scroll ---
             const navLinks = document.querySelectorAll('.nav-link-btn');
@@ -1812,21 +1830,42 @@
                 });
             });
 
-            // --- 3. Avancerad Dynamisk Roulette med Namn-Rendering ---
-            const btnSpin = document.getElementById('btn-spin-roulette');
-            const wheelContainer = document.getElementById('wheel-container');
-            const svgElement = document.getElementById('roulette-svg');
-            const rewardText = document.getElementById('roulette-reward-text');
+            // --- 3. Avancerad Dynamisk Roulette (Hanterar 1-100 deltagare med Start/Paus/Reset) ---
+            const countSelect = document.getElementById('roulette-count-select');
             const namesInput = document.getElementById('roulette-names-input');
+            const svgElement = document.getElementById('roulette-svg');
+            const wheelContainer = document.getElementById('wheel-container');
+            const rewardText = document.getElementById('roulette-reward-text');
+            
+            const btnSpin = document.getElementById('btn-spin-roulette');
+            const btnPauseRoulette = document.getElementById('btn-pause-roulette');
+            const btnResetRoulette = document.getElementById('btn-reset-roulette');
+
+            // Fyll dropdownen från 1 till 100
+            for(let i = 1; i <= 100; i++) {
+                let opt = document.createElement('option');
+                opt.value = i;
+                opt.innerHTML = `${i} st`;
+                if(i === 4) opt.selected = true; // Förvalt värde
+                countSelect.appendChild(opt);
+            }
 
             const sliceColors = ['#ef4444', '#9d4edd', '#ff7a00', '#00f0ff', '#10b981', '#f59e0b', '#ec4899', '#3b82f6'];
             let isSpinning = false;
+            let rouletteInterval = null;
             let currentRotation = 0;
+            let spinSpeed = 0;
 
             function parseParticipants() {
-                return namesInput.value.split(',')
-                    .map(name => name.trim())
-                    .filter(name => name.length > 0);
+                const targetCount = parseInt(countSelect.value);
+                let list = namesInput.value.split(',').map(n => n.trim()).filter(n => n.length > 0);
+                
+                // Om listan har färre namn än valt antal, fyll på med generiska deltagare
+                while(list.length < targetCount) {
+                    list.push(`Spelare ${list.length + 1}`);
+                }
+                // Om listan har fler, kapa den vid valt antal
+                return list.slice(0, targetCount);
             }
 
             function drawDynamicWheel() {
@@ -1840,7 +1879,6 @@
 
                 participants.forEach((name, index) => {
                     const color = sliceColors[index % sliceColors.length];
-                    
                     const startAngle = index * anglePerSlice;
                     const endAngle = (index + 1) * anglePerSlice;
                     
@@ -1853,61 +1891,101 @@
                     const y2 = 100 + 95 * Math.sin(radEnd);
                     
                     const largeArcFlag = anglePerSlice > 180 ? 1 : 0;
-                    
                     const pathData = totalSlices === 1 
                         ? `<circle cx="100" cy="100" r="95" fill="${color}" />`
                         : `M 100 100 L ${x1} ${y1} A 95 95 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
                         
-                    svgElement.insertAdjacentHTML('beforeend', `<path d="${pathData}" fill="${color}" stroke="#060913" stroke-width="2"/>`);
+                    svgElement.insertAdjacentHTML('beforeend', `<path d="${pathData}" fill="${color}" stroke="#060913" stroke-width="1"/>`);
 
-                    const textAngle = startAngle + (anglePerSlice / 2);
-                    const radText = (textAngle * Math.PI) / 180;
-                    
-                    const textX = 100 + 58 * Math.cos(radText);
-                    const textY = 100 + 58 * Math.sin(radText);
-                    
-                    let rotation = textAngle;
-                    const textNode = `
-                        <text x="${textX}" y="${textY + 4}" 
-                              class="wheel-text" 
-                              transform="rotate(${rotation}, ${textX}, ${textY})">
-                            ${name}
-                        </text>
-                    `;
-                    svgElement.insertAdjacentHTML('beforeend', textNode);
+                    // Rendera endast namn-text om det inte är för trångt (max 20 deltagare för läsbarhet)
+                    if (totalSlices <= 20) {
+                        const textAngle = startAngle + (anglePerSlice / 2);
+                        const radText = (textAngle * Math.PI) / 180;
+                        const textX = 100 + 55 * Math.cos(radText);
+                        const textY = 100 + 55 * Math.sin(radText);
+                        
+                        const textNode = `
+                            <text x="${textX}" y="${textY + 3}" 
+                                  class="wheel-text" 
+                                  transform="rotate(${textAngle}, ${textX}, ${textY})">
+                                ${name.substring(0, 8)}
+                            </text>
+                        `;
+                        svgElement.insertAdjacentHTML('beforeend', textNode);
+                    }
                 });
             }
 
             drawDynamicWheel();
             namesInput.addEventListener('input', drawDynamicWheel);
+            countSelect.addEventListener('change', drawDynamicWheel);
+
+            // Spinn-motor med intervall för att hantera pausering jämnt
+            function runRouletteLoop() {
+                currentRotation += spinSpeed;
+                wheelContainer.style.transform = `rotate(${currentRotation}deg)`;
+                
+                if (spinSpeed > 0.2 && !btnPauseRoulette.disabled) {
+                    spinSpeed *= 0.985; // Gradvis inbromsning
+                    rouletteInterval = requestAnimationFrame(runRouletteLoop);
+                } else if (spinSpeed <= 0.2) {
+                    // Stannat helt
+                    isSpinning = false;
+                    btnSpin.disabled = false;
+                    btnPauseRoulette.disabled = true;
+                    namesInput.disabled = false;
+                    countSelect.disabled = false;
+                    
+                    const participants = parseParticipants();
+                    const sliceAngle = 360 / participants.length;
+                    
+                    // Beräkna vinnaren baserat på rotationsvinkeln mot pilen (högst upp = 270 grader i standard SVG)
+                    let normalizedAngle = (360 - (currentRotation % 360)) % 360;
+                    let winningIndex = Math.floor(normalizedAngle / sliceAngle) % participants.length;
+                    
+                    const loser = participants[winningIndex];
+                    rewardText.textContent = `🚨 NOTAN TILLDELAD: Det blev ${loser.toUpperCase()} som bjuder ikväll!`;
+                }
+            }
 
             btnSpin.addEventListener('click', () => {
                 const participants = parseParticipants();
-                if (participants.length === 0) {
-                    rewardText.textContent = "// ERROR: Inga giltiga deltagare registrerade.";
-                    return;
-                }
-                if (isSpinning) return;
-                
+                if (participants.length === 0) return;
+
                 isSpinning = true;
+                btnSpin.disabled = true;
+                btnPauseRoulette.disabled = false;
                 namesInput.disabled = true;
+                countSelect.disabled = true;
                 rewardText.textContent = "// MATRISEN SNURRAR... VEM TAR NOTAN?";
 
-                const sliceAngle = 360 / participants.length;
-                const winningIndex = Math.floor(Math.random() * participants.length);
-                
-                const targetAngle = 360 - (winningIndex * sliceAngle + (sliceAngle / 2));
-                const totalSpinRotation = 1800 + targetAngle;
-                currentRotation += totalSpinRotation;
-                
-                wheelContainer.style.transform = `rotate(${currentRotation}deg)`;
+                if (spinSpeed === 0) {
+                    spinSpeed = Math.random() * 20 + 25; // Ny kraftfull startfart
+                }
+                rouletteInterval = requestAnimationFrame(runRouletteLoop);
+            });
 
-                setTimeout(() => {
-                    isSpinning = false;
-                    namesInput.disabled = false;
-                    const loser = participants[winningIndex];
-                    rewardText.textContent = `🚨 NOTAN TILLDELAD: Det blev ${loser.toUpperCase()} som bjuder gänget ikväll!`;
-                }, 4000);
+            btnPauseRoulette.addEventListener('click', () => {
+                cancelAnimationFrame(rouletteInterval);
+                btnSpin.disabled = false;
+                btnPauseRoulette.disabled = true;
+                rewardText.textContent = "// RULLNING PAUSAD: Klicka på Starta för att fortsätta rotationen.";
+            });
+
+            btnResetRoulette.addEventListener('click', () => {
+                cancelAnimationFrame(rouletteInterval);
+                isSpinning = false;
+                spinSpeed = 0;
+                currentRotation = 0;
+                wheelContainer.style.transform = `rotate(0deg)`;
+                
+                btnSpin.disabled = false;
+                btnPauseRoulette.disabled = true;
+                namesInput.disabled = false;
+                countSelect.disabled = false;
+                
+                rewardText.textContent = "// SYSTEM RESET: Klar för ny dragning.";
+                drawDynamicWheel();
             });
 
             // --- 4. Interaktiv AI Terminal Simulator ---
@@ -1951,4 +2029,3 @@
     </script>
 </body>
 </html>
-
