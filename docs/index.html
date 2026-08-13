@@ -55,8 +55,6 @@
       align-items: center;
       min-height: 85vh;
     }
-<!doctype html> <html lang="sv"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Jag Slantify — Din lön. I realtid.</title> <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planerad budget och spara smartare."> <!-- Open Graph / Social Media --> <meta property="og:title" content="I Slantify — Din samla lön. I realtidog." och Live Income i en premium fintechupplevelse Se din inkomst växa sekund för sekund, planera budget och spara smartare."> <meta property="og:type" content="website"> <meta property="og:url" content="https://islantify.com"> <link rel="canonical" href="https://islantify.com"> <meta. name="theme-color" content="#030712"> <meta name="twitter:card" content="summary_large_image"> <!-- Resurser och ikoner --> <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
-   <link rel="stylesheet" href="assets/styles.css"> <!-- Skript --> <script src="https://unpkg.com"></script> <script src="assets/config.js" defer></script> <script src="assets/qrcode.min.js" defer></script> <style> /* Global Cyber ​​Dark Base & Layout */ * { box-sizing: border-box; } body { background-color: #030712 !important; color: #94a3b8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; overflow-x: hidden;
     .hero-content {
       max-width: 580px;
       z-index: 10;
@@ -123,7 +121,7 @@
       box-shadow: 0 15px 30px rgba(255, 122, 0, 0.4);
     }
 
-    /* Right Side Hero Display (Phone and Dragon Overlay) */
+    /* Right Side Hero Display (Phone and Dragon Video Overlay) */
     .hero-graphics {
       position: relative;
       width: 600px;
@@ -132,25 +130,15 @@
       align-items: center;
       justify-content: center;
     }
-    .dragon-bg {
+    .dragon-video-bg {
       position: absolute;
       right: -80px;
       top: -40px;
       width: 680px;
       height: 680px;
-      background-image: url('assets/dragon-hq-render.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+      object-fit: contain;
       opacity: 0.85;
       z-index: 1;
-    }
-    /* Fallback sketch placeholder for dragon */
-    .dragon-fallback {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
       pointer-events: none;
     }
     .phone-mockup {
@@ -381,466 +369,257 @@
       font-size: 15px;
       color: #ff7a00;
       font-weight: 600;
-      margin-top: 8px;
-    }
 
-    .demo-controls {
-      display: flex;
-      gap: 12px;
-    }
-    .demo-btn {
-      flex: 1;
-      padding: 14px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      text-align: center;
-      border: none;
-    }
-    .demo-btn-start {
-      background: #ffffff;
-      color: #030712;
-    }
-    .demo-btn-start:hover {
-      background: #f1f5f9;
-      box-shadow: 0 0 15px rgba(255,255,255,0.15);
-    }
-    .demo-btn-pause {
-      background: rgba(255,255,255,0.04);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .demo-btn-pause:hover {
-      background: rgba(255,255,255,0.08);
-    }
-    .demo-btn-reset {
-      background: rgba(255,255,255,0.02);
-      color: #64748b;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .demo-btn-reset:hover {
-      color: #ffffff;
-      background: rgba(239,68,68,0.05);
-      border-color: rgba(239,68,68,0.2);
-    }
-    .demo-footnote {
-      font-size: 11px;
-      color: #475569;
-      margin-top: 16px;
-      text-align: center;
-    }
+margin-top: 8px;
+}
+.demo-controls {
+display: flex;
+gap: 12px;
+}
+.demo-btn {
+flex: 1;
+padding: 14px;
+border-radius: 12px;
+font-weight: 700;
+font-size: 14px;
+cursor: pointer;
+transition: all 0.15s ease;
+text-align: center;
+border: none;
+}
+.demo-btn-start {
+background: #ffffff;
+color: #030712;
+}
+.demo-btn-start:hover {
+background: #f1f5f9;
+box-shadow: 0 0 15px rgba(255,255,255,0.15);
+}
+.demo-btn-pause {
+background: rgba(255,255,255,0.04);
+color: #ffffff;
+border: 1px solid rgba(255,255,255,0.08);
+}
+.demo-btn-pause:hover {
+background: rgba(255,255,255,0.08);
+}
+.demo-btn-reset {
+background: rgba(255,255,255,0.02);
+color: #64748b;
+border: 1px solid rgba(255,255,255,0.05);
+}
+.demo-btn-reset:hover {
+color: #ffffff;
+background: rgba(239,68,68,0.05);
+border-color: rgba(239,68,68,0.2);
+}
+.demo-footnote {
+font-size: 11px;
+color: #475569;
+margin-top: 16px;
+text-align: center;
+}
+/* Small Metrics Row Under Demo Box */
+.mini-metrics-row {
+max-width: 1100px;
+margin: -60px auto 120px auto;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+padding: 0 20px;
+border-top: 1px solid rgba(255,255,255,0.05);
+padding-top: 30px;
+}
+.metric-card-item {
+text-align: left;
+}
+.metric-card-item span {
+font-size: 20px;
+font-weight: 700;
+color: #ffffff;
+display: block;
+font-family: monospace;
+}
+.metric-card-item label {
+font-size: 12px;
+color: #475569;
+margin-top: 4px;
+display: block;
+}
+/* Section 3: Slantify Social & Roulette Container */
+.social-section {
+max-width: 600px;
+margin: 80px auto 120px auto;
+padding: 0 20px;
+text-align: center;
+}
+.roulette-video-container {
+width: 100%;
+border-radius: 24px;
+overflow: hidden;
+border: 1px solid rgba(255,255,255,0.05);
+margin-top: 20px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.roulette-video-container video {
+width: 100%;
+display: block;
+}
+.roulette-box {
+background: linear-gradient(180deg, #0e1322 0%, #060911 100%);
+border: 1px solid rgba(255,255,255,0.05);
+border-radius: 24px;
+padding: 30px;
+margin-top: 30px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+position: relative;
+}
+.roulette-pill-header {
+background: rgba(239,68,68,0.1);
+border: 1px solid rgba(239,68,68,0.2);
+color: #ef4444;
+font-size: 12px;
+font-weight: 700;
+padding: 8px 16px;
+border-radius: 12px;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 20px;
+}
+.roulette-pill-header span {
+width: 8px;
+height: 8px;
+background: #ef4444;
+border-radius: 50%;
+}
+/* Video Sektion för Live Lön */
+.live-video-section {
+max-width: 1100px;
+margin: 80px auto;
+padding: 0 20px;
+text-align: center;
+}
+.live-video-wrapper {
+width: 100%;
+max-width: 800px;
+margin: 30px auto 0 auto;
+border-radius: 24px;
+overflow: hidden;
+border: 1px solid rgba(255,122,0,0.15);
+box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+.live-video-wrapper video {
+width: 100%;
+display: block;
+}
+/* Responsive Grid Adjustments */
+@media (max-width: 968px) {
+.hero-container {
+flex-direction: column;
+text-align: center;
+padding: 40px 20px;
+}
+.hero-content {
+max-width: 100%;
+margin-bottom: 50px;
+}
+.feature-mini-grid {
+justify-content: center;
+}
+.hero-graphics {
+width: 100%;
+height: auto;
+}
+.dragon-video-bg {
+display: none;
+}
+.live-demo-layout {
+grid-template-columns: 1fr;
+}
+.mini-metrics-row {
+grid-template-columns: 1fr;
+gap: 20px;
+text-align: center;
+}
+.metric-card-item {
+text-align: center;
+}
+}
 
-    /* Small Metrics Row Under Demo Box */
-    .mini-metrics-row {
-      max-width: 1100px;
-      margin: -60px auto 120px auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      padding: 0 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 30px;
-    }
-    .metric-card-item {
-      text-align: left;
-    }
-    .metric-card-item span {
-      font-size: 20px;
-      font-weight: 700;
-      color: #ffffff;
-      display: block;
-      font-family: monospace;
-    }
-    .metric-card-item label {
-      font-size: 12px;
-      color: #475569;
-      margin-top: 4px;
-      display: block;
-    }
 
-    /* Section 3: Slantify Social & Roulette Container */
-    .social-section {
-      max-width: 600px;
-      margin: 80px auto 120px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-    .roulette-box {
-      background: linear-gradient(180deg, #0e1322 0%, #060911 100%);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 24px;
-      padding: 30px;
-      margin-top: 30px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      position: relative;
-    }
-    .roulette-pill-header {
-      background: rgba(239,68,68,0.1);
-      border: 1px solid rgba(239,68,68,0.2);
-      color: #ef4444;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-    .roulette-pill-header span {
-      width: 8px;
-      height: 8px;
-      background: #ef4444;
-      border-radius: 50%;
-    }
-    .roulette-wheel-graphic {
-      width: 160px;
-      height: 160px;
-      margin: 30px auto;
-      border: 8px dashed rgba(255,122,0,0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ff7a00;
-      font-size: 24px;
-    }
+document.addEventListener("DOMContentLoaded", () => {
+const salaryInput = document.getElementById("salary-input");
+const btnStart = document.getElementById("btn-start");
+const btnPause = document.getElementById("btn-pause");
+const btnReset = document.getElementById("btn-reset");
+const totalDisplay = document.getElementById("live-total-display");
+const rateDisplay = document.getElementById("live-rate-display");
+const cardSec = document.getElementById("card-rate-sec");
+const cardMin = document.getElementById("card-rate-min");
+const cardHour = document.getElementById("card-rate-hour");
+const heroPhoneCounter = document.getElementById("hero-phone-counter");
+let timerInterval = null;
+let accumulatedIncome = 0.0;
+let heroPhoneAccumulated = 8.26;
+function calculateRates() {
+const hourlyWage = parseFloat(salaryInput.value) || 0;
+const perMinute = hourlyWage / 60;
+const perSecond = hourlyWage / 3600;
+if (rateDisplay) {
+rateDisplay.textContent = = ${perSecond.toFixed(3).replace(".", ",")} kr/sek;
+}
+if (cardSec) {
+cardSec.textContent = ${perSecond.toFixed(3).replace(".", ",")} kr;
+}
+if (cardMin) {
+cardMin.textContent = ${perMinute.toFixed(2).replace(".", ",")} kr;
+}
+if (cardHour) {
+cardHour.textContent = ${hourlyWage.toFixed(2).replace(".", ",")} kr;
+}
+return perSecond;
+}
+if (salaryInput) {
+salaryInput.addEventListener("input", calculateRates);
+calculateRates();
+}
+if (btnStart) {
+btnStart.addEventListener("click", () => {
+if (timerInterval) return;
+if (salaryInput) salaryInput.disabled = true;
+const refreshRate = 0.05;
+timerInterval = setInterval(() => {
+const currentSecRate = calculateRates();
+accumulatedIncome += currentSecRate * refreshRate;
+if (totalDisplay) {
+totalDisplay.textContent = ${accumulatedIncome.toLocaleString("sv-SE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kr;
+}
+}, refreshRate * 1000);
+});
+}
+if (btnPause) {
+btnPause.addEventListener("click", () => {
+clearInterval(timerInterval);
+timerInterval = null;
+if (salaryInput) salaryInput.disabled = false;
+});
+}
+if (btnReset) {
+btnReset.addEventListener("click", () => {
+clearInterval(timerInterval);
+timerInterval = null;
+accumulatedIncome = 0.0;
+if (totalDisplay) totalDisplay.textContent = "0,00 kr";
+if (salaryInput) salaryInput.disabled = false;
+calculateRates();
+});
+}
+setInterval(() => {
+heroPhoneAccumulated += (250 / 3600) * 0.1;
+if (heroPhoneCounter) {
+heroPhoneCounter.textContent = ${heroPhoneAccumulated.toLocaleString("sv-SE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kr;
+}
+}, 100);
+});
 
-    /* Responsive Grid Adjustments */
-    @media (max-width: 968px) {
-      .hero-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 20px;
-      }
-      .hero-content {
-        max-width: 100%;
-        margin-bottom: 50px;
-      }
-      .feature-mini-grid {
-        justify-content: center;
-      }
-      .hero-graphics {
-        width: 100%;
-        height: auto;
-      }
-      .dragon-bg {
-        display: none;
-      }
-      .live-demo-layout {
-        grid-template-columns: 1fr;
-      }
-      .mini-metrics-row {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        text-align: center;
-      }
-      .metric-card-item {
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- FAST MENY HÖGST UPP MED FINTECH GLASSMORPHISM -->
-  <header style="background-color: rgba(6, 11, 20, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);">
-    <!-- Logotyp (Vänster) -->
-    <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;">
-      <svg width="26" height="26" viewBox="0 0 100 100" style="fill: #ff7a00;">
-        <polygon points="50,15 85,85 15,85"/>
-      </svg>
-      <span style="color: #ffffff; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em;">Slantify</span>
-    </a>
-
-    <!-- Navigationslänkar (Mitten) -->
-    <nav class="desktop-nav" style="display: flex; gap: 1.5rem; align-items: center;">
-      <a href="#" style="color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Home</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Features</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Live Income</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Download</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Premium</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Support</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Privacy</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Terms</a>
-      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Contact</a>
-    </nav>
-  </header>
-
-  <!-- SEKTION 1: HERO DISPLAY (Draken & Telefonen) -->
-  <section class="hero-container">
-    <div class="hero-content">
-      <div class="info-eyebrow">Live Income Engine</div>
-      <h1>Se din lön växa – sekund för sekund.</h1>
-      <p>Följ din lön i realtid medan du arbetar. Se netto, brutto, by/tim, lön/dag, utförda tid och schema direkt i Slantify's Live Income Engine.</p>
-      
-      <div class="feature-mini-grid">
-        <div class="feature-badge"><span>💧</span> Netto & Brutto</div>
-        <div class="feature-badge"><span>🕒</span> By/tim, lön/dag</div>
-        <div class="feature-badge"><span>📅</span> Schema & Utförd tid</div>
-        <div class="feature-badge"><span>📈</span> Live-uppdateringar</div>
-      </div>
-      
-      <a href="#live-income" class="cta-btn">Ladda ner i Slantify</a>
-    </div>
-
-    <div class="hero-graphics">
-      <!-- Dekorativ bakgrundsdrake -->
-      <div class="dragon-bg"></div>
-      <svg class="dragon-fallback" viewBox="0 0 100 100" style="position:absolute; width:100%; height:100%; opacity:0.1; stroke:#ff7a00; fill:none; stroke-width:0.5;">
-        <path d="M70,20 Q90,40 75,70 T40,90 T20,60 Z M75,40 C85,35 90,45 80,50 C70,55 65,45 75,40 Z"/>
-      </svg>
-      
-      <!-- Mobilskärm mock-up -->
-      <div class="phone-mockup">
-        <div class="phone-header">
-          <span>9:41</span>
-          <span style="font-size:10px; color:#ff7a00; font-weight:800;">LIVE INCOME ● LIVE</span>
-        </div>
-        
-        <div>
-          <div class="phone-tabs">
-            <div class="phone-tab active">Netto</div>
-            <div class="phone-tab">Brutto</div>
-          </div>
-          
-          <div style="text-align:center; margin-top:12px; font-size:11px; color:#64748b;">
-            <span style="color:#10b981; margin-right:4px;">● Live</span> Lön växer NU
-          </div>
-
-          <div class="phone-circle-display">
-            <div class="phone-amount" id="hero-phone-counter">8,26 kr</div>
-            <div class="phone-rate">per sekund<br><span style="color:#ff7a00; font-weight:700;">NETTO</span></div>
-          </div>
-        </div>
-
-        <div>
-          <div class="phone-timer">
-            <div class="phone-time-digits">2 : 22</div>
-            <div class="phone-time-labels">Timmar &nbsp; Minuter</div>
-          </div>
-          
-          <div style="font-size:11px; color:#94a3b8; text-align:center; margin-bottom:15px; background:rgba(255,255,255,0.02); padding:8px; border-radius:10px;">
-            Skift: Kvällspass 16:00 – 22:00
-          </div>
-
-          <div class="phone-nav-bar">
-            <div class="phone-nav-item"><i>🏠</i>Hem</div>
-            <div class="phone-nav-item"><i>📊</i>Inkomst</div>
-            <div class="phone-nav-item active"><i>●</i>Live</div>
-            <div class="phone-nav-item"><i>💳</i>Plånbok</div>
-            <div class="phone-nav-item"><i>⚙️</i>Mer</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEKTION 2: PROVA LIVE INCOME TERMINAL -->
-  <section class="live-demo-section-title" id="live-income">
-    <div class="info-eyebrow" style="color:#ff7a00;">Prova Live Income</div>
-    <h2>Se din lön växa – sekund för sekund.</h2>
-    <p style="max-width:500px; margin:10px auto; font-size:14px; color:#64748b;">Testa själv hur Live Income fungerar. Ange din timlön, starta och se inkomsten växa i realtid.</p>
-  </section>
-
-  <section class="live-demo-layout">
-    <!-- Vänster kontrollpanel instruktioner -->
-    <div class="live-demo-info">
-      <div class="info-eyebrow" style="font-size:10px; margin-bottom:6px;">Live Income Demo</div>
-      <h3>Din lön – live.</h3>
-      <p>Se hur din inkomst växer sekund för sekund. Live Income räknar om din lön i realtid.</p>
-      
-      <div class="steps-list">
-        <div class="step-item">
-          <strong>1. Fyll i din timlön <span class="step-num">/ Ange din bruttolön per timme.</span></strong>
-        </div>
-        <div class="step-item">
-          <strong>2. Starta <span class="step-num">/ Tryck på Starta för att börja räkna live.</span></strong>
-        </div>
-        <div class="step-item">
-          <strong>3. Se lönen växa <span class="step-num">/ Se din inkomst växa sekund för sekund.</span></strong>
-        </div>
-        <div class="step-item">
-          <strong>4. Pausa & Återställ <span class="step-num">/ Pausa eller återställ när du vill.</span></strong>
-        </div>
-      </div>
-    </div>
-
-    <!-- Höger interaktiv lönemaskin -->
-    <div class="live-demo-card">
-      <div>
-        <div class="info-eyebrow" style="font-size:10px; margin-bottom:0;">Din timlön</div>
-        <div class="input-wrapper">
-          <input type="number" class="demo-input" id="salary-input" value="250">
-          <label>kr/timme</label>
-        </div>
-      </div>
-
-      <div class="main-display-panel">
-        <div class="info-eyebrow" style="font-size:10px; margin-bottom:8px; color:#64748b;">Din live inkomst</div>
-        <h2 class="live-income-amount" id="live-total-display">0,00 kr</h2>
-        <div class="kr-sek-rate" id="live-rate-display">= 0,069 kr/sek</div>
-      </div>
-
-      <div>
-        <div class="demo-controls">
-          <button class="demo-btn demo-btn-start" id="btn-start">Starta</button>
-          <button class="demo-btn demo-btn-pause" id="btn-pause">Pausa</button>
-          <button class="demo-btn demo-btn-reset" id="btn-reset">Återställ</button>
-        </div>
-        <div class="demo-footnote">*Exempelvärden – ingen riktig inkomst beräknas eller sparas.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SMÅ KORT/METRIKER UNDER DEMOBOXEN -->
-  <section class="mini-metrics-row">
-    <div class="metric-card-item">
-      <span id="card-rate-sec">0,069 kr</span>
-      <label>per sekund</label>
-    </div>
-    <div class="metric-card-item">
-      <span id="card-rate-min">4,17 kr</span>
-      <label>per minut</label>
-    </div>
-    <div class="metric-card-item">
-      <span id="card-rate-hour">250,00 kr</span>
-      <label>per timme</label>
-    </div>
-  </section>
-
-  <!-- SEKTION 3: SLANTIFY SOCIAL & ROULETTE -->
-  <section class="social-section">
-    <div class="info-eyebrow">- Slantify Social</div>
-    <h2 style="color:#ffffff; font-size:26px; font-weight:800; margin:10px 0 5px 0;">Delanot-Roulette</h2>
-    <p style="font-size:13px; color:#64748b; margin-bottom:20px;">Dela notan med vänner och låt Rouletten avgöra vem som får vad.</p>
-    
-    <div class="roulette-box">
-      <div class="roulette-pill-header">
-        <span></span> Kulan &nbsp; <span style="background:none; border:none; color:#64748b; font-weight:normal;">Kod: KZQY13</span>
-      </div>
-      <p style="color:#ffffff; font-weight:600; margin:10px 0 0 0; font-size:15px;">Snurrar... håll i dig! 🎡</p>
-      
-      <div class="roulette-wheel-graphic">
-        <span>🎯</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCRIPT-MOTOR: KOPPLAR ALLA KNAPPAR OCH KÖR SIMULATORN UTIFRÅN BILDENS LOGIK -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Deklarera alla fasta DOM-element
-      const salaryInput = document.getElementById("salary-input");
-      const btnStart = document.getElementById("btn-start");
-      const btnPause = document.getElementById("btn-pause");
-      const btnReset = document.getElementById("btn-reset");
-      
-      const totalDisplay = document.getElementById("live-total-display");
-      const rateDisplay = document.getElementById("live-rate-display");
-      
-      const cardSec = document.getElementById("card-rate-sec");
-      const cardMin = document.getElementById("card-rate-min");
-      const cardHour = document.getElementById("card-rate-hour");
-      
-      const heroPhoneCounter = document.getElementById("hero-phone-counter");
-
-      let timerInterval = null;
-      let phoneInterval = null;
-      let accumulatedIncome = 0.0;
-      let heroPhoneAccumulated = 8.26; // Startvärde taget direkt från mobilskärmen på din bild
-
-      // Funktion för att beräkna lön per sekund/minut/timme och uppdatera textfält
-      function calculateRates() {
-        const hourlyWage = parseFloat(salaryInput.value) || 0;
-        const perMinute = hourlyWage / 60;
-        const perSecond = hourlyWage / 3600;
-
-        // Uppdatera textsträngarna enligt designen i bilden
-        if (rateDisplay) {
-          rateDisplay.textContent = `= ${perSecond.toFixed(3).replace(".", ",")} kr/sek`;
-        }
-        if (cardSec) {
-          cardSec.textContent = `${perSecond.toFixed(3).replace(".", ",")} kr`;
-        }
-        if (cardMin) {
-          cardMin.textContent = `${perMinute.toFixed(2).replace(".", ",")} kr`;
-        }
-        if (cardHour) {
-          cardHour.textContent = `${hourlyWage.toFixed(2).replace(".", ",")} kr`;
-        }
-
-        return perSecond;
-      }
-
-      // Lyssna på timlöneändringar i realtid
-      if (salaryInput) {
-        salaryInput.addEventListener("input", calculateRates);
-        calculateRates(); // Sätt korrekta standardvärden direkt
-      }
-
-      // 1. STARTA SIMULATORN
-      if (btnStart) {
-        btnStart.addEventListener("click", () => {
-          if (timerInterval) return; // Förhindra dubbla triggers
-
-          // Lås inmatningsfältet under körning för att säkra beräkningen
-          if (salaryInput) salaryInput.disabled = true;
-
-          const refreshRate = 0.05; // 50ms frekvens ger mjukt rullande decimaler
-
-          timerInterval = setInterval(() => {
-            const currentSecRate = calculateRates();
-            accumulatedIncome += currentSecRate * refreshRate;
-            
-            if (totalDisplay) {
-              totalDisplay.textContent = `${accumulatedIncome.toLocaleString("sv-SE", { 
-                minimumFractionDigits: 2, 
-                maximumFractionDigits: 2 
-              })} kr`;
-            }
-          }, refreshRate * 1000);
-        });
-      }
-
-      // 2. PAUSA SIMULATORN
-      if (btnPause) {
-        btnPause.addEventListener("click", () => {
-          clearInterval(timerInterval);
-          timerInterval = null;
-          // Lås upp inputfältet igen
-          if (salaryInput) salaryInput.disabled = false;
-        });
-      }
-
-      // 3. ÅTERSTÄLL SIMULATORN
-      if (btnReset) {
-        btnReset.addEventListener("click", () => {
-          clearInterval(timerInterval);
-          timerInterval = null;
-          accumulatedIncome = 0.0;
-          
-          if (totalDisplay) totalDisplay.textContent = "0,00 kr";
-          if (salaryInput) salaryInput.disabled = false;
-          
-          calculateRates();
-        });
-      }
-
-      // 4. EXTRA EFFEKT: Låt telefonen i herosektionen ticka upp mjukt i bakgrunden för en premiumkänsla
-      phoneInterval = setInterval(() => {
-        // En timlön på 250kr ger ca 0.069 kr per sekund. Vi adderar en liten del per 100ms
-        heroPhoneAccumulated += (250 / 3600) * 0.1;
-        if (heroPhoneCounter) {
-          heroPhoneCounter.textContent = `${heroPhoneAccumulated.toLocaleString("sv-SE", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          })} kr`;
-        }
-      }, 100);
-    });
-  </script>
-</body>
-</html>
-      }, 100); }); </script> </body> </html>
