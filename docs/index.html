@@ -332,37 +332,25 @@ max-width:900px;
 
           </div>
 
-          <div style="
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
-          ">
+<div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+  
+  <!-- STARTA KNAPP -->
+  <button id="btn-start" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; border: none; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2); transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 6px 16px rgba(34, 197, 94, 0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(34, 197, 94, 0.2)';">
+    <i data-lucide="play" style="width: 14px; height: 14px; fill: white;"></i> Starta
+  </button>
 
-            <button
-              id="live-demo-start"
-              type="button"
-              class="btn btn-primary"
-            >
-              Starta
-            </button>
+  <!-- PAUSA KNAPP -->
+  <button id="btn-pause" style="background-color: #374151; color: #e5e7eb; border: 1px solid #4b5563; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='#4b5563'; this.style.color='#ffffff';" onmouseout="this.style.backgroundColor='#374151'; this.style.color='#e5e7eb';">
+    <i data-lucide="pause" style="width: 14px; height: 14px; fill: #e5e7eb;"></i> Pausa
+  </button>
 
-            <button
-              id="live-demo-pause"
-              type="button"
-              class="btn secondary"
-            >
-              Pausa
-            </button>
+  <!-- ÅTERSTÄLL KNAPP -->
+  <button id="btn-reset" style="background-color: transparent; color: #9ca3af; border: 1px solid #374151; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#ef4444'; this.style.color='#ef4444';" onmouseout="this.style.borderColor='#374151'; this.style.color='#9ca3af';">
+    <i data-lucide="rotate-ccw" style="width: 14px; height: 14px;"></i> Återställ
+  </button>
 
-            <button
-              id="live-demo-reset"
-              type="button"
-              class="btn secondary"
-            >
-              Återställ
-            </button>
+</div>
 
-          </div>
 
         </div>
 
@@ -773,5 +761,60 @@ style="display:block;width:100%;max-width:480px;height:auto;border-radius:20px;"
       } catch (e) { console.warn('QR generation failed', e); }
     });
   </script>
+  <footer style="background-color: #030712; border-top: 1px solid #1f2937; padding: 4rem 2rem 2rem 2rem; color: #9ca3af; font-family: sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem;">
+    
+    <!-- Vänster kolumn: Om appen -->
+    <div style="flex: 1; min-width: 250px;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+        <i data-lucide="trending-up" style="color: #f97316; width: 20px; height: 20px;"></i>
+        <span style="color: #ffffff; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em;">Slantify</span>
+      </div>
+      <p style="font-size: 0.85rem; line-height: 1.5; color: #6b7280;">
+        En uppdaterande inkomstvy som sätter din lön i fokus och skapar tydlighet i realtid. Se din lön växa sekund för sekund.
+      </p>
+    </div>
+
+    <!-- Mitten kolumn: Navigering -->
+    <div style="min-width: 150px;">
+      <h5 style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Länkar</h5>
+      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem;">
+        <li><a href="#features" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Funktioner</a></li>
+        <li><a href="#live" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Live Income</a></li>
+        <li><a href="/stöd" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Stöd & Support</a></li>
+        <li><a href="/kontakta" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#9ca3af'">Kontakta oss</a></li>
+      </ul>
+    </div>
+
+    <!-- Höger kolumn: Juridiskt (Här rensar vi upp!) -->
+    <div style="min-width: 150px;">
+      <h5 style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Legalt</h5>
+      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem;">
+        <li><a href="/privatliv" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#9ca3af'">Integritetspolicy</a></li>
+        <li><a href="/villkor" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#9ca3af'">Användarvillkor</a></li>
+        <li><a href="/sekretessval" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#9ca3af'">Sekretessval</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Nedre delen: Copyright -->
+  <div style="max-width: 1200px; margin: 3rem auto 0 auto; padding-top: 1.5rem; border-top: 1px solid #1f2937; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #4b5563;">
+    <p style="margin: 0;">&copy; 2026 Slantify. Alla rättigheter reserverade.</p>
+    <div style="display: flex; gap: 1rem;">
+      <a href="#" style="color: #4b5563; text-decoration: none;"><i data-lucide="instagram" style="width: 16px; height: 16px;"></i></a>
+      <a href="#" style="color: #4b5563; text-decoration: none;"><i data-lucide="twitter" style="width: 16px; height: 16px;"></i></a>
+      <a href="https://github.com" style="color: #4b5563; text-decoration: none;"><i data-lucide="github" style="width: 16px; height: 16px;"></i></a>
+    </div>
+  </div>
+</footer>
+    <!-- Här slutar din vanliga hemsida (t.ex. din nya footer) -->
+  </footer>
+ <!-- LÄGG SKRIPTET HÄR: -->
+  <script src="https://unpkg.com"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
 </body>
 </html>
