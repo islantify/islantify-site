@@ -1,5 +1,3 @@
-# I Slantify - Ultimate Premium Fintech App
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -11,25 +9,25 @@
     <!-- Google Fonts Inter & Orbitron för futuristisk känsla -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg: #02040a; /* Ännu djupare nattsvart */
-            --card: rgba(13, 20, 35, 0.65); /* Ultra-transparent mörkt cyberglas */
+            --bg: #010206; /* Absolut premium nattsvart */
+            --card: rgba(10, 16, 30, 0.45); /* Hyper-transparent mörkt lyxglas */
             --text: #f9fafb; 
-            --muted: #9ca3af; 
+            --muted: #8c96a5; 
 
             --accent: #ff7a00; /* Islantify Cyber Orange */
-            --accent-glow: rgba(255, 122, 0, 0.35);
+            --accent-glow: rgba(255, 122, 0, 0.4);
             --cyber-cyan: #00f0ff; /* Framtids-cyan */
-            --cyan-glow: rgba(0, 240, 255, 0.3);
+            --cyan-glow: rgba(0, 240, 255, 0.35);
             --cyber-purple: #9d4edd; /* Komplementär premium neon-lila */
             --gold: #f59e0b; 
-            --radius: 24px;
-            --max-width: 1200px;
-            --glass-border: rgba(255, 255, 255, 0.04);
-            --glass-glow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+            --radius: 28px;
+            --max-width: 1240px;
+            --glass-border: rgba(255, 255, 255, 0.035);
+            --glass-glow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -52,57 +50,94 @@
             position: relative;
         }
 
-        /* Ambient background glow nodes (Dynamiska ljusaoror) */
-        .ambient-glow-1 {
+        /* --- VÄRLDENS VACKRASTE MEsh-GRADIENTS (Levande kosmiska ljusmoln) --- */
+        .space-bg-glows {
             position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(255, 122, 0, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
-            top: -150px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
 
-            right: -100px;
-            z-index: -1;
+            z-index: -2;
             pointer-events: none;
+            overflow: hidden;
         }
 
-        .ambient-glow-2 {
+        .glow-node {
             position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+            animation: float-glow 20s infinite alternate ease-in-out;
+        }
+
+        .glow-1 {
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 122, 0, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: -200px;
+
+            right: -100px;
+        }
+
+        .glow-2 {
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0,0,0,0) 70%);
+            top: 600px;
+            left: -300px;
+            animation-delay: -5s;
+        }
+
+        .glow-3 {
             width: 900px;
             height: 900px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
-            top: 900px;
-            left: -200px;
-            z-index: -1;
-            pointer-events: none;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.1) 0%, rgba(0,0,0,0) 70%);
+            bottom: 300px;
+            right: -200px;
+            animation-delay: -10s;
+
         }
 
-        .ambient-glow-3 {
+        @keyframes float-glow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 40px) scale(1.1); }
+        }
+
+        /* Subtilt kosmiskt partikelregn */
+        .stars-container {
             position: absolute;
-            width: 800px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 550px 550px, 350px 350px;
+            background-position: 0 0, 40px 60px;
 
-            height: 800px;
-            background: radial-gradient(circle, rgba(157, 78, 221, 0.04) 0%, rgba(0, 0, 0, 0) 75%);
-            bottom: 400px;
-            right: -100px;
+            opacity: 0.15;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* --- Sci-Fi Header & Navigation --- */
+        /* --- Sci-Fi Header & Premium Navigation --- */
         .site-header {
             position: sticky;
             top: 0;
-            background: rgba(2, 4, 10, 0.4);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            background: rgba(1, 2, 6, 0.35);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 100;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
         }
-
 
         .header-inner {
             max-width: var(--max-width);
+
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -114,41 +149,45 @@
             font-weight: 900;
             color: var(--text);
             text-decoration: none;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
+            font-size: 1.6rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, #fff 60%, var(--muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
 
         .brand span {
             color: var(--cyber-cyan);
-            text-shadow: 0 0 10px var(--cyan-glow);
+            -webkit-text-fill-color: var(--cyber-cyan);
+            text-shadow: 0 0 15px var(--cyan-glow);
         }
 
         .main-nav {
             display: flex;
-            gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.01);
-            padding: 0.4rem 0.6rem;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.015);
+            padding: 0.4rem 0.5rem;
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: inset 0 1px 12px rgba(255,255,255,0.01), 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.6);
         }
 
         .nav-link-btn {
             color: var(--muted);
+
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
-
             font-weight: 700;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            padding: 0.6rem 1.2rem;
+            padding: 0.65rem 1.4rem;
             border-radius: 40px;
             border: 1px solid transparent;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -156,51 +195,50 @@
 
         .nav-link-btn:hover {
             color: var(--cyber-cyan);
-            background: rgba(0, 240, 255, 0.04);
+            background: rgba(0, 240, 255, 0.05);
             border-color: rgba(0, 240, 255, 0.2);
-            text-shadow: 0 0 8px var(--cyan-glow);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
 
-            transform: translateY(-1px);
+            text-shadow: 0 0 10px var(--cyan-glow);
         }
 
         .nav-link-btn.active-dock {
             color: #fff;
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
         }
 
         .cta-btn {
-            background: linear-gradient(90deg, var(--accent) 0%, #ff5500 100%);
+            background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%);
             color: white;
-            padding: 0.7rem 1.6rem;
+            padding: 0.75rem 1.8rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
 
-            box-shadow: 0 0 15px var(--accent-glow);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255,255,255,0.15);
         }
 
         .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(255, 122, 0, 0.6);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 122, 0, 0.7);
         }
 
         /* --- Sektion Container Layout --- */
         .section-container {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 6rem 2rem;
+            padding: 7rem 2rem;
         }
 
-        /* --- 1. Ren Cyber Drake Banner --- */
-        .drake-banner-section {
+        /* --- 1. Ren Cinematiskt Ultra Banner --- */
 
+        .drake-banner-section {
             padding: 2rem 2rem 0 2rem;
         }
 
@@ -209,110 +247,122 @@
             margin: 0 auto;
             position: relative;
             width: 100%;
-            height: 540px;
+            height: 580px;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 0 60px rgba(0,0,0,0.9);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.95);
             border: 1px solid rgba(255,255,255,0.04);
         }
 
         .drake-banner-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
 
+            object-fit: cover;
         }
 
-        /* Nedflyttad textbeskrivning under bannern */
+        /* Lyxig typografisk introduktion under herovideon */
         .banner-intro-content {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 4rem 2rem 0 2rem;
+            padding: 6rem 2rem 0 2rem;
             text-align: left;
         }
 
         .banner-intro-content h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 900;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #fff 40%, var(--muted) 100%);
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            background: linear-gradient(135deg, #ffffff 20%, #a5b4fc 50%, #6366f1 100%);
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .banner-intro-content p {
             color: var(--muted);
-            font-size: 1.35rem;
-            max-width: 900px;
+            font-size: 1.45rem;
+            max-width: 920px;
             font-weight: 300;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
-        /* --- 2. Live Lön Cyber-Grid --- */
+        /* --- 2. Live Lön Premium-Grid --- */
         .live-salary-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 5rem;
             align-items: center;
+
         }
 
         .video-box-premium {
-
             position: relative;
             background: var(--card);
             border-radius: var(--radius);
-            padding: 1rem;
+            padding: 1.2rem;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), var(--glass-glow);
-            backdrop-filter: blur(15px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), var(--glass-glow);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: border-color 0.4s ease;
+        }
+
+        .video-box-premium:hover {
+            border-color: rgba(0, 240, 255, 0.2);
         }
 
         .video-player {
+
             width: 100%;
-            border-radius: calc(var(--radius) - 8px);
+            border-radius: calc(var(--radius) - 12px);
             display: block;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
         }
 
         .info-content h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             letter-spacing: -0.03em;
             line-height: 1.2;
         }
 
         .info-content h2 span {
             color: var(--cyber-cyan);
-            text-shadow: 0 0 15px var(--cyan-glow);
+            text-shadow: 0 0 20px var(--cyan-glow);
         }
+
 
         .info-content p {
             color: var(--muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.1rem;
             font-weight: 300;
+            line-height: 1.8;
         }
 
         .info-content ul {
             list-style: none;
-
             margin-bottom: 1.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .info-content ul li {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text);
+
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            font-weight: 400;
         }
 
         .info-content ul li::before {
@@ -320,55 +370,58 @@
             color: var(--cyber-cyan);
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
-
+            text-shadow: 0 0 8px var(--cyan-glow);
         }
 
-        /* Futuristisk Live Löndemo Widget */
+        /* Lyxigt och interaktivt instrumentpanel för Live Löndemo */
         .live-salary-demo-box {
-            background: linear-gradient(135deg, rgba(10, 18, 36, 0.85) 0%, rgba(2, 4, 10, 0.95) 100%);
-            border: 1px solid rgba(0, 240, 255, 0.25);
+            background: linear-gradient(135deg, rgba(14, 26, 51, 0.6) 0%, rgba(2, 5, 12, 0.95) 100%);
+            border: 1px solid rgba(0, 240, 255, 0.3);
             border-radius: var(--radius);
-            padding: 2.2rem;
-            box-shadow: 0 0 40px rgba(0, 240, 255, 0.06), var(--glass-glow);
+
+            padding: 2.5rem;
+            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.04), var(--glass-glow);
+            backdrop-filter: blur(20px);
         }
 
         .demo-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             color: var(--cyber-cyan);
             font-weight: 700;
-            margin-bottom: 1.2rem;
-
+            margin-bottom: 1.5rem;
         }
 
-        /* Löneinmatningsfält */
+        /* Premium inmatning */
         .salary-input-wrapper {
-            background: rgba(2, 4, 10, 0.6);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 0.8rem 1rem;
-            margin-bottom: 1.5rem;
+            background: rgba(1, 2, 6, 0.7);
+            border: 1px solid rgba(255,255,255,0.06);
+
+            border-radius: 16px;
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 1.8rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .salary-input-label {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             color: var(--muted);
-
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .salary-input-field-container {
+
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         .salary-input-field {
@@ -377,33 +430,24 @@
             outline: none;
             color: var(--cyber-cyan);
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             text-align: right;
-
-            width: 90px;
-            border-bottom: 2px solid rgba(0, 240, 255, 0.2);
+            width: 100px;
+            border-bottom: 2px solid rgba(0, 240, 255, 0.25);
             padding-bottom: 2px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
+
 
         .salary-input-field:focus {
             border-color: var(--cyber-cyan);
+            text-shadow: 0 0 10px var(--cyan-glow);
         }
-
-        .salary-input-field::-webkit-outer-spin-button,
-        .salary-input-field::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        .salary-input-field[type=number] {
-            -moz-appearance: textfield;
-        }
-
 
         .input-currency {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--muted);
             font-weight: 700;
         }
@@ -411,116 +455,120 @@
         .counter-row {
             display: flex;
             align-items: baseline;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.6rem;
+            margin-bottom: 1.8rem;
         }
+
 
         .salary-counter {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 900;
             font-variant-numeric: tabular-nums;
-
             color: #00ffaa;
-            text-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
+            text-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
+            letter-spacing: -1px;
         }
 
         .currency {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--muted);
         }
 
-        /* Cyber tids- och räknarpanel */
+        /* Tidspanel */
         .time-counter-panel {
-            background: rgba(2, 4, 10, 0.6);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            display: grid;
 
+            background: rgba(1, 2, 6, 0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.2rem;
+            margin-bottom: 1.8rem;
+            display: grid;
             grid-template-columns: repeat(3, 1fr);
             text-align: center;
             gap: 0.5rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
         }
 
         .time-block .time-val {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             font-weight: 700;
             color: var(--text);
             font-variant-numeric: tabular-nums;
         }
+
 
         .time-block .time-lbl {
             font-size: 0.7rem;
             color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.2rem;
-
+            letter-spacing: 1.5px;
+            margin-top: 0.3rem;
         }
 
-        /* Framtids styrknappar */
+        /* Kontrollknappar */
         .demo-controls {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
+            gap: 0.75rem;
+            margin-bottom: 1.8rem;
         }
 
         .control-btn {
-            background: rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.03);
             color: var(--text);
-            border: 1px solid var(--glass-border);
-            padding: 0.8rem 0.2rem;
+
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 0.9rem 0.2rem;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             font-weight: 700;
-            border-radius: 8px;
-
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .control-btn:hover {
             background: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
         }
 
         .control-btn.btn-start {
-            background: rgba(0, 255, 170, 0.1);
+
+            background: rgba(0, 255, 170, 0.08);
             color: #00ffaa;
             border-color: rgba(0, 255, 170, 0.3);
         }
         .control-btn.btn-start:hover {
-            background: rgba(0, 255, 170, 0.18);
-            box-shadow: 0 0 15px rgba(0, 255, 170, 0.15);
-
+            background: rgba(0, 255, 170, 0.16);
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
         }
 
         .control-btn.btn-stop {
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(239, 68, 68, 0.08);
             color: #ef4444;
             border-color: rgba(239, 68, 68, 0.3);
         }
         .control-btn.btn-stop:hover {
-            background: rgba(239, 68, 68, 0.18);
+            background: rgba(239, 68, 68, 0.16);
         }
 
         .control-btn:disabled {
-            opacity: 0.15;
+
+            opacity: 0.12;
             cursor: not-allowed;
             background: transparent !important;
-            border-color: var(--glass-border) !important;
+            border-color: rgba(255,255,255,0.04) !important;
             color: var(--muted) !important;
             box-shadow: none !important;
+            transform: none !important;
         }
-
 
         .demo-footer-text {
             font-size: 0.8rem;
@@ -528,143 +576,173 @@
             margin-top: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.7rem;
             border-top: 1px solid var(--glass-border);
-            padding-top: 1rem;
+            padding-top: 1.2rem;
+            line-height: 1.5;
+
         }
 
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #00ffaa;
-            border-radius: 50%;
-        }
-        
-        .pulse-dot.active {
-
-            animation: pulse-animation 2s infinite;
-        }
-
-        .pulse-dot.paused {
-            background-color: var(--accent);
-            box-shadow: 0 0 10px var(--accent);
-        }
-
-        .pulse-dot.stopped {
-            background-color: #ef4444;
-        }
-
-        /* --- Cyber Appfunktioner Grid --- */
-        .app-features-grid {
+        /* --- HYPERMODERNT BENTO-GRID LAYOUT (Inspirerat av Apple & Stripe) --- */
+        .bento-grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
-
-        .feature-card {
+        .bento-card {
             background: var(--card);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
-            padding: 2.5rem;
-            backdrop-filter: blur(15px);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), var(--glass-glow);
         }
 
-        .feature-card::before {
+        /* Neon-glöd bakom bento-korten på hover */
+        .bento-card::after {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.04) 0%, rgba(0,0,0,0) 50%);
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at top left, rgba(0, 240, 255, 0.06), transparent 60%);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 240, 255, 0.25);
-            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.04);
+        .bento-card:hover {
+
+            transform: translateY(-6px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.05);
         }
 
-        .feature-card:hover::before {
+        .bento-card:hover::after {
             opacity: 1;
         }
 
-        .feature-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
+        /* Storleksvariationer för bento (Asymmetrisk arkitektur) */
+        .bento-wide { grid-column: span 2; }
+        .bento-tall { grid-row: span 1; }
 
+        .bento-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
             color: var(--text);
             letter-spacing: 0.5px;
+
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
 
-        .feature-card p {
+        .bento-card p {
             color: var(--muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 300;
+            line-height: 1.65;
         }
 
         /* --- 3. Cyber Roulette Sektion --- */
         .roulette-grid {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
         }
 
-        /* Nytt: Interaktivt Spelifierat Roulettehjul */
 
         .roulette-interactive-preview {
-            background: linear-gradient(135deg, rgba(20, 15, 35, 0.7) 0%, rgba(2, 4, 10, 0.95) 100%);
-            border: 1px solid rgba(157, 78, 221, 0.3);
+            background: linear-gradient(135deg, rgba(24, 14, 43, 0.6) 0%, rgba(2, 4, 10, 0.98) 100%);
+            border: 1px solid rgba(157, 78, 221, 0.35);
             border-radius: var(--radius);
-            padding: 2.5rem;
+            padding: 3rem;
             text-align: center;
-            box-shadow: 0 0 40px rgba(157, 78, 221, 0.05), var(--glass-glow);
+            box-shadow: 0 0 50px rgba(157, 78, 221, 0.06), var(--glass-glow);
             position: relative;
-            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .roulette-inputs-wrapper {
+            background: rgba(1, 2, 6, 0.7);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+
+        }
+
+        .roulette-inputs-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--cyber-purple);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .roulette-input-field {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text);
+            font-size: 1rem;
+            width: 100%;
+
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            padding-bottom: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .roulette-input-field:focus {
+            border-color: var(--cyber-purple);
+            text-shadow: 0 0 8px rgba(157, 78, 221, 0.5);
+        }
+
+        .wheel-outer-box {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            margin: 0 auto 2.5rem auto;
         }
 
         .wheel-container {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2rem auto;
-            border-radius: 50%;
-            border: 6px solid #111;
-            box-shadow: 0 0 25px rgba(157, 78, 221, 0.4), inset 0 0 20px rgba(0,0,0,0.8);
-            position: relative;
+            width: 100%;
 
-            background: conic-gradient(
-                #ef4444 0deg 45deg, #111 45deg 90deg,
-                #ef4444 90deg 135deg, #111 135deg 180deg,
-                #ef4444 180deg 225deg, #111 225deg 270deg,
-                #ef4444 270deg 315deg, #111 315deg 360deg
-            );
+            height: 100%;
+            border-radius: 50%;
+            border: 8px solid #090a0f;
+            box-shadow: 0 0 35px rgba(157, 78, 221, 0.5), inset 0 0 20px rgba(0,0,0,0.8);
+            position: relative;
             transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
         }
 
         .wheel-pointer {
             position: absolute;
-            top: -15px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-top: 24px solid var(--cyber-purple);
-
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 26px solid var(--cyber-purple);
             z-index: 10;
-            filter: drop-shadow(0 0 8px var(--cyber-purple));
+
+            filter: drop-shadow(0 0 10px var(--cyber-purple));
         }
 
         .wheel-center-pin {
@@ -672,11 +750,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             background: #fff;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(255,255,255,0.9);
+            z-index: 11;
         }
 
         .roulette-btn {
@@ -684,66 +763,70 @@
             color: #fff;
 
             border: none;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.5rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
             border-radius: 30px;
             cursor: pointer;
             text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .roulette-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 25px rgba(157, 78, 221, 0.7);
+            transform: scale(1.03) translateY(-1px);
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.8);
         }
 
-        .roulette-reward-output {
 
-            margin-top: 1.5rem;
+        .roulette-reward-output {
+            margin-top: 1.8rem;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.9rem;
             color: var(--muted);
             min-height: 24px;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 1.2rem;
         }
 
-        /* --- 4. Slantify AI Quantum Hub (Nytt: Live Interaktiv AI-Terminal) --- */
+        /* --- 4. Slantify AI Quantum Neural Hub --- */
         .ai-quantum-section {
-            background: radial-gradient(rgba(0, 240, 255, 0.05), transparent 60%), var(--card);
-            border: 1px solid rgba(0, 240, 255, 0.15);
+            background: radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.08), transparent 60%), var(--card);
+            border: 1px solid rgba(0, 240, 255, 0.2);
             border-radius: var(--radius);
             margin-bottom: 6rem;
-            padding: 4rem 2rem;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 0 40px rgba(0, 240, 255, 0.03);
+            padding: 5rem 3rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
 
         .ai-terminal-box {
-
-            background: #02040a;
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            margin-top: 2.5rem;
-            padding: 1.5rem;
+            background: #010206;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            margin-top: 3rem;
+            padding: 2rem;
             text-align: left;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.9);
         }
 
         .terminal-header {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 0.6rem;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            padding-bottom: 0.8rem;
+
         }
 
         .terminal-dot {
-            width: 10px;
-
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: #ef4444;
         }
@@ -751,102 +834,105 @@
         .terminal-dot:nth-child(3) { background: #10b981; }
 
         .terminal-query-trigger {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--glass-border);
-            padding: 1rem;
-            border-radius: 10px;
-            font-size: 0.9rem;
+            padding: 1.1rem 1.4rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
             color: var(--text);
             cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 0.8rem;
+
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-bottom: 1rem;
             width: 100%;
             text-align: left;
-
             display: block;
         }
 
         .terminal-query-trigger:hover {
-            background: rgba(0, 240, 255, 0.04);
-            border-color: rgba(0, 240, 255, 0.3);
-            transform: translateX(4px);
+            background: rgba(0, 240, 255, 0.05);
+            border-color: rgba(0, 240, 255, 0.35);
+            transform: translateX(6px);
+            color: #fff;
         }
 
         .terminal-response-screen {
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.03);
-            border-radius: 10px;
-            padding: 1.2rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: var(--cyber-cyan);
-            min-height: 80px;
-            margin-top: 1.5rem;
+            background: rgba(255,255,255,0.005);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 12px;
+            padding: 1.5rem;
 
-            border-left: 3px solid var(--cyber-cyan);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--cyber-cyan);
+            min-height: 90px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--cyber-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+            line-height: 1.7;
         }
 
-        /* --- 5. Framtids QR / Nedladdningsmodul --- */
+        /* --- 5. Framtids Hologram QR / Nedladdningsmodul --- */
         .download-universe {
             text-align: center;
-            background: linear-gradient(180deg, rgba(2,4,10,0) 0%, rgba(13,20,35,0.4) 100%);
+            background: linear-gradient(180deg, rgba(1,2,6,0) 0%, rgba(10,16,30,0.5) 100%);
             border-radius: var(--radius);
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             border: 1px solid var(--glass-border);
             position: relative;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+
         }
 
         .qr-wrapper-main {
             display: flex;
             justify-content: center;
-            gap: 4rem;
-            margin-top: 3.5rem;
+            gap: 5rem;
+            margin-top: 4rem;
             flex-wrap: wrap;
-
         }
 
         .qr-card-futuristic {
-            background: rgba(2, 4, 10, 0.8);
+            background: rgba(1, 2, 6, 0.85);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            width: 240px;
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 260px;
             position: relative;
-            transition: all 0.3s ease;
-            box-shadow: var(--glass-glow);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--glass-glow), 0 20px 40px rgba(0,0,0,0.6);
+
         }
 
         .qr-card-futuristic:hover {
             border-color: var(--cyber-cyan);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
-            transform: translateY(-5px);
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.2);
+            transform: translateY(-6px);
         }
 
-
-        /* QR Kod Modul Byggd med CSS Grid Matrix */
         .qr-hologram-placeholder {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 1.5rem auto;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 1.8rem auto;
             border: 1px solid rgba(0, 240, 255, 0.4);
-            border-radius: 12px;
+            border-radius: 14px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 240, 255, 0.03);
+            background: rgba(0, 240, 255, 0.02);
+
             overflow: hidden;
-            padding: 10px;
+            padding: 12px;
         }
 
         .cyber-qr-matrix {
             width: 100%;
             height: 100%;
-
             background-image: 
-                radial-gradient(rgba(0, 240, 255, 0.8) 2px, transparent 3px),
-                linear-gradient(90deg, transparent 4px, rgba(0, 240, 255, 0.1) 4px, rgba(0, 240, 255, 0.1) 6px, transparent 6px),
-                linear-gradient(0deg, transparent 4px, rgba(0, 240, 255, 0.1) 4px, rgba(0, 240, 255, 0.1) 6px, transparent 6px);
+                radial-gradient(rgba(0, 240, 255, 0.85) 2px, transparent 3px),
+                linear-gradient(90deg, transparent 4px, rgba(0, 240, 255, 0.12) 4px, rgba(0, 240, 255, 0.12) 6px, transparent 6px),
+                linear-gradient(0deg, transparent 4px, rgba(0, 240, 255, 0.12) 4px, rgba(0, 240, 255, 0.12) 6px, transparent 6px);
             background-size: 10px 10px, 10px 10px, 10px 10px;
             position: relative;
             border: 4px solid rgba(0, 240, 255, 0.8);
@@ -855,14 +941,14 @@
         .cyber-qr-matrix::before {
             content: "";
             position: absolute;
+
             top: 2px;
             left: 2px;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border: 4px solid var(--cyber-cyan);
             background: var(--bg);
-            box-shadow: 0 0 8px var(--cyber-cyan);
-
+            box-shadow: 0 0 10px var(--cyber-cyan);
         }
 
         .cyber-qr-matrix::after {
@@ -870,23 +956,23 @@
             position: absolute;
             bottom: 2px;
             left: 2px;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border: 4px solid var(--cyber-cyan);
             background: var(--bg);
-            box-shadow: 0 0 8px var(--cyber-cyan);
+            box-shadow: 0 0 10px var(--cyber-cyan);
+
         }
 
         .qr-top-right-finder {
             position: absolute;
             top: 2px;
             right: 2px;
-            width: 30px;
-
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border: 4px solid var(--cyber-cyan);
             background: var(--bg);
-            box-shadow: 0 0 8px var(--cyber-cyan);
+            box-shadow: 0 0 10px var(--cyber-cyan);
             z-index: 5;
         }
 
@@ -895,25 +981,26 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             font-weight: 700;
+
             color: var(--bg);
             background: var(--cyber-cyan);
-            padding: 0.1rem 0.4rem;
+            padding: 0.15rem 0.5rem;
             border-radius: 4px;
-            box-shadow: 0 0 10px var(--cyber-cyan);
+            box-shadow: 0 0 12px var(--cyber-cyan);
             z-index: 10;
         }
-
 
         .qr-scanner-line {
             position: absolute;
             width: 100%;
             height: 2px;
             background: var(--cyber-cyan);
-            box-shadow: 0 0 12px var(--cyber-cyan);
+            box-shadow: 0 0 15px var(--cyber-cyan);
             top: 0;
             z-index: 12;
-            animation: scan-line 3s linear infinite;
+            animation: scan-line 3.2s linear infinite;
         }
+
 
         @keyframes scan-line {
             0% { top: 0%; }
@@ -923,94 +1010,80 @@
 
         .qr-card-futuristic h4 {
             font-family: 'Orbitron', sans-serif;
-
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 1px;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
         }
 
         .qr-card-futuristic p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--muted);
         }
 
-        /* --- Globala UI taggar --- */
+        /* --- Globala Premium UI taggar --- */
+
         .feature-tag {
             display: inline-block;
-            background: rgba(0, 240, 255, 0.06);
+            background: rgba(0, 240, 255, 0.05);
             color: var(--cyber-cyan);
-            padding: 0.4rem 1.2rem;
+            padding: 0.45rem 1.4rem;
             border-radius: 30px;
             font-size: 0.75rem;
             font-family: 'Orbitron', sans-serif;
-
             font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 1.2rem;
-            border: 1px solid rgba(0, 240, 255, 0.12);
+            letter-spacing: 2px;
+            margin-bottom: 1.4rem;
+            border: 1px solid rgba(0, 240, 255, 0.15);
             text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
         }
 
         .feature-tag.gold {
-            background: rgba(245, 158, 11, 0.06);
+            background: rgba(245, 158, 11, 0.05);
             color: var(--gold);
-            border-color: rgba(245, 158, 11, 0.12);
+
+            border-color: rgba(245, 158, 11, 0.15);
         }
 
         .feature-tag.purple {
-            background: rgba(157, 78, 221, 0.08);
+            background: rgba(157, 78, 221, 0.06);
             color: var(--cyber-purple);
-            border-color: rgba(157, 78, 221, 0.2);
+            border-color: rgba(157, 78, 221, 0.18);
         }
 
-
-        @keyframes pulse-animation {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 170, 0.6); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 255, 170, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 170, 0); }
-        }
-
-        /* --- Responsivitet --- */
         @media (max-width: 968px) {
-            .live-salary-grid, .roulette-grid {
+            .live-salary-grid, .roulette-grid, .bento-grid-container {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
-            .info-content {
-                order: -1;
-            }
-            .drake-banner-wrapper {
-                height: 320px;
-            }
-            .banner-intro-content h1 {
+            .bento-wide { grid-column: span 1; }
+            .info-content { order: -1; }
+            .drake-banner-wrapper { height: 350px; }
+            .banner-intro-content h1 { font-size: 3rem; }
+            .main-nav { display: none; }
 
-                font-size: 2.5rem;
-            }
-            .main-nav {
-                display: none;
-            }
-            .qr-wrapper-main {
-                gap: 2rem;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Dynamiska ljuskluster i bakgrunden -->
-    <div class="ambient-glow-1"></div>
-    <div class="ambient-glow-2"></div>
-    <div class="ambient-glow-3"></div>
+    <!-- Kosmiskt partikellager och mesh-gradients -->
+    <div class="space-bg-glows">
+        <div class="glow-node glow-1"></div>
+        <div class="glow-node glow-2"></div>
+        <div class="glow-node glow-3"></div>
+    </div>
+    <div class="stars-container"></div>
 
     <!-- Navigationsmeny -->
-
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="brand">I Slantify<span>_</span></a>
             <nav class="main-nav">
                 <a href="#home" class="nav-link-btn active-dock">Home Hub</a>
+
                 <a href="#livelon" class="nav-link-btn">Live Income</a>
-                <a href="#bank" class="nav-link-btn">Ecosystem</a>
+                <a href="#ecosystem" class="nav-link-btn">Ecosystem</a>
                 <a href="#roulette" class="nav-link-btn">Roulette</a>
                 <a href="#ai" class="nav-link-btn">Quantum AI</a>
             </nav>
@@ -1018,37 +1091,37 @@
         </div>
     </header>
 
-    <!-- 1. Helt ren Cyber Drake Banner -->
+    <!-- 1. Ren Cinematiskt Ultra Banner -->
     <section id="home" class="drake-banner-section">
         <div class="drake-banner-wrapper">
             <video class="drake-banner-video" autoplay loop muted playsinline>
                 <source src="assets/dragon-banner.mp4" type="video/mp4">
-
                 Din webbläsare stödjer inte videotaggen.
             </video>
         </div>
     </section>
 
-    <!-- Nedflyttad textbeskrivning direkt under den rena bannern -->
+
+    <!-- Cinematiskt introduktionstext -->
     <div class="banner-intro-content">
         <span class="feature-tag gold">Next-Gen Intelligent Network</span>
         <h1>I Slantify</h1>
         <p>En intelligent ekonomiplattform utformad för framtiden. Samlar din likviditet, realtidsinkomst, smarta plånböcker och kvant-AI i ett sömlöst, integrerat och gränslöst ekosystem.</p>
     </div>
 
-    <!-- Appöversikt (Home Hub) -->
+    <!-- Lyxigt Bento Grid Arkitektur (Översikt) -->
     <section class="section-container">
-        <div class="app-features-grid">
-            <div class="feature-card">
+        <div class="bento-grid-container">
+            <div class="bento-card bento-wide">
                 <h3>🏠 Home – Matrix Core</h3>
-                <p>Din centrala ledningscentral. Följ omedelbart ditt aktuella saldo, kassaflöden, sparmål och dynamiska budgetvarningar i ett vackert och högpresterande gränssnitt.</p>
+                <p>Din centrala ledningscentral. Följ omedelbart ditt aktuella saldo, kassaflöden, sparmål och dynamiska budgetvarningar i ett vackert och högpresterande gränssnitt utformat för den moderna människan.</p>
             </div>
-
-            <div class="feature-card">
+            <div class="bento-card bento-tall">
                 <h3>🧠 Intelligent Economy Sync</h3>
-                <p>Det autonoma nätverket. Din kalender, dina schemalagda arbetspass och krypterade transaktionsdata smälter samman för att automatiskt förutse din likviditet veckor framåt.</p>
+                <p>Det autonoma nätverket. Din kalender, dina schemalagda arbetspass och krypterade transaktionsdata smälter samman för att förutse din likviditet.</p>
             </div>
         </div>
+
     </section>
 
     <!-- 2. Live Lön Sektion (Video + Demo tillsammans med Info) -->
@@ -1056,19 +1129,19 @@
         <div class="live-salary-grid">
             
             <!-- Vänster kolumn: Video och den interaktiva livedemon -->
-            <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <div style="display: flex; flex-direction: column; gap: 2.5rem;">
                 <div class="video-box-premium">
                     <video class="video-player" controls autoplay loop muted playsinline>
                         <source src="assets/live lön video.mp4" type="video/mp4">
                         Din webbläsare stödjer inte videotaggen.
                     </video>
                 </div>
-
                 
                 <!-- Live löndemo med knappar och tidsräknare -->
                 <div class="live-salary-demo-box">
                     <div class="demo-title">Live Income stream // verified</div>
                     
+
                     <!-- Dynamisk Timlön Inmatningsmodul -->
                     <div class="salary-input-wrapper">
                         <span class="salary-input-label">Ange din timlön:</span>
@@ -1083,12 +1156,12 @@
                         <div class="currency">SEK</div>
                     </div>
 
-
                     <!-- Tim, minut och sekund info panel -->
                     <div class="time-counter-panel">
                         <div class="time-block">
                             <div id="val-hours" class="time-val">00</div>
                             <div class="time-lbl">Hrs</div>
+
                         </div>
                         <div class="time-block">
                             <div id="val-minutes" class="time-val">00</div>
@@ -1103,11 +1176,11 @@
                     <!-- Kontrollknappar för demot -->
                     <div class="demo-controls">
                         <button id="btn-start" class="control-btn btn-start">Execute</button>
-
                         <button id="btn-pause" class="control-btn" disabled>Pause</button>
                         <button id="btn-stop" class="control-btn btn-stop" disabled>Freeze</button>
                         <button id="btn-reset" class="control-btn">Reset</button>
                     </div>
+
 
                     <div class="demo-footer-text">
                         <div id="demo-status-dot" class="pulse-dot stopped"></div>
@@ -1123,88 +1196,92 @@
                 <p>Live Income upphäver den traditionella månadsväntan. Genom att spåra dina aktiva arbetspass ger I Slantify dig en visuell algoritmisk ström av din intjäning i exakt realtid.</p>
                 <p>Vårt avancerade protokoll beräknar och projicerar:</p>
                 <ul>
-
                     <li>Brutto- & Nettovariabler</li>
                     <li>OB- och övertidstillägg</li>
                     <li>Autonoma löneprognoser</li>
                     <li>Ackumulerade pensionsindex</li>
                 </ul>
-                <p><strong>Live Income visar vad du faktisk bygger upp genom ditt arbete – varje ögonblick du arbetar.</strong></p>
+
+                <p><strong>Live Income visar vad du faktiskt bygger upp genom ditt arbete – varje ögonblick du arbetar.</strong></p>
             </div>
 
         </div>
     </section>
 
-    <!-- Bank, Wallet & Kalender Sektion -->
-    <section id="bank" class="section-container">
-        <div class="info-content" style="margin-bottom: 4rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+    <!-- Bento Grid Fas 2 (Ecosystem) -->
+    <section id="ecosystem" class="section-container">
+        <div class="info-content" style="margin-bottom: 4rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
             <span class="feature-tag">Unified Infrastructure</span>
             <h2>Ett nätverk. Helt utan friktion.</h2>
         </div>
-        <div class="app-features-grid">
-            <div class="feature-card">
-
-                <h3>🏦 Biometric Bank Connection</h3>
-                <p>Koppla omedelbart upp dina externa tillgångar via biometriskt säkrade API-anslutningar (BankID). Algoritmen kategoriserar saldon, fasta avgifter och återkommande utgifter helt utan manuell inmatning.</p>
+        <div class="bento-grid-container">
+            <div class="bento-card">
+                <h3>🏦 Biometric Bank Sync</h3>
+                <p>Koppla upp dina externa tillgångar via biometriskt säkrade API-anslutningar (BankID). Algoritmen kategoriserar saldon helt automatiskt.</p>
             </div>
-            <div class="feature-card">
+            <div class="bento-card">
                 <h3>👛 Universal Wallet & NFC</h3>
-                <p>En dematerialiserad plånbok. Förvara dina betal- och kreditkort virtuellt och betala kontaktlöst via telefonens NFC-chip. Integrerar lojalitetskoder, boardingkort och krypterade QR-biljetter.</p>
+
+                <p>Förvara dina betalkort virtuellt och betala kontaktlöst via telefonens NFC-chip. Integrerar lojalitetskoder och QR-biljetter.</p>
             </div>
-            <div class="feature-card">
+            <div class="bento-card">
                 <h3>📅 Chrono Calendar</h3>
-                <p>Tid och kapital synkroniserat. Kalendern mäter dina arbetspass, fasta räkningar och sparmål så att din realtidsinkomst korrigeras med absolut precision.</p>
+                <p>Tid och kapital synkroniserat. Kalendern mäter dina arbetspass så att din realtidsinkomst korrigeras med absolut precision.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Pengar, Sparande & Hälsocenter -->
-    <section class="section-container" style="border-top: 1px solid var(--glass-border);">
-        <div class="app-features-grid">
-            <div class="feature-card">
+            <div class="bento-card bento-wide">
                 <h3>📊 Predictive Money Hub</h3>
-
-                <p>Bryt ner dina utgiftsmönster. Islantify analyserar din konsumtion och bygger prediktiva kalkyler som visar hur dagens köp påverkar din likviditet nästa månad.</p>
+                <p>Bryt ner dina utgiftsmönster. Islantify analyserar din konsumtion och bygger prediktiva kalkyler som visar hur dagens köp påverkar din framtida likviditet, sparmål och buffertar.</p>
             </div>
-            <div class="feature-card">
+            <div class="bento-card">
                 <h3>🎯 Smart Savings</h3>
-                <p>Gör dina visioner mätbara. Konfigurera autonoma sparplaner för skyddande buffertar, resor eller framtida investeringar och se nätverket allokera medel optimalt.</p>
+                <p>Skapa sparmål för resor, bostad eller buffert och se nätverket allokera medel automatiskt.</p>
             </div>
-            <div class="feature-card">
-                <h3>❤️ Economy Center Health</h3>
-                <p>Den fullständiga diagnosen. Samlar realtidsdata från skulder, tillgångar och trender för att generera ett holistiskt hälsindex över din personliga ekonomi.</p>
+            <div class="bento-card">
+                <h3>❤️ Economy Health Center</h3>
+                <p>Genererar ett holistiskt hälsindex över din personliga ekonomi över tid.</p>
             </div>
         </div>
+
     </section>
 
-    <!-- 3. Roulette Sektion (Nu fullt interaktiv med testsnurr) -->
+    <!-- 3. Roulette Sektion (Vänner-system för Notan) -->
     <section id="roulette" class="section-container">
         <div class="roulette-grid">
             
             <!-- Vänster kolumn: Information och textbeskrivning -->
             <div class="info-content">
-
-                <span class="feature-tag purple">Behavioral Gamification</span>
-                <h2>Spelifierad ekonomi via <span>I Slantify Roulette</span></h2>
-                <p>En interaktiv brygga mellan beteendevetenskap och personlig ekonomi. Använd I Slantify Roulette tillsammans med vänner för att förvandla sparutmaningar till gemensamma segrar.</p>
-                <p>Kopplat till vår <strong>Sociala Hubb</strong> där ni kan kommunicera, spara till delade mål och låsa upp kollektiva milstolpar på era egna krypterade villkor.</p>
+                <span class="feature-tag purple">Social Splitting Hub</span>
+                <h2>Vem betalar notan? <span>Slumpa via Roulette</span></h2>
+                <p>I Slantify Roulette handlar inte bara om att vinna räntebonusar. Använd funktionen direkt i restaurangen eller baren med ditt kompisgäng för att lösa notan på ett interaktivt och spännande sätt.</p>
+                <p>Skriv in era namn i modulen till höger, separerade med kommatecken. Vår slumpgenerator fördelar hjulet rättvist och väljer ut vem som plockar upp notan biometriskt via appen.</p>
             </div>
 
-            <!-- Höger kolumn: Interaktivt Live Roulette Hjul preview -->
+            <!-- Höger kolumn: Interaktivt Roulette Hjul med kompis-lista -->
             <div class="roulette-interactive-preview">
-                <div class="wheel-pointer"></div>
-                <div id="roulette-wheel" class="wheel-container">
-                    <div class="wheel-center-pin"></div>
+                
+                <!-- Inmatningsfält för vänner -->
+                <div class="roulette-inputs-wrapper">
+
+                    <label class="roulette-inputs-label">Skriv deltagare (separera med kommatecken):</label>
+                    <input id="roulette-names-input" type="text" class="roulette-input-field" value="Du, Johan, Maria, Ahmed">
                 </div>
-                <button id="btn-spin-roulette" class="roulette-btn">Testa snurra hjulet</button>
-                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Tryck ovan för att testa applikationens roulette-algoritm.</div>
+
+                <div class="wheel-outer-box">
+                    <div class="wheel-pointer"></div>
+                    <div id="roulette-wheel" class="wheel-container">
+                        <div class="wheel-center-pin"></div>
+                    </div>
+                </div>
+                
+                <button id="btn-spin-roulette" class="roulette-btn">Snurra hjulet</button>
+                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Konfigurera gänget ovan och testa vem som betalar notan ikväll.</div>
             </div>
 
         </div>
     </section>
 
+    <!-- 4. Slantify AI Quantum Hub -->
 
-    <!-- 4. Slantify AI Quantum Hub (Nu med Live Interaktiv Simulator) -->
     <section id="ai" class="section-container">
         <div class="ai-quantum-section">
             <div class="info-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -1223,8 +1300,8 @@
                     <button class="terminal-query-trigger" data-response="[ANALYS]: Din matkonsumtion utgör 22.4% av dina utgifter denna månad. Du har spenderat totalt 3 420 SEK, vilket är 12% lägre än föregående månadscykel. Bra jobbat!">
                         &gt; "Hur mycket har jag spenderat på mat den här månaden?"
                     </button>
-
                     <button class="terminal-query-trigger" data-response="[PROGNOS]: Med din nuvarande realtids-inkomst på 200 kr/h och ett stabilt sparflöde kommer du att nå ditt sparmål (Resa) om exakt 42 dagar, 6 timmar och 12 minuter.">
+
                         &gt; "När uppnår jag mitt sparmål baserat på nuvarande live-tempo?"
                     </button>
                     <button class="terminal-query-trigger" data-response="[AUTONOM BUDGET]: Skapar kalkyl baserat på historisk telemetri... Jag föreslår att du låser 15% av nästa veckas realtidslön i din Wallet för att absorbera den kommande fasta elräkningen utan likviditetstapp.">
@@ -1243,8 +1320,8 @@
     <!-- 5. Framtids QR & Nedladdningsmodul -->
     <section id="download" class="section-container">
         <div class="download-universe">
-
             <span class="feature-tag gold">Secure Telemetry Link</span>
+
             <h2 style="font-family:'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Ladda ner applikationen</h2>
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto;">Skanna matris-koden med din mobila enhets optiska sensor för att omedelbart initiera krypterad nedladdning.</p>
             
@@ -1263,8 +1340,8 @@
                 </div>
 
                 <!-- Android QR Kort -->
-
                 <div class="qr-card-futuristic">
+
                     <div class="qr-hologram-placeholder">
                         <div class="qr-scanner-line"></div>
                         <div class="cyber-qr-matrix">
@@ -1283,8 +1360,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- 1. Live Income Logik ---
-
             const counterElement = document.getElementById('salary-counter');
+
             const hrsElement = document.getElementById('val-hours');
             const minsElement = document.getElementById('val-minutes');
             const secsElement = document.getElementById('val-seconds');
@@ -1303,8 +1380,8 @@
             let currentSalary = 0.00;
 
             function getIncomePerMs() {
-
                 const hourlySalary = parseFloat(salaryInput.value) || 0;
+
                 return hourlySalary / 3600 / 1000;
             }
 
@@ -1421,41 +1498,78 @@
                 });
             });
 
-            // --- 3. Nytt: Interaktiv Roulette Logik ---
+            // --- 3. Dynamisk Roulette Logik med Vänner-system ---
             const btnSpin = document.getElementById('btn-spin-roulette');
             const wheel = document.getElementById('roulette-wheel');
 
             const rewardText = document.getElementById('roulette-reward-text');
-            
-            const rewards = [
-                "VINST: +0.5% Sparränta låst!",
-                "VINST: 5% Cashback på matvaror!",
-                "VINST: Fri premiumvecka av Slantify AI!",
-                "VINST: Dubbel Live-Income nästa timme!",
-                "VINST: +1.0% Räntebonus i 30 dagar!",
-                "VINST: 100kr insatt på din Wallet-buffert!"
-            ];
+            const namesInput = document.getElementById('roulette-names-input');
+
+            const sliceColors = ['#ef4444', '#9d4edd', '#ff7a00', '#00f0ff', '#10b981', '#f59e0b', '#ec4899', '#3b82f6'];
 
             let isSpinning = false;
+            let currentRotation = 0;
+
+            function parseParticipants() {
+                return namesInput.value.split(',')
+                    .map(name => name.trim())
+                    .filter(name => name.length > 0);
+            }
+
+            function drawDynamicWheel() {
+                const participants = parseParticipants();
+                if (participants.length === 0) return;
+
+                const sliceAngle = 360 / participants.length;
+
+                let gradientString = 'conic-gradient(';
+
+                participants.forEach((name, index) => {
+                    const color = sliceColors[index % sliceColors.length];
+                    const startAngle = index * sliceAngle;
+                    const endAngle = (index + 1) * sliceAngle;
+                    gradientString += `${color} ${startAngle}deg ${endAngle}deg`;
+                    if (index < participants.length - 1) gradientString += ', ';
+                });
+
+                gradientString += ')';
+                wheel.style.background = gradientString;
+            }
+
+            drawDynamicWheel();
+            namesInput.addEventListener('input', drawDynamicWheel);
 
             btnSpin.addEventListener('click', () => {
-                if (isSpinning) return;
-                isSpinning = true;
-                rewardText.textContent = "// CALCULATING QUANTUM PROBABILITY...";
-                
-                // Generera slumpmässig rotation (minst 5 varv + slumpad vinkel)
+                const participants = parseParticipants();
 
-                const randomDegrees = Math.floor(Math.random() * 360) + 1800; 
-                wheel.style.transform = `rotate(${randomDegrees}deg)`;
+                if (participants.length === 0) {
+                    rewardText.textContent = "// ERROR: Inga giltiga deltagare registrerade.";
+                    return;
+                }
+                if (isSpinning) return;
                 
+                isSpinning = true;
+                namesInput.disabled = true;
+                rewardText.textContent = "// MATRISEN SNURRAR... VEM TAR NOTAN?";
+
+                const sliceAngle = 360 / participants.length;
+                const winningIndex = Math.floor(Math.random() * participants.length);
+                const targetAngle = 360 - (winningIndex * sliceAngle + (sliceAngle / 2));
+                const totalSpinRotation = 1800 + targetAngle;
+                currentRotation += totalSpinRotation;
+                
+                wheel.style.transform = `rotate(${currentRotation}deg)`;
+
                 setTimeout(() => {
+
                     isSpinning = false;
-                    const pickedReward = rewards[Math.floor(Math.random() * rewards.length)];
-                    rewardText.textContent = pickedReward;
-                }, 4000); // Matchar CSS transition på 4s
+                    namesInput.disabled = false;
+                    const loser = participants[winningIndex];
+                    rewardText.textContent = `🚨 NOTAN TILLDELAD: Det blev ${loser.toUpperCase()} som bjuder gänget ikväll!`;
+                }, 4000);
             });
 
-            // --- 4. Nytt: Interaktiv AI Terminal Simulator ---
+            // --- 4. Interaktiv AI Terminal Simulator ---
             const queryButtons = document.querySelectorAll('.terminal-query-trigger');
             const responseDisplay = document.getElementById('ai-response-display');
 
@@ -1464,10 +1578,10 @@
                     const response = button.getAttribute('data-response');
                     responseDisplay.textContent = "// EXECUTION IN PROGRESS... READING LEDGER CORE...";
                     
-
                     setTimeout(() => {
                         responseDisplay.textContent = response;
-                    }, 600); // Kort futuristisk laddningstid
+                    }, 600);
+
                 });
             });
         });
