@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Islantify - Din lön. I realtid.</title>
-    <meta name="description" content="Islantify samlar din personliga ekonomi och live Income i en premium fintechupplevelse. Se din inkomst växa varje sekund.">
+    <meta name="description" content="Islantify samlar din personliga ekonomi och live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund.">
     
     <!-- Google Fonts Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,7 @@
             --card: #1e293b; /* Något ljusare kort-bakgrund */
             --text: #f8fafc; /* Ljust fräscht teckensnitt */
             --muted: #94a3b8; /* Dämpad text */
+
             --accent: #ff8a2b; /* Islantify Brand Orange */
             --gold: #d4af37; /* Premium Guldaccent */
             --radius: 16px;
@@ -36,6 +37,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+
 
         /* --- Site Header & Navigation --- */
         .site-header {
@@ -57,6 +59,7 @@
             align-items: center;
         }
 
+
         .brand {
             font-weight: 700;
             color: var(--text);
@@ -73,15 +76,16 @@
 
         .main-nav {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
+
 
         .main-nav a {
             color: var(--muted);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .main-nav a:hover {
@@ -95,6 +99,7 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
+
             font-size: 0.9rem;
             transition: transform 0.2s ease, background 0.2s ease;
         }
@@ -114,6 +119,7 @@
         /* --- 1. Drake Banner (Under menyn) --- */
         .drake-banner-section {
             padding: 2rem 2rem 0 2rem;
+
         }
 
         .drake-banner-wrapper {
@@ -121,7 +127,7 @@
             margin: 0 auto;
             position: relative;
             width: 100%;
-            height: 380px;
+            height: 420px;
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
@@ -134,13 +140,14 @@
             object-fit: cover;
         }
 
+
         .drake-banner-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(15,23,42,0.2), rgba(15,23,42,0.85));
+            background: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.9));
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -148,16 +155,17 @@
         }
 
         .drake-banner-overlay h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
             letter-spacing: -0.03em;
         }
 
+
         .drake-banner-overlay p {
             color: var(--muted);
             font-size: 1.2rem;
-            max-width: 600px;
+            max-width: 700px;
         }
 
         /* --- 2. Live Lön Sektion (Video + Demo + Info) --- */
@@ -173,6 +181,7 @@
             background: var(--card);
             border-radius: var(--radius);
             padding: 1rem;
+
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
@@ -192,12 +201,36 @@
 
         .info-content h2 span {
             color: var(--accent);
+
         }
 
         .info-content p {
             color: var(--muted);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-size: 1.05rem;
+        }
+
+        .info-content ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .info-content ul li {
+            font-size: 0.95rem;
+            color: var(--text);
+
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-content ul li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
         }
 
         /* Live Löndemo widget */
@@ -208,6 +241,7 @@
             padding: 1.8rem;
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
         }
+
 
         .demo-title {
             font-size: 0.85rem;
@@ -228,7 +262,8 @@
             font-size: 2.6rem;
             font-weight: 700;
             font-variant-numeric: tabular-nums;
-            color: #10b981; /* Grön framgångsfärg för lön */
+
+            color: #10b981;
         }
 
         .currency {
@@ -247,11 +282,47 @@
         }
 
         .pulse-dot {
+
             width: 8px;
             height: 8px;
             background-color: #10b981;
             border-radius: 50%;
             animation: pulse-animation 2s infinite;
+        }
+
+        /* --- Funktionella appfunktioner grid --- */
+        .app-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius);
+
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 138, 43, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+
         }
 
         /* --- 3. Roulette Sektion (Längre ner) --- */
@@ -271,6 +342,7 @@
             display: inline-block;
             background: rgba(255, 138, 43, 0.1);
             color: var(--accent);
+
             padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -290,25 +362,30 @@
         }
 
         /* --- Responsiv design för mobila enheter --- */
+
         @media (max-width: 968px) {
             .live-salary-grid, .roulette-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
             .info-content {
-                order: -1; /* Texten hamnar överst på mobilen för bättre läsbarhet */
+                order: -1;
             }
             .drake-banner-wrapper {
-                height: 250px;
+                height: 300px;
             }
             .drake-banner-overlay {
                 padding: 1.5rem;
             }
             .drake-banner-overlay h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .main-nav {
-                display: none; /* Kan expanderas till hamburgarmeny vid behov */
+                display: none;
+
+            }
+            .info-content ul {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -318,31 +395,54 @@
     <!-- Navigationsmeny -->
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" class="brand">Islantify<span>.</span></a>
+            <a href="#" class="brand">I Slantify<span>.</span></a>
             <nav class="main-nav">
-                <a href="#livelon">Live Lön</a>
-                <a href="#roulette">Roulette Funktion</a>
-                <a href="#om">Om oss</a>
-                <a href="#support">Support</a>
+                <a href="#home">Home</a>
+                <a href="#livelon">Live Income</a>
+                <a href="#bank">Bank & Wallet</a>
+                <a href="#roulette">Roulette</a>
+                <a href="#ai">Slantify AI</a>
+
             </nav>
             <a href="#download" class="cta-btn">Hämta Appen</a>
         </div>
     </header>
 
     <!-- 1. Drake Banner Sektion -->
-    <section class="drake-banner-section">
+    <section id="home" class="drake-banner-section">
         <div class="drake-banner-wrapper">
             <video class="drake-banner-video" autoplay loop muted playsinline>
                 <source src="assets/dragon-banner.mp4" type="video/mp4">
                 Din webbläsare stödjer inte videotaggen.
             </video>
             <div class="drake-banner-overlay">
-                <span class="feature-tag gold">Premium Experience</span>
-                <h1>Ta kontrollen över din ekonomi</h1>
-                <p>Upplev nästa generations fintech där sparmål, investeringar och realtidsinkomster möts i en enda vacker applikation.</p>
+                <span class="feature-tag gold">Your Money. Your Life. One Intelligent App.</span>
+                <h1>I Slantify</h1>
+                <p>En intelligent ekonomiplattform som samlar din ekonomi, din lön, dina bankkonton, dina kort, din digitala plånbok, ditt sparande och din personliga ekonomiska AI på ett och samma ställe.</p>
             </div>
         </div>
     </section>
+
+
+    <!-- Appöversikt (Home Hub) -->
+    <section class="section-container">
+        <div class="app-features-grid">
+            <div class="feature-card">
+                <h3>🏠 Home – Din ekonomiska överblick</h3>
+                <p>På Home får du en samlad bild av din ekonomi. Fungerar som centrumet för hela I Slantify.</p>
+                <ul style="list-style: none; padding-left: 0; display: block;">
+                    <li style="font-size:0.85rem; margin-bottom:0.2rem; color:var(--muted)">Aktuellt saldo & ekonomisk överblick</li>
+                    <li style="font-size:0.85rem; margin-bottom:0.2rem; color:var(--muted)">Sparmål & budgetbevakning</li>
+                    <li style="font-size:0.85rem; margin-bottom:0.2rem; color:var(--muted)">Ekonomiska varningar & insikter</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>🧠 One Intelligent Economy</h3>
+                <p>Det är här ekosystemet samverkar. Information från kalender, arbetspass och bank synkroniseras sömlöst för att ge realtidsprognoser.</p>
+            </div>
+        </div>
+    </section>
+
 
     <!-- 2. Live Lön Sektion (Video + Demo tillsammans med Info) -->
     <section id="livelon" class="section-container">
@@ -359,10 +459,11 @@
                 
                 <!-- Live löndemo sammankopplad under videon -->
                 <div class="live-salary-demo-box">
-                    <div class="demo-title">Live Löndemo (Realtid)</div>
+                    <div class="demo-title">Live Income (Realtid)</div>
                     <div class="counter-row">
                         <div id="salary-counter" class="salary-counter">0.00</div>
                         <div class="currency">SEK</div>
+
                     </div>
                     <div class="demo-footer-text">
                         <div class="pulse-dot"></div>
@@ -374,11 +475,63 @@
             <!-- Höger kolumn: Information och textbeskrivning -->
             <div class="info-content">
                 <span class="feature-tag">Live Income</span>
-                <h2>Se din inkomst växa <span>sekund för sekund</span></h2>
-                <p>Varför vänta till slutet av månaden? Med Islantify introducerar vi Live Income. Vårt intelligenta gränssnitt gör att du kan visualisera dina intjäningar i realtid. Följ dina flöden, se exakt hur mycket du tjänar live och planera din budget mer dynamiskt än någonsin tidigare.</p>
-                <p>Den integrerade demopanelen till vänster visar hur appen sömlöst tickar uppåt i takt med att dina verifierade intäktskällor strömmar in.</p>
+                <h2>Se din lön växa <span>i realtid</span></h2>
+                <p>Live Income är en av I Slantifys mest unika funktioner. I stället för att bara se vad du tjänar när lönen betalas ut kan du följa din beräknade lön medan du arbetar.</p>
+                <p>Beroende på information och inställningar hjälper Live Income dig att spåra:</p>
+                <ul>
+                    <li>Timlön & Månadslön</li>
+                    <li>Nettolön & Bruttolön</li>
+                    <li>Arbetade timmar & OB</li>
+                    <li>Övertid & Schema</li>
+
+                    <li>Löneprognoser</li>
+                    <li>Pensionsinfo</li>
+                </ul>
+                <p><strong>Live Income visar vad du faktiskt bygger upp genom ditt arbete.</strong></p>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Bank, Wallet & Kalender Sektion -->
+    <section id="bank" class="section-container">
+        <div class="info-content" style="margin-bottom: 3rem; text-align: center;">
+            <span class="feature-tag">Sömlösa Integrationer</span>
+            <h2>Allt som handlar om din ekonomi på ett ställe</h2>
+        </div>
+        <div class="app-features-grid">
+            <div class="feature-card">
+                <h3>🏦 Bankanslutning</h3>
+                <p>Anslut dina bankkonton genom säkra banktjänster (med t.ex. BankID). Hämta automatiskt konton, saldon, transaktioner och återkommande betalningar utan manuellt arbete.</p>
+
+            </div>
+            <div class="feature-card">
+                <h3>👛 Wallet & NFC</h3>
+                <p>Samla bankkort, kreditkort, medlemskort och biljetter direkt i telefonen. Stöder kontaktlösa betalningar via NFC samt lagring av QR- och streckkoder för flyg- eller evenemangsbiljetter.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📅 Calendar</h3>
+                <p>Koppla ihop din ekonomi med ditt liv. Håll koll på arbetsscheman, arbetspass, lönedagar, räkningar och sparmål så att Live Income vet exakt när du arbetar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengar, Sparande & Hälsocenter -->
+    <section class="section-container" style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="app-features-grid">
+            <div class="feature-card">
+                <h3>📊 Money & Budget</h3>
+                <p>Förstå vart dina pengar tar vägen. Hantera budgetar, utgifter, inkomster, kategorier och återkommande kostnader via avancerade ekonomiska prognoser.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎯 Savings</h3>
+                <p>Gör dina mål konkreta. Skapa personliga sparmål för en buffert, resa, bil, bostad eller teknik och följ din utveckling steg för steg.</p>
+            </div>
+            <div class="feature-card">
+                <h3>❤️ Economy Center</h3>
+                <p>Förstå din ekonomiska hälsa. Samla information om tillgångar, skulder och trender över tid för att inte bara veta hur mycket pengar du har, utan hur din ekonomi faktiskt mår.</p>
+            </div>
         </div>
     </section>
 
@@ -388,10 +541,11 @@
             
             <!-- Vänster kolumn: Information och textbeskrivning -->
             <div class="info-content">
-                <span class="feature-tag">Smart Gamification</span>
-                <h2>Maximera dina besparingar med <span>Roulette-funktionen</span></h2>
-                <p>Gör sparandet roligare med vårt unika belöningshjul. Varje gång du når ett nytt sparmål eller sätter undan pengar får du chansen att använda vår fintech-roulette för att låsa upp exklusiva fördelar, räntebonusar eller cashback-erbjudanden.</p>
-                <p>Ett modernt sätt att använda beteendeekonomi för att bygga en starkare och stabilare ekonomisk framtid.</p>
+                <span class="feature-tag">Social Gamification</span>
+                <h2>Gör ekonomi interaktiv med <span>I Slantify Roulette</span></h2>
+
+                <p>I Slantify Roulette är en social och spelinspirerad funktion som kan användas tillsammans med andra användare. Ett lekfullt och interaktivt sätt att ta sig an sparutmaningar eller uppnå milstolpar i vardagsekonomin tillsammans med vänner.</p>
+                <p>Kopplat till appens <strong>Sociala hubb</strong> där ni kan spara ihop, skapa gemensamma mål och delta i ekonomiska utmaningar på dina egna villkor.</p>
             </div>
 
             <!-- Höger kolumn: Roulette video -->
@@ -405,18 +559,42 @@
         </div>
     </section>
 
+    <!-- 4. Slantify AI Sektion -->
+    <section id="ai" class="section-container" style="background: rgba(30,41,59,0.2); border-radius: var(--radius); margin-bottom: 4rem;">
+        <div class="info-content" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem 0;">
+            <span class="feature-tag" style="background: rgba(212,175,55,0.1); color: var(--gold);">Artificiell Intelligens</span>
+
+            <h2>Din personliga ekonomiska AI-assistent</h2>
+            <p style="margin-top: 1rem;">Slantify AI hjälper dig att förstå din ekonomi på ett enklare sätt genom vanliga frågor och intelligenta analyser.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; text-align: left;">
+                <div style="background: var(--bg); padding: 1rem; border-radius: 8px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05);">
+                    <span style="color:var(--accent); font-weight:600;">"Hur mycket har jag spenderat på mat den här månaden?"</span>
+                </div>
+                <div style="background: var(--bg); padding: 1rem; border-radius: 8px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05);">
+                    <span style="color:var(--accent); font-weight:600;">"När kan jag nå mitt sparmål för resan?"</span>
+                </div>
+                <div style="background: var(--bg); padding: 1rem; border-radius: 8px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05);">
+                    <span style="color:var(--accent); font-weight:600;">"Hur ser min ekonomi ut inför nästa månad?"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Script för att driva realtidskvoten i Live Löndemo -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
             const counterElement = document.getElementById('salary-counter');
-            let currentSalary = 142.50; // Startvärde för demot
+            let currentSalary = 0.00;
             
-            // Uppdatera räknaren var 50:e millisekund för ett extremt mjukt flöde
+            // Uppdatera räknaren var 50:e millisekund för ett rörligt realtidsflöde
             setInterval(() => {
-                currentSalary += 0.0123;
+                currentSalary += 0.0034;
                 counterElement.textContent = currentSalary.toFixed(2);
             }, 50);
         });
     </script>
 </body>
 </html>
+
+
