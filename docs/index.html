@@ -1,3 +1,5 @@
+# I Slantify - Ultimate Premium Fintech App
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -9,23 +11,25 @@
     <!-- Google Fonts Inter & Orbitron för futuristisk känsla -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg: #030712; /* Extremt mörk rymdbas */
-            --card: rgba(17, 24, 39, 0.7); /* Semitransparent mörkt glas */
+            --bg: #02040a; /* Ännu djupare nattsvart */
+            --card: rgba(13, 20, 35, 0.65); /* Ultra-transparent mörkt cyberglas */
             --text: #f9fafb; 
             --muted: #9ca3af; 
+
             --accent: #ff7a00; /* Islantify Cyber Orange */
-            --accent-glow: rgba(255, 122, 0, 0.4);
+            --accent-glow: rgba(255, 122, 0, 0.35);
             --cyber-cyan: #00f0ff; /* Framtids-cyan */
             --cyan-glow: rgba(0, 240, 255, 0.3);
+            --cyber-purple: #9d4edd; /* Komplementär premium neon-lila */
             --gold: #f59e0b; 
             --radius: 24px;
             --max-width: 1200px;
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --glass-glow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.04);
+            --glass-glow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -35,6 +39,7 @@
         }
 
         html {
+
             scroll-behavior: smooth;
         }
 
@@ -47,27 +52,38 @@
             position: relative;
         }
 
-        /* Futuristisk rörlig bakgrunds-aura */
-        body::before {
-            content: "";
+        /* Ambient background glow nodes (Dynamiska ljusaoror) */
+        .ambient-glow-1 {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 122, 0, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
-            top: -100px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255, 122, 0, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+            top: -150px;
+
             right: -100px;
             z-index: -1;
             pointer-events: none;
         }
 
-        body::after {
-            content: "";
+        .ambient-glow-2 {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+            top: 900px;
+            left: -200px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .ambient-glow-3 {
             position: absolute;
             width: 800px;
+
             height: 800px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
-            top: 800px;
-            left: -200px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.04) 0%, rgba(0, 0, 0, 0) 75%);
+            bottom: 400px;
+            right: -100px;
             z-index: -1;
             pointer-events: none;
         }
@@ -76,14 +92,14 @@
         .site-header {
             position: sticky;
             top: 0;
-            background: rgba(3, 7, 18, 0.4);
+            background: rgba(2, 4, 10, 0.4);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 100;
             padding: 1rem 2rem;
-            transition: all 0.3s ease;
         }
+
 
         .header-inner {
             max-width: var(--max-width);
@@ -104,27 +120,27 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
 
+
         .brand span {
             color: var(--cyber-cyan);
             text-shadow: 0 0 10px var(--cyan-glow);
         }
 
-        /* Högpresterande, lyxig navigationsdocka */
         .main-nav {
             display: flex;
             gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.01);
             padding: 0.4rem 0.6rem;
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: inset 0 1px 12px rgba(255,255,255,0.02), 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: inset 0 1px 12px rgba(255,255,255,0.01), 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Framtids-knappar i menyn */
         .nav-link-btn {
             color: var(--muted);
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
+
             font-weight: 700;
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -138,21 +154,20 @@
             justify-content: center;
         }
 
-        /* Hover-effekt med glasmorfism och neon-strykning */
         .nav-link-btn:hover {
             color: var(--cyber-cyan);
-            background: rgba(0, 240, 255, 0.05);
-            border-color: rgba(0, 240, 255, 0.25);
+            background: rgba(0, 240, 255, 0.04);
+            border-color: rgba(0, 240, 255, 0.2);
             text-shadow: 0 0 8px var(--cyan-glow);
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+
             transform: translateY(-1px);
         }
 
-        /* Aktivt markerad knapp */
         .nav-link-btn.active-dock {
             color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
         }
 
         .cta-btn {
@@ -165,6 +180,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+
             box-shadow: 0 0 15px var(--accent-glow);
             transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.1);
@@ -172,7 +188,7 @@
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(255, 122, 0, 0.7);
+            box-shadow: 0 0 25px rgba(255, 122, 0, 0.6);
         }
 
         /* --- Sektion Container Layout --- */
@@ -184,6 +200,7 @@
 
         /* --- 1. Ren Cyber Drake Banner --- */
         .drake-banner-section {
+
             padding: 2rem 2rem 0 2rem;
         }
 
@@ -192,42 +209,44 @@
             margin: 0 auto;
             position: relative;
             width: 100%;
-            height: 500px;
+            height: 540px;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 0 60px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255,255,255,0.04);
         }
 
         .drake-banner-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+
         }
 
         /* Nedflyttad textbeskrivning under bannern */
         .banner-intro-content {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 3rem 2rem 0 2rem;
+            padding: 4rem 2rem 0 2rem;
             text-align: left;
         }
 
         .banner-intro-content h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
             margin-bottom: 1rem;
             letter-spacing: -1px;
-            background: linear-gradient(135deg, #fff 30%, var(--muted) 100%);
+            background: linear-gradient(135deg, #fff 40%, var(--muted) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+
         }
 
         .banner-intro-content p {
             color: var(--muted);
-            font-size: 1.3rem;
-            max-width: 850px;
+            font-size: 1.35rem;
+            max-width: 900px;
             font-weight: 300;
             line-height: 1.7;
         }
@@ -241,13 +260,14 @@
         }
 
         .video-box-premium {
+
             position: relative;
             background: var(--card);
             border-radius: var(--radius);
             padding: 1rem;
             border: 1px solid var(--glass-border);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), var(--glass-glow);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
         .video-player {
@@ -260,6 +280,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
+
             margin-bottom: 1.5rem;
             letter-spacing: -0.03em;
             line-height: 1.2;
@@ -279,6 +300,7 @@
 
         .info-content ul {
             list-style: none;
+
             margin-bottom: 1.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -298,15 +320,16 @@
             color: var(--cyber-cyan);
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
+
         }
 
         /* Futuristisk Live Löndemo Widget */
         .live-salary-demo-box {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(3, 7, 18, 0.9) 100%);
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            background: linear-gradient(135deg, rgba(10, 18, 36, 0.85) 0%, rgba(2, 4, 10, 0.95) 100%);
+            border: 1px solid rgba(0, 240, 255, 0.25);
             border-radius: var(--radius);
             padding: 2.2rem;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.05), var(--glass-glow);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.06), var(--glass-glow);
         }
 
         .demo-title {
@@ -317,11 +340,12 @@
             color: var(--cyber-cyan);
             font-weight: 700;
             margin-bottom: 1.2rem;
+
         }
 
         /* Löneinmatningsfält */
         .salary-input-wrapper {
-            background: rgba(3, 7, 18, 0.6);
+            background: rgba(2, 4, 10, 0.6);
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 0.8rem 1rem;
@@ -336,6 +360,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             color: var(--muted);
+
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -355,6 +380,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             text-align: right;
+
             width: 90px;
             border-bottom: 2px solid rgba(0, 240, 255, 0.2);
             padding-bottom: 2px;
@@ -373,6 +399,7 @@
         .salary-input-field[type=number] {
             -moz-appearance: textfield;
         }
+
 
         .input-currency {
             font-family: 'Orbitron', sans-serif;
@@ -393,6 +420,7 @@
             font-size: 3.5rem;
             font-weight: 900;
             font-variant-numeric: tabular-nums;
+
             color: #00ffaa;
             text-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
         }
@@ -406,12 +434,13 @@
 
         /* Cyber tids- och räknarpanel */
         .time-counter-panel {
-            background: rgba(3, 7, 18, 0.6);
+            background: rgba(2, 4, 10, 0.6);
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 1rem;
             margin-bottom: 1.5rem;
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
             text-align: center;
             gap: 0.5rem;
@@ -431,6 +460,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 0.2rem;
+
         }
 
         /* Framtids styrknappar */
@@ -442,7 +472,7 @@
         }
 
         .control-btn {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.04);
             color: var(--text);
             border: 1px solid var(--glass-border);
             padding: 0.8rem 0.2rem;
@@ -450,6 +480,7 @@
             font-size: 0.75rem;
             font-weight: 700;
             border-radius: 8px;
+
             cursor: pointer;
             transition: all 0.2s ease;
             text-transform: uppercase;
@@ -457,8 +488,8 @@
         }
 
         .control-btn:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.18);
         }
 
         .control-btn.btn-start {
@@ -467,8 +498,9 @@
             border-color: rgba(0, 255, 170, 0.3);
         }
         .control-btn.btn-start:hover {
-            background: rgba(0, 255, 170, 0.2);
-            box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
+            background: rgba(0, 255, 170, 0.18);
+            box-shadow: 0 0 15px rgba(0, 255, 170, 0.15);
+
         }
 
         .control-btn.btn-stop {
@@ -477,17 +509,18 @@
             border-color: rgba(239, 68, 68, 0.3);
         }
         .control-btn.btn-stop:hover {
-            background: rgba(239, 68, 68, 0.2);
+            background: rgba(239, 68, 68, 0.18);
         }
 
         .control-btn:disabled {
-            opacity: 0.2;
+            opacity: 0.15;
             cursor: not-allowed;
             background: transparent !important;
             border-color: var(--glass-border) !important;
             color: var(--muted) !important;
             box-shadow: none !important;
         }
+
 
         .demo-footer-text {
             font-size: 0.8rem;
@@ -508,6 +541,7 @@
         }
         
         .pulse-dot.active {
+
             animation: pulse-animation 2s infinite;
         }
 
@@ -528,16 +562,17 @@
             margin-top: 3rem;
         }
 
+
         .feature-card {
             background: var(--card);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
             padding: 2.5rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .feature-card::before {
@@ -547,15 +582,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(0,0,0,0) 50%);
+
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.04) 0%, rgba(0,0,0,0) 50%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.05);
+            border-color: rgba(0, 240, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.04);
         }
 
         .feature-card:hover::before {
@@ -566,6 +602,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
             margin-bottom: 1.2rem;
+
             color: var(--text);
             letter-spacing: 0.5px;
         }
@@ -584,7 +621,96 @@
             align-items: center;
         }
 
-        /* --- 4. Slantify AI Quantum Hub --- */
+        /* Nytt: Interaktivt Spelifierat Roulettehjul */
+
+        .roulette-interactive-preview {
+            background: linear-gradient(135deg, rgba(20, 15, 35, 0.7) 0%, rgba(2, 4, 10, 0.95) 100%);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(157, 78, 221, 0.05), var(--glass-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wheel-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem auto;
+            border-radius: 50%;
+            border: 6px solid #111;
+            box-shadow: 0 0 25px rgba(157, 78, 221, 0.4), inset 0 0 20px rgba(0,0,0,0.8);
+            position: relative;
+
+            background: conic-gradient(
+                #ef4444 0deg 45deg, #111 45deg 90deg,
+                #ef4444 90deg 135deg, #111 135deg 180deg,
+                #ef4444 180deg 225deg, #111 225deg 270deg,
+                #ef4444 270deg 315deg, #111 315deg 360deg
+            );
+            transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 24px solid var(--cyber-purple);
+
+            z-index: 10;
+            filter: drop-shadow(0 0 8px var(--cyber-purple));
+        }
+
+        .wheel-center-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        .roulette-btn {
+            background: linear-gradient(90deg, var(--cyber-purple) 0%, #7b2cbf 100%);
+            color: #fff;
+
+            border: none;
+            padding: 0.8rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .roulette-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(157, 78, 221, 0.7);
+        }
+
+        .roulette-reward-output {
+
+            margin-top: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--muted);
+            min-height: 24px;
+        }
+
+        /* --- 4. Slantify AI Quantum Hub (Nytt: Live Interaktiv AI-Terminal) --- */
         .ai-quantum-section {
             background: radial-gradient(rgba(0, 240, 255, 0.05), transparent 60%), var(--card);
             border: 1px solid rgba(0, 240, 255, 0.15);
@@ -595,10 +721,75 @@
             box-shadow: 0 0 40px rgba(0, 240, 255, 0.03);
         }
 
+        .ai-terminal-box {
+
+            background: #02040a;
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            text-align: left;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.6rem;
+        }
+
+        .terminal-dot {
+            width: 10px;
+
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+        }
+        .terminal-dot:nth-child(2) { background: #f59e0b; }
+        .terminal-dot:nth-child(3) { background: #10b981; }
+
+        .terminal-query-trigger {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border);
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 0.8rem;
+            width: 100%;
+            text-align: left;
+
+            display: block;
+        }
+
+        .terminal-query-trigger:hover {
+            background: rgba(0, 240, 255, 0.04);
+            border-color: rgba(0, 240, 255, 0.3);
+            transform: translateX(4px);
+        }
+
+        .terminal-response-screen {
+            background: rgba(255,255,255,0.01);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 10px;
+            padding: 1.2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--cyber-cyan);
+            min-height: 80px;
+            margin-top: 1.5rem;
+
+            border-left: 3px solid var(--cyber-cyan);
+        }
+
         /* --- 5. Framtids QR / Nedladdningsmodul --- */
         .download-universe {
             text-align: center;
-            background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(17,24,39,0.4) 100%);
+            background: linear-gradient(180deg, rgba(2,4,10,0) 0%, rgba(13,20,35,0.4) 100%);
             border-radius: var(--radius);
             padding: 5rem 2rem;
             border: 1px solid var(--glass-border);
@@ -611,10 +802,11 @@
             gap: 4rem;
             margin-top: 3.5rem;
             flex-wrap: wrap;
+
         }
 
         .qr-card-futuristic {
-            background: rgba(3, 7, 18, 0.8);
+            background: rgba(2, 4, 10, 0.8);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 2rem;
@@ -629,6 +821,7 @@
             box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
             transform: translateY(-5px);
         }
+
 
         /* QR Kod Modul Byggd med CSS Grid Matrix */
         .qr-hologram-placeholder {
@@ -649,6 +842,7 @@
         .cyber-qr-matrix {
             width: 100%;
             height: 100%;
+
             background-image: 
                 radial-gradient(rgba(0, 240, 255, 0.8) 2px, transparent 3px),
                 linear-gradient(90deg, transparent 4px, rgba(0, 240, 255, 0.1) 4px, rgba(0, 240, 255, 0.1) 6px, transparent 6px),
@@ -668,6 +862,7 @@
             border: 4px solid var(--cyber-cyan);
             background: var(--bg);
             box-shadow: 0 0 8px var(--cyber-cyan);
+
         }
 
         .cyber-qr-matrix::after {
@@ -687,6 +882,7 @@
             top: 2px;
             right: 2px;
             width: 30px;
+
             height: 30px;
             border: 4px solid var(--cyber-cyan);
             background: var(--bg);
@@ -707,6 +903,7 @@
             z-index: 10;
         }
 
+
         .qr-scanner-line {
             position: absolute;
             width: 100%;
@@ -718,8 +915,15 @@
             animation: scan-line 3s linear infinite;
         }
 
+        @keyframes scan-line {
+            0% { top: 0%; }
+            50% { top: 100%; }
+            100% { top: 0%; }
+        }
+
         .qr-card-futuristic h4 {
             font-family: 'Orbitron', sans-serif;
+
             font-size: 1rem;
             letter-spacing: 1px;
             margin-bottom: 0.3rem;
@@ -733,27 +937,35 @@
         /* --- Globala UI taggar --- */
         .feature-tag {
             display: inline-block;
-            background: rgba(0, 240, 255, 0.08);
+            background: rgba(0, 240, 255, 0.06);
             color: var(--cyber-cyan);
             padding: 0.4rem 1.2rem;
             border-radius: 30px;
             font-size: 0.75rem;
             font-family: 'Orbitron', sans-serif;
+
             font-weight: 700;
             letter-spacing: 1.5px;
             margin-bottom: 1.2rem;
-            border: 1px solid rgba(0, 240, 255, 0.15);
+            border: 1px solid rgba(0, 240, 255, 0.12);
             text-transform: uppercase;
         }
 
         .feature-tag.gold {
-            background: rgba(245, 158, 11, 0.08);
+            background: rgba(245, 158, 11, 0.06);
             color: var(--gold);
-            border-color: rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.12);
         }
 
+        .feature-tag.purple {
+            background: rgba(157, 78, 221, 0.08);
+            color: var(--cyber-purple);
+            border-color: rgba(157, 78, 221, 0.2);
+        }
+
+
         @keyframes pulse-animation {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 170, 0.7); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 170, 0.6); }
             70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 255, 170, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 170, 0); }
         }
@@ -771,6 +983,7 @@
                 height: 320px;
             }
             .banner-intro-content h1 {
+
                 font-size: 2.5rem;
             }
             .main-nav {
@@ -784,7 +997,13 @@
 </head>
 <body>
 
-    <!-- Navigationsmeny med finare, fullt fungerande knappar -->
+    <!-- Dynamiska ljuskluster i bakgrunden -->
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-3"></div>
+
+    <!-- Navigationsmeny -->
+
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="brand">I Slantify<span>_</span></a>
@@ -804,6 +1023,7 @@
         <div class="drake-banner-wrapper">
             <video class="drake-banner-video" autoplay loop muted playsinline>
                 <source src="assets/dragon-banner.mp4" type="video/mp4">
+
                 Din webbläsare stödjer inte videotaggen.
             </video>
         </div>
@@ -823,6 +1043,7 @@
                 <h3>🏠 Home – Matrix Core</h3>
                 <p>Din centrala ledningscentral. Följ omedelbart ditt aktuella saldo, kassaflöden, sparmål och dynamiska budgetvarningar i ett vackert och högpresterande gränssnitt.</p>
             </div>
+
             <div class="feature-card">
                 <h3>🧠 Intelligent Economy Sync</h3>
                 <p>Det autonoma nätverket. Din kalender, dina schemalagda arbetspass och krypterade transaktionsdata smälter samman för att automatiskt förutse din likviditet veckor framåt.</p>
@@ -842,6 +1063,7 @@
                         Din webbläsare stödjer inte videotaggen.
                     </video>
                 </div>
+
                 
                 <!-- Live löndemo med knappar och tidsräknare -->
                 <div class="live-salary-demo-box">
@@ -860,6 +1082,7 @@
                         <div id="salary-counter" class="salary-counter">0.00</div>
                         <div class="currency">SEK</div>
                     </div>
+
 
                     <!-- Tim, minut och sekund info panel -->
                     <div class="time-counter-panel">
@@ -880,6 +1103,7 @@
                     <!-- Kontrollknappar för demot -->
                     <div class="demo-controls">
                         <button id="btn-start" class="control-btn btn-start">Execute</button>
+
                         <button id="btn-pause" class="control-btn" disabled>Pause</button>
                         <button id="btn-stop" class="control-btn btn-stop" disabled>Freeze</button>
                         <button id="btn-reset" class="control-btn">Reset</button>
@@ -896,15 +1120,16 @@
             <div class="info-content">
                 <span class="feature-tag">Time-Injected Income</span>
                 <h2>Följ din lön växa <span>sekund för sekund</span></h2>
-                <p>Live Income upphäver den traditionella månadsväntan. Genom att spåra dina aktiva arbetspass ger I Slantify gid en visuell algoritmisk ström av din intjäning i exakt realtid.</p>
+                <p>Live Income upphäver den traditionella månadsväntan. Genom att spåra dina aktiva arbetspass ger I Slantify dig en visuell algoritmisk ström av din intjäning i exakt realtid.</p>
                 <p>Vårt avancerade protokoll beräknar och projicerar:</p>
                 <ul>
+
                     <li>Brutto- & Nettovariabler</li>
                     <li>OB- och övertidstillägg</li>
                     <li>Autonoma löneprognoser</li>
                     <li>Ackumulerade pensionsindex</li>
                 </ul>
-                <p><strong>Live Income visar vad du faktiskt bygger upp genom ditt arbete – varje ögonblick du arbetar.</strong></p>
+                <p><strong>Live Income visar vad du faktisk bygger upp genom ditt arbete – varje ögonblick du arbetar.</strong></p>
             </div>
 
         </div>
@@ -918,6 +1143,7 @@
         </div>
         <div class="app-features-grid">
             <div class="feature-card">
+
                 <h3>🏦 Biometric Bank Connection</h3>
                 <p>Koppla omedelbart upp dina externa tillgångar via biometriskt säkrade API-anslutningar (BankID). Algoritmen kategoriserar saldon, fasta avgifter och återkommande utgifter helt utan manuell inmatning.</p>
             </div>
@@ -937,6 +1163,7 @@
         <div class="app-features-grid">
             <div class="feature-card">
                 <h3>📊 Predictive Money Hub</h3>
+
                 <p>Bryt ner dina utgiftsmönster. Islantify analyserar din konsumtion och bygger prediktiva kalkyler som visar hur dagens köp påverkar din likviditet nästa månad.</p>
             </div>
             <div class="feature-card">
@@ -950,49 +1177,63 @@
         </div>
     </section>
 
-    <!-- 3. Roulette Sektion -->
+    <!-- 3. Roulette Sektion (Nu fullt interaktiv med testsnurr) -->
     <section id="roulette" class="section-container">
         <div class="roulette-grid">
             
             <!-- Vänster kolumn: Information och textbeskrivning -->
             <div class="info-content">
-                <span class="feature-tag">Behavioral Gamification</span>
+
+                <span class="feature-tag purple">Behavioral Gamification</span>
                 <h2>Spelifierad ekonomi via <span>I Slantify Roulette</span></h2>
                 <p>En interaktiv brygga mellan beteendevetenskap och personlig ekonomi. Använd I Slantify Roulette tillsammans med vänner för att förvandla sparutmaningar till gemensamma segrar.</p>
                 <p>Kopplat till vår <strong>Sociala Hubb</strong> där ni kan kommunicera, spara till delade mål och låsa upp kollektiva milstolpar på era egna krypterade villkor.</p>
             </div>
 
-            <!-- Höger kolumn: Roulette video -->
-            <div class="video-box-premium">
-                <video class="video-player" controls loop muted playsinline>
-                    <source src="assets/roulette-video.mp4" type="video/mp4">
-                    Din webbläsare stödjer inte videotaggen.
-                </video>
+            <!-- Höger kolumn: Interaktivt Live Roulette Hjul preview -->
+            <div class="roulette-interactive-preview">
+                <div class="wheel-pointer"></div>
+                <div id="roulette-wheel" class="wheel-container">
+                    <div class="wheel-center-pin"></div>
+                </div>
+                <button id="btn-spin-roulette" class="roulette-btn">Testa snurra hjulet</button>
+                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Tryck ovan för att testa applikationens roulette-algoritm.</div>
             </div>
 
         </div>
     </section>
 
-    <!-- 4. Slantify AI Quantum Hub -->
+
+    <!-- 4. Slantify AI Quantum Hub (Nu med Live Interaktiv Simulator) -->
     <section id="ai" class="section-container">
         <div class="ai-quantum-section">
             <div class="info-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <span class="feature-tag" style="background: rgba(0, 240, 255, 0.05); color: var(--cyber-cyan);">Neural Engine</span>
                 <h2>Slantify AI – Autonom Rådgivning</h2>
-                <p style="margin-top: 1rem; font-weight: 300;">Kommunicera direkt med din personliga finansiella AI. Ställ frågor i naturligt tal och erhåll blixtsnabba, datadrivna analyser.</p>
+                <p style="margin-top: 1rem; font-weight: 300;">Kommunicera direkt med din personliga finansiella AI. Klicka på en telemetrifråga nedan för att simulera AI:ns neurala beräkningssvar.</p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 3rem; text-align: left;">
-                    <div style="background: rgba(3, 7, 18, 0.7); padding: 1.2rem; border-radius: 12px; font-size: 0.85rem; border: 1px solid var(--glass-border); backdrop-filter: blur(5px);">
-                        <span style="color:var(--cyber-cyan); font-family:'Orbitron', sans-serif; font-size:0.7rem; display:block; margin-bottom:0.5rem;">[QUERY_01]</span>
-                        <span style="color:var(--text); font-weight:400;">"Hur mycket har jag spenderat på mat den här månaden?"</span>
+                <div class="ai-terminal-box">
+                    <div class="terminal-header">
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
                     </div>
-                    <div style="background: rgba(3, 7, 18, 0.7); padding: 1.2rem; border-radius: 12px; font-size: 0.85rem; border: 1px solid var(--glass-border); backdrop-filter: blur(5px);">
-                        <span style="color:var(--cyber-cyan); font-family:'Orbitron', sans-serif; font-size:0.7rem; display:block; margin-bottom:0.5rem;">[QUERY_02]</span>
-                        <span style="color:var(--text); font-weight:400;">"När uppnår jag mitt sparmål baserat på nuvarande live-tempo?"</span>
-                    </div>
-                    <div style="background: rgba(3, 7, 18, 0.7); padding: 1.2rem; border-radius: 12px; font-size: 0.85rem; border: 1px solid var(--glass-border); backdrop-filter: blur(5px);">
-                        <span style="color:var(--cyber-cyan); font-family:'Orbitron', sans-serif; font-size:0.7rem; display:block; margin-bottom:0.5rem;">[QUERY_03]</span>
-                        <span style="color:var(--text); font-weight:400;">"Generera en optimerad budget kalkyl inför nästa likviditetscykel."</span>
+                    
+                    <!-- Klickbara simulatorfrågor -->
+                    <button class="terminal-query-trigger" data-response="[ANALYS]: Din matkonsumtion utgör 22.4% av dina utgifter denna månad. Du har spenderat totalt 3 420 SEK, vilket är 12% lägre än föregående månadscykel. Bra jobbat!">
+                        &gt; "Hur mycket har jag spenderat på mat den här månaden?"
+                    </button>
+
+                    <button class="terminal-query-trigger" data-response="[PROGNOS]: Med din nuvarande realtids-inkomst på 200 kr/h och ett stabilt sparflöde kommer du att nå ditt sparmål (Resa) om exakt 42 dagar, 6 timmar och 12 minuter.">
+                        &gt; "När uppnår jag mitt sparmål baserat på nuvarande live-tempo?"
+                    </button>
+                    <button class="terminal-query-trigger" data-response="[AUTONOM BUDGET]: Skapar kalkyl baserat på historisk telemetri... Jag föreslår att du låser 15% av nästa veckas realtidslön i din Wallet för att absorbera den kommande fasta elräkningen utan likviditetstapp.">
+                        &gt; "Generera en optimerad budget kalkyl inför nästa likviditetscykel."
+                    </button>
+
+                    <!-- Resulterande skärm -->
+                    <div id="ai-response-display" class="terminal-response-screen">
+                        // VÄNTAR PÅ TELEMETRICOMMAND... Klicka på en finansiell fråga ovan för att initiera neural exekvering.
                     </div>
                 </div>
             </div>
@@ -1002,6 +1243,7 @@
     <!-- 5. Framtids QR & Nedladdningsmodul -->
     <section id="download" class="section-container">
         <div class="download-universe">
+
             <span class="feature-tag gold">Secure Telemetry Link</span>
             <h2 style="font-family:'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Ladda ner applikationen</h2>
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto;">Skanna matris-koden med din mobila enhets optiska sensor för att omedelbart initiera krypterad nedladdning.</p>
@@ -1021,6 +1263,7 @@
                 </div>
 
                 <!-- Android QR Kort -->
+
                 <div class="qr-card-futuristic">
                     <div class="qr-hologram-placeholder">
                         <div class="qr-scanner-line"></div>
@@ -1036,10 +1279,11 @@
         </div>
     </section>
 
-    <!-- Script för att driva det fullt kontrollerbara realtidsflödet samt aktiv menymarkering -->
+    <!-- Script för att driva alla avancerade interaktiva system -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Live Income Logik ---
+            // --- 1. Live Income Logik ---
+
             const counterElement = document.getElementById('salary-counter');
             const hrsElement = document.getElementById('val-hours');
             const minsElement = document.getElementById('val-minutes');
@@ -1059,6 +1303,7 @@
             let currentSalary = 0.00;
 
             function getIncomePerMs() {
+
                 const hourlySalary = parseFloat(salaryInput.value) || 0;
                 return hourlySalary / 3600 / 1000;
             }
@@ -1079,6 +1324,7 @@
             btnStart.addEventListener('click', () => {
                 if (timerInterval) return;
 
+
                 btnStart.disabled = true;
                 btnPause.disabled = false;
                 btnStop.disabled = false;
@@ -1098,6 +1344,7 @@
                     currentSalary += delta * getIncomePerMs();
 
                     updateDisplay();
+
                 }, 50);
             });
 
@@ -1117,6 +1364,7 @@
             btnStop.addEventListener('click', () => {
                 if (timerInterval) {
                     clearInterval(timerInterval);
+
                     timerInterval = null;
                 }
 
@@ -1136,6 +1384,7 @@
                 }
 
                 totalMilliseconds = 0;
+
                 currentSalary = 0.00;
 
                 btnStart.disabled = false;
@@ -1149,12 +1398,13 @@
                 updateDisplay();
             });
 
-            // --- Aktiv Meny-dockningsmarkör vid Scroll ---
+            // --- 2. Aktiv Meny-dockningsmarkör vid Scroll ---
             const navLinks = document.querySelectorAll('.nav-link-btn');
             const sections = document.querySelectorAll('section');
 
             window.addEventListener('scroll', () => {
                 let current = '';
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
@@ -1170,7 +1420,59 @@
                     }
                 });
             });
+
+            // --- 3. Nytt: Interaktiv Roulette Logik ---
+            const btnSpin = document.getElementById('btn-spin-roulette');
+            const wheel = document.getElementById('roulette-wheel');
+
+            const rewardText = document.getElementById('roulette-reward-text');
+            
+            const rewards = [
+                "VINST: +0.5% Sparränta låst!",
+                "VINST: 5% Cashback på matvaror!",
+                "VINST: Fri premiumvecka av Slantify AI!",
+                "VINST: Dubbel Live-Income nästa timme!",
+                "VINST: +1.0% Räntebonus i 30 dagar!",
+                "VINST: 100kr insatt på din Wallet-buffert!"
+            ];
+
+            let isSpinning = false;
+
+            btnSpin.addEventListener('click', () => {
+                if (isSpinning) return;
+                isSpinning = true;
+                rewardText.textContent = "// CALCULATING QUANTUM PROBABILITY...";
+                
+                // Generera slumpmässig rotation (minst 5 varv + slumpad vinkel)
+
+                const randomDegrees = Math.floor(Math.random() * 360) + 1800; 
+                wheel.style.transform = `rotate(${randomDegrees}deg)`;
+                
+                setTimeout(() => {
+                    isSpinning = false;
+                    const pickedReward = rewards[Math.floor(Math.random() * rewards.length)];
+                    rewardText.textContent = pickedReward;
+                }, 4000); // Matchar CSS transition på 4s
+            });
+
+            // --- 4. Nytt: Interaktiv AI Terminal Simulator ---
+            const queryButtons = document.querySelectorAll('.terminal-query-trigger');
+            const responseDisplay = document.getElementById('ai-response-display');
+
+            queryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const response = button.getAttribute('data-response');
+                    responseDisplay.textContent = "// EXECUTION IN PROGRESS... READING LEDGER CORE...";
+                    
+
+                    setTimeout(() => {
+                        responseDisplay.textContent = response;
+                    }, 600); // Kort futuristisk laddningstid
+                });
+            });
         });
     </script>
 </body>
 </html>
+
+
