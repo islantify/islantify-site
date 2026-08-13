@@ -187,7 +187,6 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Hamburger Meny-knapp för mobila enheter */
         .mobile-menu-toggle {
             display: none;
             background: transparent;
@@ -207,7 +206,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Animering för öppen menyknapp */
         .mobile-menu-toggle.open span:nth-child(1) {
             transform: translateY(8px) rotate(45deg);
             background-color: var(--cyber-cyan);
@@ -627,7 +625,7 @@
             padding: 0.5rem;
             font-family: 'Orbitron', sans-serif;
             outline: none;
-            height: 44px; /* Optimerad touchstorlek */
+            height: 44px;
         }
 
         .roulette-inputs-label {
@@ -731,7 +729,7 @@
             text-transform: uppercase;
             box-shadow: 0 0 15px rgba(162, 85, 255, 0.5);
             transition: all 0.2s;
-            height: 44px; /* God klickstorlek på mobilen */
+            height: 44px;
         }
 
         .roulette-btn:hover:not(:disabled) {
@@ -1266,7 +1264,7 @@
             border-color: rgba(162, 85, 255, 0.25);
         }
 
-        /* --- RESPONSIV MEDIA QUERIES (Mobilanpassning) --- */
+        /* --- RESPONSIV MEDIA QUERIES --- */
         @media (max-width: 968px) {
             .live-salary-grid, .roulette-grid, .bento-grid-container, .trust-shield-container, .pricing-grid, .footer-inner {
                 grid-template-columns: 1fr;
@@ -1277,7 +1275,6 @@
             .drake-banner-wrapper { height: 320px; }
             .banner-intro-content h1 { font-size: 2.6rem; }
             
-            /* Dölj den vanliga menyn på mobilen */
             .main-nav { 
                 display: none; 
                 flex-direction: column;
@@ -1294,12 +1291,10 @@
                 box-shadow: 0 20px 40px rgba(0,0,0,0.8);
             }
 
-            /* Visa hamburger-menyn */
             .mobile-menu-toggle {
                 display: flex;
             }
 
-            /* Visa mobilmenyn när den är aktiv */
             .main-nav.open {
                 display: flex;
             }
@@ -1333,7 +1328,6 @@
         <div class="header-inner">
             <a href="#" class="brand">I Slantify<span>_</span></a>
             
-            <!-- Hamburger-knapp -->
             <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Meny">
                 <span></span>
                 <span></span>
@@ -1377,7 +1371,7 @@
             </div>
             <div class="bento-card bento-tall">
                 <h3>🧠 Intelligent Economy Sync</h3>
-                <p>Det autonoma nätverket. Din kalender, dina schemalagda arbetspass och krypterade transaktionsdata smälter samman för att förutse din likviditet.</p>
+                <p>Det autonoma nätverket. Din kalender, dina arbetspass och krypterade transaktionsdata smälter samman för att förutse din likviditet.</p>
             </div>
         </div>
     </section>
@@ -1524,7 +1518,7 @@
                     <button id="btn-pause-roulette" class="roulette-btn" style="background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);" disabled>Pausa</button>
                     <button id="btn-reset-roulette" class="roulette-btn" style="background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);">Återställ</button>
                 </div>
-                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Konfigurera gänget ovan och startart rullningen.</div>
+                <div id="roulette-reward-text" class="roulette-reward-output">// SYSTEM READY: Konfigurera gänget ovan och starta rullningen.</div>
             </div>
         </div>
     </section>
@@ -1655,7 +1649,7 @@
                     <span class="faq-icon-marker">+</span>
                 </button>
                 <div class="faq-panel">
-                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm for slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så att alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
+                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så att alla deltagare i kompisgänget han exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
                 </div>
             </div>
         </div>
@@ -1696,19 +1690,22 @@
         </div>
     </section>
 
-    <!-- 6. Premium Cyber Säkert Kontaktformulär -->
+    <!-- 6. Premium Cyber Säkert Kontaktformulär (Kopplat till Formspree) -->
     <section id="contact" class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 3.5rem;">
         <div class="info-content" style="text-align: center; margin-bottom: 2.5rem;">
             <span class="feature-tag purple">Secure Sub-Space Uplink</span>
             <h2>Kontakta Supporten</h2>
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto; margin-top: 0.5rem;">
-                Skicka ett meddelande. Svaret skickas automatiskt i bakgrunden utan sidfel.
+                Skicka ett meddelande direkt till supportteamet. Efter lyckad sändning slussas du säkert till din bekräftelsesida.
             </p>
         </div>
 
         <div style="max-width: 600px; margin: 0 auto; background: var(--card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 2.5rem; backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-            <form id="cyber-support-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                <input type="hidden" name="to_email" value="supportislantify@gmail.com">
+            <!-- BYT UT DITT_FORMSPREEE_ID_HÄR MOT DITT ID SÅ SLUSSAS MAN DIREKT TILL TACK.HTML PÅ DIN SERVER -->
+            <form action="https://formspree.io" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- Detta dolda fält ser till att Formspree omdirigerar besökaren till din tack.html i docs mappen live -->
+                <input type="hidden" name="_next" value="tack.html">
                 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
                     <label style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--cyber-cyan); text-transform: uppercase; letter-spacing: 1px;">Ditt Namn</label>
@@ -1717,7 +1714,7 @@
 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
                     <label style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--cyber-cyan); text-transform: uppercase; letter-spacing: 1px;">Din E-postadress</label>
-                    <input type="email" name="email" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none;">
+                    <input type="email" name="_replyto" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none;">
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
@@ -1725,11 +1722,9 @@
                     <textarea name="message" rows="5" required style="background: rgba(5, 10, 25, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1.2rem; color: #fff; font-size: 0.95rem; outline: none; resize: vertical;"></textarea>
                 </div>
 
-                <button id="btn-submit-contact" type="submit" style="background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%); color: white; padding: 0.9rem; border-radius: 12px; border: none; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 15px var(--accent-glow); transition: all 0.2s;">
+                <button type="submit" style="background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%); color: white; padding: 0.9rem; border-radius: 12px; border: none; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 15px var(--accent-glow); transition: all 0.2s;">
                     Transmit Message // Secure
                 </button>
-                
-                <div id="contact-status-output" style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; text-align: center; min-height: 20px;"></div>
             </form>
         </div>
     </section>
@@ -1760,7 +1755,7 @@
                 </ul>
             </div>
             <div class="footer-links-col">
-                <h5>Kontakt</h5>
+                <h5>Contact</h5>
                 <ul>
                     <li><a href="#contact">Support Center</a></li>
                     <li><a href="#">Utvecklar-API</a></li>
@@ -1789,7 +1784,6 @@
                     navigationBar.classList.toggle('open');
                 });
 
-                // Stäng menyn automatiskt när man klickar på ett val i mobilen
                 navLinksList.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileToggle.classList.remove('open');
@@ -2124,49 +2118,6 @@
                     }
                 });
             });
-
-            // --- 6. AJAX Kontaktformulär ---
-            const contactForm = document.getElementById('cyber-support-form');
-            const contactStatus = document.getElementById('contact-status-output');
-            const submitBtn = document.getElementById('btn-submit-contact');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); 
-                    
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = "Sending Telemetry...";
-                    contactStatus.style.color = "var(--cyber-cyan)";
-                    contactStatus.textContent = "// ESTABLISHING SECURE SUB-SPACE UPLINK...";
-
-                    const formData = new FormData(contactForm);
-                    
-                    fetch('https://web3forms.com', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = "Transmit Message // Secure";
-                        
-                        if (data.success) {
-                            contactStatus.style.color = "#00ffaa";
-                            contactStatus.textContent = "✔ UPLINK SUCCESSFUL: Meddelande mottaget av supportislantify@gmail.com.";
-                            contactForm.reset(); 
-                        } else {
-                            contactStatus.style.color = "#ef4444";
-                            contactStatus.textContent = "// ERROR: Misslyckades med att validera kryptering.";
-                        }
-                    })
-                    .catch(error => {
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = "Transmit Message // Secure";
-                        contactStatus.style.color = "#ef4444";
-                        contactStatus.textContent = "// LINK CRITICAL: Kontrollera din nätverksanslutning.";
-                    });
-                });
-            }
         });
     </script>
 </body>
