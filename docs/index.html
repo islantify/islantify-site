@@ -1,597 +1,846 @@
 <!doctype html>
 <html lang="sv">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>I Slantify — Din lön. I realtid.</title>
-    <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>I Slantify — Din lön. I realtid.</title>
+  <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="I Slantify — Din lön. I realtid.">
+  <meta property="og:description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://islantify.com">
+  <link rel="canonical" href="https://islantify.com">
+  <meta name="theme-color" content="#030712">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Assets & Icons -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css">
+  
+  <!-- Scripts -->
+  <script src="https://unpkg.com"></script>
+  <script src="assets/config.js" defer></script>
+  <script src="assets/qrcode.min.js" defer></script>
+
+  <style>
+    /* Global Cyber Dark Base & Layout */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #030712 !important;
+      color: #94a3b8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="I Slantify — Din lön. I realtid.">
-    <meta property="og:description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://islantify.com">
-    <link rel="canonical" href="https://islantify.com">
-    <meta name="theme-color" content="#030712">
-    <meta name="twitter:card" content="summary_large_image">
+    /* Main Hero Canvas Container */
+    .hero-container {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 85vh;
+    }
+<!doctype html> <html lang="sv"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <title>Jag Slantify — Din lön. I realtid.</title> <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planerad budget och spara smartare."> <!-- Open Graph / Social Media --> <meta property="og:title" content="I Slantify — Din samla lön. I realtidog." och Live Income i en premium fintechupplevelse Se din inkomst växa sekund för sekund, planera budget och spara smartare."> <meta property="og:type" content="website"> <meta property="og:url" content="https://islantify.com"> <link rel="canonical" href="https://islantify.com"> <meta. name="theme-color" content="#030712"> <meta name="twitter:card" content="summary_large_image"> <!-- Resurser och ikoner --> <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
+   <link rel="stylesheet" href="assets/styles.css"> <!-- Skript --> <script src="https://unpkg.com"></script> <script src="assets/config.js" defer></script> <script src="assets/qrcode.min.js" defer></script> <style> /* Global Cyber ​​Dark Base & Layout */ * { box-sizing: border-box; } body { background-color: #030712 !important; color: #94a3b8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; overflow-x: hidden;
+    .hero-content {
+      max-width: 580px;
+      z-index: 10;
+    }
+    .info-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      color: #ff7a00;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 56px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      margin: 0 0 24px 0;
+    }
+    .hero-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin-bottom: 40px;
+    }
     
-    <!-- Assets & Icons -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
+    /* Feature Grid Minimal Badges */
+    .feature-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .feature-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-size: 14px;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .feature-badge span {
+      color: #ff7a00;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff7a00 0%, #ff5500 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(255, 122, 0, 0.25);
+      transition: all 0.2s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(255, 122, 0, 0.4);
+    }
+
+    /* Right Side Hero Display (Phone and Dragon Overlay) */
+    .hero-graphics {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dragon-bg {
+      position: absolute;
+      right: -80px;
+      top: -40px;
+      width: 680px;
+      height: 680px;
+      background-image: url('assets/dragon-hq-render.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.85;
+      z-index: 1;
+    }
+    /* Fallback sketch placeholder for dragon */
+    .dragon-fallback {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .phone-mockup {
+      position: relative;
+      width: 290px;
+      height: 590px;
+      background: #090d16;
+      border: 11px solid #1e293b;
+      border-radius: 42px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.6);
+      z-index: 5;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .phone-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .phone-tabs {
+      display: flex;
+      background: rgba(255,255,255,0.04);
+      padding: 4px;
+      border-radius: 10px;
+      gap: 4px;
+    }
+    .phone-tab {
+      flex: 1;
+      text-align: center;
+      font-size: 10px;
+      padding: 6px;
+      border-radius: 8px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .phone-tab.active {
+      background: rgba(255,255,255,0.07);
+      color: #ffffff;
+    }
+    .phone-circle-display {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      border: 6px solid #ff7a00;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(255,122,0,0.05) 0%, transparent 80%);
+    }
+    .phone-amount {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .phone-rate {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .phone-timer {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .phone-time-digits {
+      font-size: 38px;
+      font-weight: 300;
+      color: #ffffff;
+      letter-spacing: 2px;
+    }
+    .phone-time-labels {
+      font-size: 9px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-top: 2px;
+      padding-left: 4px;
+    }
+    .phone-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 12px;
+      font-size: 9px;
+      color: #475569;
+      text-align: center;
+    }
+    .phone-nav-item i {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+      color: #64748b;
+    }
+    .phone-nav-item.active {
+      color: #ff7a00;
+    }
+    .phone-nav-item.active i {
+      color: #ff7a00;
+    }
+
+    /* Section 2: Prova Live Income Live Simulator Grid */
+    .live-demo-section-title {
+      text-align: center;
+      margin-top: 120px;
+      margin-bottom: 60px;
+    }
+    .live-demo-section-title h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 10px 0;
+    }
+    .live-demo-layout {
+      max-width: 1100px;
+      margin: 0 auto 100px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+      padding: 0 20px;
+    }
     
-    <!-- Lucide Icons via Cloudflare CDN (Säker och tillåten källa istället för trasig unpkg) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.435.0/umd/lucide.min.js"></script>
+    .live-demo-info {
+      padding: 36px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      background: linear-gradient(145deg, #090d16, #04060b);
+      box-shadow: 0 20px 50px rgba(0,0,0,.5);
+    }
+    .live-demo-info h3 { margin: 0 0 12px; font-size: 28px; color: #ffffff; font-weight: 800; }
+    .live-demo-info p { margin: 0 0 32px; line-height: 1.6; font-size: 14px; color: #94a3b8; }
+    
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .step-item {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .step-item strong {
+      color: #ffffff;
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .step-num {
+      color: #64748b;
+    }
 
-    <style>
-        /* Global Cyber Dark CSS & Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            background-color: #030712 !important;
-            color: #94a3b8;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    /* Right Side Interactive Card Terminal */
+    .live-demo-card {
+      padding: 36px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 122, 0, 0.15);
+      background: linear-gradient(145deg, #060911, #0c1220);
+      box-shadow: 0 25px 55px rgba(0,0,0,.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .input-wrapper {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .input-wrapper label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .demo-input {
+      background: #020408;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: 140px;
+      font-size: 18px;
+      font-weight: 700;
+      outline: none;
+      text-align: right;
+      font-family: monospace;
+      transition: border-color 0.2s;
+    }
+    .demo-input:focus {
+      border-color: #ff7a00;
+    }
+    .demo-input:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .main-display-panel {
+      text-align: center;
+      margin: 40px 0;
+      background: rgba(0,0,0,0.15);
+      padding: 30px 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .live-income-amount {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      font-family: monospace;
+      letter-spacing: -1px;
+    }
+    .kr-sek-rate {
+      font-size: 15px;
+      color: #ff7a00;
+      font-weight: 600;
+      margin-top: 8px;
+    }
 
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
+    .demo-controls {
+      display: flex;
+      gap: 12px;
+    }
+    .demo-btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+      border: none;
+    }
+    .demo-btn-start {
+      background: #ffffff;
+      color: #030712;
+    }
+    .demo-btn-start:hover {
+      background: #f1f5f9;
+      box-shadow: 0 0 15px rgba(255,255,255,0.15);
+    }
+    .demo-btn-pause {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .demo-btn-pause:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    .demo-btn-reset {
+      background: rgba(255,255,255,0.02);
+      color: #64748b;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .demo-btn-reset:hover {
+      color: #ffffff;
+      background: rgba(239,68,68,0.05);
+      border-color: rgba(239,68,68,0.2);
+    }
+    .demo-footnote {
+      font-size: 11px;
+      color: #475569;
+      margin-top: 16px;
+      text-align: center;
+    }
 
-        header {
-            background-color: rgba(6, 11, 20, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
+    /* Small Metrics Row Under Demo Box */
+    .mini-metrics-row {
+      max-width: 1100px;
+      margin: -60px auto 120px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 0 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 30px;
+    }
+    .metric-card-item {
+      text-align: left;
+    }
+    .metric-card-item span {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      display: block;
+      font-family: monospace;
+    }
+    .metric-card-item label {
+      font-size: 12px;
+      color: #475569;
+      margin-top: 4px;
+      display: block;
+    }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
+    /* Section 3: Slantify Social & Roulette Container */
+    .social-section {
+      max-width: 600px;
+      margin: 80px auto 120px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .roulette-box {
+      background: linear-gradient(180deg, #0e1322 0%, #060911 100%);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 24px;
+      padding: 30px;
+      margin-top: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .roulette-pill-header {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.2);
+      color: #ef4444;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .roulette-pill-header span {
+      width: 8px;
+      height: 8px;
+      background: #ef4444;
+      border-radius: 50%;
+    }
+    .roulette-wheel-graphic {
+      width: 160px;
+      height: 160px;
+      margin: 30px auto;
+      border: 8px dashed rgba(255,122,0,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff7a00;
+      font-size: 24px;
+    }
 
-        .logo-text {
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: 0.05em;
-        }
-
-        .desktop-nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .desktop-nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .desktop-nav a:hover {
-            color: #ffffff;
-        }
-
-        .live-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #10b981;
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 2s infinite;
-            margin-left: 4px;
-        }
-
-        main {
-            flex: 1;
-            padding: 3rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Grid-layout för live-demo sektionen */
-        .live-demo-layout {
-            max-width: 1050px;
-            width: 100%;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-            gap: 24px;
-            align-items: stretch;
-        }
-
-        .live-demo-info {
-            padding: 32px;
-            border-radius: 24px;
-            border: 1px solid rgba(249, 115, 22, 0.15);
-            background: linear-gradient(145deg, #0f121d, #05070f);
-            box-shadow: 0 20px 50px rgba(0,0,0,.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .info-eyebrow {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: .14em;
-            color: #10b981;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .live-demo-info h3 {
-            margin: 0 0 12px;
-            font-size: 32px;
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .live-demo-info p {
-            margin: 0 0 28px;
-            line-height: 1.6;
-            opacity: .85;
-            font-size: 16px;
-        }
-
-        .info-points {
-            display: grid;
-            gap: 16px;
-        }
-
-        .info-points div {
-            padding: 16px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.2s ease;
-        }
-
-        .info-points div:hover {
-            border-color: rgba(249, 115, 22, 0.3);
-            background: rgba(249, 115, 22, 0.02);
-        }
-
-        .info-points strong {
-            display: block;
-            font-size: 13px;
-            letter-spacing: .08em;
-            margin-bottom: 5px;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-
-        .info-points span {
-            display: block;
-            font-size: 14px;
-            line-height: 1.45;
-            opacity: .7;
-        }
-
-        /* Löneräknare Engine Card */
-        .engine-card {
-            background: linear-gradient(145deg, #0b0f19, #03050a);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .engine-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #10b981, #f97316);
-        }
-
-        .engine-title {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #f97316;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .input-group label {
-            font-size: 13px;
-            color: #94a3b8;
-            font-weight: 500;
-        }
-
-        .input-wrapper {
-            display: flex;
-            align-items: center;
-            background: #090d16;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 4px 14px;
-            transition: border-color 0.2s;
-        }
-
-        .input-wrapper:focus-within {
-            border-color: #f97316;
-        }
-
-        .demo-input {
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            padding: 8px 0;
-            width: 100%;
-            font-size: 18px;
-            font-weight: 600;
-            outline: none;
-        }
-
-        .input-suffix {
-            color: #64748b;
-            font-weight: 600;
-            font-size: 16px;
-            margin-left: 8px;
-        }
-
-        .display-group {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .display-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #64748b;
-            margin-bottom: 6px;
-        }
-
-        .live-income-value {
-            font-size: 32px;
-            font-weight: 800;
-            color: #ffffff;
-            font-family: monospace;
-            margin-bottom: 4px;
-        }
-
-        .live-speed-value {
-            font-size: 13px;
-            color: #10b981;
-            font-weight: 600;
-        }
-
-        .stats-row {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.01);
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            font-size: 13px;
-        }
-
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stat-label {
-            color: #64748b;
-        }
-
-        .stat-count {
-            color: #ffffff;
-            font-weight: 600;
-            font-family: monospace;
-        }
-
-        .button-cluster {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .demo-btn {
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .demo-btn-start {
-            background: #10b981;
-            color: #030712;
-        }
-
-        .demo-btn-start:hover {
-            background: #059669;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
-        }
-
-        .demo-btn-pause {
-            background: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: none; /* Visas via JS */
-        }
-
-        .demo-btn-pause:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .demo-btn-reset {
-            background: rgba(239, 68, 68, 0.1);
-            color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.2);
-        }
-
-        .demo-btn-reset:hover {
-            background: rgba(239, 68, 68, 0.2);
-        }
-
-        .disclaimer {
-            font-size: 11px;
-            color: #475569;
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        /* Mobilanpassning för layouten */
-        @media (max-width: 768px) {
-            .desktop-nav {
-                display: none !important;
-            }
-            .live-demo-layout {
-                grid-template-columns: 1fr;
-            }
-            header {
-                padding: 1rem;
-            }
-            .live-demo-info h3 {
-                font-size: 26px;
-            }
-        }
-    </style>
+    /* Responsive Grid Adjustments */
+    @media (max-width: 968px) {
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .hero-content {
+        max-width: 100%;
+        margin-bottom: 50px;
+      }
+      .feature-mini-grid {
+        justify-content: center;
+      }
+      .hero-graphics {
+        width: 100%;
+        height: auto;
+      }
+      .dragon-bg {
+        display: none;
+      }
+      .live-demo-layout {
+        grid-template-columns: 1fr;
+      }
+      .mini-metrics-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+      }
+      .metric-card-item {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <!-- Logotyp -->
-        <a href="#" class="logo-container">
-            <i data-lucide="trending-up" style="color: #10b981; width: 24px; height: 24px;"></i>
-            <span class="logo-text">I Slantify</span>
-        </a>
-        
-        <!-- Navigationslänkar -->
-        <nav class="desktop-nav">
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#" style="display: flex; align-items: center;">
-                Live Income <span class="live-dot"></span>
-            </a>
-            <a href="#">Premium</a>
-            <a href="#" id="open-support">Support</a>
-        </nav>
-    </header>
+  <!-- FAST MENY HÖGST UPP MED FINTECH GLASSMORPHISM -->
+  <header style="background-color: rgba(6, 11, 20, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);">
+    <!-- Logotyp (Vänster) -->
+    <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;">
+      <svg width="26" height="26" viewBox="0 0 100 100" style="fill: #ff7a00;">
+        <polygon points="50,15 85,85 15,85"/>
+      </svg>
+      <span style="color: #ffffff; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em;">Slantify</span>
+    </a>
 
-    <main>
-        <div class="live-demo-layout">
-            <!-- Vänster kolumn (infotext) -->
-            <div class="live-demo-info">
-                <span class="info-eyebrow">Live Income Engine</span>
-                <h3>Din lön — live.</h3>
-                <p>Testa själv hur vårt ekosystem fungerar. Ange din tänkta timlön och starta flödet för att se hur inkomsten utvecklas i realtid sekund för sekund.</p>
-                
-                <div class="info-points">
-                    <div>
-                        <strong>Kr / Sekund</strong>
-                        <span>Se exakt hur mycket pengar du drar in just precis nu.</span>
-                    </div>
-                    <div>
-                        <strong>Arbetad tid</strong>
-                        <span>Följ arbetad tid och ackumulerad löneutveckling live.</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Navigationslänkar (Mitten) -->
+    <nav class="desktop-nav" style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="#" style="color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Home</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Features</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Live Income</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Download</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Premium</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Support</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Privacy</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Terms</a>
+      <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Contact</a>
+    </nav>
+  </header>
 
-            <!-- Höger kolumn (löneräknaren) -->
-            <div class="engine-card">
-                <div class="engine-title">
-                    <i data-lucide="cpu" style="width: 16px; height: 16px;"></i>
-                    Demo-läge
-                </div>
+  <!-- SEKTION 1: HERO DISPLAY (Draken & Telefonen) -->
+  <section class="hero-container">
+    <div class="hero-content">
+      <div class="info-eyebrow">Live Income Engine</div>
+      <h1>Se din lön växa – sekund för sekund.</h1>
+      <p>Följ din lön i realtid medan du arbetar. Se netto, brutto, by/tim, lön/dag, utförda tid och schema direkt i Slantify's Live Income Engine.</p>
+      
+      <div class="feature-mini-grid">
+        <div class="feature-badge"><span>💧</span> Netto & Brutto</div>
+        <div class="feature-badge"><span>🕒</span> By/tim, lön/dag</div>
+        <div class="feature-badge"><span>📅</span> Schema & Utförd tid</div>
+        <div class="feature-badge"><span>📈</span> Live-uppdateringar</div>
+      </div>
+      
+      <a href="#live-income" class="cta-btn">Ladda ner i Slantify</a>
+    </div>
 
-                <div class="input-group">
-                    <label for="hourly-wage">Ange din timlön</label>
-                    <div class="input-wrapper">
-                        <input type="number" id="hourly-wage" class="demo-input" value="250" min="0">
-                        <span class="input-suffix">kr</span>
-                    </div>
-                </div>
-
-                <div class="display-group">
-                    <div class="display-label">Din Live-inkomst</div>
-                    <div id="income-display" class="live-income-value">0,00 kr</div>
-                    <div id="speed-display" class="live-speed-value">+ 0.0694 kr/sek</div>
-                </div>
-
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <span class="stat-label">Arbetad tid:</span>
-                        <span id="time-display" class="stat-count">00:00:00</span>
-                    </div>
-                </div>
-
-                <div class="button-cluster">
-                    <button id="btn-start" class="demo-btn demo-btn-start">
-                        <i data-lucide="play" style="width: 16px; height: 16px;"></i> Starta
-                    </button>
-                    <button id="btn-pause" class="demo-btn demo-btn-pause">
-                        <i data-lucide="pause" style="width: 16px; height: 16px;"></i> Pausa
-                    </button>
-                    <button id="btn-reset" class="demo-btn demo-btn-reset">
-                        <i data-lucide="rotate-ccw" style="width: 16px; height: 16px;"></i> Återställ
-                    </button>
-                </div>
-
-                <div class="disclaimer">
-                    Testdata — ingen riktig ekonomi kopplas till denna webbdemo.
-                </div>
-            </div>
+    <div class="hero-graphics">
+      <!-- Dekorativ bakgrundsdrake -->
+      <div class="dragon-bg"></div>
+      <svg class="dragon-fallback" viewBox="0 0 100 100" style="position:absolute; width:100%; height:100%; opacity:0.1; stroke:#ff7a00; fill:none; stroke-width:0.5;">
+        <path d="M70,20 Q90,40 75,70 T40,90 T20,60 Z M75,40 C85,35 90,45 80,50 C70,55 65,45 75,40 Z"/>
+      </svg>
+      
+      <!-- Mobilskärm mock-up -->
+      <div class="phone-mockup">
+        <div class="phone-header">
+          <span>9:41</span>
+          <span style="font-size:10px; color:#ff7a00; font-weight:800;">LIVE INCOME ● LIVE</span>
         </div>
-    </main>
+        
+        <div>
+          <div class="phone-tabs">
+            <div class="phone-tab active">Netto</div>
+            <div class="phone-tab">Brutto</div>
+          </div>
+          
+          <div style="text-align:center; margin-top:12px; font-size:11px; color:#64748b;">
+            <span style="color:#10b981; margin-right:4px;">● Live</span> Lön växer NU
+          </div>
 
-    <script>
-        // Initiera ikoner
-        lucide.createIcons();
+          <div class="phone-circle-display">
+            <div class="phone-amount" id="hero-phone-counter">8,26 kr</div>
+            <div class="phone-rate">per sekund<br><span style="color:#ff7a00; font-weight:700;">NETTO</span></div>
+          </div>
+        </div>
 
-        // Tillståndshantering (State)
-        let isRunning = false;
-        let totalSeconds = 0;
-        let accumulatedIncome = 0.0;
-        let engineInterval = null;
+        <div>
+          <div class="phone-timer">
+            <div class="phone-time-digits">2 : 22</div>
+            <div class="phone-time-labels">Timmar &nbsp; Minuter</div>
+          </div>
+          
+          <div style="font-size:11px; color:#94a3b8; text-align:center; margin-bottom:15px; background:rgba(255,255,255,0.02); padding:8px; border-radius:10px;">
+            Skift: Kvällspass 16:00 – 22:00
+          </div>
 
-        // DOM-element
-        const hourlyWageInput = document.getElementById('hourly-wage');
-        const incomeDisplay = document.getElementById('income-display');
-        const speedDisplay = document.getElementById('speed-display');
-        const timeDisplay = document.getElementById('time-display');
-        const btnStart = document.getElementById('btn-start');
-        const btnPause = document.getElementById('btn-pause');
-        const btnReset = document.getElementById('btn-reset');
+          <div class="phone-nav-bar">
+            <div class="phone-nav-item"><i>🏠</i>Hem</div>
+            <div class="phone-nav-item"><i>📊</i>Inkomst</div>
+            <div class="phone-nav-item active"><i>●</i>Live</div>
+            <div class="phone-nav-item"><i>💳</i>Plånbok</div>
+            <div class="phone-nav-item"><i>⚙️</i>Mer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Funktion för att räkna ut och uppdatera kr/sek texten baserat på input
-        function updateSpeedDisplay() {
-            const wage = parseFloat(hourlyWageInput.value) || 0;
-            // 1 timme = 3600 sekunder
-            const krPerSecond = wage / 3600;
-            speedDisplay.textContent = `+ ${krPerSecond.toFixed(4)} kr/sek`;
-            return krPerSecond;
+  <!-- SEKTION 2: PROVA LIVE INCOME TERMINAL -->
+  <section class="live-demo-section-title" id="live-income">
+    <div class="info-eyebrow" style="color:#ff7a00;">Prova Live Income</div>
+    <h2>Se din lön växa – sekund för sekund.</h2>
+    <p style="max-width:500px; margin:10px auto; font-size:14px; color:#64748b;">Testa själv hur Live Income fungerar. Ange din timlön, starta och se inkomsten växa i realtid.</p>
+  </section>
+
+  <section class="live-demo-layout">
+    <!-- Vänster kontrollpanel instruktioner -->
+    <div class="live-demo-info">
+      <div class="info-eyebrow" style="font-size:10px; margin-bottom:6px;">Live Income Demo</div>
+      <h3>Din lön – live.</h3>
+      <p>Se hur din inkomst växer sekund för sekund. Live Income räknar om din lön i realtid.</p>
+      
+      <div class="steps-list">
+        <div class="step-item">
+          <strong>1. Fyll i din timlön <span class="step-num">/ Ange din bruttolön per timme.</span></strong>
+        </div>
+        <div class="step-item">
+          <strong>2. Starta <span class="step-num">/ Tryck på Starta för att börja räkna live.</span></strong>
+        </div>
+        <div class="step-item">
+          <strong>3. Se lönen växa <span class="step-num">/ Se din inkomst växa sekund för sekund.</span></strong>
+        </div>
+        <div class="step-item">
+          <strong>4. Pausa & Återställ <span class="step-num">/ Pausa eller återställ när du vill.</span></strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Höger interaktiv lönemaskin -->
+    <div class="live-demo-card">
+      <div>
+        <div class="info-eyebrow" style="font-size:10px; margin-bottom:0;">Din timlön</div>
+        <div class="input-wrapper">
+          <input type="number" class="demo-input" id="salary-input" value="250">
+          <label>kr/timme</label>
+        </div>
+      </div>
+
+      <div class="main-display-panel">
+        <div class="info-eyebrow" style="font-size:10px; margin-bottom:8px; color:#64748b;">Din live inkomst</div>
+        <h2 class="live-income-amount" id="live-total-display">0,00 kr</h2>
+        <div class="kr-sek-rate" id="live-rate-display">= 0,069 kr/sek</div>
+      </div>
+
+      <div>
+        <div class="demo-controls">
+          <button class="demo-btn demo-btn-start" id="btn-start">Starta</button>
+          <button class="demo-btn demo-btn-pause" id="btn-pause">Pausa</button>
+          <button class="demo-btn demo-btn-reset" id="btn-reset">Återställ</button>
+        </div>
+        <div class="demo-footnote">*Exempelvärden – ingen riktig inkomst beräknas eller sparas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMÅ KORT/METRIKER UNDER DEMOBOXEN -->
+  <section class="mini-metrics-row">
+    <div class="metric-card-item">
+      <span id="card-rate-sec">0,069 kr</span>
+      <label>per sekund</label>
+    </div>
+    <div class="metric-card-item">
+      <span id="card-rate-min">4,17 kr</span>
+      <label>per minut</label>
+    </div>
+    <div class="metric-card-item">
+      <span id="card-rate-hour">250,00 kr</span>
+      <label>per timme</label>
+    </div>
+  </section>
+
+  <!-- SEKTION 3: SLANTIFY SOCIAL & ROULETTE -->
+  <section class="social-section">
+    <div class="info-eyebrow">- Slantify Social</div>
+    <h2 style="color:#ffffff; font-size:26px; font-weight:800; margin:10px 0 5px 0;">Delanot-Roulette</h2>
+    <p style="font-size:13px; color:#64748b; margin-bottom:20px;">Dela notan med vänner och låt Rouletten avgöra vem som får vad.</p>
+    
+    <div class="roulette-box">
+      <div class="roulette-pill-header">
+        <span></span> Kulan &nbsp; <span style="background:none; border:none; color:#64748b; font-weight:normal;">Kod: KZQY13</span>
+      </div>
+      <p style="color:#ffffff; font-weight:600; margin:10px 0 0 0; font-size:15px;">Snurrar... håll i dig! 🎡</p>
+      
+      <div class="roulette-wheel-graphic">
+        <span>🎯</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT-MOTOR: KOPPLAR ALLA KNAPPAR OCH KÖR SIMULATORN UTIFRÅN BILDENS LOGIK -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Deklarera alla fasta DOM-element
+      const salaryInput = document.getElementById("salary-input");
+      const btnStart = document.getElementById("btn-start");
+      const btnPause = document.getElementById("btn-pause");
+      const btnReset = document.getElementById("btn-reset");
+      
+      const totalDisplay = document.getElementById("live-total-display");
+      const rateDisplay = document.getElementById("live-rate-display");
+      
+      const cardSec = document.getElementById("card-rate-sec");
+      const cardMin = document.getElementById("card-rate-min");
+      const cardHour = document.getElementById("card-rate-hour");
+      
+      const heroPhoneCounter = document.getElementById("hero-phone-counter");
+
+      let timerInterval = null;
+      let phoneInterval = null;
+      let accumulatedIncome = 0.0;
+      let heroPhoneAccumulated = 8.26; // Startvärde taget direkt från mobilskärmen på din bild
+
+      // Funktion för att beräkna lön per sekund/minut/timme och uppdatera textfält
+      function calculateRates() {
+        const hourlyWage = parseFloat(salaryInput.value) || 0;
+        const perMinute = hourlyWage / 60;
+        const perSecond = hourlyWage / 3600;
+
+        // Uppdatera textsträngarna enligt designen i bilden
+        if (rateDisplay) {
+          rateDisplay.textContent = `= ${perSecond.toFixed(3).replace(".", ",")} kr/sek`;
+        }
+        if (cardSec) {
+          cardSec.textContent = `${perSecond.toFixed(3).replace(".", ",")} kr`;
+        }
+        if (cardMin) {
+          cardMin.textContent = `${perMinute.toFixed(2).replace(".", ",")} kr`;
+        }
+        if (cardHour) {
+          cardHour.textContent = `${hourlyWage.toFixed(2).replace(".", ",")} kr`;
         }
 
-        // Formatera sekunder till HH:MM:SS
-        function formatTime(seconds) {
-            const hrs = Math.floor(seconds / 3600);
-            const mins = Math.floor((seconds % 3600) / 60);
-            const secs = seconds % 60;
-            return [
-                hrs.toString().padStart(2, '0'),
-                mins.toString().padStart(2, '0'),
-                secs.toString().padStart(2, '0')
-            ].join(':');
-        }
+        return perSecond;
+      }
 
-        // Engine tick (körs varje sekund)
-        function engineTick() {
-            totalSeconds++;
-            const krPerSecond = updateSpeedDisplay();
-            accumulatedIncome += krPerSecond;
+      // Lyssna på timlöneändringar i realtid
+      if (salaryInput) {
+        salaryInput.addEventListener("input", calculateRates);
+        calculateRates(); // Sätt korrekta standardvärden direkt
+      }
+
+      // 1. STARTA SIMULATORN
+      if (btnStart) {
+        btnStart.addEventListener("click", () => {
+          if (timerInterval) return; // Förhindra dubbla triggers
+
+          // Lås inmatningsfältet under körning för att säkra beräkningen
+          if (salaryInput) salaryInput.disabled = true;
+
+          const refreshRate = 0.05; // 50ms frekvens ger mjukt rullande decimaler
+
+          timerInterval = setInterval(() => {
+            const currentSecRate = calculateRates();
+            accumulatedIncome += currentSecRate * refreshRate;
             
-            // Uppdatera gränssnittet
-            incomeDisplay.textContent = `${accumulatedIncome.toLocaleString('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kr`;
-            timeDisplay.textContent = formatTime(totalSeconds);
-        }
-
-        // Händelselyssnare
-        hourlyWageInput.addEventListener('input', () => {
-            updateSpeedDisplay();
-        });
-
-        btnStart.addEventListener('click', () => {
-            if (!isRunning) {
-                isRunning = true;
-                hourlyWageInput.disabled = true;
-                
-                // Byt knappar
-                btnStart.style.display = 'none';
-                btnPause.style.display = 'flex';
-                
-                // Starta intervallet
-                engineInterval = setInterval(engineTick, 1000);
+            if (totalDisplay) {
+              totalDisplay.textContent = `${accumulatedIncome.toLocaleString("sv-SE", { 
+                minimumFractionDigits: 2, 
+                maximumFractionDigits: 2 
+              })} kr`;
             }
+          }, refreshRate * 1000);
         });
+      }
 
-        btnPause.addEventListener('click', () => {
-            if (isRunning) {
-                isRunning = false;
-                
-                // Byt knappar
-                btnPause.style.display = 'none';
-                btnStart.style.display = 'flex';
-                
-                // Stoppa intervallet
-                clearInterval(engineInterval);
-            }
+      // 2. PAUSA SIMULATORN
+      if (btnPause) {
+        btnPause.addEventListener("click", () => {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          // Lås upp inputfältet igen
+          if (salaryInput) salaryInput.disabled = false;
         });
+      }
 
-        btnReset.addEventListener('click', () => {
-            // Stoppa motorn om den körs
-            isRunning = false;
-            clearInterval(engineInterval);
-            
-            // Återställ tillstånd
-            totalSeconds = 0;
-            accumulatedIncome = 0.0;
-            hourlyWageInput.disabled = false;
-            
-            // Återställ knappar och displayer
-            btnPause.style.display = 'none';
-            btnStart.style.display = 'flex';
-            
-            incomeDisplay.textContent = '0,00 kr';
-            timeDisplay.textContent = '00:00:00';
-            updateSpeedDisplay();
+      // 3. ÅTERSTÄLL SIMULATORN
+      if (btnReset) {
+        btnReset.addEventListener("click", () => {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          accumulatedIncome = 0.0;
+          
+          if (totalDisplay) totalDisplay.textContent = "0,00 kr";
+          if (salaryInput) salaryInput.disabled = false;
+          
+          calculateRates();
         });
+      }
 
-        // Initiera vid start
-        updateSpeedDisplay();
-    </script>
+      // 4. EXTRA EFFEKT: Låt telefonen i herosektionen ticka upp mjukt i bakgrunden för en premiumkänsla
+      phoneInterval = setInterval(() => {
+        // En timlön på 250kr ger ca 0.069 kr per sekund. Vi adderar en liten del per 100ms
+        heroPhoneAccumulated += (250 / 3600) * 0.1;
+        if (heroPhoneCounter) {
+          heroPhoneCounter.textContent = `${heroPhoneAccumulated.toLocaleString("sv-SE", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          })} kr`;
+        }
+      }, 100);
+    });
+  </script>
 </body>
 </html>
+      }, 100); }); </script> </body> </html>
