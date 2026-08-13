@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="utf-8">
@@ -15,344 +15,184 @@
   <meta name="theme-color" content="#030712">
   <meta name="twitter:card" content="summary_large_image">
   
-  <!-- Assets & Icons -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
+  <!-- Favicon (Inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
   
-  <!-- Google Fonts & Font Awesome alternative via SVG -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="family">
-
   <style>
-    /* Global Cyber Dark Variables & Reset */
-    :root {
-      --bg-main: #030712;
-      --bg-card: #0b0f19;
-      --bg-card-glow: linear-gradient(145deg, #0f1322, #050711);
-      --primary: #f97316;
-      --primary-hover: #ea580c;
-      --accent-live: #10b981;
-      --accent-live-hover: #059669;
-      --text-main: #ffffff;
-      --text-muted: #94a3b8;
-      --border-color: rgba(255, 255, 255, 0.06);
-      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
+    /* Global Cyber Dark Theme & Reset */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
     }
-
+    
     body {
-      background-color: var(--bg-main) !important;
-      color: var(--text-muted);
-      font-family: var(--font-family);
+      background-color: #030712;
+      color: #94a3b8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--text-main);
-      font-weight: 700;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    /* Standard Utilities */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-padding {
-      padding: 5rem 0;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .badge-live {
-      background: rgba(16, 185, 129, 0.1);
-      color: var(--accent-live);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-    }
-
-    .badge-primary {
-      background: rgba(249, 115, 22, 0.1);
-      color: var(--primary);
-      border: 1px solid rgba(249, 115, 22, 0.2);
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-main);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
-    }
-
-    /* Animations */
     @keyframes pulse {
       0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
       70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
-    @keyframes spinWheel {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(3600deg); }
-    }
-
-    /* Header & Navigation Glassmorphism */
+    /* Fixed Navigation Header with Glassmorphism */
     header {
       background-color: rgba(6, 11, 20, 0.75);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 50;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .nav-logo {
+    .logo-container {
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
 
-    .nav-logo svg {
-      width: 32px;
-      height: 32px;
+    .logo-text {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
     }
 
-    .nav-brand {
-      color: var(--text-main);
-      font-weight: 800;
-      font-size: 1.35rem;
-      letter-spacing: 0.05em;
+    .logo-dot {
+      color: #f97316;
     }
 
-    .desktop-nav {
+    nav.desktop-nav {
       display: flex;
       gap: 2rem;
       align-items: center;
     }
 
-    .desktop-nav a {
-      color: var(--text-muted);
+    nav.desktop-nav a {
+      color: #94a3b8;
       font-size: 0.95rem;
       font-weight: 500;
-      transition: color 0.2s ease;
     }
 
-    .desktop-nav a:hover, .desktop-nav a.active {
-      color: var(--text-main);
-    }
-
-    .live-dot-container {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
+    nav.desktop-nav a:hover {
+      color: #ffffff;
     }
 
     .live-dot {
       width: 6px;
       height: 6px;
-      background-color: var(--accent-live);
+      background-color: #10b981;
       border-radius: 50%;
       display: inline-block;
+      margin-left: 4px;
       animation: pulse 2s infinite;
     }
 
-    .header-actions {
+    /* QR Code Header Container */
+    .header-qrcode-container {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-    }
-
-    .btn-download-nav {
-      background: var(--primary);
-      color: var(--bg-main);
-      padding: 0.5rem 1.25rem;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-    }
-
-    .btn-download-nav:hover {
-      background: var(--primary-hover);
-      box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text-main);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Mobile Menu Dropdown */
-    .mobile-nav-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: #060b14;
-      border-bottom: 1px solid var(--border-color);
-      padding: 1.5rem;
-      flex-direction: column;
-      gap: 1.25rem;
-      z-index: 99;
-    }
-
-    .mobile-nav-dropdown.active {
-      display: flex;
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 6rem 0 4rem 0;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero-title {
-      font-size: 3.5rem;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #ffffff, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-title span {
-      background: linear-gradient(to right, var(--primary), #ff9d5c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      max-width: 650px;
-      margin: 0 auto 2.5rem auto;
-      line-height: 1.6;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-main {
-      padding: 0.85rem 2rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-accent {
-      background: var(--accent-live);
-      color: var(--bg-main);
-      border: none;
-    }
-
-    .btn-accent:hover {
-      background: var(--accent-live-hover);
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-    }
-
-    .btn-outline {
+      gap: 12px;
       background: rgba(255, 255, 255, 0.03);
-      color: var(--text-main);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
+    /* Placeholder for the QR Code image if assets are missing */
+    .header-qrcode-container .qr-placeholder {
+      width: 42px;
+      height: 42px;
+      border-radius: 6px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #030712;
+      font-weight: bold;
+      font-size: 10px;
     }
 
-    /* Live Income Simulator Grid */
+    .header-qrcode-text {
+      font-size: 11px;
+      line-height: 1.3;
+      color: #94a3b8;
+    }
+
+    .header-qrcode-text strong {
+      color: #ffffff;
+      display: block;
+    }
+    
+    /* Grid Layout for Live Demo Section */
     .live-demo-layout {
       max-width: 1050px;
-      margin: 3rem auto 0 auto;
+      margin: 40px auto;
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.85fr);
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
       gap: 24px;
       align-items: stretch;
+      padding: 0 20px;
     }
-
+    
     .live-demo-info {
-      padding: 2.5rem;
+      padding: 32px;
       border-radius: 24px;
       border: 1px solid rgba(249, 115, 22, 0.15);
-      background: var(--bg-card-glow);
+      background: linear-gradient(145deg, #0f121d, #05070f);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
+    .info-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      color: #10b981;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
     .live-demo-info h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      margin: 0 0 12px;
+      font-size: 32px;
+      color: #ffffff;
+      letter-spacing: -0.02em;
     }
 
     .live-demo-info p {
-      margin-bottom: 2rem;
+      margin: 0 0 28px;
       line-height: 1.6;
+      opacity: .85;
     }
 
     .info-points {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
+      gap: 16px;
     }
 
     .info-points div {
-      padding: 1.25rem;
-      border-radius: 16px;
+      padding: 16px;
+      border-radius: 14px;
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       transition: all 0.2s ease;
     }
 
@@ -363,554 +203,211 @@
 
     .info-points strong {
       display: block;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-      color: var(--text-main);
+      font-size: 13px;
+      letter-spacing: .08em;
+      margin-bottom: 5px;
+      color: #ffffff;
       text-transform: uppercase;
     }
 
     .info-points span {
       display: block;
-      font-size: 0.9rem;
-      opacity: 0.7;
+      font-size: 14px;
+      line-height: 1.45;
+      opacity: .7;
     }
 
-    /* Live Engine Widget Graphic Panel */
-    .live-engine-widget {
-      background: #090d16;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Live Simulator Card Styling */
+    .live-demo-card {
+      padding: 32px;
       border-radius: 24px;
-      padding: 2rem;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      background: linear-gradient(145deg, #070b14, #0f172a);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 25px 50px -12px rgba(0,0,0,0.7);
     }
 
-    .widget-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .widget-header h4 {
-      font-size: 0.9rem;
+    .demo-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-    }
-
-    .input-wrapper {
-      margin-bottom: 2rem;
-    }
-
-    .input-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
       display: block;
     }
 
-    .demo-input-container {
-      display: flex;
-      align-items: center;
-      background: #04060b;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 0.25rem 0.75rem;
-    }
-
-    .demo-input {
-      background: transparent;
-      border: none;
-      color: var(--text-main);
-      padding: 0.75rem 0.5rem;
-      width: 100%;
-      font-size: 1.25rem;
-      font-weight: 700;
-      outline: none;
-    }
-
-    .input-suffix {
-      color: var(--text-muted);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .display-panel {
-      background: rgba(255, 255, 255, 0.01);
-      border: 1px solid rgba(255, 255, 255, 0.04);
+    .income-display-box {
+      margin: 28px 0;
+      padding: 20px;
+      background: rgba(3, 7, 18, 0.4);
       border-radius: 16px;
-      padding: 1.5rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.03);
     }
 
-    .display-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-live);
-    }
-
-    .live-amount {
-      font-size: 2.25rem;
+    .live-income-amount {
+      font-size: 44px;
       font-weight: 800;
-      color: var(--text-main);
-      margin: 0.5rem 0;
-      font-family: monospace;
+      color: #ffffff;
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: -0.02em;
     }
 
-    .live-rate {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+    .kr-sek-rate {
+      font-size: 14px;
+      color: #10b981;
+      font-weight: 600;
+      margin-top: 8px;
     }
 
     .demo-controls {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 0.75rem;
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
     }
 
+    /* Interactive Inputs and Buttons */
     .demo-btn {
-      padding: 0.85rem;
+      padding: 14px 20px;
       border-radius: 12px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
-      font-size: 0.95rem;
-      border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
+      font-size: 14px;
+      flex: 1;
+      text-align: center;
+      user-select: none;
     }
 
     .demo-btn-start {
-      background: var(--accent-live);
-      color: var(--bg-main);
+      background: #10b981;
+      color: #030712;
+      border: none;
     }
+
     .demo-btn-start:hover {
-      background: var(--accent-live-hover);
+      background: #059669;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
     }
 
     .demo-btn-pause {
-      background: #ef4444;
-      color: white;
-    }
-
-    .demo-btn-reset {
       background: rgba(255, 255, 255, 0.05);
-      color: var(--text-main);
+      color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .demo-btn-reset:hover {
+
+    .demo-btn-pause:hover {
       background: rgba(255, 255, 255, 0.1);
     }
 
-    /* Core Features Grid Module */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 2.5rem;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(249, 115, 22, 0.3);
-    }
-
-    .feature-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(249, 115, 22, 0.1);
+    .demo-input-container {
+      background: rgba(3, 7, 18, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px;
+      border-radius: 16px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-
-    .feature-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .feature-card p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Delanot-Roulette Sektion */
-    .roulette-container {
-      background: var(--bg-card-glow);
-      border: 1px solid var(--border-color);
-      border-radius: 24px;
-      padding: 3rem;
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .roulette-visual {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .wheel-outer {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      border: 10px solid #1e293b;
-      position: relative;
-      background: #0f172a;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.8);
-      overflow: hidden;
-      transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
-    }
-
-    .wheel-pointer {
-      position: absolute;
-      top: -15px;
-      width: 0;
-      height: 0;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-top: 25px solid var(--primary);
-      z-index: 10;
-    }
-
-    .wheel-center {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: var(--bg-main);
-      border: 4px solid var(--border-color);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 5;
-    }
-
-    .wheel-segment {
-      position: absolute;
-      width: 50%;
-      height: 50%;
-      transform-origin: bottom right;
-      overflow: hidden;
-    }
-
-    .roulette-result {
-      margin-top: 1.5rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-main);
-      min-height: 2rem;
-    }
-
-    /* Premium Pricing Grid Section */
-    .premium-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .price-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 24px;
-      padding: 3rem 2rem;
-      text-align: center;
-      position: relative;
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
-    }
-
-    .price-card.featured {
-      border-color: var(--primary);
-      background: linear-gradient(180deg, #0d1424 0%, #05070f 100%);
-    }
-
-    .price-header h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .price-amount {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin: 1.5rem 0;
-    }
-
-    .price-amount span {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .price-features {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 2rem;
-    }
-
-    .price-features li {
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
-      display: flex;
       align-items: center;
-      gap: 0.5rem;
     }
 
-    .price-features svg {
-      width: 16px;
-      height: 16px;
-      color: var(--accent-live);
-      flex-shrink: 0;
-    }
-
-    /* Modals & Support / Privacy System */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(3, 7, 18, 0.9);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 24px;
-      max-width: 600px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 2.5rem;
+    .demo-input-wrapper {
       position: relative;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
     }
 
-    .modal-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 0.5rem;
-    }
-
-    .form-control {
-      width: 100%;
-      background: #04060b;
+    .demo-input {
+      background: #090d16;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      color: var(--text-main);
-      font-family: inherit;
+      color: #ffffff;
+      padding: 10px 38px 10px 14px;
+      border-radius: 12px;
+      width: 140px;
+      font-size: 16px;
+      font-weight: 600;
       outline: none;
+      transition: border-color 0.2s;
+      text-align: right;
     }
 
-    .form-control:focus {
-      border-color: var(--primary);
+    .demo-input:focus {
+      border-color: #f97316;
     }
 
-    /* Footer Legal Design */
-    footer {
-      background: #04060b;
-      border-top: 1px solid var(--border-color);
-      padding: 4rem 0 2rem 0;
-      font-size: 0.9rem;
+    .demo-input:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr repeat(3, 1fr);
-      gap: 3rem;
-      margin-bottom: 3rem;
+    .currency-suffix {
+      position: absolute;
+      right: 12px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 700;
+      pointer-events: none;
     }
 
-    .footer-brand p {
-      margin-top: 1rem;
-      max-width: 280px;
+    .demo-footnote {
+      font-size: 11px;
+      color: #475569;
+      margin-top: 16px;
+      text-align: center;
     }
 
-    .footer-col h4 {
-      color: var(--text-main);
-      margin-bottom: 1.25rem;
-      font-size: 0.95rem;
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-col ul li a:hover {
-      color: var(--text-main);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-      padding-top: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      color: rgba(148, 163, 184, 0.6);
-    }
-
-    /* Responsive Breakthrough Breaks */
-    @media (max-width: 968px) {
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .roulette-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .desktop-nav, .header-actions .header-qrcode-container {
-        display: none !important;
+      nav.desktop-nav { 
+        display: none; 
       }
-      .mobile-menu-btn {
-        display: block;
+      .header-qrcode-container {
+        display: none;
       }
-      .hero-title {
-        font-size: 2.5rem;
-      }
-      .live-demo-layout {
-        grid-template-columns: 1fr;
+      .live-demo-layout { 
+        grid-template-columns: 1fr; 
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- FAST GLAS-MENY HÖGST UPP -->
+  <!-- STICKY HEADER -->
   <header>
-    <div class="nav-logo">
-      <!-- Inline SVG Drak-logotyp -->
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 80C35 50 50 35 80 20C65 50 50 65 20 80Z" fill="url(#dragonGrad)"/>
-        <circle cx="50" cy="50" r="10" fill="#f97316"/>
-        <defs>
-          <linearGradient id="dragonGrad" x1="20" y1="80" x2="80" y2="20">
-            <stop offset="0%" stop-color="#f97316" />
-            <stop offset="100%" stop-color="#10b981" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <span class="nav-brand">I Slantify</span>
+    <div class="logo-container">
+      <a href="#" class="logo-text">I Slantify<span class="logo-dot">.</span></a>
     </div>
 
+    <!-- Middle Menu Navigation -->
     <nav class="desktop-nav">
-      <a href="#home" class="active">Hem</a>
-      <a href="#features">Funktioner</a>
-      <a href="#live-income" class="live-dot-container">
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+      <a href="#live-income">
         Live Income <span class="live-dot"></span>
       </a>
       <a href="#premium">Premium</a>
-      <a href="#roulette">Roulette</a>
-      <a href="javascript:void(0)" onclick="openModal('support-modal')">Support</a>
+      <a href="#support">Support</a>
     </nav>
 
-    <div class="header-actions">
-      <div class="header-qrcode-container" style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.03); padding: 6px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-        <!-- Genererad inbäddad QR-matris -->
-        <svg width="42" height="42" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:2px; border-radius:6px;">
-          <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/>
-        </svg>
-        <div class="header-qrcode-text" style="font-size: 11px; line-height: 1.3; color: #94a3b8;">
-          <strong style="color: #ffffff; display: block;">Ladda ner appen</strong>iOS & Android
-        </div>
+    <!-- App Store QR Code Scan Block -->
+    <div class="header-qrcode-container">
+      <div class="qr-placeholder">QR</div>
+      <div class="header-qrcode-text">
+        <strong>Ladda ner appen</strong>
+        Skanna för iOS &amp; Android
       </div>
-      <a href="#download" class="btn-download-nav">Hämta app</a>
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-    </div>
-
-    <!-- Mobil Dropdown -->
-    <div class="mobile-nav-dropdown" id="mobileMenu">
-      <a href="#home" onclick="toggleMobileMenu()">Hem</a>
-      <a href="#features" onclick="toggleMobileMenu()">Funktioner</a>
-      <a href="#live-income" onclick="toggleMobileMenu()">Live Income</a>
-      <a href="#premium" onclick="toggleMobileMenu()">Premium</a>
-      <a href="#roulette" onclick="toggleMobileMenu()">Roulette</a>
-      <a href="javascript:void(0)" onclick="openModal('support-modal'); toggleMobileMenu();">Support</a>
     </div>
   </header>
 
-  <!-- HERO & SIMULATOR SEKTION -->
-  <section id="home" class="hero container section-padding">
-    <span class="badge badge-primary">The Future of Personal Finance</span>
-    <h1 class="hero-title">Se din lön växa — <span>sekund för sekund.</span></h1>
-    <p class="hero-subtitle">
-      Följ din inkomst i realtid medan du arbetar. Se netto, brutto, kr/min och arbetad tid direkt i din personliga finansiella instrumentpanel.
-    </p>
-    
-    <div class="hero-buttons">
-      <a href="#live-income" class="btn-main btn-accent">Testa Live-Demo</a>
-      <a href="#features" class="btn-main btn-outline">Utforska funktioner</a>
-    </div>
-
-    <!-- LIVE INCOME ENGINE SIMULATOR MODULE -->
-    <div id="live-income" class="live-demo-layout">
+  <!-- LIVE SIMULATOR ENGINE SECTION -->
+  <main>
+    <section class="live-demo-layout" id="live-income">
+      
+      <!-- Info Left Column -->
       <div class="live-demo-info">
-        <span class="info-eyebrow">Live Income Engine</span>
+        <div class="info-eyebrow">Live Income Engine</div>
         <h3>Din lön — live.</h3>
         <p>Testa själv hur vårt ekosystem fungerar. Ange din tänkta timlön och starta flödet för att se hur inkomsten utvecklas i realtid sekund för sekund.</p>
         
@@ -923,273 +420,110 @@
             <strong>Arbetad tid</strong>
             <span>Följ arbetad tid och ackumulerad löneutveckling live.</span>
           </div>
-          <div>
-            <strong>OB & Övertid</strong>
-            <span>Kan fullt inkluderas i appens automatiska beräkning.</span>
-          </div>
-          <div>
-            <strong>Prognos</strong>
-            <span>Smarta AI-insikter förutspår utvecklingen över månaden.</span>
-          </div>
         </div>
-      </div>
-
-      <!-- Löneräknare Panel -->
-      <div class="live-engine-widget">
-        <div class="widget-header">
-          <h4>Live Simulator</h4>
-          <span class="badge badge-live">Demo-läge</span>
-        </div>
-
-        <div class="input-wrapper">
-          <label class="input-label" for="hourlyWage">Ange din timlön</label>
-          <div class="demo-input-container">
-            <input type="number" id="hourlyWage" class="demo-input" value="250" min="1">
-            <span class="input-suffix">kr/timme</span>
-          </div>
-        </div>
-
-        <div class="display-panel">
-          <span class="display-label">Din Live-inkomst</span>
-          <div class="live-amount" id="liveAmountDisplay">0,00 kr</div>
-          <div class="live-rate" id="liveRateDisplay">+ 0,0694 kr/sek</div>
-        </div>
-
-        <div class="demo-controls">
-          <button id="startBtn" class="demo-btn demo-btn-start" onclick="startSimulator()">Starta</button>
-          <button id="resetBtn" class="demo-btn demo-btn-reset" onclick="resetSimulator()">Återställ</button>
-        </div>
-        
-        <div style="font-size: 11px; text-align: center; color: var(--text-muted); margin-top: 1rem;">
-          Testdata — ingen riktig ekonomi kopplas till denna webbdemo.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FUNKTIONER PREMIUM GRID -->
-  <section id="features" class="container section-padding">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
-      <span class="badge badge-primary">Appens Kärnområden</span>
-      <h2>Fem premiumfunktioner i I Slantify</h2>
-      <p>Ett intelligent, sammanhängande finansiellt ekosystem utformat för den moderna människan.</p>
-    </div>
-
-    <div class="features-grid">
-      <!-- Wallet -->
-      <div class="feature-card">
-        <div class="feature-icon-box">👛</div>
-        <h3>Wallet</h3>
-        <p>En digital samling för dina kort, kvitton, dokument och finansiella poster. Allt samlat på ett och samma säkra ställe.</p>
-      </div>
-      <!-- Ekonomisk överblick -->
-      <div class="feature-card">
-        <div class="feature-icon-box">📊</div>
-        <h3>Ekonomisk överblick</h3>
-        <p>Aktuellt saldo, historiska transaktioner och dina sparmål samlade i en helt sömlös och modern vy direkt i mobilen.</p>
-      </div>
-      <!-- Budget & Sparande -->
-      <div class="feature-card">
-        <div class="feature-icon-box">💰</div>
-        <h3>Budget & sparande</h3>
-        <p>Följ dina personliga ramar automatiskt, se avvikelser direkt och håll stenhård koll på framtida sparplaner.</p>
-      </div>
-      <!-- Bankanslutning -->
-      <div class="feature-card">
-        <div class="feature-icon-box">🏦</div>
-        <h3>Bank</h3>
-        <p>Enkel och krypterad översikt över externa bankkonton och balanser när du väljer att aktivera Open Banking-koppling.</p>
-      </div>
-      <!-- AI-Assistans -->
-      <div class="feature-card">
-        <div class="feature-icon-box">🤖</div>
-        <h3>AI-assistans</h3>
-        <p>Smart hjälp drivs av Slantify AI som förklarar din ekonomi, upptäcker dolda abonnemangskostnader och tipsar dig.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- DELANOT-ROULETTE SEKTION -->
-  <section id="roulette" class="container section-padding">
-    <div class="roulette-container">
-      <div>
-        <span class="badge badge-live">I Slantify Social</span>
-        <h2>Delanot-Roulette</h2>
-        <p>
-          Roulette är en del av I Slantifys mer lekfulla sida. Dela notan med vänner på restaurangen eller resan och låt hjulet slumpmässigt avgöra vem som tar nästa nota! Sluta tjafsa om småkronor och gör vardagsekonomin roligare.
-        </p>
-        <button class="btn-main btn-accent" style="margin-top: 1.5rem;" onclick="spinRoulette()">Snurra hjulet</button>
       </div>
       
-      <div class="roulette-visual">
-        <div class="wheel-pointer"></div>
-        <div class="wheel-outer" id="rouletteWheel">
-          <div class="wheel-center"></div>
-          <!-- Skapar enkla visuella linjer via CSS-segment i hjulet -->
-          <div class="wheel-segment" style="transform: rotate(0deg); background: #ea580c; opacity: 0.3;"></div>
-          <div class="wheel-segment" style="transform: rotate(90deg); background: #10b981; opacity: 0.3;"></div>
-          <div class="wheel-segment" style="transform: rotate(180deg); background: #3b82f6; opacity: 0.3;"></div>
-          <div class="wheel-segment" style="transform: rotate(270deg); background: #8b5cf6; opacity: 0.3;"></div>
+      <!-- Calculator Right Column -->
+      <div class="live-demo-card">
+        <div>
+          <span class="demo-label">Demo-läge</span>
+          <div class="demo-input-container">
+            <span style="color: #ffffff; font-weight: 500; font-size: 14px;">Ange din timlön</span>
+            <div class="demo-input-wrapper">
+              <input type="number" class="demo-input" value="250" min="0" step="5">
+              <span class="currency-suffix">kr</span>
+            </div>
+          </div>
         </div>
-        <div class="roulette-result" id="rouletteResult">Klicka på knappen för att starta utmaningen</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PREMIUM PRICING MODUL -->
-  <section id="premium" class="container section-padding">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
-      <span class="badge badge-primary">Unlock Full Power</span>
-      <h2>Välj din finansiella nivå</h2>
-      <p>Kom igång gratis med basfunktioner, eller lås upp ett gränslöst ekonomiskt ekosystem med Premium.</p>
-    </div>
-
-    <div class="premium-grid">
-      <!-- Free Plan -->
-      <div class="price-card">
-        <div class="price-header">
-          <h3>Free Framework</h3>
-          <p>För grundläggande realtidsspårning</p>
-          <div class="price-amount">0 kr <span>/ mån</span></div>
+        <div class="income-display-box">
+          <span class="demo-label">Din Live-inkomst</span>
+          <p class="live-income-amount">0,00 kr</p>
+          <p class="kr-sek-rate">+ 0.0694 kr/sek</p>
         </div>
-        <ul class="price-features">
-          <li>✓ Standard Live Income Tracker</li>
-          <li>✓ Manuell löneinmatning</li>
-          <li>✓ Grundläggande Wallet-sparande</li>
-          <li>✓ En lokal bankkoppling</li>
-        </ul>
-        <button class="btn-main btn-outline" style="width: 100%; justify-content: center;">Kom igång gratis</button>
-      </div>
 
-      <!-- Premium Plan -->
-      <div class="price-card featured">
-        <div style="position: absolute; top: -12px; right: 20px; background: var(--primary); color: #000; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">Populärast</div>
-        <div class="price-header">
-          <h3>Slantify Premium</h3>
-          <p>Det kompletta gränslösa systemet</p>
-          <div class="price-amount">49 kr <span>/ mån</span></div>
+        <div>
+          <div class="demo-controls">
+            <button type="button" class="demo-btn demo-btn-start">Starta</button>
+            <button type="button" class="demo-btn demo-btn-pause">Pausa</button>
+          </div>
+          <p class="demo-footnote">Testdata — ingen riktig ekonomi kopplas till denna webbdemo.</p>
         </div>
-        <ul class="price-features">
-          <li>✓ Avancerad Live Income med OB & Övertid</li>
-          <li>✓ Premium Wallet med betalfunktioner</li>
-          <li>✓ Gränslös Premium Banking via BankID</li>
-          <li>✓ Full tillgång till Slantify AI</li>
-          <li>✓ Automatiserade prognoser & sparmål</li>
-        </ul>
-        <button class="btn-main btn-accent" style="width: 100%; justify-content: center;">Starta Premium</button>
       </div>
-    </div>
-  </section>
 
-  <!-- SÄKERHETSBANNER -->
-  <section class="container" style="margin-bottom: 5rem;">
-    <div style="background: linear-gradient(90deg, #091122 0%, #050914 100%); border: 1px solid var(--border-color); border-radius: 24px; padding: 3rem; text-align: center;">
-      <h3 style="margin-bottom: 1rem;">🔐 Kryptering med Bank-grade Security</h3>
-      <p style="max-width: 700px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6;">
-        Säkerhet och integritet är kärnan i I Slantify. All databehandling sker i krypterade miljöer enligt industristandard (AES-256). Autentisering och kopplingar valideras tryggt med BankID för total transparens och användarkontroll.
-      </p>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- NEDLADDNINGSSEKTION -->
-  <section id="download" class="container section-padding" style="text-align: center;">
-    <h2>Skaffa I Slantify i fickan idag</h2>
-    <p style="margin-bottom: 2rem; max-width: 500px; margin: 1rem auto 2rem auto;">Skanna QR-koden eller besök respektive plattforms officiella appbutik för direkt gratis nedladdning.</p>
-    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 16px; width: 200px;">
-        <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:8px; border-radius:12px; margin-bottom: 1rem;">
-          <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/>
-        </svg>
-        <h4>iOS App Store</h4>
-      </div>
-      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 16px; width: 200px;">
-        <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:8px; border-radius:12px; margin-bottom: 1rem;">
-          <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/>
-        </svg>
-        <h4>Google Play</h4>
-      </div>
-          <li>✓ Avancerad Live Income med OB & Övertid</li> <li>✓ Premium Wallet med betalfunktioner</li> <li>✓ Gränslös Premium Banking via BankID</li> <li>✓ Full tillgång till Slantify AI</li> <li>✓ Automatiserade prognoser & sparmål</li> cent="b-n-button" </ul> style="width: 100%; justify-content: center;">Starta Premium</button> </div> </div> </section> <!-- SÄKERHETSBANNER --> <section class="container" style="margin-bottom: 5rem;"> <div style="background: linear-gradient(90%111, #509, #509, #501, #501); border: 1px solid var(--border-color: 24px stoppning: 3rem; text-align: center;"> <h3 style="margin-bottom: 1rem;">🔐 Kryptering med Bank-grade Security</h3> <p style="max-width: 700px; marginal: 0 auto; teckenstorlek: 0,95rem; line-height: 1.6;"> Säkerhet och integritet är kärnan i I Slantify. All databehandling sker i krypterade miljöer enligt industristandard (AES-256). Autentisering och kopplingar valideras tryggt med BankID för total transparens och användarkontroll. </p> </div>
-  </section> <!-- NEDLADDNINGSSEKTION --> <section id="download" class="container section-padding" style="text-align: center;"> <h2>Skaffa I Slantify i fickan idag</h2> <p style="margin-bottom: 2rem; max-width: 500px; autokoden eller autokoden"> margin2: respektive QR1 plattforms officiella appbutik för direkt gratis nedladdning.</p> <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;"> <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color:--border-color: rem1: border-color:xradius: rem1; bredd: 200px;"> <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="bakgrund:#ffffff; utfyllnad:8px; kantradius:12px; marginal-botten: 1rem;"> <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/> </svg> <h4>iOS App Store</h4> </div> <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radie: 16px; width: 200px;"> <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:8px; border-radie:12px; margin-bottom: 1rem;"> <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/> </svg> <h4>Google Play</h4> </div>
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Matcha elementen direkt utifrån klasserna i din befintliga HTML
-  const inputTimlon = document.querySelector(".demo-input");
-  const btnStart = document.querySelector(".demo-btn-start");
-  const btnPause = document.querySelector(".demo-btn-pause");
-  const btnReset = document.querySelector(".demo-btn-reset");
+  <!-- REFACTORED SIMULATOR CONTROLLER SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // DOM Elements Querying
+      const inputTimlon = document.querySelector(".demo-input");
+      const btnStart = document.querySelector(".demo-btn-start");
+      const btnPause = document.querySelector(".demo-btn-pause");
+      const displayLiveInkomst = document.querySelector(".live-income-amount");
+      const displayKrSekund = document.querySelector(".kr-sek-rate");
 
-  // Hittar inkomst-displayerna baserat på textinnehållet i din HTML
-  let displayLiveInkomst = null;
-  let displayKrSekund = null;
+      let intervalId = null;
+      let upplupenInkomst = 0.0;
+      const uppdateringsFrekvens = 0.1; // 100ms interval for fluid performance
 
-  document.querySelectorAll("div, p, span, strong").forEach(el => {
-    if (el.textContent.includes("0,00 kr")) {
-      displayLiveInkomst = el;
-    }
-    if (el.textContent.includes("kr/sek")) {
-      displayKrSekund = el;
-    }
-  });
-
-  let intervalId = null;
-  let upplupenInkomst = 0.0;
-
-  // 2. Beräkna och uppdatera kronor per sekund (+ 0.0694 kr/sek vid 250 kr)
-  function uppdateraSekundlon() {
-    const timlon = parseFloat(inputTimlon?.value) || 0;
-    const krPerSekund = timlon / 3600; // 60 minuter * 60 sekunder
-    
-    if (displayKrSekund) {
-      displayKrSekund.innerHTML = `+ ${krPerSekund.toFixed(4)} kr/sek`;
-    }
-    return krPerSekund;
-  }
-
-  // Lyssna på ändringar i input-fältet direkt
-  if (inputTimlon) {
-    inputTimlon.addEventListener("input", uppdateraSekundlon);
-    uppdateraSekundlon(); // Sätt startvärde direkt vid laddning
-  }
-
-  // 3. STARTA-knapp (Räknar upp mjukt var 10:e del av en sekund)
-  if (btnStart) {
-    btnStart.addEventListener("click", () => {
-      if (intervalId) return; // Redan igång
-
-      if (inputTimlon) inputTimlon.disabled = true; // Lås input under körning
-
-      const uppdateringsFrekvens = 0.1; // 100ms för ett mjukt flyt
-
-      intervalId = setInterval(() => {
-        const nuvarandeKrPerSekund = uppdateraSekundlon();
-        upplupenInkomst += nuvarandeKrPerSekund * uppdateringsFrekvens;
+      // Calculate and render current rate per second
+      function uppdateraLonerate() {
+        const timlon = parseFloat(inputTimlon.value) || 0;
+        const krPerSekund = timlon / 3600; // 60 minutes * 60 seconds
         
-        if (displayLiveInkomst) {
-          displayLiveInkomst.innerHTML = `${upplupenInkomst.toLocaleString("sv-SE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kr`;
+        if (displayKrSekund) {
+          displayKrSekund.textContent = `+ ${krPerSekund.toFixed(4)} kr/sek`;
         }
-      }, uppdateringsFrekvens * 1000);
-    });
-  }
+        return krPerSekund;
+      }
 
-  // 4. PAUSA-knapp
-  if (btnPause) {
-    btnPause.addEventListener("click", () => {
-      clearInterval(intervalId);
-      intervalId = null;
-      if (inputTimlon) inputTimlon.disabled = false;
-    });
-  }
+      // Input dynamic listener to update rates immediately
+      if (inputTimlon) {
+        inputTimlon.addEventListener("input", () => {
+          uppdateraLonerate();
+        });
+        // Establish initial configuration
+        uppdateraLonerate();
+      }
 
-  // 5. NOLLSTÄLLA (Om du har eller lägger till en återställningsknapp)
-  if (btnReset) {
-    btnReset.addEventListener("click", () => {
-      clearInterval(intervalId);
-      intervalId = null;
-      upplupenInkomst = 0.0;
-      if (displayLiveInkomst) displayLiveInkomst.innerHTML = "0,00 kr";
-      if (inputTimlon) inputTimlon.disabled = false;
-      uppdateraSekundlon();
+      // Start Trigger Sequence
+      if (btnStart) {
+        btnStart.addEventListener("click", () => {
+          if (intervalId) return; // Already running lock
+          
+          if (inputTimlon) {
+            inputTimlon.disabled = true; // Lock editing during engine run
+          }
+          
+          intervalId = setInterval(() => {
+            const aktuelltKrPerSekund = uppdateraLonerate();
+            upplupenInkomst += aktuelltKrPerSekund * uppdateringsFrekvens;
+            
+            if (displayLiveInkomst) {
+              displayLiveInkomst.textContent = `${upplupenInkomst.toLocaleString("sv-SE", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              })} kr`;
+            }
+          }, uppdateringsFrekvens * 1000);
+        });
+      }
+
+      // Pause Trigger Sequence
+      if (btnPause) {
+        btnPause.addEventListener("click", () => {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+          }
+          if (inputTimlon) {
+            inputTimlon.disabled = false; // Restore input access
+          }
+        });
+      }
     });
-  }
-});
-      </script>
+  </script>
 </body>
+</html>
