@@ -17,7 +17,6 @@
             --card: rgba(17, 24, 39, 0.7); /* Semitransparent mörkt glas */
             --text: #f9fafb; 
             --muted: #9ca3af; 
-
             --accent: #ff7a00; /* Islantify Cyber Orange */
             --accent-glow: rgba(255, 122, 0, 0.4);
             --cyber-cyan: #00f0ff; /* Framtids-cyan */
@@ -37,7 +36,6 @@
 
         html {
             scroll-behavior: smooth;
-
         }
 
         body {
@@ -57,7 +55,6 @@
             height: 600px;
             background: radial-gradient(circle, rgba(255, 122, 0, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
             top: -100px;
-
             right: -100px;
             z-index: -1;
             pointer-events: none;
@@ -77,7 +74,6 @@
 
         /* --- Sci-Fi Header & Navigation --- */
         .site-header {
-
             position: sticky;
             top: 0;
             background: rgba(3, 7, 18, 0.6);
@@ -97,7 +93,6 @@
         }
 
         .brand {
-
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             color: var(--text);
@@ -117,7 +112,6 @@
             display: flex;
             gap: 2rem;
             background: rgba(255, 255, 255, 0.03);
-
             padding: 0.5rem 2rem;
             border-radius: 40px;
             border: 1px solid var(--glass-border);
@@ -137,7 +131,6 @@
             color: var(--cyber-cyan);
             text-shadow: 0 0 8px var(--cyan-glow);
         }
-
 
         .cta-btn {
             background: linear-gradient(90deg, var(--accent) 0%, #ff5500 100%);
@@ -159,7 +152,6 @@
             box-shadow: 0 0 25px rgba(255, 122, 0, 0.7);
         }
 
-
         /* --- Sektion Container Layout --- */
         .section-container {
             max-width: var(--max-width);
@@ -179,7 +171,6 @@
             width: 100%;
             height: 500px;
             border-radius: var(--radius);
-
             overflow: hidden;
             box-shadow: 0 0 50px rgba(0,0,0,0.8);
             border: 1px solid rgba(255,255,255,0.05);
@@ -199,7 +190,6 @@
             height: 100%;
             background: linear-gradient(to bottom, rgba(3,7,18,0.1), rgba(3,7,18,0.95));
             display: flex;
-
             flex-direction: column;
             justify-content: flex-end;
             padding: 4rem;
@@ -219,7 +209,6 @@
         .drake-banner-overlay p {
             color: var(--muted);
             font-size: 1.3rem;
-
             max-width: 800px;
             font-weight: 300;
         }
@@ -239,7 +228,6 @@
             padding: 1rem;
             border: 1px solid var(--glass-border);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), var(--glass-glow);
-
             backdrop-filter: blur(10px);
         }
 
@@ -259,7 +247,6 @@
         }
 
         .info-content h2 span {
-
             color: var(--cyber-cyan);
             text-shadow: 0 0 15px var(--cyan-glow);
         }
@@ -278,7 +265,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 0.8rem;
         }
-
 
         .info-content ul li {
             font-size: 0.95rem;
@@ -299,7 +285,6 @@
         .live-salary-demo-box {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(3, 7, 18, 0.9) 100%);
             border: 1px solid rgba(0, 240, 255, 0.2);
-
             border-radius: var(--radius);
             padding: 2.2rem;
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.05), var(--glass-glow);
@@ -319,7 +304,6 @@
             display: flex;
             align-items: baseline;
             gap: 0.5rem;
-
             margin-bottom: 1.5rem;
         }
 
@@ -338,7 +322,6 @@
             font-weight: 700;
             color: var(--muted);
         }
-
 
         /* Cyber tids- och räknarpanel */
         .time-counter-panel {
@@ -359,7 +342,6 @@
             font-weight: 700;
             color: var(--text);
             font-variant-numeric: tabular-nums;
-
         }
 
         .time-block .time-lbl {
@@ -379,7 +361,6 @@
         }
 
         .control-btn {
-
             background: rgba(255,255,255,0.05);
             color: var(--text);
             border: 1px solid var(--glass-border);
@@ -399,7 +380,6 @@
             border-color: rgba(255,255,255,0.2);
         }
 
-
         .control-btn.btn-start {
             background: rgba(0, 255, 170, 0.1);
             color: #00ffaa;
@@ -418,7 +398,6 @@
         .control-btn.btn-stop:hover {
             background: rgba(239, 68, 68, 0.2);
         }
-
 
         .control-btn:disabled {
             opacity: 0.2;
@@ -440,7 +419,6 @@
             padding-top: 1rem;
         }
 
-
         .pulse-dot {
             width: 8px;
             height: 8px;
@@ -460,7 +438,6 @@
         .pulse-dot.stopped {
             background-color: #ef4444;
         }
-
 
         /* --- Cyber Appfunktioner Grid --- */
         .app-features-grid {
@@ -482,7 +459,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-
         .feature-card::before {
             content: "";
             position: absolute;
@@ -502,7 +478,6 @@
         }
 
         .feature-card:hover::before {
-
             opacity: 1;
         }
 
@@ -522,7 +497,6 @@
 
         /* --- 3. Cyber Roulette Sektion --- */
         .roulette-bg-section {
-
             position: relative;
         }
 
@@ -542,7 +516,6 @@
             grid-template-columns: 0.9fr 1.1fr;
             gap: 4rem;
             align-items: center;
-
         }
 
         /* --- 4. Slantify AI Quantum Hub --- */
@@ -562,7 +535,6 @@
             background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(17,24,39,0.4) 100%);
             border-radius: var(--radius);
             padding: 5rem 2rem;
-
             border: 1px solid var(--glass-border);
             position: relative;
         }
@@ -582,7 +554,6 @@
             padding: 2rem;
             width: 240px;
             position: relative;
-
             transition: all 0.3s ease;
             box-shadow: var(--glass-glow);
         }
@@ -593,40 +564,96 @@
             transform: translateY(-5px);
         }
 
+        /* QR Kod Modul Byggd med CSS Grid Matrix */
         .qr-hologram-placeholder {
             width: 160px;
             height: 160px;
             margin: 0 auto 1.5rem auto;
-            border: 2px dashed rgba(0, 240, 255, 0.3);
+            border: 1px solid rgba(0, 240, 255, 0.4);
             border-radius: 12px;
             position: relative;
             display: flex;
             align-items: center;
-
             justify-content: center;
-            background: rgba(0, 240, 255, 0.02);
+            background: rgba(0, 240, 255, 0.03);
             overflow: hidden;
+            padding: 10px;
+        }
+
+        /* Själva QR-kod-mönstret byggt med ren CSS */
+        .cyber-qr-matrix {
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(0, 240, 255, 0.8) 2px, transparent 3px),
+                linear-gradient(90deg, transparent 4px, rgba(0, 240, 255, 0.1) 4px, rgba(0, 240, 255, 0.1) 6px, transparent 6px),
+                linear-gradient(0deg, transparent 4px, rgba(0, 240, 255, 0.1) 4px, rgba(0, 240, 255, 0.1) 6px, transparent 6px);
+            background-size: 10px 10px, 10px 10px, 10px 10px;
+            position: relative;
+            border: 4px solid rgba(0, 240, 255, 0.8);
+        }
+
+        /* Hörnsökare på QR koden */
+        .cyber-qr-matrix::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 30px;
+            height: 30px;
+            border: 4px solid var(--cyber-cyan);
+            background: var(--bg);
+            box-shadow: 0 0 8px var(--cyber-cyan);
+        }
+
+        .cyber-qr-matrix::after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            width: 30px;
+            height: 30px;
+            border: 4px solid var(--cyber-cyan);
+            background: var(--bg);
+            box-shadow: 0 0 8px var(--cyber-cyan);
+        }
+
+        .qr-top-right-finder {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 30px;
+            height: 30px;
+            border: 4px solid var(--cyber-cyan);
+            background: var(--bg);
+            box-shadow: 0 0 8px var(--cyber-cyan);
+            z-index: 5;
+        }
+
+        /* Text som flyter ovanpå QR-kod mönstret */
+        .qr-overlay-text {
+            position: absolute;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg);
+            background: var(--cyber-cyan);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--cyber-cyan);
+            z-index: 10;
         }
 
         /* Futuristiska laserskannings-linjer för QR-koder */
-        .qr-hologram-placeholder::after {
-            content: "";
+        .qr-scanner-line {
             position: absolute;
             width: 100%;
             height: 2px;
             background: var(--cyber-cyan);
-            box-shadow: 0 0 10px var(--cyber-cyan);
+            box-shadow: 0 0 12px var(--cyber-cyan);
             top: 0;
+            z-index: 12;
             animation: scan-line 3s linear infinite;
-        }
-
-        .qr-icon-inner {
-            font-size: 2.5rem;
-
-            opacity: 0.2;
-            color: var(--cyber-cyan);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
         }
 
         .qr-card-futuristic h4 {
@@ -642,7 +669,6 @@
         }
 
         /* --- Globala UI taggar --- */
-
         .feature-tag {
             display: inline-block;
             background: rgba(0, 240, 255, 0.08);
@@ -662,7 +688,6 @@
             background: rgba(245, 158, 11, 0.08);
             color: var(--gold);
             border-color: rgba(245, 158, 11, 0.15);
-
         }
 
         @keyframes scan-line {
@@ -682,7 +707,6 @@
             }
             .drake-banner-wrapper {
                 height: 320px;
-
             }
             .drake-banner-overlay h1 {
                 font-size: 2.5rem;
@@ -702,7 +726,6 @@
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="brand">I Slantify<span>_</span></a>
-
             <nav class="main-nav">
                 <a href="#home">Home Hub</a>
                 <a href="#livelon">Live Income</a>
@@ -722,7 +745,6 @@
                 Din webbläsare stödjer inte videotaggen.
             </video>
             <div class="drake-banner-overlay">
-
                 <span class="feature-tag gold">Next-Gen Intelligent Network</span>
                 <h1>I Slantify</h1>
                 <p>En intelligent ekonomiplattform utformad för framtiden. Samlar din likviditet, realtidsinkomst, smarta plånböcker och kvant-AI i ett sömlöst ekosystem.</p>
@@ -742,7 +764,6 @@
                 <p>Det autonoma nätverket. Din kalender, dina schemalagda arbetspass och krypterade transaktionsdata smälter samman för att automatiskt förutse din likviditet veckor framåt.</p>
             </div>
         </div>
-
     </section>
 
     <!-- 2. Live Lön Sektion (Video + Demo tillsammans med Info) -->
@@ -754,7 +775,7 @@
                 <div class="video-box-premium">
                     <video class="video-player" controls autoplay loop muted playsinline>
                         <source src="assets/live lön video.mp4" type="video/mp4">
-                        Din webbläsare stödjer inte videotaggen.
+                        Din webbläsare stöditet inte videotaggen.
                     </video>
                 </div>
                 
@@ -762,7 +783,6 @@
                 <div class="live-salary-demo-box">
                     <div class="demo-title">Live Income stream // verified</div>
                     <div class="counter-row">
-
                         <div id="salary-counter" class="salary-counter">0.00</div>
                         <div class="currency">SEK</div>
                     </div>
@@ -783,7 +803,6 @@
                         </div>
                     </div>
 
-
                     <!-- Kontrollknappar för demot -->
                     <div class="demo-controls">
                         <button id="btn-start" class="control-btn btn-start">Execute</button>
@@ -803,7 +822,6 @@
             <div class="info-content">
                 <span class="feature-tag">Time-Injected Income</span>
                 <h2>Följ din lön växa <span>sekund för sekund</span></h2>
-
                 <p>Live Income upphäver den traditionella månadsväntan. Genom att spåra dina aktiva arbetspass ger I Slantify dig en visuell algoritmisk ström av din intjäning i exakt realtid.</p>
                 <p>Vårt avancerade protokoll beräknar och projicerar:</p>
                 <ul>
@@ -812,7 +830,7 @@
                     <li>Autonoma löneprognoser</li>
                     <li>Ackumulerade pensionsindex</li>
                 </ul>
-                <p><strong>Live Income synliggör det ekonomiska värde du bygger upp – varje ögonblick du arbetar.</strong></p>
+                <p><strong>Live Income visar vad du faktiskt bygger upp genom ditt arbete – varje ögonblick du arbetar.</strong></p>
             </div>
 
         </div>
@@ -823,7 +841,6 @@
         <div class="info-content" style="margin-bottom: 4rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
             <span class="feature-tag">Unified Infrastructure</span>
             <h2>Ett nätverk. Helt utan friktion.</h2>
-
         </div>
         <div class="app-features-grid">
             <div class="feature-card">
@@ -836,14 +853,13 @@
             </div>
             <div class="feature-card">
                 <h3>📅 Chrono Calendar</h3>
-                <p>Tid och kapital synkroniserat. Kalendern mäter dina arbetspass, fasta räkningar och sparmål så att din realtidsinkomst korrigeras med absolut precision.</p>
+                <p>Tid och kapital synkroniserat. Kalendern mäter dina arbetspass, fasta räkningar och sparmål så dat din realtidsinkomst korrigeras med absolut precision.</p>
             </div>
         </div>
     </section>
 
     <!-- Pengar, Sparande & Hälsocenter -->
     <section class="section-container" style="border-top: 1px solid var(--glass-border);">
-
         <div class="app-features-grid">
             <div class="feature-card">
                 <h3>📊 Predictive Money Hub</h3>
@@ -863,7 +879,6 @@
     <!-- 3. Roulette Sektion -->
     <section id="roulette" class="section-container roulette-bg-section">
         <div class="roulette-grid">
-
             
             <!-- Vänster kolumn: Information och textbeskrivning -->
             <div class="info-content">
@@ -884,7 +899,6 @@
         </div>
     </section>
 
-
     <!-- 4. Slantify AI Quantum Hub -->
     <section id="ai" class="section-container">
         <div class="ai-quantum-section">
@@ -904,7 +918,6 @@
                     </div>
                     <div style="background: rgba(3, 7, 18, 0.7); padding: 1.2rem; border-radius: 12px; font-size: 0.85rem; border: 1px solid var(--glass-border); backdrop-filter: blur(5px);">
                         <span style="color:var(--cyber-cyan); font-family:'Orbitron', sans-serif; font-size:0.7rem; display:block; margin-bottom:0.5rem;">[QUERY_03]</span>
-
                         <span style="color:var(--text); font-weight:400;">"Generera en optimerad budget kalkyl inför nästa likviditetscykel."</span>
                     </div>
                 </div>
@@ -923,8 +936,11 @@
                 <!-- iOS QR Kort -->
                 <div class="qr-card-futuristic">
                     <div class="qr-hologram-placeholder">
-                        <div class="qr-icon-inner">iOS</div>
-
+                        <div class="qr-scanner-line"></div>
+                        <div class="cyber-qr-matrix">
+                            <div class="qr-top-right-finder"></div>
+                        </div>
+                        <div class="qr-overlay-text">iOS</div>
                     </div>
                     <h4>App Store</h4>
                     <p>För Apple iPhone</p>
@@ -933,7 +949,11 @@
                 <!-- Android QR Kort -->
                 <div class="qr-card-futuristic">
                     <div class="qr-hologram-placeholder">
-                        <div class="qr-icon-inner">AOS</div>
+                        <div class="qr-scanner-line"></div>
+                        <div class="cyber-qr-matrix">
+                            <div class="qr-top-right-finder"></div>
+                        </div>
+                        <div class="qr-overlay-text">AOS</div>
                     </div>
                     <h4>Google Play</h4>
                     <p>För Android-enheter</p>
@@ -944,7 +964,6 @@
 
     <!-- Script för att driva det fullt kontrollerbara realtidsflödet -->
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
             const counterElement = document.getElementById('salary-counter');
             const hrsElement = document.getElementById('val-hours');
@@ -964,7 +983,6 @@
             let currentSalary = 0.00;
             
             const incomePerMs = 0.0000854; // Något högre framtids-tempo
-
 
             function updateDisplay() {
                 let totalSeconds = Math.floor(totalMilliseconds / 1000);
@@ -986,7 +1004,6 @@
                 btnPause.disabled = false;
                 btnStop.disabled = false;
 
-
                 statusDot.className = "pulse-dot active";
                 statusText.textContent = "Kvantström aktiv. Live Income strömmar krypterat.";
 
@@ -1006,7 +1023,6 @@
 
             btnPause.addEventListener('click', () => {
                 if (!timerInterval) return;
-
 
                 clearInterval(timerInterval);
                 timerInterval = null;
@@ -1028,7 +1044,6 @@
                 btnPause.disabled = true;
                 btnStop.disabled = true;
 
-
                 statusDot.className = "pulse-dot stopped";
                 statusText.textContent = "Simulering fryst. Redo för ny exekvering.";
             });
@@ -1049,12 +1064,9 @@
                 statusDot.className = "pulse-dot stopped";
                 statusText.textContent = "Kvanträknaren nollställd.";
 
-
                 updateDisplay();
             });
         });
     </script>
 </body>
 </html>
-
-
