@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Slantify — Din lön. I realtid.</title>
   <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
   
@@ -16,771 +16,1097 @@
   <meta name="twitter:card" content="summary_large_image">
   
   <!-- Assets & Icons -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
   
-  <!-- Scripts -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="assets/config.js" defer></script>
-  <script src="assets/qrcode.min.js" defer></script>
+  <!-- Google Fonts & Font Awesome alternative via SVG -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="family">
 
   <style>
-    /* Global Cyber Dark Overrides */
-    body {
-      background-color: #030712 !important;
-      color: #94a3b8;
+    /* Global Cyber Dark Variables & Reset */
+    :root {
+      --bg-main: #030712;
+      --bg-card: #0b0f19;
+      --bg-card-glow: linear-gradient(145deg, #0f1322, #050711);
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --accent-live: #10b981;
+      --accent-live-hover: #059669;
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.06);
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main) !important;
+      color: var(--text-muted);
+      font-family: var(--font-family);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Standard Utilities */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-padding {
+      padding: 5rem 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .badge-live {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-live);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .badge-primary {
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-main);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    /* Animations */
     @keyframes pulse {
       0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
       70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
-    .live-demo-layout {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
-      gap: 20px;
-      align-items: stretch;
+
+    @keyframes spinWheel {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(3600deg); }
     }
-    .live-demo-info {
-      padding: 28px;
-      border-radius: 24px;
-      border: 1px solid rgba(249, 115, 22, 0.15);
-      background: linear-gradient(145deg, #0f121d, #05070f);
-      box-shadow: 0 20px 50px rgba(0,0,0,.5);
+
+    /* Header & Navigation Glassmorphism */
+    header {
+      background-color: rgba(6, 11, 20, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     }
-    .info-eyebrow {
-      font-size: 12px;
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-brand {
+      color: var(--text-main);
       font-weight: 800;
-      letter-spacing: .14em;
-      color: #10b981;
-      margin-bottom: 12px;
+      font-size: 1.35rem;
+      letter-spacing: 0.05em;
     }
-    .live-demo-info h3 { margin: 0 0 12px; font-size: 30px; color: #ffffff; }
-    .live-demo-info p { margin: 0 0 24px; line-height: 1.6; opacity: .85; }
-    .info-points { display: grid; gap: 14px; }
-    .info-points div {
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+
+    .desktop-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .desktop-nav a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .desktop-nav a:hover, .desktop-nav a.active {
+      color: var(--text-main);
+    }
+
+    .live-dot-container {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-live);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .btn-download-nav {
+      background: var(--primary);
+      color: var(--bg-main);
+      padding: 0.5rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
       transition: all 0.2s ease;
     }
+
+    .btn-download-nav:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Mobile Menu Dropdown */
+    .mobile-nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #060b14;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem;
+      flex-direction: column;
+      gap: 1.25rem;
+      z-index: 99;
+    }
+
+    .mobile-nav-dropdown.active {
+      display: flex;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4rem 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, var(--primary), #ff9d5c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-main {
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-accent {
+      background: var(--accent-live);
+      color: var(--bg-main);
+      border: none;
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-live-hover);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Live Income Simulator Grid */
+    .live-demo-layout {
+      max-width: 1050px;
+      margin: 3rem auto 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.85fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .live-demo-info {
+      padding: 2.5rem;
+      border-radius: 24px;
+      border: 1px solid rgba(249, 115, 22, 0.15);
+      background: var(--bg-card-glow);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .live-demo-info h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .live-demo-info p {
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .info-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .info-points div {
+      padding: 1.25rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.2s ease;
+    }
+
     .info-points div:hover {
       border-color: rgba(249, 115, 22, 0.3);
       background: rgba(249, 115, 22, 0.02);
     }
-    .info-points strong { display: block; font-size: 12px; letter-spacing: .08em; margin-bottom: 5px; color: #ffffff; }
-    .info-points span { display: block; font-size: 13px; line-height: 1.45; opacity: .7; }
-    .live-demo-layout .live-demo-card { width: 100%; max-width: none !important; margin: 0 !important; }
 
-    /* Responsive Navbar Styling */
-    @media (max-width: 768px) {
-      .desktop-nav { display: none !important; }
-      .mobile-menu-btn { display: flex !important; }
-      .live-demo-layout { grid-template-columns: 1fr; }
+    .info-points strong {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      color: var(--text-main);
+      text-transform: uppercase;
     }
 
-    /* Policy & Support Modal Popups Styling */
-    .policy-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(3, 7, 18, 0.9);
-      backdrop-filter: blur(12px);
-      z-index: 100;
+    .info-points span {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Live Engine Widget Graphic Panel */
+    .live-engine-widget {
+      background: #090d16;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 25px 50px -12px rgba(0,0,0,0.7);
+    }
+
+    .widget-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .widget-header h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .input-wrapper {
+      margin-bottom: 2rem;
+    }
+
+    .input-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .demo-input-container {
+      display: flex;
+      align-items: center;
+      background: #04060b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 0.25rem 0.75rem;
+    }
+
+    .demo-input {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      padding: 0.75rem 0.5rem;
+      width: 100%;
+      font-size: 1.25rem;
+      font-weight: 700;
+      outline: none;
+    }
+
+    .input-suffix {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .display-panel {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .display-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-live);
+    }
+
+    .live-amount {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0.5rem 0;
+      font-family: monospace;
+    }
+
+    .live-rate {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .demo-controls {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .demo-btn {
+      padding: 0.85rem;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+      border: none;
+      display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
-      font-family: sans-serif;
+      gap: 0.5rem;
     }
-    .policy-modal-content {
-      background-color: #070a14;
-      border: 1px solid rgba(249, 115, 22, 0.2);
+
+    .demo-btn-start {
+      background: var(--accent-live);
+      color: var(--bg-main);
+    }
+    .demo-btn-start:hover {
+      background: var(--accent-live-hover);
+    }
+
+    .demo-btn-pause {
+      background: #ef4444;
+      color: white;
+    }
+
+    .demo-btn-reset {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .demo-btn-reset:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Core Features Grid Module */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
+
+    .feature-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(249, 115, 22, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Delanot-Roulette Sektion */
+    .roulette-container {
+      background: var(--bg-card-glow);
+      border: 1px solid var(--border-color);
       border-radius: 24px;
-      max-width: 700px;
+      padding: 3rem;
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .roulette-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .wheel-outer {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 10px solid #1e293b;
+      position: relative;
+      background: #0f172a;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.8);
+      overflow: hidden;
+      transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
+    }
+
+    .wheel-pointer {
+      position: absolute;
+      top: -15px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 25px solid var(--primary);
+      z-index: 10;
+    }
+
+    .wheel-center {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: var(--bg-main);
+      border: 4px solid var(--border-color);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+    }
+
+    .wheel-segment {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      transform-origin: bottom right;
+      overflow: hidden;
+    }
+
+    .roulette-result {
+      margin-top: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      min-height: 2rem;
+    }
+
+    /* Premium Pricing Grid Section */
+    .premium-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .price-card.featured {
+      border-color: var(--primary);
+      background: linear-gradient(180deg, #0d1424 0%, #05070f 100%);
+    }
+
+    .price-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 1.5rem 0;
+    }
+
+    .price-amount span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .price-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .price-features li {
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .price-features svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent-live);
+      flex-shrink: 0;
+    }
+
+    /* Modals & Support / Privacy System */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-height: 80vh;
+      height: 100%;
+      background: rgba(3, 7, 18, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 85vh;
       overflow-y: auto;
       padding: 2.5rem;
       position: relative;
-      color: #94a3b8;
-      box-shadow: 0 0 40px rgba(249, 115, 22, 0.1);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8);
     }
-    .policy-modal-content h2 { color: #ffffff; margin-top: 0; font-size: 1.75rem; }
-    .policy-modal-content h3 { color: #ffffff; margin-top: 1.5rem; font-size: 1.1rem; }
-    .policy-modal-content p { font-size: 0.95rem; line-height: 1.6; }
-    .close-modal-btn {
+
+    .modal-close {
       position: absolute;
-      top: 1.25rem; right: 1.25rem;
-      background: #0f121d;
-      border: 1px solid #1e293b;
-      color: white;
-      border-radius: 50%;
-      width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.2s;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
     }
-    .close-modal-btn:hover { border-color: #f97316; color: #f97316; box-shadow: 0 0 10px rgba(249, 115, 22, 0.4); }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+      width: 100%;
+      background: #04060b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--text-main);
+      font-family: inherit;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    /* Footer Legal Design */
+    footer {
+      background: #04060b;
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 0 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand p {
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--text-main);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: rgba(148, 163, 184, 0.6);
+    }
+
+    /* Responsive Breakthrough Breaks */
+    @media (max-width: 968px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .roulette-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav, .header-actions .header-qrcode-container {
+        display: none !important;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .live-demo-layout {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- FIXED SITE HEADER WITH GLASSMORPHISM AND NEON HIGHLIGHT -->
-  <header style="background-color: rgba(6, 11, 20, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; font-family: sans-serif; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);">
-    <!-- Logo -->
-    <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;">
-      <img src="assets/icon-drake.svg" alt="I Slantify drake" style="width: 28px; height: 28px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'">
-      <i data-lucide="trending-up" style="color: #10b981; width: 24px; height: 24px; display: none;"></i>
-      <span style="color: #ffffff; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em;">I Slantify</span>
-    </a>
+  <!-- FAST GLAS-MENY HÖGST UPP -->
+  <header>
+    <div class="nav-logo">
+      <!-- Inline SVG Drak-logotyp -->
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 80C35 50 50 35 80 20C65 50 50 65 20 80Z" fill="url(#dragonGrad)"/>
+        <circle cx="50" cy="50" r="10" fill="#f97316"/>
+        <defs>
+          <linearGradient id="dragonGrad" x1="20" y1="80" x2="80" y2="20">
+            <stop offset="0%" stop-color="#f97316" />
+            <stop offset="100%" stop-color="#10b981" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-brand">I Slantify</span>
+    </div>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="desktop-nav" style="display: flex; gap: 2rem; align-items: center;">
-      <a href="/" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Home</a>
-      <a href="#features" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Features</a>
-      <a href="#live-income" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">
-        Live Income <span style="width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
+    <nav class="desktop-nav">
+      <a href="#home" class="active">Hem</a>
+      <a href="#features">Funktioner</a>
+      <a href="#live-income" class="live-dot-container">
+        Live Income <span class="live-dot"></span>
       </a>
-      <a href="#premium" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Premium</a>
-      <a href="javascript:void(0)" id="open-support" style="color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#94a3b8'">Support</a>
+      <a href="#premium">Premium</a>
+      <a href="#roulette">Roulette</a>
+      <a href="javascript:void(0)" onclick="openModal('support-modal')">Support</a>
     </nav>
 
-    <!-- Download CTA Desktop with Neon Fire Glow -->
-    <div class="desktop-nav">
-      <a href="#download" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 9999px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 0 20px rgba(249, 115, 22, 0.25); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 30px rgba(249, 115, 22, 0.55)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(249, 115, 22, 0.25)';">
-        <i data-lucide="download" style="width: 16px; height: 16px;"></i> Ladda ner
-      </a>
+    <div class="header-actions">
+      <div class="header-qrcode-container" style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.03); padding: 6px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+        <!-- Genererad inbäddad QR-matris -->
+        <svg width="42" height="42" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:2px; border-radius:6px;">
+          <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/>
+        </svg>
+        <div class="header-qrcode-text" style="font-size: 11px; line-height: 1.3; color: #94a3b8;">
+          <strong style="color: #ffffff; display: block;">Ladda ner appen</strong>iOS & Android
+        </div>
+      </div>
+      <a href="#download" class="btn-download-nav">Hämta app</a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </div>
 
-    <!-- Mobile Menu Toggle Button (Hidden on Desktop) -->
-    <button class="mobile-menu-btn" id="mobile-toggle-btn" style="display: none; background: transparent; border: none; color: white; cursor: pointer; align-items: center; justify-content: center; padding: 0.5rem;">
-      <i data-lucide="menu" id="menu-icon-state" style="width: 28px; height: 28px;"></i>
-    </button>
+    <!-- Mobil Dropdown -->
+    <div class="mobile-nav-dropdown" id="mobileMenu">
+      <a href="#home" onclick="toggleMobileMenu()">Hem</a>
+      <a href="#features" onclick="toggleMobileMenu()">Funktioner</a>
+      <a href="#live-income" onclick="toggleMobileMenu()">Live Income</a>
+      <a href="#premium" onclick="toggleMobileMenu()">Premium</a>
+      <a href="#roulette" onclick="toggleMobileMenu()">Roulette</a>
+      <a href="javascript:void(0)" onclick="openModal('support-modal'); toggleMobileMenu();">Support</a>
+    </div>
   </header>
 
-  <!-- DROP-DOWN MOBILE MENU CONTAINER -->
-  <div id="mobile-menu-overlay" style="display: none; background-color: rgba(11, 15, 25, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 1.5rem 2rem; font-family: sans-serif; flex-direction: column; gap: 1.25rem; position: sticky; top: 61px; z-index: 49; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-    <a href="/" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Home</a>
-    <a href="#features" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Features</a>
-    <a href="#live-income" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">Live Income <span style="width: 6px; height: 6px; background-color: #10b981; border-radius: 50%;"></span></a>
-    <a href="#premium" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Premium</a>
-    <a href="javascript:void(0)" id="open-support-mobile" class="mobile-link" style="color: #94a3b8; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Support</a>
-    <a href="#download" class="mobile-link" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 0.75rem; border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600; text-align: center; margin-top: 0.5rem; display: block; box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);">Ladda ner appen</a>
-  </div>
+  <!-- HERO & SIMULATOR SEKTION -->
+  <section id="home" class="hero container section-padding">
+    <span class="badge badge-primary">The Future of Personal Finance</span>
+    <h1 class="hero-title">Se din lön växa — <span>sekund för sekund.</span></h1>
+    <p class="hero-subtitle">
+      Följ din inkomst i realtid medan du arbetar. Se netto, brutto, kr/min och arbetad tid direkt i din personliga finansiella instrumentpanel.
+    </p>
+    
+    <div class="hero-buttons">
+      <a href="#live-income" class="btn-main btn-accent">Testa Live-Demo</a>
+      <a href="#features" class="btn-main btn-outline">Utforska funktioner</a>
+    </div>
 
-  <!-- DRAGON BANNER -->
-  <section class="dragon-banner" aria-label="i slantify">
-    <video src="assets/dragon-banner.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <!-- LIVE INCOME ENGINE SIMULATOR MODULE -->
+    <div id="live-income" class="live-demo-layout">
+      <div class="live-demo-info">
+        <span class="info-eyebrow">Live Income Engine</span>
+        <h3>Din lön — live.</h3>
+        <p>Testa själv hur vårt ekosystem fungerar. Ange din tänkta timlön och starta flödet för att se hur inkomsten utvecklas i realtid sekund för sekund.</p>
+        
+        <div class="info-points">
+          <div>
+            <strong>Kr / Sekund</strong>
+            <span>Se exakt hur mycket pengar du drar in just precis nu.</span>
+          </div>
+          <div>
+            <strong>Arbetad tid</strong>
+            <span>Följ arbetad tid och ackumulerad löneutveckling live.</span>
+          </div>
+          <div>
+            <strong>OB & Övertid</strong>
+            <span>Kan fullt inkluderas i appens automatiska beräkning.</span>
+          </div>
+          <div>
+            <strong>Prognos</strong>
+            <span>Smarta AI-insikter förutspår utvecklingen över månaden.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Löneräknare Panel -->
+      <div class="live-engine-widget">
+        <div class="widget-header">
+          <h4>Live Simulator</h4>
+          <span class="badge badge-live">Demo-läge</span>
+        </div>
+
+        <div class="input-wrapper">
+          <label class="input-label" for="hourlyWage">Ange din timlön</label>
+          <div class="demo-input-container">
+            <input type="number" id="hourlyWage" class="demo-input" value="250" min="1">
+            <span class="input-suffix">kr/timme</span>
+          </div>
+        </div>
+
+        <div class="display-panel">
+          <span class="display-label">Din Live-inkomst</span>
+          <div class="live-amount" id="liveAmountDisplay">0,00 kr</div>
+          <div class="live-rate" id="liveRateDisplay">+ 0,0694 kr/sek</div>
+        </div>
+
+        <div class="demo-controls">
+          <button id="startBtn" class="demo-btn demo-btn-start" onclick="startSimulator()">Starta</button>
+          <button id="resetBtn" class="demo-btn demo-btn-reset" onclick="resetSimulator()">Återställ</button>
+        </div>
+        
+        <div style="font-size: 11px; text-align: center; color: var(--text-muted); margin-top: 1rem;">
+          Testdata — ingen riktig ekonomi kopplas till denna webbdemo.
+        </div>
+      </div>
+    </div>
   </section>
 
-  <main>
-    <!-- HERO SECTION -->
-    <section class="hero-premium">
-      <div class="container">
-        <div class="hero-premium-grid">
-          <div class="hero-premium-copy">
-            <h2 class="hero-badge" style="color: #10b981; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05);">LIVE INCOME ENGINE</h2>
-            <h1 class="hero-title">Se din lön växa –<br/>sekund för sekund.</h1>
-            <p class="hero-description">Följ din lön i realtid medan du arbetar. Se netto, brutto, kr/min, kr/sek, arbetad tid och schema direkt i I Slantify Live Income Engine.</p>
-            
-            <!-- Upgraded Engine Summary Badges -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-              <div style="background-color: #090d16; border: 1px solid rgba(255,255,255,0.04); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                <i data-lucide="wallet" style="color: #f97316; width: 20px; height: 20px;"></i>
-                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">Netto & Brutto</span>
-              </div>
-              <div style="background-color: #090d16; border: 1px solid rgba(255,255,255,0.04); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                <i data-lucide="zap" style="color: #10b981; width: 20px; height: 20px;"></i>
-                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">kr/min · kr/sek</span>
-              </div>
-              <div style="background-color: #090d16; border: 1px solid rgba(255,255,255,0.04); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                <i data-lucide="calendar" style="color: #3b82f6; width: 20px; height: 20px;"></i>
-                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">Schema & historia</span>
-              </div>
-              <div style="background-color: #090d16; border: 1px solid rgba(255,255,255,0.04); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                <i data-lucide="refresh-cw" style="color: #a855f7; width: 20px; height: 20px;"></i>
-                <span style="color: #ffffff; font-size: 0.9rem; font-weight: 500;">Live-uppdateringar</span>
-              </div>
-            </div>
+  <!-- FUNKTIONER PREMIUM GRID -->
+  <section id="features" class="container section-padding">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
+      <span class="badge badge-primary">Appens Kärnområden</span>
+      <h2>Fem premiumfunktioner i I Slantify</h2>
+      <p>Ett intelligent, sammanhängande finansiellt ekosystem utformat för den moderna människan.</p>
+    </div>
 
-            <div class="hero-premium-cta">
-              <a id="btn-ios" class="btn btn-primary btn-large" href="#download" style="box-shadow: 0 0 25px rgba(249, 115, 22, 0.35);">Ladda ner I Slantify</a>
-            </div>
-          </div>
-          
-          <div class="hero-premium-media">
-            <div class="media-container" style="border-color: rgba(16, 185, 129, 0.2); box-shadow: 0 0 40px rgba(16, 185, 129, 0.08);">
-              <video autoplay muted loop playsinline class="hero-video">
-                <source src="assets/live lön video.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
+    <div class="features-grid">
+      <!-- Wallet -->
+      <div class="feature-card">
+        <div class="feature-icon-box">👛</div>
+        <h3>Wallet</h3>
+        <p>En digital samling för dina kort, kvitton, dokument och finansiella poster. Allt samlat på ett och samma säkra ställe.</p>
       </div>
-    </section>
-
-    <!-- LIVE SIMULATOR & INTERACTIVE BUTTONS -->
-    <section class="live-demo-section" id="live-income" style="padding: 4rem 0;">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 2.5rem;">
-          <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0;">Se din lön växa – sekund för sekund.</h2>
-          <p style="color: #94a3b8; margin-top: 0.5rem;">Testa själv hur Live Income fungerar. Ange din timlön, starta och se inkomsten växa i realtid.</p>
-        </div>
-
-        <div class="live-demo-layout">
-          <div class="live-demo-info" style="border-color: rgba(16, 185, 129, 0.15);">
-            <span class="info-eyebrow">LIVE INCOME ENGINE</span>
-            <h3>Din lön – live.</h3>
-            <p>Se hur din inkomst växer sekund för sekund. Live Income räknar om din lön i realtid.</p>
-            
-            <div class="info-points">
-              <div>
-                <strong>KR/SEKUND</strong>
-                <span>Se exakt hur mycket du tjänar just nu.</span>
-              </div>
-              <div>
-                <strong>ARBETAD TID</strong>
-                <span>Följ arbetad tid och löneutveckling.</span>
-              </div>
-              <div>
-                <strong>OB & ÖVERTID</strong>
-                <span>Kan inkluderas i din verkliga löneberäkning.</span>
-              </div>
-              <div>
-                <strong>PROGNOS</strong>
-                <span>Se hur inkomsten utvecklas över månaden.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Interactive Simulator Input Block (Cyber-Branding Colors Synced) -->
-          <div style="background: linear-gradient(145deg, #0f121d, #05070f); border: 1px solid rgba(16, 185, 129, 0.25); padding: 2rem; border-radius: 24px; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; box-shadow: 0 20px 50px rgba(0,0,0,.55);">
-            <div>
-              <label style="color: #94a3b8; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">Din timlön</label>
-              <div style="position: relative; display: flex; align-items: center;">
-                <input type="number" id="hourly-wage-input" value="250" style="background-color: #030712; border: 1px solid rgba(16, 185, 129, 0.2); color: white; padding: 0.75rem 1rem; border-radius: 8px; width: 100%; font-size: 1.1rem; font-weight: 600; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='#10b981'">
-                <span style="position: absolute; right: 1rem; color: #4b5563; font-size: 0.9rem;">kr/timme</span>
-              </div>
-            </div>
-
-            <!-- Control Action Buttons with Dragon Glow -->
-            <div style="display: flex; gap: 0.5rem; width: 100%;">
-              <button id="btn-start" style="flex: 1; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 0.75rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 0 20px rgba(16, 185, 129, 0.55)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(16, 185, 129, 0.25)';">
-                <i data-lucide="play" style="width: 14px; height: 14px; fill: white;"></i> Starta
-              </button>
-              <button id="btn-pause" style="flex: 1; background-color: #1e293b; color: #e5e7eb; border: 1px solid #334155; padding: 0.75rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#334151'; this.style.color='#ffffff';" onmouseout="this.style.backgroundColor='#1e293b'; this.style.color='#e5e7eb';">
-                <i data-lucide="pause" style="width: 14px; height: 14px; fill: #e5e7eb;"></i> Pausa
-              </button>
-              <button id="btn-reset" style="background-color: transparent; color: #64748b; border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.75rem 1rem; border-radius: 8px; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='#ef4444'; this.style.color='#ef4444'; this.style.boxShadow='0 0 10px rgba(239, 68, 68, 0.25)';" onmouseout="this.style.borderColor='rgba(16, 185, 129, 0.2)'; this.style.color='#64748b'; this.style.boxShadow='none';">
-                <i data-lucide="rotate-ccw" style="width: 14px; height: 14px;"></i>
-              </button>
-            </div>
-
-            <!-- Dynamic Values Output View (Dragon Green Neon Intensity) -->
-            <div style="background-color: #030712; border: 1px solid rgba(16, 185, 129, 0.15); padding: 1.25rem; border-radius: 12px; text-align: center; box-shadow: inset 0 0 15px rgba(16, 185, 129, 0.03);">
-              <span style="color: #475569; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Din live-inkomst</span>
-              <div id="live-income-display" style="color: #10b981; font-size: 1.75rem; font-weight: 700; margin: 0.25rem 0; text-shadow: 0 0 15px rgba(16, 185, 129, 0.45);">0,00 kr</div>
-              <div id="live-income-rate" style="color: #94a3b8; font-size: 0.85rem;">+ 0,0694 kr/sek</div>
-            </div>
-
-            <div style="font-size: 0.75rem; color: #475569; text-align: center;">
-              Testdata – ingen riktig ekonomi kopplas till denna demo.
-            </div>
-          </div>
-        </div>
+      <!-- Ekonomisk överblick -->
+      <div class="feature-card">
+        <div class="feature-icon-box">📊</div>
+        <h3>Ekonomisk överblick</h3>
+        <p>Aktuellt saldo, historiska transaktioner och dina sparmål samlade i en helt sömlös och modern vy direkt i mobilen.</p>
       </div>
-    </section>
-
-    <!-- LIVE FEATURES GRID (PREMIUM KÄRNOMRÅDEN) -->
-    <section class="features-grid-section" id="features" style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem; font-family: sans-serif;">
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Appens kärnområden</span>
-        <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0.5rem 0 0 0;">Fem premiumfunktioner i I Slantify</h2>
-        <p style="color: #94a3b8; font-size: 1rem; margin-top: 0.5rem;">Visuella presentationer för Live Income och dina viktigaste ekonomiska insikter.</p>
+      <!-- Budget & Sparande -->
+      <div class="feature-card">
+        <div class="feature-icon-box">💰</div>
+        <h3>Budget & sparande</h3>
+        <p>Följ dina personliga ramar automatiskt, se avvikelser direkt och håll stenhård koll på framtida sparplaner.</p>
       </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-        <!-- 1. WALLET -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#f97316'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(249, 115, 22, 0.08)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none'; this.style.boxShadow='none';">
-          <div>
-            <div style="background: rgba(249, 115, 22, 0.08); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="wallet" style="color: #f97316; width: 25px; height: 25px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Wallet</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">En digital samling för kort, dokument och viktiga ekonomiska poster. Samla allt på ett säkert ställe.</p>
-          </div>
-          <a href="#download" style="color: #f97316; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Läs mer <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-
-        <!-- 2. EKONOMISK ÖVERBLICK -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#10b981'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(16, 185, 129, 0.08)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none'; this.style.boxShadow='none';">
-          <div>
-            <div style="background: rgba(16, 185, 129, 0.08); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="line-chart" style="color: #10b981; width: 25px; height: 25px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Ekonomisk överblick</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Saldo, transaktioner och sparmål samlade i en modern, överskådlig vy direkt i mobilen.</p>
-          </div>
-          <a href="#download" style="color: #10b981; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Utforska vy <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-
-        <!-- 3. BUDGET & SPARANDE -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(59, 130, 246, 0.08)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none'; this.style.boxShadow='none';">
-          <div>
-            <div style="background: rgba(59, 130, 246, 0.08); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="pie-chart" style="color: #3b82f6; width: 25px; height: 25px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Budget & sparande</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Följ dina mål, se avvikelser och håll stenhård koll på framtida sparplaner automatiskt.</p>
-          </div>
-          <a href="#download" style="color: #3b82f6; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Starta sparmål <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-
-        <!-- 4. BANK -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#a855f7'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(168, 85, 247, 0.08)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none'; this.style.boxShadow='none';">
-          <div>
-            <div style="background: rgba(168, 85, 247, 0.08); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="landmark" style="color: #a855f7; width: 25px; height: 25px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">Bank</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">En enkel översikt över konton och balansinformation när du väljer att koppla din bank.</p>
-          </div>
-          <a href="#download" style="color: #a855f7; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Se integrationer <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-
-        <!-- 5. AI-ASSISTANS -->
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#ec4899'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(236, 72, 153, 0.08)';" onmouseout="this.style.borderColor='#1e293b'; this.style.transform='none'; this.style.boxShadow='none';">
-          <div>
-            <div style="background: rgba(236, 72, 153, 0.08); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-              <i data-lucide="sparkles" style="color: #ec4899; width: 25px; height: 25px;"></i>
-            </div>
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem 0;">AI-assistans</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Smart hjälp som förklarar din ekonomi, hittar dolda utgifter och ger dig tydliga aktiviteter att överväga.</p>
-          </div>
-          <a href="#download" style="color: #ec4899; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem;">Prata med assistenten <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
+      <!-- Bankanslutning -->
+      <div class="feature-card">
+        <div class="feature-icon-box">🏦</div>
+        <h3>Bank</h3>
+        <p>Enkel och krypterad översikt över externa bankkonton och balanser när du väljer att aktivera Open Banking-koppling.</p>
       </div>
-    </section>
-
-    <!-- 📱 PROFILE SECTION -->
-    <section style="background-color: #030712; border-top: 1px solid #1e293b; padding: 5rem 2rem; font-family: sans-serif;">
-      <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
-        <div>
-          <div style="background: rgba(59, 130, 246, 0.08); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-            <i data-lucide="user" style="color: #3b82f6; width: 25px; height: 25px;"></i>
-          </div>
-          <span style="color: #3b82f6; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Personal Hub</span>
-          <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0.5rem 0 1rem 0;">📱 Profile</h2>
-          <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem;">Din profil samlar dina personliga inställningar och din I Slantify-upplevelse. Här har du full kontroll över hur ekosystemet interagerar med ditt dagliga finansiella liv.</p>
-        </div>
-        <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
-          <h4 style="color: #ffffff; margin: 0 0 1rem 0; font-size: 1rem; font-weight: 600;">Här kan du bland annat hantera:</h4>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; color: #94a3b8; font-size: 0.9rem;">
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Personliga uppgifter</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Appinställningar</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Kontoinställningar</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Integritet</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Säkerhet</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Premium</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Anslutna tjänster</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" style="color: #10b981; width: 16px; height: 16px;"></i> Preferenser</div>
-          </div>
-        </div>
+      <!-- AI-Assistans -->
+      <div class="feature-card">
+        <div class="feature-icon-box">🤖</div>
+        <h3>AI-assistans</h3>
+        <p>Smart hjälp drivs av Slantify AI som förklarar din ekonomi, upptäcker dolda abonnemangskostnader och tipsar dig.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- EXTRA APP UTILITY (DELANOT ROULETTE WITH CASINO NEON SHADOW) -->
-    <section id="roulette" style="background-color: #0b0f19; border-top: 1px solid #1e293b; padding: 5rem 2rem; font-family: sans-serif;">
-      <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
-        <div style="text-align: left;">
-          <div style="background: rgba(236, 72, 153, 0.08); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-            <i data-lucide="split" style="color: #ec4899; width: 25px; height: 25px;"></i>
-          </div>
-          <span style="color: #ec4899; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">I Slantify Social</span>
-          <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0.5rem 0 1rem 0;">Delanot-Roulette</h2>
-          <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem;">Roulette är en del av I Slantifys mer lekfulla sida och kan utvecklas med olika utmaningar and ekonomiskt inspirerade aktiviteter. Dela notan med vänner på restaurangen eller resan och lät hjulet slumpmässigt avgöra vem som tar nästa nota.</p>
-          <a href="#download" style="background-color: #111827; border: 1px solid #334155; color: white; padding: 0.65rem 1.25rem; border-radius: 8px; text-decoration: none; font-weight: 600; width: max-content; display: flex; align-items: center; gap: 0.5rem; transition: all 0.2s;" onmouseover="this.style.borderColor='#ec4899'; this.style.boxShadow='0 0 15px rgba(236, 72, 153, 0.25)';" onmouseout="this.style.borderColor='#334155'; this.style.boxShadow='none';">
-            Prova i appen <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
-          </a>
-        </div>
-        <div style="background-color: #111827; border: 1px solid #1e293b; padding: 2rem; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
-          <span style="color: #475569; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; display: block; margin-bottom: 1rem; letter-spacing: 0.05em; text-align: center;">Snabb introduktionsvideo</span>
-          <div style="background-color: #030712; height: 220px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed #334155; gap: 0.75rem;">
-            <i data-lucide="clapperboard" style="color: #475569; width: 36px; height: 36px;"></i>
-            <span style="color: #475569; font-size: 0.85rem;">Plats för officiell I Slantify-video</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ⭐ PREMIUM DEEP DIVE ARCHITECTURE -->
-    <section id="premium" style="background-color: #030712; border-top: 1px solid #1e293b; padding: 5rem 2rem; font-family: sans-serif;">
-      <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 4rem;">
-          <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Unlock the full power of I Slantify</span>
-          <h2 style="color: #ffffff; font-size: 2.25rem; font-weight: 700; margin: 0.5rem 0;">⭐ Premium Features</h2>
-          <p style="color: #94a3b8; max-width: 700px; margin: 0.5rem auto 0 auto;">Gratisversionen ger dig tillgång till grundläggande funktioner. Premium öppnar upp de mer avancerade delarna av I Slantify och ger dig ett komplett, gränslöst ekonomiskt ekosystem.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-          <!-- Wallet -->
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 2rem; border-radius: 16px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.4)';" onmouseout="this.style.borderColor='#1e293b';">
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="pocket" style="color: #f97316; width: 20px; height: 20px;"></i> 👛 Premium Wallet</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0;">Avancerade Wallet-funktioner för kort, biljetter, medlemskort, QR-koder och stödda digitala betalningsfunktioner.</p>
-          </div>
-          <!-- Banking -->
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 2rem; border-radius: 16px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(16, 185, 129, 0.4)';" onmouseout="this.style.borderColor='#1e293b';">
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="landmark" style="color: #10b981; width: 20px; height: 20px;"></i> 🏦 Premium Banking</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0;">Anslutna bankfunktioner och en djupare integration mellan din bank och I Slantify.</p>
-          </div>
-          <!-- Intelligence -->
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 2rem; border-radius: 16px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(59, 130, 246, 0.4)';" onmouseout="this.style.borderColor='#1e293b';">
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="bar-chart-3" style="color: #3b82f6; width: 20px; height: 20px;"></i> 📊 Advanced Financial Intelligence</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0;">Djupare ekonomisk analys, prognoser och ekonomiska insikter baserat på dina unika flöden.</p>
-          </div>
-          <!-- AI -->
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 2rem; border-radius: 16px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(168, 85, 247, 0.4)';" onmouseout="this.style.borderColor='#1e293b';">
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="bot" style="color: #a855f7; width: 20px; height: 20px;"></i> 🤖 Slantify AI</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0;">Din personliga AI-assistent för ekonomisk analys, frågor, rekommendationer och proaktiva prognoser.</p>
-          </div>
-          <!-- Savings -->
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 2rem; border-radius: 16px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(244, 63, 94, 0.4)';" onmouseout="this.style.borderColor='#1e293b';">
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="piggy-bank" style="color: #f43f5e; width: 20px; height: 20px;"></i> 💰 Advanced Money & Savings</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0;">Avancerade verktyg för budget, sparande, strukturerade ekonomiska mål och automatiserad ekonomisk planering.</p>
-          </div>
-          <!-- Future -->
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 2rem; border-radius: 16px; transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(234, 179, 8, 0.4)';" onmouseout="this.style.borderColor='#1e293b';">
-            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="sparkles" style="color: #eab308; width: 20px; height: 20px;"></i> ✨ Future Premium Features</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin: 0;">Premium-användare får löpande tillgång till helt nya Premium-funktioner när de lansereras enligt respektive abonnemang och villkor.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 🔐 SECURITY & PRIVACY STRUCTURE -->
-    <section style="background-color: #0b0f19; border-top: 1px solid #1e293b; padding: 5rem 2rem; font-family: sans-serif;">
-      <div style="max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
-        <div style="flex: 1; min-width: 300px;">
-          <span style="color: #10b981; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Din ekonomi är personlig</span>
-          <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0.5rem 0 1rem 0;">🔐 Security & Privacy</h2>
-          <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 1rem;">I I Slantify är säkerhet och integritet en central del av plattformen. När du ansluter externa tjänster ska anslutningen ske genom krypterade, stödda och avsedda integrationslösningar.</p>
-          <p style="color: #94a3b8; line-height: 1.6;">BankID kan användas där det krävs för säker autentisering. I I Slantify ska du ha total kontroll över vilka tjänster du ansluter och vilken information som används av appens olika funktioner. Vi strävar efter att göra avancerad ekonomiteknik enkel att använda utan att göra avkall på säkerhet eller transparens.</p>
-        </div>
-        <div style="background-color: #030712; border: 1px solid rgba(16, 185, 129, 0.25); padding: 2rem; border-radius: 20px; text-align: center; width: 240px; margin: 0 auto; box-shadow: 0 0 20px rgba(16, 185, 129, 0.05);">
-          <i data-lucide="shield-check" style="color: #10b981; width: 48px; height: 48px; margin-bottom: 1rem; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));"></i>
-          <h4 style="color: #ffffff; margin: 0 0 0.5rem 0; font-size: 1.1rem;">Bank-grade Security</h4>
-          <span style="color: #475569; font-size: 0.8rem; display: block; line-height: 1.4;">Krypterad databehandling med full transparens och kontroll i fokus.</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 🌍 ECOSYSTEM COMPREHENSIVE VIEW -->
-    <section style="background-color: #030712; border-top: 1px solid #1e293b; padding: 5rem 2rem; font-family: sans-serif; text-align: center;">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Ett intelligent ekonomiskt ekosystem</span>
-        <h2 style="color: #ffffff; font-size: 2.25rem; font-weight: 700; margin: 0.5rem 0 1.5rem 0;">🌍 I Slantify – Allt tillsammans</h2>
-        <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 3rem;">I Slantify är inte bara en budgetapp. Det är inte bara en bankapp. Det är inte bara en Wallet. Det är inte bara en AI-app. Och det är inte bara en löneapp. Det är kombinationen som är hela styrkan.</p>
-        
-        <!-- Grid list mapping ecosystem items -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; text-align: left; margin-bottom: 4rem;">
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Din lön</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Din bank</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Dina kort</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Din Wallet</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Dina biljetter</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Dina medlemskort</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Dina utgifter</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Ditt sparande</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Din budget</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Din kalender</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Finansiell utveckling</div>
-          <div style="background-color: #0b0f19; border: 1px solid #1e293b; padding: 1rem; border-radius: 10px; display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 0.9rem;"><i data-lucide="circle-dot" style="color: #10b981; width: 14px; height: 14px;"></i> Din AI</div>
-        </div>
-
-        <span style="color: #475569; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem;">THE FUTURE OF PERSONAL FINANCE</span>
-        <p style="color: #94a3b8; line-height: 1.6; max-width: 650px; margin: 0 auto 1.5rem auto;">I Slantify utvecklas med målet att göra personlig ekonomi enklare, smartare och mer sammanhängande. Från det ögonblick du tjänar pengar till det ögonblick du spenderar, sparar eller planerar dem ska I Slantify help dig att förstå hela kedjan.</p>
-        <span style="color: #ffffff; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.05em;">Earn. Understand. Manage. Save. Grow.</span>
-        <div style="color: #f97316; font-weight: 700; font-size: 1.5rem; margin-top: 0.5rem; letter-spacing: 0.05em; text-shadow: 0 0 10px rgba(249, 115, 22, 0.2);">Your entire financial life, connected.</div>
-      </div>
-    </section>
-
-    <!-- PREMIUM MARKETING INSIGHTS -->
-    <section style="max-width: 1200px; margin: 5rem auto; padding: 0 2rem; font-family: sans-serif;">
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Din ekonomi ska inte vara statisk</span>
-        <h2 style="color: #ffffff; font-size: 2.25rem; font-weight: 700; margin: 0.5rem 0;">Live Income gör ekonomi levande</h2>
-        <p style="color: #94a3b8; max-width: 700px; margin: 0.5rem auto 0 auto;">Traditionell ekonomi visas ofta som ögonblicksbilder. I Slantify gör det enkelt att se din inkomst, sparande och budget som en pågående process.</p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-        <div style="background-color: #0b0f19; padding: 2rem; border-radius: 16px; border: 1px solid #1e293b;">
-          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="activity" style="color: #f97316;"></i> Live Income</h3>
-          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Fokus på det som förändras mest: din lön, timme för timme och dag för dag.</p>
-        </div>
-        <div style="background-color: #0b0f19; padding: 2rem; border-radius: 16px; border: 1px solid #1e293b;">
-          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="shield-check" style="color: #10b981;"></i> Personlig ekonomi</h3>
-          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Samla data, sparmål och utgifter på ett ställe utan att lova dagliga resultat.</p>
-        </div>
-        <div style="background-color: #0b0f19; padding: 2rem; border-radius: 16px; border: 1px solid #1e293b;">
-          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="eye" style="color: #3b82f6;"></i> Smart överblick</h3>
-          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Se var du befinner dig och vad som kommer härnäst — med tydliga siffror och visuella indikatorer.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- DOWNLOAD & ACQUISITION ACTION SECTION -->
-    <section id="download" style="background: linear-gradient(180deg, #0b0f19 0%, #030712 100%); padding: 5rem 2rem; border-top: 1px solid #1e293b;">
-      <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 3rem;">
-        <div>
-          <span style="color: #f97316; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Ha I Slantify i fickan</span>
-          <h2 style="color: #ffffff; font-size: 2rem; font-weight: 700; margin: 0.5rem 0 1rem 0;">Alltid redo att visa din Live Income</h2>
-          <p style="color: #94a3b8; max-width: 500px; line-height: 1.6; margin-bottom: 2rem;">Ladda ner appen för att börja se din ekonomi i realtid. Skanna respektive QR-kod för att navigera direkt till App Store för iOS eller Google Play för Android.</p>
-          
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#" style="background-color: #111827; border: 1px solid #334155; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.borderColor='#ffffff'" onmouseout="this.style.borderColor='#334155'">
-              <i data-lucide="apple"></i> App Store
-            </a>
-            <a href="#" style="background-color: #111827; border: 1px solid #334155; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.borderColor='#ffffff'" onmouseout="this.style.borderColor='#334155'">
-              <i data-lucide="play-square"></i> Google Play
-            </a>
-          </div>
-        </div>
-
-        <!-- Double QR Code Grid Block Setup -->
-        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
-          <!-- iOS QR Container -->
-          <div style="background-color: #111827; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); width: 170px; box-sizing: border-box;">
-            <div style="background-color: white; padding: 0.75rem; border-radius: 12px; display: inline-block; margin-bottom: 0.75rem;">
-              <div style="width: 110px; height: 110px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #111827; font-weight: bold; font-size: 0.7rem; text-align: center; line-height: 1.2;">iOS<br>QR CODE</div>
-            </div>
-            <span style="color: #ffffff; display: block; font-size: 0.8rem; font-weight: 600;">iOS App Store</span>
-          </div>
-
-          <!-- Android QR Container -->
-          <div style="background-color: #111827; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); width: 170px; box-sizing: border-box;">
-            <div style="background-color: white; padding: 0.75rem; border-radius: 12px; display: inline-block; margin-bottom: 0.75rem;">
-              <div style="width: 110px; height: 110px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #111827; font-weight: bold; font-size: 0.7rem; text-align: center; line-height: 1.2;">ANDROID<br>QR CODE</div>
-            </div>
-            <span style="color: #ffffff; display: block; font-size: 0.8rem; font-weight: 600;">Google Play</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- MODERN FOOTER STRUCTURE WITH LEGAL LINKS -->
-  <footer style="background-color: #02040a; border-top: 1px solid #1e293b; padding: 4rem 2rem 2rem 2rem; color: #64748b; font-family: sans-serif;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem;">
-      <!-- About -->
-      <div style="flex: 1; min-width: 250px;">
-        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-          <i data-lucide="trending-up" style="color: #f97316; width: 20px; height: 20px;"></i>
-          <span style="color: #ffffff; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em;">I Slantify</span>
-        </div>
-        <p style="font-size: 0.85rem; line-height: 1.5; color: #475569;">
-          En uppdaterande inkomstvy som sätter din lön i fokus och skapar tydlighet i realtid. Se din lön växa sekund för sekund.
+  <!-- DELANOT-ROULETTE SEKTION -->
+  <section id="roulette" class="container section-padding">
+    <div class="roulette-container">
+      <div>
+        <span class="badge badge-live">I Slantify Social</span>
+        <h2>Delanot-Roulette</h2>
+        <p>
+          Roulette är en del av I Slantifys mer lekfulla sida. Dela notan med vänner på restaurangen eller resan och låt hjulet slumpmässigt avgöra vem som tar nästa nota! Sluta tjafsa om småkronor och gör vardagsekonomin roligare.
         </p>
+        <button class="btn-main btn-accent" style="margin-top: 1.5rem;" onclick="spinRoulette()">Snurra hjulet</button>
       </div>
-
-      <!-- Links navigation -->
-      <div style="min-width: 150px;">
-        <h5 style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Länkar</h5>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem;">
-          <li><a href="#features" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Funktioner</a></li>
-          <li><a href="#live-income" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Live Income</a></li>
-          <li><a href="javascript:void(0)" id="open-support-footer" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Stöd & Support</a></li>
-          <li><a href="#download" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Ladda ner appen</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal -->
-      <div style="min-width: 150px;">
-        <h5 style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Legalt</h5>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem;">
-          <li><a href="javascript:void(0)" id="open-privacy" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#64748b'">Integritetspolicy</a></li>
-          <li><a href="javascript:void(0)" id="open-terms" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#64748b'">Användarvillkor</a></li>
-          <li><a href="javascript:void(0)" id="open-choices" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#64748b'">Sekretessval</a></li>
-          <li><a href="javascript:void(0)" id="open-contact-footer" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#64748b'">Kontakt</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Copyright and social links -->
-    <div style="max-width: 1200px; margin: 3rem auto 0 auto; padding-top: 1.5rem; border-top: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #334155;">
-      <p style="margin: 0;">&copy; 2026 I Slantify. Alla rättigheter reserverade.</p>
-      <div style="display: flex; gap: 1rem;">
-        <a href="https://github.com/islantify" style="color: #334155; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#334155'"><i data-lucide="github" style="width: 18px; height: 18px;"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- DYNAMIC POPUP MODALS FOR POLICIES & SUPPORT -->
-  <!-- 1. Privacy Modal -->
-  <div id="modal-privacy" class="policy-modal">
-    <div class="policy-modal-content">
-      <button class="close-modal-btn" onclick="closeModal('modal-privacy')"><i data-lucide="x" style="width: 16px; height: 16px;"></i></button>
-      <h2>Integritetspolicy för I Slantify</h2>
-      <p>Senast uppdaterad: Augusti 2026</p>
-      <p>Din integritet är extremt viktig för oss på I Slantify. Denna policy beskriver hur vi samlar in, använder och skyddar din information när du använder vår webbplats och våra tjänster.</p>
-      <h3>1. Datainsamling och kryptering</h3>
-      <p>I Slantify är byggt med modern säkerhetsarkitektur. När du ansluter din bank eller anger lönedata lagras och krypteras informationen enligt bankstandard (AES-256) och delas aldrig med obehörig tredje part.</p>
-      <h3>2. Live Income-data</h3>
-      <p>De realtidsberäkningar som görs i appen bearbetas säkert för att ge dig omedelbar visuell feedback av din inkomstutveckling sekund för sekund.</p>
-      <h3>3. Dina rättigheter</h3>
-      <p>Du har full rätt att begära ut, ändra eller permanent radera all data som finns kopplad till ditt konto hos oss i enlighet med GDPR.</p>
-    </div>
-  </div>
-
-  <!-- 2. Terms Modal -->
-  <div id="modal-terms" class="policy-modal">
-    <div class="policy-modal-content">
-      <button class="close-modal-btn" onclick="closeModal('modal-terms')"><i data-lucide="x" style="width: 16px; height: 16px;"></i></button>
-      <h2>Användarvillkor</h2>
-      <p>Genom att använda I Slantifys webbplats och app godkänner du följande användarvillkor i sin helhet.</p>
-      <h3>1. Tjänstens syfte</h3>
-      <p>I Slantify tillhandahåller visuella verktyg och kalkyler för personlig ekonomi, budgetering samt realtidsspårning av inkomster (Live Income Engine). Tjänsten ska ses som ett ekonomiskt planeringsverktyg.</p>
-      <h3>2. Användarkonto och ansvar</h3>
-      <p>Du ansvarar själv för att hålla dina inloggningsuppgifter skyddade och att den information du anger i appen (t.ex. timlön eller sparmål) är korrekt för att verktygen ska fungera optimalt.</p>
-      <h3>3. Immateriella rättigheter</h3>
-      <p>Allt material, inklusive källkod, logotyper, drakdesign och varumärken tillhör I Slantify och får inte kopieras eller användas utan skriftligt godkännande.</p>
-    </div>
-  </div>
-
-  <!-- 3. Privacy Choices Modal -->
-  <div id="modal-choices" class="policy-modal">
-    <div class="policy-modal-content">
-      <button class="close-modal-btn" onclick="closeModal('modal-choices')"><i data-lucide="x" style="width: 16px; height: 16px;"></i></button>
-      <h2>Sekretessval (Privacy Choices)</h2>
-      <p>Här kan du hantera dina inställningar för datadelning, spårning och sekretessnivå i I Slantify.</p>
-      <h3>1. Nödvändiga funktioner</h3>
-      <p>Vissa lokala datafiler krävs för att spara din timlön och dina inställningar i Live Income-simulatorn under ditt besök.</p>
-      <h3>2. Analys och produktförbättring</h3>
-      <p>We använder anonymiserad statistik för att förstå hur våra premiumkort och funktioner används, med målet att ständigt förbättra gränssnittet.</p>
-      <h3>3. Hantera samtycke</h3>
-      <p>Du kan när som helst återkalla eller ändra dina samtycken direkt i appens huvudmeny under fliken inställningar.</p>
-    </div>
-  </div>
-
-  <!-- 4. Support & Kontakt Form Modal -->
-  <div id="modal-support" class="policy-modal">
-    <div class="policy-modal-content" style="max-width: 520px; border-color: rgba(16, 185, 129, 0.3); box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);">
-      <button class="close-modal-btn" onclick="closeModal('modal-support')"><i data-lucide="x" style="width: 16px; height: 16px;"></i></button>
-      <h2>Kontakta I Slantify</h2>
-      <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Fyll i ditt namn, e-post och ditt ärende nedan så hör vi av oss så fort som möjligt.</p>
       
-      <form id="support-form" onsubmit="handleSupportSubmit(event)" style="display: flex; flex-direction: column; gap: 1.25rem;">
-        <div>
-          <label style="color: #ffffff; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">Ditt namn</label>
-          <input type="text" required placeholder="För- och efternamn" style="background-color: #030712; border: 1px solid #1e293b; color: white; padding: 0.75rem 1rem; border-radius: 8px; width: 100%; font-size: 0.95rem; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='#10b981'">
+      <div class="roulette-visual">
+        <div class="wheel-pointer"></div>
+        <div class="wheel-outer" id="rouletteWheel">
+          <div class="wheel-center"></div>
+          <!-- Skapar enkla visuella linjer via CSS-segment i hjulet -->
+          <div class="wheel-segment" style="transform: rotate(0deg); background: #ea580c; opacity: 0.3;"></div>
+          <div class="wheel-segment" style="transform: rotate(90deg); background: #10b981; opacity: 0.3;"></div>
+          <div class="wheel-segment" style="transform: rotate(180deg); background: #3b82f6; opacity: 0.3;"></div>
+          <div class="wheel-segment" style="transform: rotate(270deg); background: #8b5cf6; opacity: 0.3;"></div>
         </div>
-        <div>
-          <label style="color: #ffffff; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">Din e-postadress</label>
-          <input type="email" required placeholder="namn@epost.se" style="background-color: #030712; border: 1px solid #1e293b; color: white; padding: 0.75rem 1rem; border-radius: 8px; width: 100%; font-size: 0.95rem; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='#10b981'">
-        </div>
-        <div>
-          <label style="color: #ffffff; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">Ditt ärende</label>
-          <textarea required rows="4" placeholder="Skriv ditt meddelande eller fråga här..." style="background-color: #030712; border: 1px solid #1e293b; color: white; padding: 0.75rem 1rem; border-radius: 8px; width: 100%; font-size: 0.95rem; outline: none; resize: vertical; box-sizing: border-box; font-family: sans-serif;" onfocus="this.style.borderColor='#10b981'"></textarea>
-        </div>
-        <button type="submit" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2); margin-top: 0.5rem; transition: all 0.2s;" onmouseover="this.style.boxShadow='0 0 20px rgba(249, 115, 22, 0.4)';" onmouseout="this.style.boxShadow='0 4px 12px rgba(249, 115, 22, 0.2)';">
-          <i data-lucide="send" style="width: 16px; height: 16px;"></i> Skicka meddelande
-        </button>
-      </form>
-      
-      <!-- Success Screen -->
-      <div id="support-success" style="display: none; text-align: center; padding: 1.5rem 0;">
-        <div style="background: rgba(16, 185, 129, 0.1); width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);">
-          <i data-lucide="check-circle" style="color: #10b981; width: 28px; height: 28px;"></i>
-        </div>
-        <h3 style="color: #ffffff; margin-bottom: 0.5rem;">Meddelande mottaget!</h3>
-        <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.45; margin-bottom: 1.5rem;">Tack för att du kontaktar oss. Ditt ärende har registrerats hos supportislantify@gmail.com och vi återkommer så snart som möjligt.</p>
-        <button onclick="closeModal('modal-support')" style="background-color: #111827; border: 1px solid #1e293b; color: white; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer;">Stäng fönster</button>
+        <div class="roulette-result" id="rouletteResult">Klicka på knappen för att starta utmaningen</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- MOBILE INTERACTION & MODAL CONTROLLERS -->
-  <script>
-    // Asset Icon Engine Initialization
-    lucide.createIcons();
+  <!-- PREMIUM PRICING MODUL -->
+  <section id="premium" class="container section-padding">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">
+      <span class="badge badge-primary">Unlock Full Power</span>
+      <h2>Välj din finansiella nivå</h2>
+      <p>Kom igång gratis med basfunktioner, eller lås upp ett gränslöst ekonomiskt ekosystem med Premium.</p>
+    </div>
 
-    // Mobile Hamburger Toggle Logic
-    const toggleBtn = document.getElementById('mobile-toggle-btn');
-    const menuOverlay = document.getElementById('mobile-menu-overlay');
-    
-    if (toggleBtn && menuOverlay) {
-      toggleBtn.addEventListener('click', () => {
-        const isHidden = menuOverlay.style.display === 'none';
-        menuOverlay.style.display = isHidden ? 'flex' : 'none';
-        
-        // Dynamic switch icon representation state between Menu and Close
-        const iconState = document.getElementById('menu-icon-state');
-        if (iconState) {
-          iconState.setAttribute('data-lucide', isHidden ? 'x' : 'menu');
-          lucide.createIcons(); // Re-render newly flipped dynamic state icon
-        }
-      });
+    <div class="premium-grid">
+      <!-- Free Plan -->
+      <div class="price-card">
+        <div class="price-header">
+          <h3>Free Framework</h3>
+          <p>För grundläggande realtidsspårning</p>
+          <div class="price-amount">0 kr <span>/ mån</span></div>
+        </div>
+        <ul class="price-features">
+          <li>✓ Standard Live Income Tracker</li>
+          <li>✓ Manuell löneinmatning</li>
+          <li>✓ Grundläggande Wallet-sparande</li>
+          <li>✓ En lokal bankkoppling</li>
+        </ul>
+        <button class="btn-main btn-outline" style="width: 100%; justify-content: center;">Kom igång gratis</button>
+      </div>
 
-      // Automatically collapse drop-down drawer when links clicked
-      const mobileLinks = menuOverlay.querySelectorAll('.mobile-link');
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menuOverlay.style.display = 'none';
-          const iconState = document.getElementById('menu-icon-state');
-          if (iconState) {
-            iconState.setAttribute('data-lucide', 'menu');
-            lucide.createIcons();
-          }
-        });
-      });
-    }
+      <!-- Premium Plan -->
+      <div class="price-card featured">
+        <div style="position: absolute; top: -12px; right: 20px; background: var(--primary); color: #000; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">Populärast</div>
+        <div class="price-header">
+          <h3>Slantify Premium</h3>
+          <p>Det kompletta gränslösa systemet</p>
+          <div class="price-amount">49 kr <span>/ mån</span></div>
+        </div>
+        <ul class="price-features">
+          <li>✓ Avancerad Live Income med OB & Övertid</li>
+          <li>✓ Premium Wallet med betalfunktioner</li>
+          <li>✓ Gränslös Premium Banking via BankID</li>
+          <li>✓ Full tillgång till Slantify AI</li>
+          <li>✓ Automatiserade prognoser & sparmål</li>
+        </ul>
+        <button class="btn-main btn-accent" style="width: 100%; justify-content: center;">Starta Premium</button>
+      </div>
+    </div>
+  </section>
 
-    // Modal Control Functions
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
+  <!-- SÄKERHETSBANNER -->
+  <section class="container" style="margin-bottom: 5rem;">
+    <div style="background: linear-gradient(90deg, #091122 0%, #050914 100%); border: 1px solid var(--border-color); border-radius: 24px; padding: 3rem; text-align: center;">
+      <h3 style="margin-bottom: 1rem;">🔐 Kryptering med Bank-grade Security</h3>
+      <p style="max-width: 700px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6;">
+        Säkerhet och integritet är kärnan i I Slantify. All databehandling sker i krypterade miljöer enligt industristandard (AES-256). Autentisering och kopplingar valideras tryggt med BankID för total transparens och användarkontroll.
+      </p>
+    </div>
+  </section>
 
-    // Event listeners for Policy & Support links
-    document.getElementById('open-privacy').addEventListener('click', () => openModal('modal-privacy'));
-    document.getElementById('open-terms').addEventListener('click', () => openModal('modal-terms'));
-    document.getElementById('open-choices').addEventListener('click', () => openModal('modal-choices'));
-    
-    // Wire up all Support & Contact triggers to the interactive form modal
-    document.getElementById('open-support').addEventListener('click', () => { openModal('modal-support'); resetSupportForm(); });
-    if(document.getElementById('open-support-mobile')) {
-      document.getElementById('open-support-mobile').addEventListener('click', () => { openModal('modal-support'); resetSupportForm(); });
-    }
-    document.getElementById('open-support-footer').addEventListener('click', () => { openModal('modal-support'); resetSupportForm(); });
-    document.getElementById('open-contact-footer').addEventListener('click', () => { openModal('modal-support'); resetSupportForm(); });
-
-    // Handle interactive form submissions smoothly
-    function handleSupportSubmit(event) {
-      event.preventDefault();
-      document.getElementById('support-form').style.display = 'none';
-      document.getElementById('support-success').style.display = 'block';
-    }
-
-    // Form resetting utility
-    function resetSupportForm() {
-      const form = document.getElementById('support-form');
-      if(form) form.reset();
-      document.getElementById('support-form').style.display = 'flex';
-      document.getElementById('support-success').style.display = 'none';
-    }
-
-    // Close modals on clicking outside content boxes
-    window.addEventListener('click', (e) => {
-      if (e.target.classList.contains('policy-modal')) {
-        e.target.style.display = 'none';
-      }
-    });
-  </script>
-
-</body>
-</html>
+  <!-- NEDLADDNINGSSEKTION -->
+  <section id="download" class="container section-padding" style="text-align: center;">
+    <h2>Skaffa I Slantify i fickan idag</h2>
+    <p style="margin-bottom: 2rem; max-width: 500px; margin: 1rem auto 2rem auto;">Skanna QR-koden eller besök respektive plattforms officiella appbutik för direkt gratis nedladdning.</p>
+    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 16px; width: 200px;">
+        <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:8px; border-radius:12px; margin-bottom: 1rem;">
+          <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/>
+        </svg>
+        <h4>iOS App Store</h4>
+      </div>
+      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 16px; width: 200px;">
+        <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:8px; border-radius:12px; margin-bottom: 1rem;">
+          <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/>
+        </svg>
+        <h4>Google Play</h4>
+      </div>
+          <li>✓ Avancerad Live Income med OB & Övertid</li> <li>✓ Premium Wallet med betalfunktioner</li> <li>✓ Gränslös Premium Banking via BankID</li> <li>✓ Full tillgång till Slantify AI</li> <li>✓ Automatiserade prognoser & sparmål</li> cent="b-n-button" </ul> style="width: 100%; justify-content: center;">Starta Premium</button> </div> </div> </section> <!-- SÄKERHETSBANNER --> <section class="container" style="margin-bottom: 5rem;"> <div style="background: linear-gradient(90%111, #509, #509, #501, #501); border: 1px solid var(--border-color: 24px stoppning: 3rem; text-align: center;"> <h3 style="margin-bottom: 1rem;">🔐 Kryptering med Bank-grade Security</h3> <p style="max-width: 700px; marginal: 0 auto; teckenstorlek: 0,95rem; line-height: 1.6;"> Säkerhet och integritet är kärnan i I Slantify. All databehandling sker i krypterade miljöer enligt industristandard (AES-256). Autentisering och kopplingar valideras tryggt med BankID för total transparens och användarkontroll. </p> </div>
+  </section> <!-- NEDLADDNINGSSEKTION --> <section id="download" class="container section-padding" style="text-align: center;"> <h2>Skaffa I Slantify i fickan idag</h2> <p style="margin-bottom: 2rem; max-width: 500px; autokoden eller autokoden"> margin2: respektive QR1 plattforms officiella appbutik för direkt gratis nedladdning.</p> <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;"> <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color:--border-color: rem1: border-color:xradius: rem1; bredd: 200px;"> <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="bakgrund:#ffffff; utfyllnad:8px; kantradius:12px; marginal-botten: 1rem;"> <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/> </svg> <h4>iOS App Store</h4> </div> <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radie: 16px; width: 200px;"> <svg width="120" height="120" viewBox="0 0 29 29" fill="#ffffff" style="background:#ffffff; padding:8px; border-radie:12px; margin-bottom: 1rem;"> <path d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v1h-1zm-1 1h1v1H9zm2 0h1v1h-1zm1 1h1v1h-1zm-2 1h1v1H9zm3 0h1v1h-1zm10-5h7v7h-7zm1 1v5h5V1zm-13 7h1v1H9zm1 1h1v1h-1zm2 1h1v1h-1zm8-3h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-3 2h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm1 1h1v1h-1zm-21 5h7v7H0zm1 1v5h5V15zm9 1h1v1H9zm2 2h1v1h-1zm-2 2h1v1H9zm3 1h1v1h-1zm1 1h1v1h-1zm5-7h1v1h-1zm3 1h1v1h-1zm-2 1h1v1h-1zm5-1h1v1h-1zm-4 3h1v1h-1zm3 1h1v1h-1zm2 1h1v1h-1z" fill="#030712"/> </svg> <h4>Google Play</h4> </div>
