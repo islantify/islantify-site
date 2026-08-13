@@ -1,626 +1,422 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>I Slantify — Din lön. I realtid.</title>
-  <meta name="description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
-  
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="I Slantify — Din lön. I realtid.">
-  <meta property="og:description" content="I Slantify samlar din personliga ekonomi och Live Income i en premium fintechupplevelse. Se din inkomst växa sekund för sekund, planera budget och spara smartare.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://islantify.com">
-  <link rel="canonical" href="https://islantify.com">
-  <meta name="theme-color" content="#030712">
-  <meta name="twitter:card" content="summary_large_image">
-  
-  <!-- Assets & Icons -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23030712'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='%23ff7a00' font-family='Helvetica, Arial, sans-serif'%3EI%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="assets/styles.css">
-  
-  <!-- Scripts -->
-  <script src="https://unpkg.com"></script>
-  <script src="assets/config.js" defer></script>
-  <script src="assets/qrcode.min.js" defer></script>
-
-  <style>
-    /* Global Cyber Dark Base & Layout */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      background-color: #030712 !important;
-      color: #94a3b8;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islantify - Din lön. I realtid.</title>
+    <meta name="description" content="Islantify samlar din personliga ekonomi och live Income i en premium fintechupplevelse. Se din inkomst växa varje sekund.">
     
-    /* Main Hero Canvas Container */
-    .hero-container {
-      position: relative;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 80px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 85vh;
-    }
-    .hero-content {
-      max-width: 580px;
-      z-index: 10;
-    }
-    .info-eyebrow {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .15em;
-      color: #ff7a00;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .hero-content h1 {
-      font-size: 56px;
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.15;
-      margin: 0 0 24px 0;
-    }
-    .hero-content p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #94a3b8;
-      margin-bottom: 40px;
-    }
-    
-    /* Feature Grid Minimal Badges */
-    .feature-mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .feature-badge {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 14px 18px;
-      border-radius: 14px;
-      font-size: 14px;
-      color: #e2e8f0;
-      font-weight: 500;
-    }
-    .feature-badge span {
-      color: #ff7a00;
-    }
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    .cta-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #ff7a00 0%, #ff5500 100%);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 16px 32px;
-      border-radius: 14px;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(255, 122, 0, 0.25);
-      transition: all 0.2s ease;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(255, 122, 0, 0.4);
-    }
+    <style>
+        :root {
+            --bg: #0f172a; /* Mörk stilren basfärg */
+            --card: #1e293b; /* Något ljusare kort-bakgrund */
+            --text: #f8fafc; /* Ljust fräscht teckensnitt */
+            --muted: #94a3b8; /* Dämpad text */
+            --accent: #ff8a2b; /* Islantify Brand Orange */
+            --gold: #d4af37; /* Premium Guldaccent */
+            --radius: 16px;
+            --max-width: 1200px;
+        }
 
-    /* Right Side Hero Display (Phone and Dragon Video Overlay) */
-    .hero-graphics {
-      position: relative;
-      width: 600px;
-      height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .dragon-video-bg {
-      position: absolute;
-      right: -80px;
-      top: -40px;
-      width: 680px;
-      height: 680px;
-      object-fit: contain;
-      opacity: 0.85;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .phone-mockup {
-      position: relative;
-      width: 290px;
-      height: 590px;
-      background: #090d16;
-      border: 11px solid #1e293b;
-      border-radius: 42px;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.6);
-      z-index: 5;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .phone-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 20px;
-    }
-    .phone-tabs {
-      display: flex;
-      background: rgba(255,255,255,0.04);
-      padding: 4px;
-      border-radius: 10px;
-      gap: 4px;
-    }
-    .phone-tab {
-      flex: 1;
-      text-align: center;
-      font-size: 10px;
-      padding: 6px;
-      border-radius: 8px;
-      color: #94a3b8;
-      font-weight: 600;
-    }
-    .phone-tab.active {
-      background: rgba(255,255,255,0.07);
-      color: #ffffff;
-    }
-    .phone-circle-display {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      border: 6px solid #ff7a00;
-      margin: 30px auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle, rgba(255,122,0,0.05) 0%, transparent 80%);
-    }
-    .phone-amount {
-      font-size: 32px;
-      font-weight: 800;
-      color: #ffffff;
-    }
-    .phone-rate {
-      font-size: 11px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-    .phone-timer {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .phone-time-digits {
-      font-size: 38px;
-      font-weight: 300;
-      color: #ffffff;
-      letter-spacing: 2px;
-    }
-    .phone-time-labels {
-      font-size: 9px;
-      color: #475569;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      margin-top: 2px;
-      padding-left: 4px;
-    }
-    .phone-nav-bar {
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 12px;
-      font-size: 9px;
-      color: #475569;
-      text-align: center;
-    }
-    .phone-nav-item i {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 3px;
-      color: #64748b;
-    }
-    .phone-nav-item.active {
-      color: #ff7a00;
-    }
-    .phone-nav-item.active i {
-      color: #ff7a00;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Section 2: Prova Live Income Live Simulator Grid */
-    .live-demo-section-title {
-      text-align: center;
-      margin-top: 120px;
-      margin-bottom: 60px;
-    }
-    .live-demo-section-title h2 {
-      font-size: 32px;
-      font-weight: 800;
-      color: #ffffff;
-      margin: 10px 0;
-    }
-    .live-demo-layout {
-      max-width: 1100px;
-      margin: 0 auto 100px auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: stretch;
-      padding: 0 20px;
-    }
-    
-    .live-demo-info {
-      padding: 36px;
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      background: linear-gradient(145deg, #090d16, #04060b);
-      box-shadow: 0 20px 50px rgba(0,0,0,.5);
-    }
-    .live-demo-info h3 { margin: 0 0 12px; font-size: 28px; color: #ffffff; font-weight: 800; }
-    .live-demo-info p { margin: 0 0 32px; line-height: 1.6; font-size: 14px; color: #94a3b8; }
-    
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .step-item {
-      font-size: 13px;
-      line-height: 1.5;
-    }
-    .step-item strong {
-      color: #ffffff;
-      display: block;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    .step-num {
-      color: #64748b;
-    }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* Right Side Interactive Card Terminal */
-    .live-demo-card {
-      padding: 36px;
-      border-radius: 24px;
-      border: 1px solid rgba(255, 122, 0, 0.15);
-      background: linear-gradient(145deg, #060911, #0c1220);
-      box-shadow: 0 25px 55px rgba(0,0,0,.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .input-wrapper {
-      background: rgba(0,0,0,0.2);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 10px;
-    }
-    .input-wrapper label {
-      font-size: 11px;
-      font-weight: 700;
-      color: #475569;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .demo-input {
-      background: #020408;
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #ffffff;
-      padding: 12px 16px;
-      border-radius: 10px;
-      width: 140px;
-      font-size: 18px;
-      font-weight: 700;
-      outline: none;
-      text-align: right;
-      font-family: monospace;
-      transition: border-color 0.2s;
-    }
-    .demo-input:focus {
-      border-color: #ff7a00;
-    }
-    .demo-input:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .main-display-panel {
-      text-align: center;
-      margin: 40px 0;
-      background: rgba(0,0,0,0.15);
-      padding: 30px 20px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.02);
-    }
-    .live-income-amount {
-      font-size: 48px;
-      font-weight: 800;
-      color: #ffffff;
-      margin: 0;
-      font-family: monospace;
-      letter-spacing: -1px;
-    }
-    .kr-sek-rate {
-      font-size: 15px;
-      color: #ff7a00;
-      font-weight: 600;
+        /* --- Site Header & Navigation --- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 100;
+            padding: 1rem 2rem;
+        }
 
-margin-top: 8px;
-}
-.demo-controls {
-display: flex;
-gap: 12px;
-}
-.demo-btn {
-flex: 1;
-padding: 14px;
-border-radius: 12px;
-font-weight: 700;
-font-size: 14px;
-cursor: pointer;
-transition: all 0.15s ease;
-text-align: center;
-border: none;
-}
-.demo-btn-start {
-background: #ffffff;
-color: #030712;
-}
-.demo-btn-start:hover {
-background: #f1f5f9;
-box-shadow: 0 0 15px rgba(255,255,255,0.15);
-}
-.demo-btn-pause {
-background: rgba(255,255,255,0.04);
-color: #ffffff;
-border: 1px solid rgba(255,255,255,0.08);
-}
-.demo-btn-pause:hover {
-background: rgba(255,255,255,0.08);
-}
-.demo-btn-reset {
-background: rgba(255,255,255,0.02);
-color: #64748b;
-border: 1px solid rgba(255,255,255,0.05);
-}
-.demo-btn-reset:hover {
-color: #ffffff;
-background: rgba(239,68,68,0.05);
-border-color: rgba(239,68,68,0.2);
-}
-.demo-footnote {
-font-size: 11px;
-color: #475569;
-margin-top: 16px;
-text-align: center;
-}
-/* Small Metrics Row Under Demo Box */
-.mini-metrics-row {
-max-width: 1100px;
-margin: -60px auto 120px auto;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-padding: 0 20px;
-border-top: 1px solid rgba(255,255,255,0.05);
-padding-top: 30px;
-}
-.metric-card-item {
-text-align: left;
-}
-.metric-card-item span {
-font-size: 20px;
-font-weight: 700;
-color: #ffffff;
-display: block;
-font-family: monospace;
-}
-.metric-card-item label {
-font-size: 12px;
-color: #475569;
-margin-top: 4px;
-display: block;
-}
-/* Section 3: Slantify Social & Roulette Container */
-.social-section {
-max-width: 600px;
-margin: 80px auto 120px auto;
-padding: 0 20px;
-text-align: center;
-}
-.roulette-video-container {
-width: 100%;
-border-radius: 24px;
-overflow: hidden;
-border: 1px solid rgba(255,255,255,0.05);
-margin-top: 20px;
-box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-.roulette-video-container video {
-width: 100%;
-display: block;
-}
-.roulette-box {
-background: linear-gradient(180deg, #0e1322 0%, #060911 100%);
-border: 1px solid rgba(255,255,255,0.05);
-border-radius: 24px;
-padding: 30px;
-margin-top: 30px;
-box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-position: relative;
-}
-.roulette-pill-header {
-background: rgba(239,68,68,0.1);
-border: 1px solid rgba(239,68,68,0.2);
-color: #ef4444;
-font-size: 12px;
-font-weight: 700;
-padding: 8px 16px;
-border-radius: 12px;
-display: inline-flex;
-align-items: center;
-gap: 8px;
-margin-bottom: 20px;
-}
-.roulette-pill-header span {
-width: 8px;
-height: 8px;
-background: #ef4444;
-border-radius: 50%;
-}
-/* Video Sektion för Live Lön */
-.live-video-section {
-max-width: 1100px;
-margin: 80px auto;
-padding: 0 20px;
-text-align: center;
-}
-.live-video-wrapper {
-width: 100%;
-max-width: 800px;
-margin: 30px auto 0 auto;
-border-radius: 24px;
-overflow: hidden;
-border: 1px solid rgba(255,122,0,0.15);
-box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-}
-.live-video-wrapper video {
-width: 100%;
-display: block;
-}
-/* Responsive Grid Adjustments */
-@media (max-width: 968px) {
-.hero-container {
-flex-direction: column;
-text-align: center;
-padding: 40px 20px;
-}
-.hero-content {
-max-width: 100%;
-margin-bottom: 50px;
-}
-.feature-mini-grid {
-justify-content: center;
-}
-.hero-graphics {
-width: 100%;
-height: auto;
-}
-.dragon-video-bg {
-display: none;
-}
-.live-demo-layout {
-grid-template-columns: 1fr;
-}
-.mini-metrics-row {
-grid-template-columns: 1fr;
-gap: 20px;
-text-align: center;
-}
-.metric-card-item {
-text-align: center;
-}
-}
+        .header-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .brand {
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-document.addEventListener("DOMContentLoaded", () => {
-const salaryInput = document.getElementById("salary-input");
-const btnStart = document.getElementById("btn-start");
-const btnPause = document.getElementById("btn-pause");
-const btnReset = document.getElementById("btn-reset");
-const totalDisplay = document.getElementById("live-total-display");
-const rateDisplay = document.getElementById("live-rate-display");
-const cardSec = document.getElementById("card-rate-sec");
-const cardMin = document.getElementById("card-rate-min");
-const cardHour = document.getElementById("card-rate-hour");
-const heroPhoneCounter = document.getElementById("hero-phone-counter");
-let timerInterval = null;
-let accumulatedIncome = 0.0;
-let heroPhoneAccumulated = 8.26;
-function calculateRates() {
-const hourlyWage = parseFloat(salaryInput.value) || 0;
-const perMinute = hourlyWage / 60;
-const perSecond = hourlyWage / 3600;
-if (rateDisplay) {
-rateDisplay.textContent = = ${perSecond.toFixed(3).replace(".", ",")} kr/sek;
-}
-if (cardSec) {
-cardSec.textContent = ${perSecond.toFixed(3).replace(".", ",")} kr;
-}
-if (cardMin) {
-cardMin.textContent = ${perMinute.toFixed(2).replace(".", ",")} kr;
-}
-if (cardHour) {
-cardHour.textContent = ${hourlyWage.toFixed(2).replace(".", ",")} kr;
-}
-return perSecond;
-}
-if (salaryInput) {
-salaryInput.addEventListener("input", calculateRates);
-calculateRates();
-}
-if (btnStart) {
-btnStart.addEventListener("click", () => {
-if (timerInterval) return;
-if (salaryInput) salaryInput.disabled = true;
-const refreshRate = 0.05;
-timerInterval = setInterval(() => {
-const currentSecRate = calculateRates();
-accumulatedIncome += currentSecRate * refreshRate;
-if (totalDisplay) {
-totalDisplay.textContent = ${accumulatedIncome.toLocaleString("sv-SE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kr;
-}
-}, refreshRate * 1000);
-});
-}
-if (btnPause) {
-btnPause.addEventListener("click", () => {
-clearInterval(timerInterval);
-timerInterval = null;
-if (salaryInput) salaryInput.disabled = false;
-});
-}
-if (btnReset) {
-btnReset.addEventListener("click", () => {
-clearInterval(timerInterval);
-timerInterval = null;
-accumulatedIncome = 0.0;
-if (totalDisplay) totalDisplay.textContent = "0,00 kr";
-if (salaryInput) salaryInput.disabled = false;
-calculateRates();
-});
-}
-setInterval(() => {
-heroPhoneAccumulated += (250 / 3600) * 0.1;
-if (heroPhoneCounter) {
-heroPhoneCounter.textContent = ${heroPhoneAccumulated.toLocaleString("sv-SE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kr;
-}
-}, 100);
-});
+        .brand span {
+            color: var(--accent);
+        }
 
-</body> <!-- HÄR STÄNGS BODY! -->
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .main-nav a:hover {
+            color: var(--text);
+        }
+
+        .cta-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            background: #e0721b;
+        }
+
+        /* --- Sektion Container Layout --- */
+        .section-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* --- 1. Drake Banner (Under menyn) --- */
+        .drake-banner-section {
+            padding: 2rem 2rem 0 2rem;
+        }
+
+        .drake-banner-wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .drake-banner-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .drake-banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15,23,42,0.2), rgba(15,23,42,0.85));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem;
+        }
+
+        .drake-banner-overlay h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .drake-banner-overlay p {
+            color: var(--muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* --- 2. Live Lön Sektion (Video + Demo + Info) --- */
+        .live-salary-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .video-box-premium {
+            position: relative;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-player {
+            width: 100%;
+            border-radius: calc(var(--radius) - 6px);
+            display: block;
+        }
+
+        .info-content h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .info-content h2 span {
+            color: var(--accent);
+        }
+
+        .info-content p {
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* Live Löndemo widget */
+        .live-salary-demo-box {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .demo-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .counter-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.2rem;
+        }
+
+        .salary-counter {
+            font-size: 2.6rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            color: #10b981; /* Grön framgångsfärg för lön */
+        }
+
+        .currency {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .demo-footer-text {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            animation: pulse-animation 2s infinite;
+        }
+
+        /* --- 3. Roulette Sektion (Längre ner) --- */
+        .roulette-bg-section {
+            background: linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(30,41,59,0.3) 50%, rgba(15,23,42,0) 100%);
+        }
+
+        .roulette-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* --- Globala UI/Kort element --- */
+        .feature-tag {
+            display: inline-block;
+            background: rgba(255, 138, 43, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag.gold {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+        }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* --- Responsiv design för mobila enheter --- */
+        @media (max-width: 968px) {
+            .live-salary-grid, .roulette-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .info-content {
+                order: -1; /* Texten hamnar överst på mobilen för bättre läsbarhet */
+            }
+            .drake-banner-wrapper {
+                height: 250px;
+            }
+            .drake-banner-overlay {
+                padding: 1.5rem;
+            }
+            .drake-banner-overlay h1 {
+                font-size: 1.8rem;
+            }
+            .main-nav {
+                display: none; /* Kan expanderas till hamburgarmeny vid behov */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigationsmeny -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="brand">Islantify<span>.</span></a>
+            <nav class="main-nav">
+                <a href="#livelon">Live Lön</a>
+                <a href="#roulette">Roulette Funktion</a>
+                <a href="#om">Om oss</a>
+                <a href="#support">Support</a>
+            </nav>
+            <a href="#download" class="cta-btn">Hämta Appen</a>
+        </div>
+    </header>
+
+    <!-- 1. Drake Banner Sektion -->
+    <section class="drake-banner-section">
+        <div class="drake-banner-wrapper">
+            <video class="drake-banner-video" autoplay loop muted playsinline>
+                <source src="assets/dragon-banner.mp4" type="video/mp4">
+                Din webbläsare stödjer inte videotaggen.
+            </video>
+            <div class="drake-banner-overlay">
+                <span class="feature-tag gold">Premium Experience</span>
+                <h1>Ta kontrollen över din ekonomi</h1>
+                <p>Upplev nästa generations fintech där sparmål, investeringar och realtidsinkomster möts i en enda vacker applikation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Live Lön Sektion (Video + Demo tillsammans med Info) -->
+    <section id="livelon" class="section-container">
+        <div class="live-salary-grid">
+            
+            <!-- Vänster kolumn: Video och den interaktiva livedemon -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="video-box-premium">
+                    <video class="video-player" controls autoplay loop muted playsinline>
+                        <source src="assets/live lön video.mp4" type="video/mp4">
+                        Din webbläsare stödjer inte videotaggen.
+                    </video>
+                </div>
+                
+                <!-- Live löndemo sammankopplad under videon -->
+                <div class="live-salary-demo-box">
+                    <div class="demo-title">Live Löndemo (Realtid)</div>
+                    <div class="counter-row">
+                        <div id="salary-counter" class="salary-counter">0.00</div>
+                        <div class="currency">SEK</div>
+                    </div>
+                    <div class="demo-footer-text">
+                        <div class="pulse-dot"></div>
+                        <span>Baserat på en genomsnittlig sekundbaserad fintech-inkomst.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Höger kolumn: Information och textbeskrivning -->
+            <div class="info-content">
+                <span class="feature-tag">Live Income</span>
+                <h2>Se din inkomst växa <span>sekund för sekund</span></h2>
+                <p>Varför vänta till slutet av månaden? Med Islantify introducerar vi Live Income. Vårt intelligenta gränssnitt gör att du kan visualisera dina intjäningar i realtid. Följ dina flöden, se exakt hur mycket du tjänar live och planera din budget mer dynamiskt än någonsin tidigare.</p>
+                <p>Den integrerade demopanelen till vänster visar hur appen sömlöst tickar uppåt i takt med att dina verifierade intäktskällor strömmar in.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. Roulette Sektion -->
+    <section id="roulette" class="section-container roulette-bg-section">
+        <div class="roulette-grid">
+            
+            <!-- Vänster kolumn: Information och textbeskrivning -->
+            <div class="info-content">
+                <span class="feature-tag">Smart Gamification</span>
+                <h2>Maximera dina besparingar med <span>Roulette-funktionen</span></h2>
+                <p>Gör sparandet roligare med vårt unika belöningshjul. Varje gång du når ett nytt sparmål eller sätter undan pengar får du chansen att använda vår fintech-roulette för att låsa upp exklusiva fördelar, räntebonusar eller cashback-erbjudanden.</p>
+                <p>Ett modernt sätt att använda beteendeekonomi för att bygga en starkare och stabilare ekonomisk framtid.</p>
+            </div>
+
+            <!-- Höger kolumn: Roulette video -->
+            <div class="video-box-premium">
+                <video class="video-player" controls loop muted playsinline>
+                    <source src="assets/roulette-video.mp4" type="video/mp4">
+                    Din webbläsare stödjer inte videotaggen.
+                </video>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Script för att driva realtidskvoten i Live Löndemo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counterElement = document.getElementById('salary-counter');
+            let currentSalary = 142.50; // Startvärde för demot
+            
+            // Uppdatera räknaren var 50:e millisekund för ett extremt mjukt flöde
+            setInterval(() => {
+                currentSalary += 0.0123;
+                counterElement.textContent = currentSalary.toFixed(2);
+            }, 50);
+        });
+    </script>
+</body>
 </html>
