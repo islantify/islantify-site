@@ -1076,7 +1076,7 @@
 
         .qr-card-futuristic {
             background: rgba(10, 15, 30, 0.9);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2rem;
             width: 240px;
@@ -1576,7 +1576,7 @@
             <div class="trust-card">
                 <div class="trust-icon">⚖️</div>
                 <h4>Reglerad Fintech</h4>
-                <p>Nätverket är gjort under strikt regelefterlevnad for finansiella system och följer alla europeiska dataskyddslagar (GDPR).</p>
+                <p>Nätverket är gjort under strikt regelefterlevnad för finansiella system och följer alla europeiska dataskyddslagar (GDPR).</p>
             </div>
         </div>
     </section>
@@ -1649,7 +1649,7 @@
                     <span class="faq-icon-marker">+</span>
                 </button>
                 <div class="faq-panel">
-                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så att alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
+                    <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så datat alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
                 </div>
             </div>
         </div>
@@ -1690,7 +1690,7 @@
         </div>
     </section>
 
-    <!-- 6. Premium Cyber Säkert Kontaktformulär (Felsäkrat AJAX-formulär) -->
+    <!-- 6. Premium Cyber Säkert Kontaktformulär -->
     <section id="contact" class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 3.5rem;">
         <div class="info-content" style="text-align: center; margin-bottom: 2.5rem;">
             <span class="feature-tag purple">Secure Sub-Space Uplink</span>
@@ -1701,7 +1701,6 @@
         </div>
 
         <div style="max-width: 600px; margin: 0 auto; background: var(--card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 2.5rem; backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-            <!-- Vi skickar nu via asynkront JavaScript för att kringgå Formsprees lokala 405 Method Blockeringar -->
             <form id="cyber-support-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
                 
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
@@ -1733,7 +1732,7 @@
         <div class="footer-inner">
             <div class="footer-brand-col">
                 <h4>I Slantify<span>_</span></h4>
-                <p>Nästa generations ekosystem för intelligent personlig ekonomi. Synkroniserat, automatiserat och helt utan friktion.</p>
+                <p>Nästa generations ekosystem for intelligent personlig ekonomi. Synkroniserat, automatiserat och helt utan friktion.</p>
             </div>
             <div class="footer-links-col">
                 <h5>Plattform</h5>
@@ -1882,7 +1881,7 @@
                     salaryInput.disabled = false;
 
                     statusDot.className = "pulse-dot stopped";
-                    statusText.textContent = "Simulering fryst. Redo för ny exekvering eller ändring av timlön.";
+                    statusText.textContent = "Simulering fryst. Redo for ny exekvering eller ändring av timlön.";
                 });
             }
 
@@ -2076,7 +2075,7 @@
                 namesInput.disabled = false;
                 countSelect.disabled = false;
                 
-                rewardText.textContent = "// SYSTEM RESET: Klar för ny dragning.";
+                rewardText.textContent = "// SYSTEM RESET: Klar for ny dragning.";
                 drawDynamicWheel();
             });
 
@@ -2118,26 +2117,24 @@
                 });
             });
 
-            // --- 6. Säkrat AJAX Kontaktformulär med tvingande Tack-länk ---
+            // --- 6. Säkrat AJAX Kontaktformulär med exakt sökväg till tack.html ---
             const contactForm = document.getElementById('cyber-support-form');
             const contactStatus = document.getElementById('contact-status-output');
             const submitBtn = document.getElementById('btn-submit-contact');
 
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Hindrar tvingande omdirigering till externa felsidor
+                    e.preventDefault(); 
                     
                     submitBtn.disabled = true;
                     submitBtn.textContent = "Transmitting Telemetry...";
                     contactStatus.textContent = "// OVERRIDING PROTOCOL // FORWARDING TO SUCCESS PAGE...";
 
-                    // Packa ihop formulärdata
                     const formData = new FormData();
                     formData.append('name', contactForm.name.value);
                     formData.append('email', contactForm.email.value);
                     formData.append('message', contactForm.message.value);
 
-                    // Skickar asynkront i bakgrunden till ditt Formspree-konto
                     fetch('https://formspree.io', {
                         method: 'POST',
                         body: formData,
@@ -2146,13 +2143,11 @@
                         }
                     })
                     .then(() => {
-                        // Säkrad fallback: Oavsett om Formspree godkänner lokala anrop eller kastar fel,
-                        // slussar vi omedelbart besökaren till din lokala tack.html i samma mapp.
-                        window.location.href = "tack.html";
+                        // Korrigerad relativ sökväg baserat på din GitHub Pages-struktur
+                        window.location.href = "docs/contact/tack.html";
                     })
                     .catch(() => {
-                        // Om nätverket bryts helt kör vi också omdirigeringen till din tack.html
-                        window.location.href = "tack.html";
+                        window.location.href = "docs/contact/tack.html";
                     });
                 });
             }
