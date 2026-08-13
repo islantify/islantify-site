@@ -13,21 +13,20 @@
 
     <style>
         :root {
-            --bg: #010206; /* Absolut premium nattsvart */
-            --card: rgba(10, 16, 30, 0.45); /* Hyper-transparent mörkt lyxglas */
-            --text: #f9fafb; 
-            --muted: #8c96a5; 
-
+            --bg: #060913; /* Mycket mer levande cyber-marinblå istället för nattsvart */
+            --card: rgba(15, 23, 42, 0.75); /* Ljusare, tätare och mer synligt glas */
+            --text: #ffffff; 
+            --muted: #a1a1aa; 
             --accent: #ff7a00; /* Islantify Cyber Orange */
-            --accent-glow: rgba(255, 122, 0, 0.4);
+            --accent-glow: rgba(255, 122, 0, 0.5);
             --cyber-cyan: #00f0ff; /* Framtids-cyan */
-            --cyan-glow: rgba(0, 240, 255, 0.35);
-            --cyber-purple: #9d4edd; /* Komplementär premium neon-lila */
-            --gold: #f59e0b; 
-            --radius: 28px;
+            --cyan-glow: rgba(0, 240, 255, 0.5);
+            --cyber-purple: #a255ff; /* Klarare framtidslila */
+            --gold: #fbbf24; 
+            --radius: 24px;
             --max-width: 1240px;
-            --glass-border: rgba(255, 255, 255, 0.035);
-            --glass-glow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-glow: inset 0 1px 2px rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -37,7 +36,6 @@
         }
 
         html {
-
             scroll-behavior: smooth;
         }
 
@@ -45,19 +43,18 @@
             background-color: var(--bg);
             color: var(--text);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* --- VÄRLDENS VACKRASTE MEsh-GRADIENTS (Levande kosmiska ljusmoln) --- */
+        /* --- EFFEKTFULL BAKGRUND (Starkare, tätare och ljusare kvantmoln) --- */
         .space-bg-glows {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-
             z-index: -2;
             pointer-events: none;
             overflow: hidden;
@@ -66,59 +63,55 @@
         .glow-node {
             position: absolute;
             border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.4;
+            filter: blur(100px); /* Krispigare blur för mer färgintensitet */
+            opacity: 0.55;
             mix-blend-mode: screen;
-            animation: float-glow 20s infinite alternate ease-in-out;
+            animation: float-glow 15s infinite alternate ease-in-out;
         }
 
         .glow-1 {
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255, 122, 0, 0.15) 0%, rgba(0,0,0,0) 70%);
-            top: -200px;
-
-            right: -100px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255, 122, 0, 0.25) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            right: -50px;
         }
 
         .glow-2 {
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0,0,0,0) 70%);
-            top: 600px;
-            left: -300px;
-            animation-delay: -5s;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.22) 0%, rgba(0,0,0,0) 70%);
+            top: 500px;
+            left: -200px;
+            animation-delay: -3s;
         }
 
         .glow-3 {
-            width: 900px;
-            height: 900px;
-            background: radial-gradient(circle, rgba(157, 78, 221, 0.1) 0%, rgba(0,0,0,0) 70%);
-            bottom: 300px;
-            right: -200px;
-            animation-delay: -10s;
-
+            width: 750px;
+            height: 750px;
+            background: radial-gradient(circle, rgba(162, 85, 255, 0.2) 0%, rgba(0,0,0,0) 70%);
+            bottom: 200px;
+            right: -100px;
+            animation-delay: -7s;
         }
 
         @keyframes float-glow {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 40px) scale(1.1); }
+            100% { transform: translate(30px, 30px) scale(1.05); }
         }
 
-        /* Subtilt kosmiskt partikelregn */
+        /* Tätare, mer synligt digitalt rutnät (Grid-system) */
         .stars-container {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
+            background-size: 40px 40px;
             background-image: 
-                radial-gradient(white 1px, transparent 1px),
-                radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px);
-            background-size: 550px 550px, 350px 350px;
-            background-position: 0 0, 40px 60px;
-
-            opacity: 0.15;
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            opacity: 0.8;
             z-index: -1;
             pointer-events: none;
         }
@@ -127,17 +120,16 @@
         .site-header {
             position: sticky;
             top: 0;
-            background: rgba(1, 2, 6, 0.35);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: rgba(6, 9, 19, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 100;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
         }
 
         .header-inner {
             max-width: var(--max-width);
-
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -149,97 +141,81 @@
             font-weight: 900;
             color: var(--text);
             text-decoration: none;
-            font-size: 1.6rem;
-            letter-spacing: 3px;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #fff 60%, var(--muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
-
 
         .brand span {
             color: var(--cyber-cyan);
-            -webkit-text-fill-color: var(--cyber-cyan);
             text-shadow: 0 0 15px var(--cyan-glow);
         }
 
         .main-nav {
             display: flex;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.015);
-            padding: 0.4rem 0.5rem;
+            gap: 0.25rem;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 0.3rem;
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.6);
+            border: 1px solid var(--glass-border);
         }
 
         .nav-link-btn {
             color: var(--muted);
-
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 0.65rem 1.4rem;
+            letter-spacing: 1px;
+            padding: 0.5rem 1.2rem;
             border-radius: 40px;
-            border: 1px solid transparent;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            transition: all 0.3s ease;
         }
 
         .nav-link-btn:hover {
             color: var(--cyber-cyan);
-            background: rgba(0, 240, 255, 0.05);
-            border-color: rgba(0, 240, 255, 0.2);
-
-            text-shadow: 0 0 10px var(--cyan-glow);
+            background: rgba(0, 240, 255, 0.08);
+            text-shadow: 0 0 8px var(--cyan-glow);
         }
 
         .nav-link-btn.active-dock {
             color: #fff;
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .cta-btn {
             background: linear-gradient(90deg, var(--accent) 0%, #ff4500 100%);
             color: white;
-            padding: 0.75rem 1.8rem;
+            padding: 0.65rem 1.5rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-
-            letter-spacing: 1.5px;
-            box-shadow: 0 0 20px var(--accent-glow);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(255,255,255,0.15);
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px var(--accent-glow);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .cta-btn:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 0 30px rgba(255, 122, 0, 0.7);
+            transform: translateY(-1px);
+            box-shadow: 0 0 25px rgba(255, 122, 0, 0.6);
         }
 
-        /* --- Sektion Container Layout --- */
+        /* --- Sektion Container Layout (Kompaktare marginaler) --- */
         .section-container {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 7rem 2rem;
+            padding: 4.5rem 2rem; /* Tätare flöde istället för glesa 7rem */
         }
 
         /* --- 1. Ren Cinematiskt Ultra Banner --- */
-
         .drake-banner-section {
-            padding: 2rem 2rem 0 2rem;
+            padding: 1.5rem 2rem 0 2rem;
         }
 
         .drake-banner-wrapper {
@@ -247,17 +223,16 @@
             margin: 0 auto;
             position: relative;
             width: 100%;
-            height: 580px;
+            height: 520px;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.95);
-            border: 1px solid rgba(255,255,255,0.04);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.08);
         }
 
         .drake-banner-video {
             width: 100%;
             height: 100%;
-
             object-fit: cover;
         }
 
@@ -265,86 +240,73 @@
         .banner-intro-content {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 6rem 2rem 0 2rem;
-            text-align: left;
+            padding: 4rem 2rem 0 2rem;
         }
 
         .banner-intro-content h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 5rem;
+            font-size: 4.2rem;
             font-weight: 900;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-            line-height: 1.05;
-            background: linear-gradient(135deg, #ffffff 20%, #a5b4fc 50%, #6366f1 100%);
-
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 30%, #c7d2fe 70%, #818cf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .banner-intro-content p {
-            color: var(--muted);
-            font-size: 1.45rem;
-            max-width: 920px;
-            font-weight: 300;
-            line-height: 1.75;
+            color: #d4d4d8;
+            font-size: 1.25rem;
+            max-width: 900px;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         /* --- 2. Live Lön Premium-Grid --- */
         .live-salary-grid {
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 5rem;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
             align-items: center;
-
         }
 
         .video-box-premium {
             position: relative;
             background: var(--card);
             border-radius: var(--radius);
-            padding: 1.2rem;
+            padding: 1rem;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), var(--glass-glow);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), var(--glass-glow);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            transition: border-color 0.4s ease;
-        }
-
-        .video-box-premium:hover {
-            border-color: rgba(0, 240, 255, 0.2);
         }
 
         .video-player {
-
             width: 100%;
-            border-radius: calc(var(--radius) - 12px);
+            border-radius: calc(var(--radius) - 10px);
             display: block;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
         }
 
         .info-content h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 700;
-            margin-bottom: 1.8rem;
-            letter-spacing: -0.03em;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
             line-height: 1.2;
         }
 
         .info-content h2 span {
             color: var(--cyber-cyan);
-            text-shadow: 0 0 20px var(--cyan-glow);
+            text-shadow: 0 0 15px var(--cyan-glow);
         }
 
-
         .info-content p {
-            color: var(--muted);
-            margin-bottom: 1.8rem;
-            font-size: 1.1rem;
-            font-weight: 300;
-            line-height: 1.8;
+            color: #d4d4d8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
         .info-content ul {
@@ -352,17 +314,15 @@
             margin-bottom: 1.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .info-content ul li {
-            font-size: 1rem;
-            color: var(--text);
-
+            font-size: 0.95rem;
+            color: #f4f4f5;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            font-weight: 400;
+            gap: 0.5rem;
         }
 
         .info-content ul li::before {
@@ -373,55 +333,49 @@
             text-shadow: 0 0 8px var(--cyan-glow);
         }
 
-        /* Lyxigt och interaktivt instrumentpanel för Live Löndemo */
+        /* Instrumentpanel för Live Löndemo - Tätare belysning */
         .live-salary-demo-box {
-            background: linear-gradient(135deg, rgba(14, 26, 51, 0.6) 0%, rgba(2, 5, 12, 0.95) 100%);
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            background: linear-gradient(135deg, rgba(20, 35, 65, 0.8) 0%, rgba(10, 15, 30, 0.95) 100%);
+            border: 1px solid rgba(0, 240, 255, 0.4);
             border-radius: var(--radius);
-
-            padding: 2.5rem;
-            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.04), var(--glass-glow);
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.08), var(--glass-glow);
             backdrop-filter: blur(20px);
         }
 
         .demo-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             color: var(--cyber-cyan);
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
-        /* Premium inmatning */
         .salary-input-wrapper {
-            background: rgba(1, 2, 6, 0.7);
-            border: 1px solid rgba(255,255,255,0.06);
-
-            border-radius: 16px;
-            padding: 0.9rem 1.2rem;
-            margin-bottom: 1.8rem;
+            background: rgba(5, 10, 25, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 0.75rem 1.2rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .salary-input-label {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
-            color: var(--muted);
+            color: #a1a1aa;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
         }
 
         .salary-input-field-container {
-
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
 
         .salary-input-field {
@@ -430,298 +384,223 @@
             outline: none;
             color: var(--cyber-cyan);
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-align: right;
-            width: 100px;
-            border-bottom: 2px solid rgba(0, 240, 255, 0.25);
+            width: 90px;
+            border-bottom: 2px solid rgba(0, 240, 255, 0.3);
             padding-bottom: 2px;
-            transition: all 0.3s ease;
-        }
-
-
-        .salary-input-field:focus {
-            border-color: var(--cyber-cyan);
-            text-shadow: 0 0 10px var(--cyan-glow);
-        }
-
-        .input-currency {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--muted);
-            font-weight: 700;
         }
 
         .counter-row {
             display: flex;
             align-items: baseline;
-            gap: 0.6rem;
-            margin-bottom: 1.8rem;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
         }
-
 
         .salary-counter {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
             font-variant-numeric: tabular-nums;
             color: #00ffaa;
-            text-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
+            text-shadow: 0 0 20px rgba(0, 255, 170, 0.5);
             letter-spacing: -1px;
         }
 
         .currency {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--muted);
+            color: #d4d4d8;
         }
 
-        /* Tidspanel */
         .time-counter-panel {
-
-            background: rgba(1, 2, 6, 0.6);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 1.2rem;
-            margin-bottom: 1.8rem;
+            background: rgba(5, 10, 25, 0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             text-align: center;
-            gap: 0.5rem;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
         }
 
         .time-block .time-val {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text);
-            font-variant-numeric: tabular-nums;
+            color: #fff;
         }
-
 
         .time-block .time-lbl {
-            font-size: 0.7rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 0.3rem;
-        }
-
-        /* Kontrollknappar */
-        .demo-controls {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.75rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .control-btn {
-            background: rgba(255,255,255,0.03);
-            color: var(--text);
-
-            border: 1px solid rgba(255,255,255,0.06);
-            padding: 0.9rem 0.2rem;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 0.65rem;
+            color: #a1a1aa;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .control-btn:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.2);
+        .demo-controls {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .control-btn {
+            background: rgba(255,255,255,0.05);
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.75rem 0.2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .control-btn:hover:not(:disabled) {
+            background: rgba(255,255,255,0.12);
             transform: translateY(-1px);
         }
 
         .control-btn.btn-start {
-
-            background: rgba(0, 255, 170, 0.08);
+            background: rgba(0, 255, 170, 0.12);
             color: #00ffaa;
-            border-color: rgba(0, 255, 170, 0.3);
+            border-color: rgba(0, 255, 170, 0.4);
         }
         .control-btn.btn-start:hover {
-            background: rgba(0, 255, 170, 0.16);
-            box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
         }
 
         .control-btn.btn-stop {
-            background: rgba(239, 68, 68, 0.08);
+            background: rgba(239, 68, 68, 0.12);
             color: #ef4444;
-            border-color: rgba(239, 68, 68, 0.3);
-        }
-        .control-btn.btn-stop:hover {
-            background: rgba(239, 68, 68, 0.16);
+            border-color: rgba(239, 68, 68, 0.4);
         }
 
         .control-btn:disabled {
-
-            opacity: 0.12;
+            opacity: 0.15;
             cursor: not-allowed;
-            background: transparent !important;
-            border-color: rgba(255,255,255,0.04) !important;
-            color: var(--muted) !important;
-            box-shadow: none !important;
-            transform: none !important;
         }
 
         .demo-footer-text {
             font-size: 0.8rem;
-            color: var(--muted);
-            margin-top: 1rem;
+            color: #a1a1aa;
+            margin-top: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.5rem;
             border-top: 1px solid var(--glass-border);
-            padding-top: 1.2rem;
-            line-height: 1.5;
-
+            padding-top: 1rem;
         }
 
-        /* --- HYPERMODERNT BENTO-GRID LAYOUT --- */
+        /* --- MODERN BENTO-GRID LAYOUT (Tätare struktur) --- */
         .bento-grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .bento-card {
             background: var(--card);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
-            padding: 3rem;
+            padding: 2.2rem;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5), var(--glass-glow);
-        }
-
-        .bento-card::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: radial-gradient(circle at top left, rgba(0, 240, 255, 0.06), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4), var(--glass-glow);
         }
 
         .bento-card:hover {
-            transform: translateY(-6px);
-
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.05);
-        }
-
-        .bento-card:hover::after {
-            opacity: 1;
+            transform: translateY(-4px);
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.08);
         }
 
         .bento-wide { grid-column: span 2; }
-        .bento-tall { grid-row: span 1; }
 
         .bento-card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 1.2rem;
-            color: var(--text);
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
             letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-
-            gap: 0.6rem;
         }
 
         .bento-card p {
-            color: var(--muted);
-            font-size: 1rem;
+            color: #d4d4d8;
+            font-size: 0.95rem;
             font-weight: 300;
-            line-height: 1.65;
+            line-height: 1.5;
         }
 
         /* --- 3. Cyber Roulette Sektion --- */
         .roulette-grid {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
-            gap: 5rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .roulette-interactive-preview {
-
-            background: linear-gradient(135deg, rgba(24, 14, 43, 0.6) 0%, rgba(2, 4, 10, 0.98) 100%);
-            border: 1px solid rgba(157, 78, 221, 0.35);
+            background: linear-gradient(135deg, rgba(35, 20, 60, 0.7) 0%, rgba(10, 15, 30, 0.98) 100%);
+            border: 1px solid rgba(162, 85, 255, 0.5);
             border-radius: var(--radius);
-            padding: 3rem;
+            padding: 2.5rem;
             text-align: center;
-            box-shadow: 0 0 50px rgba(157, 78, 221, 0.06), var(--glass-glow);
-            position: relative;
+            box-shadow: 0 0 40px rgba(162, 85, 255, 0.1), var(--glass-glow);
             backdrop-filter: blur(20px);
         }
 
         .roulette-inputs-wrapper {
-            background: rgba(1, 2, 6, 0.7);
-            border: 1px solid rgba(157, 78, 221, 0.2);
-            border-radius: 16px;
-            padding: 1rem 1.2rem;
-            margin-bottom: 2rem;
+            background: rgba(5, 10, 25, 0.8);
+            border: 1px solid rgba(162, 85, 255, 0.3);
+            border-radius: 14px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 1.5rem;
             text-align: left;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
-
 
         .roulette-inputs-label {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             color: var(--cyber-purple);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             display: block;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem;
         }
 
         .roulette-input-field {
             background: transparent;
             border: none;
             outline: none;
-            color: var(--text);
-            font-size: 1rem;
+            color: #fff;
+            font-size: 0.95rem;
             width: 100%;
-            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
-            padding-bottom: 6px;
-
-            transition: all 0.3s ease;
-        }
-
-        .roulette-input-field:focus {
-            border-color: var(--cyber-purple);
-            text-shadow: 0 0 8px rgba(157, 78, 221, 0.5);
+            border-bottom: 1px solid rgba(162, 85, 255, 0.4);
+            padding-bottom: 4px;
         }
 
         .wheel-outer-box {
             position: relative;
-            width: 260px;
-            height: 260px;
-            margin: 0 auto 2.5rem auto;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 2rem auto;
         }
 
         .wheel-container {
             width: 100%;
             height: 100%;
             position: relative;
-
             transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
         }
 
@@ -730,9 +609,9 @@
             height: 100%;
             transform: rotate(-90deg);
             border-radius: 50%;
-            border: 8px solid #090a0f;
-            box-shadow: 0 0 35px rgba(157, 78, 221, 0.5);
-            background: #090a0f;
+            border: 6px solid #060913;
+            box-shadow: 0 0 25px rgba(162, 85, 255, 0.4);
+            background: #060913;
         }
 
         .wheel-text {
@@ -741,35 +620,32 @@
             font-weight: 700;
             fill: #ffffff;
             text-anchor: middle;
-
-            letter-spacing: 0.5px;
         }
 
         .wheel-pointer {
             position: absolute;
-            top: -18px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 14px solid transparent;
-            border-right: 14px solid transparent;
-            border-top: 26px solid var(--cyber-purple);
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 22px solid var(--cyber-purple);
             z-index: 15;
-            filter: drop-shadow(0 0 10px var(--cyber-purple));
+            filter: drop-shadow(0 0 8px var(--cyber-purple));
         }
 
         .wheel-center-pin {
             position: absolute;
-
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             background: #fff;
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255,255,255,0.9);
+            box-shadow: 0 0 10px #fff;
             z-index: 16;
         }
 
@@ -777,71 +653,65 @@
             background: linear-gradient(90deg, var(--cyber-purple) 0%, #7b2cbf 100%);
             color: #fff;
             border: none;
-            padding: 0.9rem 2.5rem;
+            padding: 0.8rem 2.2rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 0.85rem;
-
-            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             border-radius: 30px;
             cursor: pointer;
             text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 15px rgba(162, 85, 255, 0.5);
+            transition: all 0.2s;
         }
 
         .roulette-btn:hover {
-            transform: scale(1.03) translateY(-1px);
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.8);
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(162, 85, 255, 0.8);
         }
 
         .roulette-reward-output {
-            margin-top: 1.8rem;
+            margin-top: 1.5rem;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--muted);
-
-            min-height: 24px;
+            font-size: 0.85rem;
+            color: #d4d4d8;
+            min-height: 20px;
             border-top: 1px solid var(--glass-border);
-            padding-top: 1.2rem;
+            padding-top: 1rem;
         }
 
         /* --- 4. Slantify AI Quantum Neural Hub --- */
         .ai-quantum-section {
-            background: radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.08), transparent 60%), var(--card);
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            background: radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.12), transparent 60%), var(--card);
+            border: 1px solid rgba(0, 240, 255, 0.3);
             border-radius: var(--radius);
-            margin-bottom: 6rem;
-            padding: 5rem 3rem;
+            margin-bottom: 4rem;
+            padding: 4rem 2.5rem;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
         .ai-terminal-box {
-            background: #010206;
-
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px;
-            margin-top: 3rem;
-            padding: 2rem;
+            background: #04060f;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            margin-top: 2rem;
+            padding: 1.5rem;
             text-align: left;
-            box-shadow: inset 0 4px 20px rgba(0,0,0,0.9);
         }
 
         .terminal-header {
             display: flex;
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            padding-bottom: 0.8rem;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 0.6rem;
         }
 
         .terminal-dot {
-            width: 12px;
-            height: 12px;
-
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: #ef4444;
         }
@@ -849,65 +719,60 @@
         .terminal-dot:nth-child(3) { background: #10b981; }
 
         .terminal-query-trigger {
-            background: rgba(255,255,255,0.02);
+            background: rgba(255,255,255,0.04);
             border: 1px solid var(--glass-border);
-            padding: 1.1rem 1.4rem;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            color: var(--text);
+            padding: 0.9rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #e4e4e7;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            margin-bottom: 1rem;
+            transition: all 0.2s;
+            margin-bottom: 0.75rem;
             width: 100%;
             text-align: left;
             display: block;
-
         }
 
         .terminal-query-trigger:hover {
-            background: rgba(0, 240, 255, 0.05);
-            border-color: rgba(0, 240, 255, 0.35);
-            transform: translateX(6px);
+            background: rgba(0, 240, 255, 0.08);
+            border-color: rgba(0, 240, 255, 0.4);
+            transform: translateX(4px);
             color: #fff;
         }
 
         .terminal-response-screen {
-            background: rgba(255,255,255,0.005);
-            border: 1px solid rgba(255,255,255,0.02);
-            border-radius: 12px;
-            padding: 1.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            background: rgba(0, 240, 255, 0.02);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 10px;
+            padding: 1.2rem;
+            font-size: 0.95rem;
             color: var(--cyber-cyan);
-            min-height: 90px;
-            margin-top: 2rem;
-
+            min-height: 80px;
+            margin-top: 1.5rem;
             border-left: 4px solid var(--cyber-cyan);
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-            line-height: 1.7;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
         }
 
-        /* --- SAKNADE DELAR 1: KRYPTERAD TRUST PANEL --- */
+        /* --- TRUST SHIELD PANEL (Fylligare design) --- */
         .trust-shield-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 6rem;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
         .trust-card {
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.02) 0%, rgba(2,4,10,0.8) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(15,23,42,0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
-
-            box-shadow: var(--glass-glow);
+            box-shadow: var(--glass-glow), 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .trust-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
             color: var(--cyber-cyan);
             text-shadow: 0 0 10px var(--cyan-glow);
         }
@@ -915,85 +780,74 @@
         .trust-card h4 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
         }
 
         .trust-card p {
             font-size: 0.9rem;
-
-            color: var(--muted);
+            color: #d4d4d8;
             font-weight: 300;
         }
 
-        /* --- SAKNADE DELAR 2: LYXIGA PRISKORT (PRICING) --- */
+        /* --- PRISKORT (PRICING LYX-GLAS) --- */
         .pricing-section-title {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            gap: 2rem;
             max-width: 900px;
-            margin: 0 auto 6rem auto;
+            margin: 0 auto 4rem auto;
         }
 
         .pricing-card {
-
-            background: var(--card);
-            border: 1px solid var(--glass-border);
+            background: rgba(20, 30, 55, 0.85); /* Tätare och mindre transparent */
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: var(--radius);
-            padding: 3.5rem;
+            padding: 3rem;
             position: relative;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), var(--glass-glow);
         }
 
         .pricing-card.premium-tier {
-            border-color: rgba(255, 122, 0, 0.3);
-            background: linear-gradient(135deg, rgba(255, 122, 0, 0.03) 0%, rgba(1,2,6,0.9) 100%);
-            box-shadow: 0 30px 60px rgba(255, 122, 0, 0.05);
+            border-color: rgba(255, 122, 0, 0.45);
+            background: linear-gradient(135deg, rgba(255, 122, 0, 0.08) 0%, rgba(10,16,30,0.95) 100%);
+            box-shadow: 0 25px 50px rgba(255, 122, 0, 0.1);
         }
-
-        .pricing-card:hover {
-            transform: translateY(-4px);
-        }
-
 
         .tier-badge {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 0.3rem 0.8rem;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
         }
 
         .tier-badge.orange-lbl {
-            background: rgba(255, 122, 0, 0.15);
+            background: rgba(255, 122, 0, 0.2);
             border-color: var(--accent);
-            color: var(--accent);
+            color: #fff;
+            text-shadow: 0 0 5px var(--accent-glow);
         }
-
 
         .pricing-card h4 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .price-tag {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 900;
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
             color: #fff;
             display: flex;
             align-items: baseline;
@@ -1002,27 +856,24 @@
         }
 
         .price-tag span {
-
-            font-size: 1rem;
-            color: var(--muted);
+            font-size: 0.95rem;
+            color: #a1a1aa;
             font-family: 'Inter', sans-serif;
-            font-weight: 300;
         }
 
         .pricing-features-list {
             list-style: none;
-            margin: 2rem 0;
-            border-top: 1px solid var(--glass-border);
-            padding-top: 1.5rem;
+            margin: 1.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.2rem;
         }
 
         .pricing-features-list li {
             font-size: 0.95rem;
-            color: var(--text);
-            margin-bottom: 0.8rem;
+            color: #f4f4f5;
+            margin-bottom: 0.6rem;
             display: flex;
             align-items: center;
-
             gap: 0.5rem;
         }
 
@@ -1039,59 +890,51 @@
         .pricing-btn {
             display: block;
             text-align: center;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
             color: #fff;
-
-            padding: 0.8rem;
+            padding: 0.75rem;
             border-radius: 12px;
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.8rem;
             font-weight: 700;
-            letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
         }
 
         .pricing-btn:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
         }
 
         .pricing-btn.btn-orange-tier {
             background: linear-gradient(90deg, var(--accent) 0%, #ff5500 100%);
-            border: none;
-
+            border: 1px solid rgba(255,255,255,0.2);
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
         .pricing-btn.btn-orange-tier:hover {
-            box-shadow: 0 0 25px rgba(255, 122, 0, 0.5);
+            box-shadow: 0 0 25px rgba(255, 122, 0, 0.6);
         }
 
-        /* --- SAKNADE DELAR 3: INTERAKTIV FAQ ACCORDION --- */
+        /* --- FAQ ACCORDION --- */
         .faq-max-width {
             max-width: 800px;
-            margin: 0 auto 6rem auto;
+            margin: 0 auto 4rem auto;
         }
 
         .faq-item {
-            background: rgba(10, 16, 30, 0.3);
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid var(--glass-border);
-            border-radius: 14px;
-            margin-bottom: 1rem;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
             overflow: hidden;
-
-            transition: all 0.3s ease;
         }
 
         .faq-item p {
-            padding: 0 1.5rem 1.5rem 1.5rem;
-            color: var(--muted);
+            padding: 0 1.25rem 1.25rem 1.25rem;
+            color: #d4d4d8;
             font-size: 0.95rem;
-            font-weight: 300;
-            line-height: 1.6;
         }
 
         .faq-trigger {
@@ -1099,12 +942,11 @@
             background: transparent;
             border: none;
             outline: none;
-            padding: 1.5rem;
+            padding: 1.25rem;
             text-align: left;
             color: #fff;
-
             font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
@@ -1117,23 +959,19 @@
         }
 
         .faq-icon-marker {
-            font-size: 1.2rem;
-            color: var(--muted);
-            transition: transform 0.3s ease;
+            font-size: 1.1rem;
+            color: #a1a1aa;
         }
-
 
         .faq-panel {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            background: rgba(1, 2, 6, 0.4);
+            background: rgba(5, 10, 25, 0.4);
         }
 
-        /* Aktivt FAQ-läge via JS-klasser */
         .faq-item.faq-open {
-            border-color: rgba(0, 240, 255, 0.2);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border-color: rgba(0, 240, 255, 0.3);
         }
         .faq-item.faq-open .faq-icon-marker {
             transform: rotate(45deg);
@@ -1142,133 +980,100 @@
 
         /* --- 5. Framtids QR & Nedladdningsmodul --- */
         .download-universe {
-
             text-align: center;
-            background: linear-gradient(180deg, rgba(1,2,6,0) 0%, rgba(10,16,30,0.5) 100%);
+            background: linear-gradient(180deg, rgba(6,9,19,0) 0%, rgba(15,23,42,0.4) 100%);
             border-radius: var(--radius);
-            padding: 6rem 2rem;
+            padding: 4.5rem 2rem;
             border: 1px solid var(--glass-border);
             position: relative;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
-            margin-bottom: 6rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            margin-bottom: 4rem;
         }
 
         .qr-wrapper-main {
             display: flex;
             justify-content: center;
-            gap: 5rem;
-            margin-top: 4rem;
+            gap: 4rem;
+            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
 
         .qr-card-futuristic {
-
-            background: rgba(1, 2, 6, 0.85);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            width: 260px;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: var(--glass-glow), 0 20px 40px rgba(0,0,0,0.6);
+            background: rgba(10, 15, 30, 0.9);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 240px;
+            box-shadow: var(--glass-glow), 0 15px 30px rgba(0,0,0,0.5);
         }
 
         .qr-card-futuristic:hover {
             border-color: var(--cyber-cyan);
-            box-shadow: 0 0 35px rgba(0, 240, 255, 0.2);
-            transform: translateY(-6px);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
         }
 
         .qr-hologram-placeholder {
-            width: 170px;
-            height: 170px;
-
-            margin: 0 auto 1.8rem auto;
-            border: 1px solid rgba(0, 240, 255, 0.4);
-            border-radius: 14px;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem auto;
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            border-radius: 12px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 240, 255, 0.02);
+            background: rgba(0, 240, 255, 0.04);
             overflow: hidden;
-            padding: 12px;
+            padding: 10px;
         }
 
         .cyber-qr-matrix {
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(rgba(0, 240, 255, 0.85) 2px, transparent 3px),
-                linear-gradient(90deg, transparent 4px, rgba(0, 240, 255, 0.12) 4px, rgba(0, 240, 255, 0.12) 6px, transparent 6px),
-                linear-gradient(0deg, transparent 4px, rgba(0, 240, 255, 0.12) 4px, rgba(0, 240, 255, 0.12) 6px, transparent 6px);
-
-            background-size: 10px 10px, 10px 10px, 10px 10px;
+                radial-gradient(rgba(0, 240, 255, 0.95) 2px, transparent 3px),
+                linear-gradient(90deg, transparent 4px, rgba(0, 240, 255, 0.2) 4px, rgba(0, 240, 255, 0.2) 6px, transparent 6px),
+                linear-gradient(0deg, transparent 4px, rgba(0, 240, 255, 0.2) 4px, rgba(0, 240, 255, 0.2) 6px, transparent 6px);
+            background-size: 8px 8px, 8px 8px, 8px 8px;
             position: relative;
-            border: 4px solid rgba(0, 240, 255, 0.8);
+            border: 3px solid rgba(0, 240, 255, 0.85);
         }
 
-        .cyber-qr-matrix::before {
+        .cyber-qr-matrix::before, .cyber-qr-matrix::after, .qr-top-right-finder {
             content: "";
             position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 32px;
-            height: 32px;
-            border: 4px solid var(--cyber-cyan);
-            background: var(--bg);
-            box-shadow: 0 0 10px var(--cyber-cyan);
+            width: 26px;
+            height: 26px;
+            border: 3px solid var(--cyber-cyan);
+            background: #060913;
+            box-shadow: 0 0 8px var(--cyber-cyan);
         }
-
-        .cyber-qr-matrix::after {
-            content: "";
-
-            position: absolute;
-            bottom: 2px;
-            left: 2px;
-            width: 32px;
-            height: 32px;
-            border: 4px solid var(--cyber-cyan);
-            background: var(--bg);
-            box-shadow: 0 0 10px var(--cyber-cyan);
-        }
-
-        .qr-top-right-finder {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            width: 32px;
-            height: 32px;
-            border: 4px solid var(--cyber-cyan);
-            background: var(--bg);
-            box-shadow: 0 0 10px var(--cyber-cyan);
-
-            z-index: 5;
-        }
+        .cyber-qr-matrix::before { top: 2px; left: 2px; }
+        .cyber-qr-matrix::after { bottom: 2px; left: 2px; }
+        .qr-top-right-finder { top: 2px; right: 2px; z-index: 5; }
 
         .qr-overlay-text {
             position: absolute;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            color: var(--bg);
+            color: #060913;
             background: var(--cyber-cyan);
-            padding: 0.15rem 0.5rem;
+            padding: 0.1rem 0.4rem;
             border-radius: 4px;
-            box-shadow: 0 0 12px var(--cyber-cyan);
+            box-shadow: 0 0 10px var(--cyber-cyan);
             z-index: 10;
         }
 
         .qr-scanner-line {
             position: absolute;
             width: 100%;
-
             height: 2px;
             background: var(--cyber-cyan);
-            box-shadow: 0 0 15px var(--cyber-cyan);
+            box-shadow: 0 0 12px var(--cyber-cyan);
             top: 0;
             z-index: 12;
-            animation: scan-line 3.2s linear infinite;
+            animation: scan-line 3s linear infinite;
         }
 
         @keyframes scan-line {
@@ -1279,140 +1084,121 @@
 
         .qr-card-futuristic h4 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.4rem;
-
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
         }
 
         .qr-card-futuristic p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--muted);
         }
 
-        /* --- SAKNADE DELAR 4: PROFESSIONAL ULTRA FOOTER --- */
+        /* --- PROFESSIONAL ULTRA FOOTER --- */
         .site-footer {
             border-top: 1px solid var(--glass-border);
-            background: rgba(1, 2, 6, 0.8);
-            padding: 4.5rem 2rem 2rem 2rem;
-            backdrop-filter: blur(20px);
+            background: rgba(4, 6, 14, 0.9);
+            padding: 3.5rem 2rem 2rem 2rem;
         }
 
         .footer-inner {
             max-width: var(--max-width);
             margin: 0 auto;
             display: grid;
-
             grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 4rem;
+            gap: 3rem;
         }
 
         .footer-brand-col h4 {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            font-size: 1.3rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
         }
 
-        .footer-brand-col h4 span {
-            color: var(--cyber-cyan);
-        }
+        .footer-brand-col h4 span { color: var(--cyber-cyan); }
 
         .footer-brand-col p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--muted);
-
-            font-weight: 300;
-            max-width: 280px;
+            max-width: 260px;
         }
 
         .footer-links-col h5 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: #fff;
         }
 
-        .footer-links-col ul {
-            list-style: none;
-        }
-
         .footer-links-col ul li {
-            margin-bottom: 0.75rem;
-
+            list-style: none;
+            margin-bottom: 0.6rem;
         }
 
         .footer-links-col ul li a {
             color: var(--muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 300;
+            font-size: 0.85rem;
             transition: color 0.2s ease;
         }
 
-        .footer-links-col ul li a:hover {
-            color: var(--cyber-cyan);
-        }
+        .footer-links-col ul li a:hover { color: var(--cyber-cyan); }
 
         .footer-copyright {
             max-width: var(--max-width);
-            margin: 4rem auto 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.03);
-
+            margin: 3rem auto 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 0.8rem;
-            color: rgba(255,255,255,0.25);
-            font-weight: 300;
+            color: rgba(255,255,255,0.3);
         }
 
         /* --- Globala Premium UI taggar --- */
         .feature-tag {
             display: inline-block;
-            background: rgba(0, 240, 255, 0.05);
+            background: rgba(0, 240, 255, 0.08);
             color: var(--cyber-cyan);
-            padding: 0.45rem 1.4rem;
+            padding: 0.35rem 1.2rem;
             border-radius: 30px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            letter-spacing: 2px;
-
-            margin-bottom: 1.4rem;
-            border: 1px solid rgba(0, 240, 255, 0.15);
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 240, 255, 0.25);
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
         }
 
         .feature-tag.gold {
-            background: rgba(245, 158, 11, 0.05);
+            background: rgba(251, 191, 36, 0.08);
             color: var(--gold);
-            border-color: rgba(245, 158, 11, 0.15);
+            border-color: rgba(251, 191, 36, 0.25);
         }
 
         .feature-tag.purple {
-            background: rgba(157, 78, 221, 0.06);
+            background: rgba(162, 85, 255, 0.08);
             color: var(--cyber-purple);
-            border-color: rgba(157, 78, 221, 0.18);
+            border-color: rgba(162, 85, 255, 0.25);
         }
 
         @media (max-width: 968px) {
-
             .live-salary-grid, .roulette-grid, .bento-grid-container, .trust-shield-container, .pricing-grid, .footer-inner {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2.5rem;
             }
             .bento-wide { grid-column: span 1; }
             .info-content { order: -1; }
-            .drake-banner-wrapper { height: 350px; }
-            .banner-intro-content h1 { font-size: 3rem; }
+            .drake-banner-wrapper { height: 320px; }
+            .banner-intro-content h1 { font-size: 2.6rem; }
             .main-nav { display: none; }
-            .footer-copyright { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-copyright { flex-direction: column; gap: 0.8rem; text-align: center; }
         }
     </style>
 </head>
@@ -1422,7 +1208,6 @@
     <div class="space-bg-glows">
         <div class="glow-node glow-1"></div>
         <div class="glow-node glow-2"></div>
-
         <div class="glow-node glow-3"></div>
     </div>
     <div class="stars-container"></div>
@@ -1441,7 +1226,6 @@
             <a href="#download" class="cta-btn">Anslut Appen</a>
         </div>
     </header>
-
 
     <!-- 1. Ren Cinematiskt Ultra Banner -->
     <section id="home" class="drake-banner-section">
@@ -1462,7 +1246,6 @@
 
     <!-- Lyxigt Bento Grid Arkitektur (Översikt) -->
     <section class="section-container">
-
         <div class="bento-grid-container">
             <div class="bento-card bento-wide">
                 <h3>🏠 Home – Matrix Core</h3>
@@ -1480,9 +1263,8 @@
         <div class="live-salary-grid">
             
             <!-- Vänster kolumn: Video och den interaktiva livedemon -->
-            <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
                 <div class="video-box-premium">
-
                     <video class="video-player" controls autoplay loop muted playsinline>
                         <source src="assets/live lön video.mp4" type="video/mp4">
                         Din webbläsare stödjer inte videotaggen.
@@ -1501,7 +1283,6 @@
                             <span class="input-currency">KR/H</span>
                         </div>
                     </div>
-
 
                     <div class="counter-row">
                         <div id="salary-counter" class="salary-counter">0.00</div>
@@ -1522,7 +1303,6 @@
                             <div id="val-seconds" class="time-val">00</div>
                             <div class="time-lbl">Sec</div>
                         </div>
-
                     </div>
 
                     <!-- Kontrollknappar för demot -->
@@ -1542,7 +1322,6 @@
 
             <!-- Höger kolumn: Information och textbeskrivning -->
             <div class="info-content">
-
                 <span class="feature-tag">Time-Injected Income</span>
                 <h2>Följ din lön växa <span>sekund för sekund</span></h2>
                 <p>Live Income upphäver den traditionella månadsväntan. Genom att spåra dina aktiva arbetspass ger I Slantify gid en visuell algoritmisk ström av din intjäning i exakt realtid.</p>
@@ -1561,8 +1340,7 @@
 
     <!-- Bento Grid Fas 2 (Ecosystem) -->
     <section id="ecosystem" class="section-container">
-        <div class="info-content" style="margin-bottom: 4rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-
+        <div class="info-content" style="margin-bottom: 2.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
             <span class="feature-tag">Unified Infrastructure</span>
             <h2>Ett nätverk. Helt utan friktion.</h2>
         </div>
@@ -1582,7 +1360,6 @@
             <div class="bento-card bento-wide">
                 <h3>📊 Predictive Money Hub</h3>
                 <p>Bryt ner dina utgiftsmönster. Islantify analyserar din konsumtion och bygger prediktiva kalkyler som visar hur dagens köp påverkar din framtida likviditet, sparmål och buffertar.</p>
-
             </div>
             <div class="bento-card">
                 <h3>🎯 Smart Savings</h3>
@@ -1602,7 +1379,6 @@
             <!-- Vänster kolumn: Information och textbeskrivning -->
             <div class="info-content">
                 <span class="feature-tag purple">Social Splitting Hub</span>
-
                 <h2>Vem betalar notan? <span>Slumpa via Roulette</span></h2>
                 <p>I Slantify Roulette handlar inte bara om att vinna räntebonusar. Använd funktionen direkt i restaurangen eller baren med ditt kompisgäng för att lösa notan på ett interaktivt och spännande sätt.</p>
                 <p>Skriv in era namn i modulen till höger, separerade med kommatecken. Vår slumpgenerator fördelar hjulet rättvist, målar bitarna och renderar namnen direkt i cirkelelementet live.</p>
@@ -1622,7 +1398,6 @@
                     <div id="wheel-container" class="wheel-container">
                         <!-- SVG genereras dynamiskt av JavaScript här för att hantera text på tårtbitar -->
                         <svg id="roulette-svg" class="wheel-svg" viewBox="0 0 200 200">
-
                             <circle cx="100" cy="100" r="95" fill="#090a0f" />
                         </svg>
                         <div class="wheel-center-pin"></div>
@@ -1642,7 +1417,6 @@
             <div class="info-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <span class="feature-tag" style="background: rgba(0, 240, 255, 0.05); color: var(--cyber-cyan);">Neural Engine</span>
                 <h2>Slantify AI – Autonom Rådgivning</h2>
-
                 <p style="margin-top: 1rem; font-weight: 300;">Kommunicera direkt med din personliga finansiella AI. Klicka på en telemetrifråga nedan för att simulera AI:ns neurala beräkningssvar.</p>
                 
                 <div class="ai-terminal-box">
@@ -1663,7 +1437,6 @@
                         &gt; "Generera en optimerad budget kalkyl inför nästa likviditetscykel."
                     </button>
 
-
                     <!-- Resulterande skärm -->
                     <div id="ai-response-display" class="terminal-response-screen">
                         // VÄNTAR PÅ TELEMETRICOMMAND... Klicka på en finansiell fråga ovan för att initiera neural exekvering.
@@ -1674,8 +1447,8 @@
     </section>
 
     <!-- TRUST & SÄKERHET -->
-    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 5rem;">
-        <div class="info-content" style="text-align: center; margin-bottom: 3.5rem;">
+    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 3.5rem;">
+        <div class="info-content" style="text-align: center; margin-bottom: 2.5rem;">
             <span class="feature-tag">Krypterad Säkerhet</span>
             <h2>Dina pengar är trygga hos oss</h2>
         </div>
@@ -1683,28 +1456,26 @@
             <div class="trust-card">
                 <div class="trust-icon">🛡️</div>
                 <h4>Banknivå-Kryptering</h4>
-
                 <p>All dataöverföring och synkronisering skyddas med 256-bitars AES-kryptering – samma militära säkerhetsstandard som storbankerna använder.</p>
             </div>
             <div class="trust-card">
                 <div class="trust-icon">🔑</div>
                 <h4>Säker BankID-anslutning</h4>
-                <p>Vi lagrar aldrig dina bankuppgifter eller lösenord. Autentisering sker direkt via officiella, krypterade BankID-protokoll.</p>
+                <p>Vi lagrar aldrig dina bankuppgifter eller lösenord. Autentisering sker direkt via resmiella, krypterade BankID-protokoll.</p>
             </div>
             <div class="trust-card">
                 <div class="trust-icon">⚖️</div>
                 <h4>Reglerad Fintech</h4>
-                <p>Nätverket är byggt under strikt regelefterlevnad for finansiella system och följer alla europeiska dataskyddslagar (GDPR).</p>
+                <p>Nätverket är gjort under strikt regelefterlevnad för finansiella system och följer alla europeiska dataskyddslagar (GDPR).</p>
             </div>
         </div>
     </section>
 
-    <!-- LYXIGA PRISPLANER (PRICING UPDATED WITH NEW BUSINESS PLAN) -->
-    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 5rem;">
+    <!-- LYXIGA PRISPLANER -->
+    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 3.5rem;">
         <div class="pricing-section-title">
             <span class="feature-tag gold">Flexibla Medlemskap</span>
-
-            <h2 style="font-family:'Orbitron',sans-serif; font-size: 2.5rem;">Välj din finansiella kapacitet</h2>
+            <h2 style="font-family:'Orbitron',sans-serif; font-size: 2.3rem;">Välj din finansiella kapacitet</h2>
         </div>
         
         <div class="pricing-grid">
@@ -1724,13 +1495,12 @@
                 <a href="#download" class="pricing-btn">Initiera Gratis</a>
             </div>
 
-
             <!-- Premium plan -->
             <div class="pricing-card premium-tier">
                 <div class="tier-badge orange-lbl">Most Popular</div>
                 <h4>Quantum Pro</h4>
                 <p style="color: var(--muted); font-size: 0.9rem; font-weight: 300;">Komplett finansiell access till hela ekosystemet</p>
-                <div class="price-tag">20 kr <span>/ mån</span> <span style="font-size:0.95rem; font-weight:300; display:block; width:100%; margin-top:0.4rem; color:var(--cyber-cyan); letter-spacing:1px;">eller 199 kr / år</span></div>
+                <div class="price-tag">20 kr <span>/ mån</span> <span style="font-size:0.95rem; font-weight:300; display:block; width:100%; margin-top:0.2rem; color:var(--cyber-cyan); letter-spacing:1px;">eller 199 kr / år</span></div>
                 
                 <ul class="pricing-features-list">
                     <li><strong>Allt i Free ingår omedelbart</strong></li>
@@ -1744,13 +1514,12 @@
                 </ul>
                 <a href="#download" class="pricing-btn btn-orange-tier">Aktivera Premium</a>
             </div>
-
         </div>
     </section>
 
     <!-- INTERAKTIV FAQ -->
-    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 5rem;">
-        <div class="info-content" style="text-align: center; margin-bottom: 4rem;">
+    <section class="section-container" style="border-top: 1px solid var(--glass-border); padding-top: 3.5rem;">
+        <div class="info-content" style="text-align: center; margin-bottom: 3rem;">
             <span class="feature-tag purple">Hjälpcenter</span>
             <h2>Vanliga frågor om I Slantify</h2>
         </div>
@@ -1764,7 +1533,6 @@
                 <div class="faq-panel">
                     <p>Live Income kopplas samman med ditt angivna arbetsschema i Chrono Calendar och din verifierade timlön. Systemet kalkylerar din brutto- och nettoinkomst i realtid och fördelar ut summan per millisekund så att du visuellt kan följa kapitalet du bygger upp medan du arbetar.</p>
                 </div>
-
             </div>
 
             <div class="faq-item">
@@ -1784,7 +1552,6 @@
                 </button>
                 <div class="faq-panel">
                     <p>Vår Roulette-modul använder en kryptografiskt säker algoritm för slumpmässiga val. När ni skriver in namnen delas hjulet upp i exakt lika stora tårtbitar, vilket innebär datan roteras så att alla deltagare i kompisgänget har exakt samma matematiska chans (eller risk!) att få notan tilldelad sig.</p>
-
                 </div>
             </div>
         </div>
@@ -1794,7 +1561,7 @@
     <section id="download" class="section-container">
         <div class="download-universe">
             <span class="feature-tag gold">Secure Telemetry Link</span>
-            <h2 style="font-family:'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Ladda ner applikationen</h2>
+            <h2 style="font-family:'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 0.5rem;">Ladda ner applikationen</h2>
             <p style="color: var(--muted); font-weight: 300; max-width: 600px; margin: 0 auto;">Skanna matris-koden med din mobila enhets optiska sensor för att omedelbart initiera krypterad nedladdning.</p>
             
             <div class="qr-wrapper-main">
@@ -1804,7 +1571,6 @@
                         <div class="qr-scanner-line"></div>
                         <div class="cyber-qr-matrix">
                             <div class="qr-top-right-finder"></div>
-
                         </div>
                         <div class="qr-overlay-text">iOS</div>
                     </div>
@@ -1824,7 +1590,6 @@
                     <h4>Google Play</h4>
                     <p>För Android-enheter</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -1844,7 +1609,6 @@
                     <li><a href="#ecosystem">Bento Ecosystem</a></li>
                     <li><a href="#roulette">Social Roulette</a></li>
                 </ul>
-
             </div>
             <div class="footer-links-col">
                 <h5>Säkerhet</h5>
@@ -1864,7 +1628,6 @@
                     <li><a href="#">Fintech Network</a></li>
                 </ul>
             </div>
-
         </div>
         <div class="footer-copyright">
             <div>© 2026 I Slantify Network Inc. All rights reserved. Encrypted Connection Active.</div>
@@ -1884,7 +1647,6 @@
             const btnStart = document.getElementById('btn-start');
             const btnPause = document.getElementById('btn-pause');
             const btnStop = document.getElementById('btn-stop');
-
             const btnReset = document.getElementById('btn-reset');
             
             const salaryInput = document.getElementById('hourly-salary-input');
@@ -1904,7 +1666,6 @@
                 let totalSeconds = Math.floor(totalMilliseconds / 1000);
                 let hours = Math.floor(totalSeconds / 3600);
                 let minutes = Math.floor((totalSeconds % 3600) / 60);
-
                 let seconds = totalSeconds % 60;
 
                 hrsElement.textContent = hours.toString().padStart(2, '0');
@@ -1924,7 +1685,6 @@
 
                 statusDot.className = "pulse-dot active";
                 statusText.textContent = "Kvantström aktiv. Beräknar i realtid utifrån " + salaryInput.value + " kr/h.";
-
 
                 let lastTimestamp = performance.now();
 
@@ -1946,7 +1706,6 @@
                 clearInterval(timerInterval);
                 timerInterval = null;
 
-
                 btnStart.disabled = false;
                 btnPause.disabled = true;
                 
@@ -1966,7 +1725,6 @@
                 salaryInput.disabled = false;
 
                 statusDot.className = "pulse-dot stopped";
-
                 statusText.textContent = "Simulering fryst. Redo för ny exekvering eller ändring av timlön.";
             });
 
@@ -1987,7 +1745,6 @@
                 statusDot.className = "pulse-dot stopped";
                 statusText.textContent = "Kvanträknaren nollställd.";
 
-
                 updateDisplay();
             });
 
@@ -2007,7 +1764,6 @@
                 navLinks.forEach(link => {
                     link.classList.remove('active-dock');
                     if (link.getAttribute('href') === `#${current}`) {
-
                         link.classList.add('active-dock');
                     }
                 });
@@ -2027,7 +1783,6 @@
             function parseParticipants() {
                 return namesInput.value.split(',')
                     .map(name => name.trim())
-
                     .filter(name => name.length > 0);
             }
 
@@ -2047,7 +1802,6 @@
                     const endAngle = (index + 1) * anglePerSlice;
                     
                     const radStart = (startAngle * Math.PI) / 180;
-
                     const radEnd = (endAngle * Math.PI) / 180;
                     
                     const x1 = 100 + 95 * Math.cos(radStart);
@@ -2061,13 +1815,12 @@
                         ? `<circle cx="100" cy="100" r="95" fill="${color}" />`
                         : `M 100 100 L ${x1} ${y1} A 95 95 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
                         
-                    svgElement.insertAdjacentHTML('beforeend', `<path d="${pathData}" fill="${color}" stroke="#090a0f" stroke-width="2"/>`);
+                    svgElement.insertAdjacentHTML('beforeend', `<path d="${pathData}" fill="${color}" stroke="#060913" stroke-width="2"/>`);
 
                     const textAngle = startAngle + (anglePerSlice / 2);
                     const radText = (textAngle * Math.PI) / 180;
                     
                     const textX = 100 + 58 * Math.cos(radText);
-
                     const textY = 100 + 58 * Math.sin(radText);
                     
                     let rotation = textAngle;
@@ -2087,7 +1840,6 @@
             namesInput.addEventListener('input', drawDynamicWheel);
 
             btnSpin.addEventListener('click', () => {
-
                 const participants = parseParticipants();
                 if (participants.length === 0) {
                     rewardText.textContent = "// ERROR: Inga giltiga deltagare registrerade.";
@@ -2108,7 +1860,6 @@
                 
                 wheelContainer.style.transform = `rotate(${currentRotation}deg)`;
 
-
                 setTimeout(() => {
                     isSpinning = false;
                     namesInput.disabled = false;
@@ -2128,7 +1879,6 @@
                     
                     setTimeout(() => {
                         responseDisplay.textContent = response;
-
                     }, 600);
                 });
             });
@@ -2148,7 +1898,6 @@
                         document.querySelectorAll('.faq-item').forEach(i => {
                             i.classList.remove('faq-open');
                             i.querySelector('.faq-panel').style.maxHeight = '0';
-
                         });
                         
                         item.classList.add('faq-open');
@@ -2160,5 +1909,3 @@
     </script>
 </body>
 </html>
-
-
